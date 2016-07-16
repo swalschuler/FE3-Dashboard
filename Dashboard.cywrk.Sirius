@@ -322,6 +322,23 @@
 <v>Dashboard\Dashboard\PSoC 5 Architecture TRM</v>
 <v>Dashboard\Dashboard\CY8C58LP Family Datasheet</v>
 <v>Dashboard\Dashboard\System Reference Guides</v>
+<v>Dashboard\Dashboard\System Reference Guides\cy_boot_v5_30</v>
+<v>Dashboard\Dashboard\CAN_v3_0.pdf</v>
+<v>Dashboard\Dashboard\CharLCD_v2_20.pdf</v>
+<v>Dashboard\Dashboard\cy_clock_v2_20.pdf</v>
+<v>Dashboard\Dashboard\cy_constant_v1_0.pdf</v>
+<v>Dashboard\Dashboard\cy_isr_v1_70.pdf</v>
+<v>Dashboard\Dashboard\cy_pins_v2_10</v>
+<v>Dashboard\Dashboard\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Dashboard\Dashboard\cy_pins_v2_20</v>
+<v>Dashboard\Dashboard\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Dashboard\Dashboard\Gnd_v1_0</v>
+<v>Dashboard\Dashboard\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>Dashboard\Dashboard\SwitchSPST_v1_0</v>
+<v>Dashboard\Dashboard\SwitchSPST_v1_0\SwitchSPST_v1_0.pdf</v>
+<v>Dashboard\Dashboard\Timer_v2_70.pdf</v>
+<v>Dashboard\Dashboard\WaveDAC8_v2_0.pdf</v>
+<v>Dashboard\Dashboard\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Dashboard</v>
@@ -329,6 +346,23 @@
 <v>Dashboard\Dashboard\PSoC 5 Architecture TRM</v>
 <v>Dashboard\Dashboard\CY8C58LP Family Datasheet</v>
 <v>Dashboard\Dashboard\System Reference Guides</v>
+<v>Dashboard\Dashboard\System Reference Guides\cy_boot_v5_30</v>
+<v>Dashboard\Dashboard\CAN_v3_0.pdf</v>
+<v>Dashboard\Dashboard\CharLCD_v2_20.pdf</v>
+<v>Dashboard\Dashboard\cy_clock_v2_20.pdf</v>
+<v>Dashboard\Dashboard\cy_constant_v1_0.pdf</v>
+<v>Dashboard\Dashboard\cy_isr_v1_70.pdf</v>
+<v>Dashboard\Dashboard\cy_pins_v2_10</v>
+<v>Dashboard\Dashboard\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
+<v>Dashboard\Dashboard\cy_pins_v2_20</v>
+<v>Dashboard\Dashboard\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Dashboard\Dashboard\Gnd_v1_0</v>
+<v>Dashboard\Dashboard\Gnd_v1_0\Gnd_v1_0.pdf</v>
+<v>Dashboard\Dashboard\SwitchSPST_v1_0</v>
+<v>Dashboard\Dashboard\SwitchSPST_v1_0\SwitchSPST_v1_0.pdf</v>
+<v>Dashboard\Dashboard\Timer_v2_70.pdf</v>
+<v>Dashboard\Dashboard\WaveDAC8_v2_0.pdf</v>
+<v>Dashboard\Dashboard\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
