@@ -462,8 +462,7 @@ int main()
                 //check if everything is going well
                 
                 if ((ACK != 0xFF) | 
-                    (!Curtis_Heart_Beat_Check(data_queue, data_head, data_tail)) |
-                    (Curtis_Fault_Check(data_queue, data_head,data_tail)))
+                    (!Curtis_Heart_Beat_Check(data_queue, data_head, data_tail))) // EDIT: Removed | CurtisFaultCheck from this 
                 {
                     state = Fault;
                     error_state = fromDrive;
@@ -553,8 +552,7 @@ int main()
                     CyDelay(200);
                     
                     // Curtis Come back online again without error
-                    if(!(Curtis_Fault_Check(data_queue,data_head,data_tail)) 
-                       & (Curtis_Heart_Beat_Check(data_queue, data_head, data_tail)))
+                    if((Curtis_Heart_Beat_Check(data_queue, data_head, data_tail))) // EDIT: Removed !(Curtis_Fault_Check(data_queue,data_head,data_tail) & 
                     {
                         state = LV;
                         error_state = OK;
