@@ -2,7 +2,7 @@
 --	Conversion of Dashboard.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Wed Jun 15 02:30:59 2016
+--	Sat Feb 04 11:37:32 2017
 --
 
 USE cypress.cypress.all;
@@ -314,7 +314,8 @@ TX:cy_psoc3_pins_v1_10
 		can_tx_en=>Net_13,
 		interrupt=>Net_2);
 \CAN:isr\:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10")
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_2);
 \LCD:LCDPort\:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"6e4d8f88-4505-4117-a171-d0bf748d8520/ed092b9b-d398-4703-be89-cebf998501f6",
@@ -1259,7 +1260,8 @@ timer_clock:cy_clock_v1_0
 		compare=>\CAN_Timer:Net_261\,
 		interrupt=>\CAN_Timer:Net_57\);
 isr_can:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10")
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
 	PORT MAP(int_signal=>Net_52);
 \WaveDAC8_1:cydff_1\:cy_dff
 	PORT MAP(d=>zero,

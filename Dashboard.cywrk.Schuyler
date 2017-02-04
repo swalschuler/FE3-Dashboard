@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\can_manga.c">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -32,9 +32,13 @@
 <v>Dashboard\Dashboard\Source Files</v>
 <v>Dashboard\Dashboard\Source Files\can_manager.c</v>
 <v>Dashboard\Dashboard\Source Files\can_manager.h</v>
+<v>Dashboard\Dashboard\Source Files\can_manga.c</v>
+<v>Dashboard\Dashboard\Source Files\can_manga.h</v>
+<v>Dashboard\Dashboard\Source Files\can_manga_handlers.h</v>
 <v>Dashboard\Dashboard\Source Files\data.h</v>
 <v>Dashboard\Dashboard\Source Files\main.c</v>
 <v>Dashboard\Dashboard\CAN_Full_Example.pdf</v>
+<v>Dashboard\Dashboard\Generated_Source</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer.c</v>
@@ -185,10 +189,27 @@
 <v>Dashboard\Dashboard\Source Files</v>
 <v>Dashboard\Dashboard\Source Files\can_manager.c</v>
 <v>Dashboard\Dashboard\Source Files\can_manager.h</v>
+<v>Dashboard\Dashboard\Source Files\can_manga.c</v>
+<v>Dashboard\Dashboard\Source Files\can_manga.h</v>
+<v>Dashboard\Dashboard\Source Files\can_manga_handlers.h</v>
 <v>Dashboard\Dashboard\Source Files\data.h</v>
 <v>Dashboard\Dashboard\Source Files\main.c</v>
 <v>Dashboard\Dashboard\CAN_Full_Example.pdf</v>
 <v>Dashboard\Dashboard\Generated_Source</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer.h</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer_aliases.h</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.h</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_INT.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_PM.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_TX_RX_func.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer.h</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -217,6 +238,7 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_INT.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manager.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer_PM.lst</v>
@@ -274,6 +296,7 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_INT.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manager.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer_PM.lst</v>
@@ -293,7 +316,6 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_can.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -358,6 +380,13 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs />
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal" /><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

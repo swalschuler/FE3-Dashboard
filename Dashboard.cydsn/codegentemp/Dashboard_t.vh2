@@ -1,6 +1,6 @@
--- Project:   C:\Users\Sirius\Desktop\Dashboard\Dashboard.cydsn\Dashboard.cyprj
--- Generated: 06/15/2016 02:31:14
--- PSoC Creator  3.3 CP3
+-- Project:   C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\Dashboard.cyprj
+-- Generated: 02/04/2017 11:37:37
+-- PSoC Creator  4.0 Update 1
 
 ENTITY Dashboard IS
     PORT(
@@ -1760,7 +1760,8 @@ BEGIN
 
     \CAN:isr\:interrupt
         GENERIC MAP(
-            int_type => "10")
+            int_type => "10",
+            is_nmi => 0)
         PORT MAP(
             interrupt => Net_2,
             clock => ClockBlock_BUS_CLK);
@@ -1812,13 +1813,15 @@ BEGIN
     __ONE__:macrocell
         GENERIC MAP(
             eqn_main => "1'b0",
+            regmode => 0,
             clken_mode => 1)
         PORT MAP(
             q => __ONE__);
 
     isr_can:interrupt
         GENERIC MAP(
-            int_type => "10")
+            int_type => "10",
+            is_nmi => 0)
         PORT MAP(
             interrupt => Net_52,
             clock => ClockBlock_BUS_CLK);

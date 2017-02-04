@@ -26,7 +26,7 @@
 
 /* `#START TX_RX_FUNCTION` */
 #include "can_manager.h"
-
+#include "can_manga.h"
 extern DataPacket can_queue[];
 extern uint16_t can_head, can_tail;
 
@@ -641,6 +641,11 @@ void CAN_ReceiveMsg(uint8 rxMailbox)
         {
             /* `#START MESSAGE_BASIC_RECEIVED` */
             
+            
+            int ID = CAN_1_GET_RX_ID(rxMailbox);
+            can_receive(CAN_1_RX[rxMailbox], ID);
+            
+            /*
             uint8_t rx_length, rx_index;
 
 			rx_length = CAN_GET_DLC(rxMailbox); // gets length of message
@@ -659,7 +664,7 @@ void CAN_ReceiveMsg(uint8 rxMailbox)
 
 			if(can_tail == can_head) // if need to roll queue
 				can_head = (can_head + 1) % CAN_QUEUE_LENGTH;
-                
+             */
             /* `#END` */
 
             #ifdef CAN_RECEIVE_MSG_CALLBACK
