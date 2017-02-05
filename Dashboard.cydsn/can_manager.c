@@ -4,53 +4,6 @@ volatile uint8_t can_buffer[8];
 volatile DataPacket can_queue[CAN_QUEUE_LENGTH];
 volatile uint16_t can_head = 0, can_tail = 0;
 
-void can_send_cmd(
-    uint8_t SetInterlock,
-    uint16_t VCL_Throttle_High,
-    uint16_t VCL_Throttle_Low
-)
-{
-    //max and min voltage means the voltage of single cell
-        can_buffer[0] = SetInterlock;
-        
-        can_buffer[1] = VCL_Throttle_High;
-        can_buffer[2] = VCL_Throttle_Low;
-        
-        can_buffer[3] = 0;
-        can_buffer[4] = 0;
-        
-        can_buffer[5] = 0;
-        can_buffer[6] = 0;
-        can_buffer[7] = 0;
-
-        CAN_SendMsgDash_cmd();
-        CyDelay(1);
-
-} // can_send_cmd()
-
-
-void can_send_status(
-    uint8_t state)
-{
-    //max and min voltage means the voltage of single cell
-        can_buffer[0] = state;
-        can_buffer[1] = 0;
-
-        can_buffer[2] = 0;
-        can_buffer[3] = 0;
-
-        can_buffer[4] = 0;
-        can_buffer[5] = 0;
-        can_buffer[6] = 0;
-        can_buffer[7] = 0;
-
-        //uint8_t atomic_state = CyEnterCriticalSection(); // BEGIN ATOMIC
-        CAN_SendMsgDash_status();
-        //CyDelay(100);
-        //CyExitCriticalSection(atomic_state); // END ATOMIC
-        
-} // can_send_status()
-
 void can_get(DataPacket* data_queue, uint16_t* data_head, uint16_t* data_tail)
 {
     //CAN_GlobalIntEnable();
@@ -108,40 +61,3 @@ uint16_t can_read(const DataPacket* data_queue, const uint16_t data_head, const 
     return (newest);
 }
 
-uint8_t Curtis_Fault_Check(const DataPacket* data_queue, const uint16_t data_head, const uint16_t data_tail)
-{
-    uint16_t pos;
-    //uint16_t newest = 0;
-    
-    //if (data_head == data_tail)
-        //return 0;
-    
-    for(pos=data_head; pos!=data_tail; pos=(pos+1)%DATA_QUEUE_LENGTH)
-	{
-        if(data_queue[pos].id == 0xA6)  //A6 is the Curtis error msg ID
-        {
-            return(1);
-        }
-    }
-    
-    //if (data_queue.id == ID)
-    //    return data_queue[pos].data[Entry]; 
-    return (0);
-}
-
-uint8_t Curtis_Heart_Beat_Check(const DataPacket* data_queue, const uint16_t data_head, const uint16_t data_tail)
-{
-    uint16_t pos;
-    
-    for(pos=data_head; pos!=data_tail; pos=(pos+1)%DATA_QUEUE_LENGTH)
-	{
-        if(data_queue[pos].id == 0x726)  //0x726 is the Curtis HeartBeat ID
-        {
-            return(1);
-        }
-    }
-    
-    //if (data_queue.id == ID)
-    //    return data_queue[pos].data[Entry]; 
-    return (0);
-}

@@ -8,16 +8,21 @@
 #include "can_manga.h"
 #include "can_manga_handlers.h"
 
-
 void can_receive(CAN_RX_STRUCT msg, int ID)
 {
     switch (ID) 
     {
-        case 0x300:
-            testHandler(msg);
+        case 0x0566:
+            capacitorVoltHandler(msg);
             break;
-        case 0x600:
-            testHandler(msg);
+        case 0xA6:
+            curtisFaultHandler();
+            break;
+        case 0x726:
+            curtisHeartBeatHandler();
+            break;
+        case 0x0666:
+            ackRecievedHandler(msg);
     }
 }
 
@@ -60,5 +65,66 @@ void can_send(uint8_t data[8], uint32_t ID)
 		payload.byte[i] = data[i];
 	CAN_SendMsg(&message); 
 }
+
+void can_send_status(
+    uint8_t state)
+{
+    //max and min voltage means the voltage of single cell
+        uint8_t data[8];
+        
+        data[0] = state;
+        data[1] = 0;
+        
+        data[2] = 0;
+        data[3] = 0;
+        
+        data[4] = 0;
+        data[5] = 0;
+        data[6] = 0;
+        data[7] = 0;
+
+        can_send(data, 0x626);
+
+        
+} // can_send_status()
+
+void can_send_cmd(
+    uint8_t SetInterlock,
+    uint16_t VCL_Throttle_High,
+    uint16_t VCL_Throttle_Low
+)
+{
+    //max and min voltage means the voltage of single cell
+        
+        uint8_t data[8];
+        
+        data[0] = SetInterlock;
+        
+        data[1] = VCL_Throttle_High;
+        data[2] = VCL_Throttle_Low;
+        
+        data[3] = 0;
+        data[4] = 0;
+        
+        data[5] = 0;
+        data[6] = 0;
+        data[7] = 0;
+
+        can_send(data, 0x766);
+        CyDelay(1);
+
+} // can_send_cmd()
+
+uint8_t Curtis_Heart_Beat_Check()
+{
+    if (CURTIS_HEART_BEAT_CHECK == 1)
+    {
+        CURTIS_HEART_BEAT_CHECK = 0;
+        return 1;
+    }
+    else
+        return 0;
+}
+
 
 /* [] END OF FILE */

@@ -22,5 +22,3 @@ void can_get(DataPacket* data_queue, uint16_t* data_head, uint16_t* data_tail);
 uint16_t can_read(const DataPacket* data_queue, const uint16_t data_head, const uint16_t data_tail, const uint16_t ID, const uint16_t Entry);
 
 uint8_t Curtis_Fault_Check(const DataPacket* data_queue, const uint16_t data_head, const uint16_t data_tail);
-
-uint8_t Curtis_Heart_Beat_Check(const DataPacket* data_queue, const uint16_t data_head, const uint16_t data_tail);

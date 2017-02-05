@@ -1,6 +1,14 @@
 #include <project.h>
 #include <stdio.h>
 #include "can_manager.h"
+#include "can_manga.h"
+
+// Declare live global variables for use with can_manga
+volatile uint8_t CAPACITOR_VOLT = 0;
+volatile uint8_t CURTIS_FAULT_CHECK = 0; // 0 until has seen kurtis fault, then 1
+volatile uint8_t CURTIS_HEART_BEAT_CHECK = 0;
+volatile uint16_t ACK_RX = 0;
+
 
 #define PWM_PULSE_WIDTH_STEP        (10u)
 #define SWITCH_PRESSED              (0u)
@@ -339,9 +347,9 @@ int main()
                     can_send_cmd(1,0,0); // setInterlock
                 
                     can_get(data_queue, &data_head, &data_tail); // clears queue before filling
-                    uint8_t MainState = can_read(data_queue, data_head, data_tail, 0x0566, 0);
-                    uint8_t CapacitorVolt = can_read(data_queue, data_head, data_tail, 0x0566, 0);
-                    uint8_t NomialVolt =  can_read(data_queue, data_head, data_tail, 0x0566, 2);
+                    // UNUSED //uint8_t MainState = can_read(data_queue, data_head, data_tail, 0x0566, 0);
+                    uint8_t CapacitorVolt = CAPACITOR_VOLT; //can_read(data_queue, data_head, data_tail, 0x0566, 0);
+                    // UNUSED //uint8_t NomialVolt =  can_read(data_queue, data_head, data_tail, 0x0566, 2);
                 
                     if(CapacitorVolt >= 0x1A) // need to be tuned
                     {
@@ -462,7 +470,7 @@ int main()
                 //check if everything is going well
                 
                 if ((ACK != 0xFF) | 
-                    (!Curtis_Heart_Beat_Check(data_queue, data_head, data_tail))) // EDIT: Removed | CurtisFaultCheck from this 
+                    (!Curtis_Heart_Beat_Check())) // EDIT: Removed | CurtisFaultCheck from this 
                 {
                     state = Fault;
                     error_state = fromDrive;
@@ -552,12 +560,12 @@ int main()
                     CyDelay(200);
                     
                     // Curtis Come back online again without error
-                    if((Curtis_Heart_Beat_Check(data_queue, data_head, data_tail))) // EDIT: Removed !(Curtis_Fault_Check(data_queue,data_head,data_tail) & 
+                    if((Curtis_Heart_Beat_Check())) // EDIT: Removed !(Curtis_Fault_Check(data_queue,data_head,data_tail) & 
                     {
                         state = LV;
                         error_state = OK;
                     }
-                    else if(0xFF == can_read(data_queue, data_head, data_tail, 0x0666, 0)) //ACK received
+                    else if(0xFF == ACK_RX) //ACK received
                     {
                         state = HV_Enabled;
                         error_state = OK;

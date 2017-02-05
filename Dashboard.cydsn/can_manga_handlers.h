@@ -20,11 +20,32 @@
 
 #include "CAN.h"
     
+// Define live variables
+extern volatile uint8_t CAPACITOR_VOLT;
+extern volatile uint8_t CURTIS_FAULT_CHECK;
+extern volatile uint8_t CURTIS_HEART_BEAT_CHECK;
+extern volatile uint16_t ACK_RX;
 
-// Handles 0x300
-void testHandler(CAN_RX_STRUCT msg)
+void curtisHeartBeatHandler()
 {
-    return;
+    CURTIS_HEART_BEAT_CHECK = 1;
+}
+
+// Handles capacitor voltage 
+void capacitorVoltHandler(CAN_RX_STRUCT msg)
+{
+    CAPACITOR_VOLT = msg.rxdata.byte[CAN_DATA_BYTE_1];
+};
+
+// If you ever see 0xA6, just set CURTIS to 1 (so there has been a fault)
+void curtisFaultHandler()
+{
+    CURTIS_FAULT_CHECK = 1;
+};
+
+void ackRecievedHandler(CAN_RX_STRUCT msg)
+{
+    ACK_RX = msg.rxdata.byte[CAN_DATA_BYTE_1];
 };
 
     
