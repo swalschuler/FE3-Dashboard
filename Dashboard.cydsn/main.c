@@ -8,7 +8,10 @@ volatile uint8_t CAPACITOR_VOLT = 0;
 volatile uint8_t CURTIS_FAULT_CHECK = 0; // 0 until has seen kurtis fault, then 1
 volatile uint8_t CURTIS_HEART_BEAT_CHECK = 0;
 volatile uint16_t ACK_RX = 0;
-
+volatile uint16_t ERROR_TOLERANCE = 0;
+volatile uint16_t ABS_MOTOR_RPM = 0;
+volatile uint16_t THROTTLE_HIGH = 0;
+volatile uint16_t THROTTLE_LOW = 0;
 
 #define PWM_PULSE_WIDTH_STEP        (10u)
 #define SWITCH_PRESSED              (0u)
@@ -76,24 +79,6 @@ uint8 DriveSwitch = SWITCH_OFF;
 //    can_send_status(state);
     
 //}
-void test_inject(DataPacket *data_queue, uint16_t *data_tail)
-{
-	//inject message to test usb
-	// NOTE: does not handle queue wrapping. Assumes queue has room.
-	data_queue[*data_tail].millicounter = 0;
-	data_queue[*data_tail].id = 0x111;
-	data_queue[*data_tail].length = 8;
-	data_queue[*data_tail].data[0]= 0;
-	data_queue[*data_tail].data[1]= 1;
-	data_queue[*data_tail].data[2]= 2;
-	data_queue[*data_tail].data[3]= 3;
-	data_queue[*data_tail].data[4]= 4;
-	data_queue[*data_tail].data[5]= 5;
-	data_queue[*data_tail].data[6]= 6;
-	data_queue[*data_tail].data[7]= 0x7E;
-	(*data_tail)++; // does not handle queue wrapping.
-} // test_inject()
-
 
 /*******************************************************************************
 * Function Name: main
@@ -119,11 +104,6 @@ int main()
 {   
     Dash_State state = Startup;
     Error_State error_state = OK;
-    
-    // Main data queue
-	DataPacket data_queue[DATA_QUEUE_LENGTH];
-	uint16_t data_head, data_tail;
-	data_head = data_tail = 0;
     
     //Tach Meter Stuff
     uint8_t value=0; // replace the value with 
@@ -266,9 +246,7 @@ int main()
                 CAN_Start();
           
                 can_send_status(state);
-                
-                can_get(data_queue, &data_head, &data_tail); // clears queue before filling
-                
+
                 /*
                 LCD_Position(1u, 10u);
                 LCD_PrintInt16(data_queue[0].id);
@@ -346,7 +324,6 @@ int main()
                 {
                     can_send_cmd(1,0,0); // setInterlock
                 
-                    can_get(data_queue, &data_head, &data_tail); // clears queue before filling
                     // UNUSED //uint8_t MainState = can_read(data_queue, data_head, data_tail, 0x0566, 0);
                     uint8_t CapacitorVolt = CAPACITOR_VOLT; //can_read(data_queue, data_head, data_tail, 0x0566, 0);
                     // UNUSED //uint8_t NomialVolt =  can_read(data_queue, data_head, data_tail, 0x0566, 2);
@@ -397,8 +374,7 @@ int main()
                 if (Drive_Read())
                 {
                     CyDelay(1000); // wait for the brake msg to be sent
-                    can_get(data_queue, &data_head, &data_tail); // clears queue before filling
-                    if(can_read(data_queue, data_head, data_tail, 0x0201, 0)==1) // 100 for error tolerance
+                    if(getErrorTolerance() == 1) // 100 for error tolerance /// needs to be getErrorTolerance
                     {
                         Buzzer_Write(1);
                         CyDelay(1000);
@@ -415,7 +391,7 @@ int main()
                 }
                 
                 // if capacitor voltage is undervoltage, change the threshold 0x1A
-                if(!HV_Read() | can_read(data_queue, data_head, data_tail, 0x0566, 0) < 0x1A)
+                if(!HV_Read() | CAPACITOR_VOLT < 0x1A)
                 {
                     state = LV;
                     DriveTimeCount = 0;
@@ -455,14 +431,13 @@ int main()
                 DriveTimeCount++;
                 if (DriveTimeCount > 100)
                 {
-                    DriveTimeCount = 0;
-                    can_get(data_queue, &data_head, &data_tail); // clears queue before filling
-                    ACK = can_read(data_queue, data_head, data_tail, 0x0666, 0);
+                    DriveTimeCount = 0; 
+                    ACK = ACK_RX;
                 }
    
-                uint8_t ABS_Motor_RPM = can_read(data_queue, data_head, data_tail, 0x0566, 4);
-                uint16_t Throttle_High = can_read(data_queue, data_head, data_tail, 0x0200, 1); // use 123 for pedal node place holder
-                uint16_t Throttle_Low = can_read(data_queue, data_head, data_tail, 0x0200, 2);
+                uint8_t ABS_Motor_RPM = ABS_MOTOR_RPM;
+                uint16_t Throttle_High = THROTTLE_HIGH; // use 123 for pedal node place holder
+                uint16_t Throttle_Low = THROTTLE_LOW;
                 
                 WaveDAC8_1_SetValue(ABS_Motor_RPM);
                 can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock
@@ -552,9 +527,7 @@ int main()
                     }
                 }
                 else if (error_state == fromDrive)
-                {
-                    can_get(data_queue, &data_head, &data_tail); // clears queue before filling
-                    
+                {   
                     can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock
                     
                     CyDelay(200);

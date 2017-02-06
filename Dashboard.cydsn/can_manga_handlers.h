@@ -25,7 +25,11 @@ extern volatile uint8_t CAPACITOR_VOLT;
 extern volatile uint8_t CURTIS_FAULT_CHECK;
 extern volatile uint8_t CURTIS_HEART_BEAT_CHECK;
 extern volatile uint16_t ACK_RX;
-
+extern volatile uint16_t ERROR_TOLERANCE;
+extern volatile uint16_t ABS_MOTOR_RPM;
+extern volatile uint16_t THROTTLE_HIGH;
+extern volatile uint16_t THROTTLE_LOW;
+    
 void curtisHeartBeatHandler()
 {
     CURTIS_HEART_BEAT_CHECK = 1;
@@ -35,6 +39,7 @@ void curtisHeartBeatHandler()
 void capacitorVoltHandler(CAN_RX_STRUCT msg)
 {
     CAPACITOR_VOLT = msg.rxdata.byte[CAN_DATA_BYTE_1];
+    ABS_MOTOR_RPM = msg.rxdata.byte[CAN_DATA_BYTE_5];
 };
 
 // If you ever see 0xA6, just set CURTIS to 1 (so there has been a fault)
@@ -48,7 +53,16 @@ void ackRecievedHandler(CAN_RX_STRUCT msg)
     ACK_RX = msg.rxdata.byte[CAN_DATA_BYTE_1];
 };
 
-    
+void errorToleranceHandler(CAN_RX_STRUCT msg)
+{
+    ERROR_TOLERANCE = msg.rxdata.byte[CAN_DATA_BYTE_1];
+}
+
+void throttleHandler(CAN_RX_STRUCT msg)
+{
+    THROTTLE_HIGH = msg.rxdata.byte[CAN_DATA_BYTE_2];
+    THROTTLE_LOW = msg.rxdata.byte[CAN_DATA_BYTE_3];
+}
 #endif
 
 /* [] END OF FILE */

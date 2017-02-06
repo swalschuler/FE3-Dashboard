@@ -23,6 +23,13 @@ void can_receive(CAN_RX_STRUCT msg, int ID)
             break;
         case 0x0666:
             ackRecievedHandler(msg);
+            break;
+         case 0x0201:
+            errorToleranceHandler(msg);
+            break;
+        case 0x0200: 
+            throttleHandler(msg);
+            break;
     }
 }
 
@@ -126,5 +133,11 @@ uint8_t Curtis_Heart_Beat_Check()
         return 0;
 }
 
+uint16_t getErrorTolerance()
+{
+    uint16_t temp = ERROR_TOLERANCE;
+    ERROR_TOLERANCE = 0;
+    return temp;
+}
 
 /* [] END OF FILE */

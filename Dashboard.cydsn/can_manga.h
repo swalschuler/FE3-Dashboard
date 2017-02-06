@@ -23,7 +23,7 @@ void can_send_status(
     uint8_t state);
 
 uint8_t Curtis_Heart_Beat_Check();
-
+uint16_t getErrorTolerance();
 #endif
 
 /* [] END OF FILE */
