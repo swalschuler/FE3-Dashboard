@@ -8,6 +8,7 @@
 #include "can_manga.h"
 #include "can_manga_handlers.h"
 
+
 void can_receive(CAN_RX_STRUCT msg, int ID)
 {
     switch (ID) 
@@ -22,7 +23,7 @@ void can_receive(CAN_RX_STRUCT msg, int ID)
             curtisHeartBeatHandler();
             break;
         case 0x0666:
-            ackRecievedHandler(msg);
+            ackReceivedHandler(msg);
             break;
          case 0x0201:
             errorToleranceHandler(msg);
@@ -122,22 +123,9 @@ void can_send_cmd(
 
 } // can_send_cmd()
 
-uint8_t Curtis_Heart_Beat_Check()
+void can_manga_message_update(volatile MangaMessage *mmsg, uint8_t data)
 {
-    if (CURTIS_HEART_BEAT_CHECK == 1)
-    {
-        CURTIS_HEART_BEAT_CHECK = 0;
-        return 1;
-    }
-    else
-        return 0;
+ mmsg->value = data;
+ mmsg->count += 1;
 }
 
-uint16_t getErrorTolerance()
-{
-    uint16_t temp = ERROR_TOLERANCE;
-    ERROR_TOLERANCE = 0;
-    return temp;
-}
-
-/* [] END OF FILE */

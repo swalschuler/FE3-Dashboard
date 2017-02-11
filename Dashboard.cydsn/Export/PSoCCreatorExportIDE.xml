@@ -43,6 +43,7 @@
           <File BuildType="BUILD" Toolchain="">can_manga.c</File>
           <File BuildType="BUILD" Toolchain="">can_manga.h</File>
           <File BuildType="BUILD" Toolchain="">can_manga_handlers.h</File>
+          <File BuildType="BUILD" Toolchain="">can_manga_handlers.c</File>
           <File BuildType="BUILD" Toolchain="">cyapicallbacks.h</File>
         </Files>
       </Folder>
