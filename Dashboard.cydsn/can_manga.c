@@ -11,6 +11,8 @@
 
 void can_receive(CAN_RX_STRUCT msg, int ID)
 {
+    uint8 InterruptState = CyEnterCriticalSection();
+    
     switch (ID) 
     {
         case 0x0566:
@@ -32,6 +34,8 @@ void can_receive(CAN_RX_STRUCT msg, int ID)
             throttleHandler(msg);
             break;
     }
+    
+    CyExitCriticalSection(InterruptState);
 }
 
 void can_test_send()

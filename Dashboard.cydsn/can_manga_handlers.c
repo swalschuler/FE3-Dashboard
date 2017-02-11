@@ -35,13 +35,17 @@ void curtisFaultHandler()
 
 uint8_t manga_getCurtisFaultCheck()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (CURTIS_FAULT_CHECK.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         CURTIS_FAULT_CHECK.count -= 1;
-        return 1; // Has a fault message available
+        returnValue = 1; // Has a fault message available
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
 
 void curtisHeartBeatHandler()
@@ -51,13 +55,17 @@ void curtisHeartBeatHandler()
 
 uint8_t manga_getCurtisHeartBeatCheck()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (CURTIS_HEART_BEAT_CHECK.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         CURTIS_HEART_BEAT_CHECK.count -= 1;
-        return 1; // Has a heartbeat message available
+        returnValue = 1; // Has a heartbeat message available
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
 
 // Handles capacitor voltage 
@@ -72,24 +80,32 @@ void capacitorVoltHandler(CAN_RX_STRUCT msg)
 
 uint8_t manga_getCapacitorVoltage()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (CAPACITOR_VOLT.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         CAPACITOR_VOLT.count -= 1;
-        return CAPACITOR_VOLT.value;
+        returnValue = CAPACITOR_VOLT.value;
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
 
 uint8_t manga_getAbsMotorRPM()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (ABS_MOTOR_RPM.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         ABS_MOTOR_RPM.count -= 1;
-        return ABS_MOTOR_RPM.value;
+        returnValue = ABS_MOTOR_RPM.value;
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
 
 
@@ -102,13 +118,17 @@ void ackReceivedHandler(CAN_RX_STRUCT msg)
 
 uint8_t manga_getAckReceive()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (ACK_RX.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         ACK_RX.count -= 1;
-        return ACK_RX.value;
+        returnValue = ACK_RX.value;
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
 
 void errorToleranceHandler(CAN_RX_STRUCT msg)
@@ -120,13 +140,17 @@ void errorToleranceHandler(CAN_RX_STRUCT msg)
 
 uint8_t manga_getErrorTolerance()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (ERROR_TOLERANCE.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         ERROR_TOLERANCE.count -= 1;
-        return ERROR_TOLERANCE.value;
+        returnValue = ERROR_TOLERANCE.value;
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
 
 void throttleHandler(CAN_RX_STRUCT msg)
@@ -140,22 +164,30 @@ void throttleHandler(CAN_RX_STRUCT msg)
 
 uint8_t manga_getThrottleLow()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (THROTTLE_LOW.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         THROTTLE_LOW.count -= 1;
-        return THROTTLE_LOW.value;
+        returnValue = THROTTLE_LOW.value;
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
 
 uint8_t manga_getThrottleHigh()
 {
+    uint8_t returnValue = 0;
+    uint8 InterruptState = CyEnterCriticalSection();
     if (THROTTLE_HIGH.count == 0)
-        return 0;
+        returnValue = 0;
     else
     {
         THROTTLE_HIGH.count -= 1;
-        return THROTTLE_HIGH.value;
+        returnValue = THROTTLE_HIGH.value;
     }
+    CyExitCriticalSection(InterruptState);
+    return returnValue;
 }
