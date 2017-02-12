@@ -37,8 +37,6 @@
       <Folder BuildType="STRICT" Path="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn">
         <Files Root="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn">
           <File BuildType="BUILD" Toolchain="">main.c</File>
-          <File BuildType="BUILD" Toolchain="">can_manager.c</File>
-          <File BuildType="BUILD" Toolchain="">can_manager.h</File>
           <File BuildType="BUILD" Toolchain="">data.h</File>
           <File BuildType="BUILD" Toolchain="">can_manga.c</File>
           <File BuildType="BUILD" Toolchain="">can_manga.h</File>

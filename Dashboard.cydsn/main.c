@@ -1,6 +1,5 @@
 #include <project.h>
 #include <stdio.h>
-#include "can_manager.h"
 #include "can_manga.h"
 
 #define PWM_PULSE_WIDTH_STEP        (10u)

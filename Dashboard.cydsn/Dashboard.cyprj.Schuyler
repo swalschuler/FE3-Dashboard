@@ -69,11 +69,9 @@
 <dep name=".\Generated_Source\PSoC5\isr_can.h" />
 <dep name=".\Generated_Source\PSoC5\project.h" />
 <dep name=".\Generated_Source\PSoC5\timer_clock.h" />
-<dep name=".\can_manager.h" />
 <dep name=".\can_manga.h" />
 <dep name=".\can_manga_handlers.h" />
 <dep name=".\cyapicallbacks.h" />
-<dep name=".\data.h" />
 <dep name=".\main.c" />
 </file>
 <file name=".\Generated_Source\PSoC5\Buzzer.h" />
@@ -131,28 +129,10 @@
 <file name=".\Generated_Source\PSoC5\isr_can.h" />
 <file name=".\Generated_Source\PSoC5\project.h" />
 <file name=".\Generated_Source\PSoC5\timer_clock.h" />
-<file name=".\can_manager.h" />
 <file name=".\can_manga.h" />
 <file name=".\can_manga_handlers.h" />
 <file name=".\cyapicallbacks.h" />
-<file name=".\data.h" />
 <file name=".\main.c" />
-<file name=".\CortexM3\ARM_GCC_493\Debug\can_manga_handlers.o">
-<dep name=".\Generated_Source\PSoC5\CAN.h" />
-<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
-<dep name=".\Generated_Source\PSoC5\CyLib.h" />
-<dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\cyPm.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice.h" />
-<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\can_manga.h" />
-<dep name=".\can_manga_handlers.c" />
-<dep name=".\can_manga_handlers.h" />
-<dep name=".\cyapicallbacks.h" />
-</file>
-<file name=".\can_manga_handlers.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\CAN_TX_RX_func.o">
 <dep name=".\Generated_Source\PSoC5\Buzzer.h" />
 <dep name=".\Generated_Source\PSoC5\Buzzer_aliases.h" />
@@ -219,6 +199,8 @@
 <dep name=".\data.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\CAN_TX_RX_func.c" />
+<file name=".\can_manager.h" />
+<file name=".\data.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\can_manga.o">
 <dep name=".\Generated_Source\PSoC5\CAN.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -235,6 +217,22 @@
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\can_manga.c" />
+<file name=".\CortexM3\ARM_GCC_493\Debug\can_manga_handlers.o">
+<dep name=".\Generated_Source\PSoC5\CAN.h" />
+<dep name=".\Generated_Source\PSoC5\CyFlash.h" />
+<dep name=".\Generated_Source\PSoC5\CyLib.h" />
+<dep name=".\Generated_Source\PSoC5\CySpc.h" />
+<dep name=".\Generated_Source\PSoC5\cyPm.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice.h" />
+<dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
+<dep name=".\Generated_Source\PSoC5\cyfitter.h" />
+<dep name=".\Generated_Source\PSoC5\cytypes.h" />
+<dep name=".\can_manga.h" />
+<dep name=".\can_manga_handlers.c" />
+<dep name=".\can_manga_handlers.h" />
+<dep name=".\cyapicallbacks.h" />
+</file>
+<file name=".\can_manga_handlers.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\can_manager.o">
 <dep name=".\Generated_Source\PSoC5\Buzzer.h" />
 <dep name=".\Generated_Source\PSoC5\Buzzer_aliases.h" />
@@ -794,7 +792,6 @@
 <CyGuid_1173175f-1b9b-4ad4-a065-754a48a27021 type_name="CyDesigner.Common.Base.CyFileDeps" version="1">
 <file name=".\CortexM3\ARM_GCC_493\Debug\Dashboard.hex">
 <dep name=".\CortexM3\ARM_GCC_493\Debug\main.o" />
-<dep name=".\CortexM3\ARM_GCC_493\Debug\can_manager.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\can_manga.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\can_manga_handlers.o" />
 <dep name=".\CortexM3\ARM_GCC_493\Debug\cyfitter_cfg.o" />
@@ -1855,7 +1852,7 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131312551690266595" />
+<deps_time v="131313640786506096" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
 </dataGuid>
 </userData>

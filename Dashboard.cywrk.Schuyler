@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -30,8 +30,6 @@
 <v>Dashboard\Dashboard\Dashboard.cyre</v>
 <v>Dashboard\Dashboard\Header Files\cyapicallbacks.h</v>
 <v>Dashboard\Dashboard\Source Files</v>
-<v>Dashboard\Dashboard\Source Files\can_manager.c</v>
-<v>Dashboard\Dashboard\Source Files\can_manager.h</v>
 <v>Dashboard\Dashboard\Source Files\can_manga.c</v>
 <v>Dashboard\Dashboard\Source Files\can_manga.h</v>
 <v>Dashboard\Dashboard\Source Files\can_manga_handlers.c</v>
@@ -201,7 +199,6 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Buzzer.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_INT.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manager.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga_handlers.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_PM.lst</v>
@@ -296,7 +293,6 @@
 <name v=".\Dashboard.cydsn\can_manga.h" />
 <name v=".\Dashboard.cydsn\can_manga_handlers.h" />
 <name v=".\Dashboard.cydsn\can_manga_handlers.c" />
-<name v=".\Dashboard.cydsn\can_manager.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -304,7 +300,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1205, 347" SelectedTabbedMdiWindow="5af80ee5-2f2c-4d33-8abb-d095f923be62"><DocumentWindow Key="d09399d0-1630-4ab3-9d99-91eb4ffb88f4" Guid="5af80ee5-2f2c-4d33-8abb-d095f923be62" /><DocumentWindow Key="2a3a0572-efff-45cf-8bf5-967e5ea76e6c" Guid="e0d047b0-a927-42ef-a923-7f0c02c7fab8" /><DocumentWindow Key="66cc3969-b7e7-4d07-a956-2ab7500ac051" Guid="097bdd79-c601-43cf-924e-c5348bad242f" /><DocumentWindow Key="d50aa855-7f0d-40a7-b577-28a64e5e6005" Guid="83e98200-ca40-4624-ba9c-396a61c168e2" /><DocumentWindow Key="2cbafa89-de79-481b-b3e1-db911fc52e47" Guid="c65f0e42-5ffc-4684-940f-c34035dd74c8" /><DocumentWindow Key="a7a4d220-c314-4060-b548-f5d8be635ed8" Guid="89924b47-111e-4d84-aa06-e629a82586c5" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1106, 486" SelectedTabbedMdiWindow="de58f53d-c585-4364-ad62-2cc0a96c50af"><DocumentWindow Key="c22627ff-0878-4f0a-8c89-a4106698652d" Guid="de58f53d-c585-4364-ad62-2cc0a96c50af" /><DocumentWindow Key="9d6fb477-d1ed-4411-abe5-125a43462a2a" Guid="5284c283-b724-426a-ad79-5926c94fabf6" /><DocumentWindow Key="129905b2-8ca5-4655-9be9-643b29954b27" Guid="fd3b7da1-8ac4-40ab-b0c6-f4ed9bb5207d" /><DocumentWindow Key="9e5454ee-f936-4362-b737-497dc79b421c" Guid="dc791369-d67c-43b1-9d3d-ddb3b32a0e14" /><DocumentWindow Key="236b0e3b-6607-4132-b126-0cf72cb120ea" Guid="c277420e-e934-4761-a484-46f99ca9996b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

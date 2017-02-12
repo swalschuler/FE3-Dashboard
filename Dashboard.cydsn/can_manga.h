@@ -14,7 +14,7 @@
 // messages updating the value (to avoid using bad data)
 typedef struct MangaMessage_s
 {
-    unsigned int count;
+    uint32_t count;
     uint8_t value;
 } MangaMessage;
 void can_manga_message_update(volatile MangaMessage *mmsg, uint8_t data);
