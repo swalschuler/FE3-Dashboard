@@ -17,17 +17,17 @@ void curtisHeartBeatHandler();
 uint8_t manga_getCurtisHeartBeatCheck();
 
 // Handles capacitor voltage 
-void capacitorVoltHandler(CAN_RX_STRUCT msg);
+void capacitorVoltHandler(uint8_t *msg);
 uint8_t manga_getCapacitorVoltage();
 uint8_t manga_getAbsMotorRPM();
 
-void ackReceivedHandler(CAN_RX_STRUCT msg);
+void ackReceivedHandler(uint8_t *msg);
 uint8_t manga_getAckReceive();
 
-void errorToleranceHandler(CAN_RX_STRUCT msg);
+void errorToleranceHandler(uint8_t *msg);
 uint8_t manga_getErrorTolerance();
 
-void throttleHandler(CAN_RX_STRUCT msg);
+void throttleHandler(uint8_t *msg);
 uint8_t manga_getThrottleLow();
 uint8_t manga_getThrottleHigh();
 

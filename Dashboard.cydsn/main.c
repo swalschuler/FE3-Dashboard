@@ -100,7 +100,7 @@ int main()
     WaveDAC8_1_Start();
     
     //precharging time counter
-    uint32_t PrechargingTimeCount = 0;
+    volatile uint32_t PrechargingTimeCount = 0;
     uint32_t DriveTimeCount = 0;
     
     //CyDelay(5000);
@@ -147,7 +147,7 @@ int main()
     //LCD_PrintString("PWM");
 
     //test_inject(data_queue, &data_tail);
-    
+
     for(;;)
     {
         //LED_Write(~LED_ReadDataReg());    
@@ -229,7 +229,6 @@ int main()
             case LV:
                 
                 can_send_cmd(0,0,0);
-                
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
@@ -317,7 +316,7 @@ int main()
                     uint8_t CapacitorVolt = manga_getCapacitorVoltage(); //can_read(data_queue, data_head, data_tail, 0x0566, 0);
                     // UNUSED //uint8_t NomialVolt =  can_read(data_queue, data_head, data_tail, 0x0566, 2);
                 
-                    if(CapacitorVolt >= 0x1A) // need to be tuned
+                    if(CapacitorVolt >= 0x16) // need to be tuned
                     {
                         state = HV_Enabled;
                         break;
@@ -379,8 +378,8 @@ int main()
                     }                     
                 }
                 
-                // if capacitor voltage is undervoltage, change the threshold 0x1A
-                if(!HV_Read() | manga_getCapacitorVoltage() < 0x1A)
+                // if capacitor voltage is undervoltage, change the threshold 0x16
+                if(!HV_Read() | manga_getCapacitorVoltage() < 0x16)
                 {
                     state = LV;
                     DriveTimeCount = 0;
@@ -418,20 +417,25 @@ int main()
                 uint8_t ACK = 0xFF;
                 
                 DriveTimeCount++;
-                if (DriveTimeCount > 100)
+                if (DriveTimeCount > 1000) //EDIT: was 100!
                 {
                     DriveTimeCount = 0; 
                     ACK = manga_getAckReceive();
                 }
    
                 uint8_t ABS_Motor_RPM = manga_getAbsMotorRPM();
-                uint16_t Throttle_High = manga_getThrottleHigh();; // use 123 for pedal node place holder
-                uint16_t Throttle_Low = manga_getThrottleLow();
+                uint8_t Throttle_High = getpedalhigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
+                uint8_t Throttle_Low = getpedallow();//manga_getThrottleLow();
                 
                 WaveDAC8_1_SetValue(ABS_Motor_RPM);
-                can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock
+                can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock EDIT: NEED TO REENABLE TO MAKE THE CAR MOVE
                 
                 //check if everything is going well
+                if (!HV_Read())
+                    state = LV;
+                
+                if (!Drive_Read())
+                    state = HV_Enabled;
                 
                 if ((ACK != 0xFF) | 
                     (!manga_getCurtisHeartBeatCheck())) // EDIT: Removed | CurtisFaultCheck from this 
@@ -441,12 +445,6 @@ int main()
                     DriveTimeCount = 0;
                     break;
                 }
-                
-                if (!HV_Read())
-                    state = LV;
-                
-                if (!Drive_Read())
-                    state = HV_Enabled;
                 
                     
                 // need to map ABS_Motor_RPM into 1-253 scale.

@@ -134,73 +134,21 @@
 <file name=".\cyapicallbacks.h" />
 <file name=".\main.c" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\CAN_TX_RX_func.o">
-<dep name=".\Generated_Source\PSoC5\Buzzer.h" />
-<dep name=".\Generated_Source\PSoC5\Buzzer_aliases.h" />
 <dep name=".\Generated_Source\PSoC5\CAN.h" />
 <dep name=".\Generated_Source\PSoC5\CAN_TX_RX_func.c" />
-<dep name=".\Generated_Source\PSoC5\CAN_Timer.h" />
-<dep name=".\Generated_Source\PSoC5\CYDMAC.H" />
-<dep name=".\Generated_Source\PSoC5\CYFITTER.H" />
-<dep name=".\Generated_Source\PSoC5\CyDmac.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
 <dep name=".\Generated_Source\PSoC5\CyLib.h" />
 <dep name=".\Generated_Source\PSoC5\CySpc.h" />
-<dep name=".\Generated_Source\PSoC5\Drive.h" />
-<dep name=".\Generated_Source\PSoC5\Drive_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\HV.h" />
-<dep name=".\Generated_Source\PSoC5\HV_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\LCD.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort.h" />
-<dep name=".\Generated_Source\PSoC5\LCD_LCDPort_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\LED.h" />
-<dep name=".\Generated_Source\PSoC5\LED_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\RGB1_1.h" />
-<dep name=".\Generated_Source\PSoC5\RGB1_1_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\RGB1_2.h" />
-<dep name=".\Generated_Source\PSoC5\RGB1_2_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\RGB2_1.h" />
-<dep name=".\Generated_Source\PSoC5\RGB2_1_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\RGB2_2.h" />
-<dep name=".\Generated_Source\PSoC5\RGB2_2_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\RGB3_1.h" />
-<dep name=".\Generated_Source\PSoC5\RGB3_1_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\RGB3_2.h" />
-<dep name=".\Generated_Source\PSoC5\RGB3_2_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\RX.h" />
-<dep name=".\Generated_Source\PSoC5\RX_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\TX.h" />
-<dep name=".\Generated_Source\PSoC5\TX_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\Tach.h" />
-<dep name=".\Generated_Source\PSoC5\Tach_aliases.h" />
-<dep name=".\Generated_Source\PSoC5\WaveDAC8_1.h" />
-<dep name=".\Generated_Source\PSoC5\WaveDAC8_1_DacClk.h" />
-<dep name=".\Generated_Source\PSoC5\WaveDAC8_1_VDAC8.h" />
-<dep name=".\Generated_Source\PSoC5\WaveDAC8_1_Wave1_DMA_dma.h" />
-<dep name=".\Generated_Source\PSoC5\WaveDAC8_1_Wave2_DMA_dma.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3.h" />
-<dep name=".\Generated_Source\PSoC5\core_cm3_psoc5.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmFunc.h" />
-<dep name=".\Generated_Source\PSoC5\core_cmInstr.h" />
 <dep name=".\Generated_Source\PSoC5\cyPm.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice.h" />
 <dep name=".\Generated_Source\PSoC5\cydevice_trm.h" />
-<dep name=".\Generated_Source\PSoC5\cydisabledsheets.h" />
 <dep name=".\Generated_Source\PSoC5\cyfitter.h" />
-<dep name=".\Generated_Source\PSoC5\cyfitter_cfg.h" />
-<dep name=".\Generated_Source\PSoC5\cypins.h" />
 <dep name=".\Generated_Source\PSoC5\cytypes.h" />
-<dep name=".\Generated_Source\PSoC5\isr_can.h" />
-<dep name=".\Generated_Source\PSoC5\project.h" />
-<dep name=".\Generated_Source\PSoC5\timer_clock.h" />
-<dep name=".\can_manager.h" />
 <dep name=".\can_manga.h" />
 <dep name=".\can_manga_handlers.h" />
 <dep name=".\cyapicallbacks.h" />
-<dep name=".\data.h" />
 </file>
 <file name=".\Generated_Source\PSoC5\CAN_TX_RX_func.c" />
-<file name=".\can_manager.h" />
-<file name=".\data.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\can_manga.o">
 <dep name=".\Generated_Source\PSoC5\CAN.h" />
 <dep name=".\Generated_Source\PSoC5\CyFlash.h" />
@@ -233,6 +181,8 @@
 <dep name=".\cyapicallbacks.h" />
 </file>
 <file name=".\can_manga_handlers.c" />
+<file name=".\can_manager.h" />
+<file name=".\data.h" />
 <file name=".\CortexM3\ARM_GCC_493\Debug\can_manager.o">
 <dep name=".\Generated_Source\PSoC5\Buzzer.h" />
 <dep name=".\Generated_Source\PSoC5\Buzzer_aliases.h" />
@@ -1852,8 +1802,20 @@
 </dataGuid>
 <dataGuid v="769d31ea-68b1-4f0c-b90a-7c10a43ee563">
 <CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563 type_name="CyDesigner.Common.ProjMgmt.Model.CyLinkCustomData" version="1">
-<deps_time v="131313640786506096" />
+<deps_time v="131319345669502245" />
 </CyGuid_769d31ea-68b1-4f0c-b90a-7c10a43ee563>
+</dataGuid>
+<dataGuid v="504337dd-7d07-4bc7-9057-90e60cf6c469">
+<CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469 type_name="CyDesigner.Common.Debugger.CyBreakpointList" version="1">
+<debugger_breakpoint_list />
+</CyGuid_504337dd-7d07-4bc7-9057-90e60cf6c469>
+</dataGuid>
+<dataGuid v="bf610382-39c6-441f-80b8-b04622ea7845">
+<CyGuid_bf610382-39c6-441f-80b8-b04622ea7845 type_name="CyDesigner.Common.Debugger.CyWatchedVariableList" version="1">
+<debugger_watch_list>
+<CyGuid_ccf7a56e-c00d-460c-82dd-56c8f54feb7f type_name="CyDesigner.Common.Debugger.CyWatchedVariableList+CyWatchedItem" version="1" window="0" name="CAN_RX" radix="Default" />
+</debugger_watch_list>
+</CyGuid_bf610382-39c6-441f-80b8-b04622ea7845>
 </dataGuid>
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>

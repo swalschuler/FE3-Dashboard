@@ -8,15 +8,22 @@
 #include "can_manga.h"
 #include "can_manga_handlers.h"
 
+volatile uint8_t pedalHigh = 0;
+volatile uint8_t pedalLow = 0;
 
-void can_receive(CAN_RX_STRUCT msg, int ID)
+void can_receive(uint8_t *msg, int ID)
 {
     uint8 InterruptState = CyEnterCriticalSection();
     
+    uint8_t data[8];
+    int i = 0;
+    for (i = 0; i < 8; i++)
+        data[i] = msg[i];
+        
     switch (ID) 
     {
         case 0x0566:
-            capacitorVoltHandler(msg);
+            capacitorVoltHandler(data);
             break;
         case 0xA6:
             curtisFaultHandler();
@@ -25,13 +32,15 @@ void can_receive(CAN_RX_STRUCT msg, int ID)
             curtisHeartBeatHandler();
             break;
         case 0x0666:
-            ackReceivedHandler(msg);
+            ackReceivedHandler(data);
             break;
          case 0x0201:
-            errorToleranceHandler(msg);
+            errorToleranceHandler(data);
             break;
         case 0x0200: 
-            throttleHandler(msg);
+            pedalHigh = data[CAN_DATA_BYTE_2];
+            pedalLow = data[CAN_DATA_BYTE_3];
+            //throttleHandler(data);
             break;
     }
     
@@ -133,3 +142,12 @@ void can_manga_message_update(volatile MangaMessage *mmsg, uint8_t data)
  mmsg->count += 1;
 }
 
+uint8_t getpedallow()
+{
+    return pedalLow;
+}
+
+uint8_t getpedalhigh()
+{
+    return pedalHigh;
+}
