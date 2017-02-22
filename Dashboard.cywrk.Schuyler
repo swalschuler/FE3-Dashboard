@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -32,8 +32,6 @@
 <v>Dashboard\Dashboard\Source Files</v>
 <v>Dashboard\Dashboard\Source Files\can_manga.c</v>
 <v>Dashboard\Dashboard\Source Files\can_manga.h</v>
-<v>Dashboard\Dashboard\Source Files\can_manga_handlers.c</v>
-<v>Dashboard\Dashboard\Source Files\can_manga_handlers.h</v>
 <v>Dashboard\Dashboard\Source Files\data.h</v>
 <v>Dashboard\Dashboard\Source Files\main.c</v>
 <v>Dashboard\Dashboard\CAN_Full_Example.pdf</v>
@@ -188,8 +186,6 @@
 <v>Dashboard\Dashboard\Source Files</v>
 <v>Dashboard\Dashboard\Source Files\can_manga.c</v>
 <v>Dashboard\Dashboard\Source Files\can_manga.h</v>
-<v>Dashboard\Dashboard\Source Files\can_manga_handlers.c</v>
-<v>Dashboard\Dashboard\Source Files\can_manga_handlers.h</v>
 <v>Dashboard\Dashboard\Source Files\data.h</v>
 <v>Dashboard\Dashboard\Source Files\main.c</v>
 <v>Dashboard\Dashboard\CAN_Full_Example.pdf</v>
@@ -209,6 +205,8 @@
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer_PM.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -237,7 +235,6 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_INT.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga_handlers.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer_PM.lst</v>
@@ -287,34 +284,6 @@
 <VisibleNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
-<v>Dashboard\Dashboard\CortexM3</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Buzzer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_INT.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga_handlers.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_TX_RX_func.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Drive.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\HV.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_can.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -385,8 +354,9 @@
 <name v=".\Dashboard.cydsn\can_manga_handlers.h" />
 <name v=".\Dashboard.cydsn\can_manga_handlers.c" />
 <name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN_TX_RX_func.c" />
-<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN.c" />
 <name v=".\Dashboard.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CyBootAsmGnu.s" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN_INT.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -394,7 +364,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="687, 486" SelectedTabbedMdiWindow="6e061cba-7ad9-46e8-8361-1a3a3e5965e4"><DocumentWindow Key="59421522-38d0-4692-b621-75e862c3a19a" Guid="084c042b-5739-4d9b-b117-b8c68e5be5b5" /><DocumentWindow Key="2299244c-06c7-419f-96d4-4114009ad76a" Guid="dac8420b-8ed7-4794-b751-3455996e8dd3" /><DocumentWindow Key="807d1159-3387-4f93-9373-af3753f3a22a" Guid="8ed7c38d-8a22-4c4d-a3f5-e008609b4dc8" /><DocumentWindow Key="0b5b4457-beed-40fa-8ba9-7ce26b2faa33" Guid="69ff8b91-9dd7-4a3f-b700-1297f808c89c" /><DocumentWindow Key="78c50b89-7297-47c1-ae49-b1481110cb62" Guid="2bc50742-4a1e-4449-8684-f403660a4b50" /><DocumentWindow Key="9a557d9c-a5ce-4a41-9e00-ec5ee44b2a4b" Guid="974a10c2-04e2-492f-851d-df927537e8d6" /><DocumentWindow Key="f213796c-5c48-4a05-91af-2b58eb2847b6" Guid="6e97364b-305c-406b-ab18-bee2e5cc15fe" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="95ca4200-5b35-45d9-bc0a-7253b7b6870b" Guid="6e061cba-7ad9-46e8-8361-1a3a3e5965e4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1009, 486" SelectedTabbedMdiWindow="5a52ad74-07df-4964-903f-446709780e2a"><DocumentWindow Key="ab69e864-49b2-4b1b-a888-779216db7b55" Guid="5a52ad74-07df-4964-903f-446709780e2a" /><DocumentWindow Key="884f3230-737f-4ea2-ae10-ff7e41f90908" Guid="5f251896-5bc4-4a2b-86c5-5c99e241dd88" /><DocumentWindow Key="02a2f5e6-079f-4742-96c7-c34e99c15b0d" Guid="94f035e4-b35e-464b-bf53-e901d774dd40" /><DocumentWindow Key="de574577-8ee7-4f7b-87d1-9e28611d1de8" Guid="8eb74c2a-3c9f-4dd1-afb4-bf076d59e8d8" /><DocumentWindow Key="671fb6f1-c64d-4cdb-b9e5-2d8c9cb01ac7" Guid="c6060dac-915e-40b7-84da-972d9883f389" /><DocumentWindow Key="525ad8aa-aeb0-4077-b4cc-b15c2728fd26" Guid="c1b6a0e3-4d54-4660-8a35-8ee066fcead5" /><DocumentWindow Key="f9aff1f2-790c-491e-8f9d-30cbc884251e" Guid="c2ef75bb-0bbf-4d1c-91df-2e59764cb693" /><DocumentWindow Key="062a3ec3-e789-40d6-aac9-c1037897fe98" Guid="b0333d15-1dab-4214-b69b-9c9cd66405c0" /><DocumentWindow Key="4df3d55e-4e2c-4465-adbf-adc8e8fe1325" Guid="b5b29ff5-8a9b-41e8-97f7-11a06c919cc9" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
