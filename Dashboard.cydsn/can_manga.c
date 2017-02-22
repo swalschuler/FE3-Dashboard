@@ -6,55 +6,10 @@
 
 #include "CAN.h"
 #include "can_manga.h"
+#include "can_manga_handlers.h"
 
-volatile uint8_t CAPACITOR_VOLT = 0;
-volatile uint8_t CURTIS_FAULT_CHECK = 0;
-volatile uint8_t CURTIS_HEART_BEAT_CHECK = 0;
-volatile uint8_t ACK_RX = 0;
-volatile uint8_t ERROR_TOLERANCE = 0;
-volatile uint8_t ABS_MOTOR_RPM = 0;
-volatile uint8_t THROTTLE_HIGH = 0;
-volatile uint8_t THROTTLE_LOW = 0;
-
-uint8_t getCapacitorVoltage()
-{
-    return CAPACITOR_VOLT;
-}
-
-uint8_t getCurtisFaultCheck()
-{
-    return CURTIS_FAULT_CHECK;
-}
-
-uint8_t getCurtisHeartBeatCheck()
-{
-    return CURTIS_HEART_BEAT_CHECK;
-}
-
-uint8_t getAckRx()
-{
-    return ACK_RX;
-}
-
-uint8_t getErrorTolerance()
-{
-    return ERROR_TOLERANCE;
-}
-
-uint8_t getABSMotorRPM()
-{
-    return ABS_MOTOR_RPM;
-}
-
-uint8_t getPedalLow()
-{
-    return THROTTLE_LOW;
-}
-
-uint8_t getPedalHigh()
-{
-    return THROTTLE_HIGH;
-}
+volatile uint8_t pedalHigh = 0;
+volatile uint8_t pedalLow = 0;
 
 void can_receive(uint8_t *msg, int ID)
 {
@@ -67,25 +22,25 @@ void can_receive(uint8_t *msg, int ID)
         
     switch (ID) 
     {
-        case 0x0566: // Curtis Status
-            CAPACITOR_VOLT = msg[CAN_DATA_BYTE_1];
-            ABS_MOTOR_RPM = msg[CAN_DATA_BYTE_5];
+        case 0x0566:
+            capacitorVoltHandler(data);
             break;
         case 0xA6:
-            CURTIS_FAULT_CHECK = 0x1;
+            curtisFaultHandler();
             break;
         case 0x726:
-            CURTIS_HEART_BEAT_CHECK = 0x1;
+            curtisHeartBeatHandler();
             break;
         case 0x0666:
-            ACK_RX = msg[CAN_DATA_BYTE_1];
+            ackReceivedHandler(data);
             break;
          case 0x0201:
-            ERROR_TOLERANCE = msg[CAN_DATA_BYTE_1];
+            errorToleranceHandler(data);
             break;
         case 0x0200: 
-            THROTTLE_HIGH = data[CAN_DATA_BYTE_2];
-            THROTTLE_LOW = data[CAN_DATA_BYTE_3];
+            pedalHigh = data[CAN_DATA_BYTE_2];
+            pedalLow = data[CAN_DATA_BYTE_3];
+            //throttleHandler(data);
             break;
     }
     
@@ -187,3 +142,12 @@ void can_manga_message_update(volatile MangaMessage *mmsg, uint8_t data)
  mmsg->count += 1;
 }
 
+uint8_t getpedallow()
+{
+    return pedalLow;
+}
+
+uint8_t getpedalhigh()
+{
+    return pedalHigh;
+}

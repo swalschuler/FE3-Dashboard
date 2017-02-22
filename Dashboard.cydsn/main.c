@@ -313,7 +313,7 @@ int main()
                     can_send_cmd(1,0,0); // setInterlock
                 
                     // UNUSED //uint8_t MainState = can_read(data_queue, data_head, data_tail, 0x0566, 0);
-                    uint8_t CapacitorVolt = getCapacitorVoltage(); //can_read(data_queue, data_head, data_tail, 0x0566, 0);
+                    uint8_t CapacitorVolt = manga_getCapacitorVoltage(); //can_read(data_queue, data_head, data_tail, 0x0566, 0);
                     // UNUSED //uint8_t NomialVolt =  can_read(data_queue, data_head, data_tail, 0x0566, 2);
                 
                     if(CapacitorVolt >= 0x16) // need to be tuned
@@ -362,7 +362,7 @@ int main()
                 if (Drive_Read())
                 {
                     CyDelay(1000); // wait for the brake msg to be sent
-                    if(getErrorTolerance() == 1) // 100 for error tolerance /// needs to be getErrorTolerance
+                    if(manga_getErrorTolerance() == 1) // 100 for error tolerance /// needs to be getErrorTolerance
                     {
                         Buzzer_Write(1);
                         CyDelay(1000);
@@ -379,7 +379,7 @@ int main()
                 }
                 
                 // if capacitor voltage is undervoltage, change the threshold 0x16
-                if(!HV_Read() | getCapacitorVoltage() < 0x16)
+                if(!HV_Read() | manga_getCapacitorVoltage() < 0x16)
                 {
                     state = LV;
                     DriveTimeCount = 0;
@@ -420,12 +420,12 @@ int main()
                 if (DriveTimeCount > 1000) //EDIT: was 100!
                 {
                     DriveTimeCount = 0; 
-                    ACK = getAckRx();
+                    ACK = manga_getAckReceive();
                 }
    
-                uint8_t ABS_Motor_RPM = getABSMotorRPM();
-                uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
-                uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
+                uint8_t ABS_Motor_RPM = manga_getAbsMotorRPM();
+                uint8_t Throttle_High = getpedalhigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
+                uint8_t Throttle_Low = getpedallow();//manga_getThrottleLow();
                 
                 WaveDAC8_1_SetValue(ABS_Motor_RPM);
                 can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock EDIT: NEED TO REENABLE TO MAKE THE CAR MOVE
@@ -438,7 +438,7 @@ int main()
                     state = HV_Enabled;
                 
                 if ((ACK != 0xFF) | 
-                    (!getCurtisHeartBeatCheck())) // EDIT: Removed | CurtisFaultCheck from this 
+                    (!manga_getCurtisHeartBeatCheck())) // EDIT: Removed | CurtisFaultCheck from this 
                 {
                     state = Fault;
                     error_state = fromDrive;
@@ -520,12 +520,12 @@ int main()
                     CyDelay(200);
                     
                     // Curtis Come back online again without error
-                    if((getCurtisHeartBeatCheck())) // EDIT: Removed !(Curtis_Fault_Check(data_queue,data_head,data_tail) & 
+                    if((manga_getCurtisHeartBeatCheck())) // EDIT: Removed !(Curtis_Fault_Check(data_queue,data_head,data_tail) & 
                     {
                         state = LV;
                         error_state = OK;
                     }
-                    else if(0xFF == getAckRx()) //ACK received
+                    else if(0xFF == manga_getAckReceive()) //ACK received
                     {
                         state = HV_Enabled;
                         error_state = OK;

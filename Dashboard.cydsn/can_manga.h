@@ -8,6 +8,7 @@
 #define CAN_MANGA_H
 
 #include "CAN.h"
+#include "can_manga_handlers.h"
 
 // Struct to hold data and a count of how many times the CAN bus has sent
 // messages updating the value (to avoid using bad data)
@@ -27,14 +28,9 @@ void can_send(uint8_t data[8], uint32_t ID);
 void can_send_cmd(uint8_t SetInterlock, uint16_t VCL_Throttle_High, uint16_t VCL_Throttle_Low);
 void can_send_status(uint8_t state);
 
-uint8_t getCapacitorVoltage();
-uint8_t getCurtisFaultCheck();
-uint8_t getCurtisHeartBeatCheck();
-uint8_t getAckRx();
-uint8_t getErrorTolerance();
-uint8_t getABSMotorRPM();
-uint8_t getPedalLow();
-uint8_t getPedalHigh();
+uint8_t getpedallow();
+uint8_t getpedalhigh();
+
 
 #endif
 
