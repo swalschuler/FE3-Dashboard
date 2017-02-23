@@ -26,6 +26,13 @@
 /* Global variable used to store receive message mailbox number */
 //volatile uint8 receiveMailboxNumber = 0xFFu;
 
+void nodeCheckStart()
+{
+    Pedal_Timer_Start();
+    isr_pedalok_Start();
+    
+}
+
 typedef enum 
 {
 	Startup,
@@ -44,7 +51,8 @@ typedef enum
 	fromPrecharging,
 	fromHV_Enabled,
 	fromDrive,
-    fromFault
+    fromFault,
+    nodeFailure
     
 }Error_State;
 
@@ -62,6 +70,9 @@ static uint32 ReadSwSwitch(void);
 uint8 HVSwitch = SWITCH_OFF;
 uint8 DriveSwitch = SWITCH_OFF;
 //volatile Dash_State state = Startup;
+
+// Global variables used to track status of nodes
+volatile uint32_t pedalOK = 0;
 
 //CY_ISR(isr_can_handler){
     
@@ -147,7 +158,7 @@ int main()
     //LCD_PrintString("PWM");
 
     //test_inject(data_queue, &data_tail);
-
+    
     for(;;)
     {
         //LED_Write(~LED_ReadDataReg());    
@@ -158,6 +169,13 @@ int main()
         RGB3_2_Write(1);
         RGB2_2_Write(1);
         RGB1_2_Write(1);
+        
+        // Check if all nodes are OK
+        if (pedalOK > 10)
+        {
+            state = Fault;
+            error_state = nodeFailure;
+        }
             
         switch(state)
         {    
@@ -169,6 +187,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                nodeCheckStart();
                 
                 //CyDelay(5000);
                 can_send_status(state);
@@ -232,6 +251,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                nodeCheckStart();
           
                 can_send_status(state);
 
@@ -292,6 +312,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                nodeCheckStart();
                 
                 can_send_status(state);
                 
@@ -342,6 +363,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                nodeCheckStart();
                 
                 can_send_status(state);
                 
@@ -417,7 +439,7 @@ int main()
                 uint8_t ACK = 0xFF;
                 
                 DriveTimeCount++;
-                if (DriveTimeCount > 1000) //EDIT: was 100!
+                if (DriveTimeCount > 100) //EDIT: was 100!
                 {
                     DriveTimeCount = 0; 
                     ACK = getAckRx();
@@ -428,7 +450,7 @@ int main()
                 uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
                 
                 WaveDAC8_1_SetValue(ABS_Motor_RPM);
-                can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock EDIT: NEED TO REENABLE TO MAKE THE CAR MOVE
+                can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock 
                 
                 //check if everything is going well
                 if (!HV_Read())
@@ -468,6 +490,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                nodeCheckStart();
                 
                 can_send_status(state);
                 
@@ -530,6 +553,14 @@ int main()
                         state = HV_Enabled;
                         error_state = OK;
                     }                   
+                }
+                else if (error_state == nodeFailure)
+                {
+                    if (pedalOK <= 10)
+                    {
+                        state = LV;
+                        error_state = OK;
+                    }
                 }
             break;
                 

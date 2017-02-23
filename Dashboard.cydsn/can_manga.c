@@ -7,6 +7,8 @@
 #include "CAN.h"
 #include "can_manga.h"
 
+extern volatile uint32_t pedalOK;
+
 volatile uint8_t CAPACITOR_VOLT = 0;
 volatile uint8_t CURTIS_FAULT_CHECK = 0;
 volatile uint8_t CURTIS_HEART_BEAT_CHECK = 0;
@@ -84,6 +86,7 @@ void can_receive(uint8_t *msg, int ID)
             ERROR_TOLERANCE = msg[CAN_DATA_BYTE_1];
             break;
         case 0x0200: 
+            pedalOK = 0x0;
             THROTTLE_HIGH = data[CAN_DATA_BYTE_2];
             THROTTLE_LOW = data[CAN_DATA_BYTE_3];
             break;

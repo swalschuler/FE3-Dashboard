@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\main.c">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -39,21 +39,17 @@
 <v>Dashboard\Dashboard\CAN_Full_Example.pdf</v>
 <v>Dashboard\Dashboard\Generated_Source</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer_aliases.h</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_INT.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_PM.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_TX_RX_func.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer\CAN_Timer_PM.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
@@ -78,17 +74,17 @@
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\Drive</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Drive\Drive.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Drive\Drive.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Drive\Drive_aliases.h</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\HV</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\HV\HV.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\HV\HV.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\HV\HV_aliases.h</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\isr_can</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\isr_can\isr_can.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\isr_can\isr_can.h</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\isr_pedalok</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\isr_pedalok\isr_pedalok.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\isr_pedalok\isr_pedalok.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\LCD</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\LCD\LCD.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\LCD\LCD.h</v>
@@ -101,6 +97,10 @@
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\LED\LED.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\LED\LED.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\LED\LED_aliases.h</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Pedal_Timer</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Pedal_Timer\Pedal_Timer.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Pedal_Timer\Pedal_Timer.h</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Pedal_Timer\Pedal_Timer_PM.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\RGB1_1</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\RGB1_1\RGB1_1.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\RGB1_1\RGB1_1.h</v>
@@ -204,14 +204,14 @@
 <v>Dashboard\Dashboard\Generated_Source</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer.h</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\Buzzer\Buzzer_aliases.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.c</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\Drive</v>
+<v>Dashboard\Dashboard\Generated_Source\PSoC5\HV</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -225,7 +225,7 @@
 <v>Dashboard\Dashboard\TopDesign\TopDesign.cysch</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -254,11 +254,14 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Drive.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\HV.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_can.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_pedalok.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LED.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Pedal_Timer.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Pedal_Timer_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB1_1.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB1_2.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB2_1.lst</v>
@@ -311,9 +314,9 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Drive.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\HV.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_can.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_pedalok.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -331,9 +334,11 @@
 <v>Dashboard\Dashboard\System Reference Guides\cy_boot_v5_30</v>
 <v>Dashboard\Dashboard\CAN_v3_0.pdf</v>
 <v>Dashboard\Dashboard\CharLCD_v2_20.pdf</v>
-<v>Dashboard\Dashboard\cy_clock_v2_20.pdf</v>
+<v>Dashboard\Dashboard\cy_clock_v2_20</v>
+<v>Dashboard\Dashboard\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>Dashboard\Dashboard\cy_constant_v1_0.pdf</v>
-<v>Dashboard\Dashboard\cy_isr_v1_70.pdf</v>
+<v>Dashboard\Dashboard\cy_isr_v1_70</v>
+<v>Dashboard\Dashboard\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
 <v>Dashboard\Dashboard\cy_pins_v2_10</v>
 <v>Dashboard\Dashboard\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
 <v>Dashboard\Dashboard\cy_pins_v2_20</v>
@@ -342,9 +347,11 @@
 <v>Dashboard\Dashboard\Gnd_v1_0\Gnd_v1_0.pdf</v>
 <v>Dashboard\Dashboard\SwitchSPST_v1_0</v>
 <v>Dashboard\Dashboard\SwitchSPST_v1_0\SwitchSPST_v1_0.pdf</v>
-<v>Dashboard\Dashboard\Timer_v2_70.pdf</v>
+<v>Dashboard\Dashboard\Timer_v2_70</v>
+<v>Dashboard\Dashboard\Timer_v2_70\Timer_v2_70.pdf</v>
 <v>Dashboard\Dashboard\WaveDAC8_v2_0.pdf</v>
-<v>Dashboard\Dashboard\ZeroTerminal.pdf</v>
+<v>Dashboard\Dashboard\ZeroTerminal</v>
+<v>Dashboard\Dashboard\ZeroTerminal\ZeroTerminal.pdf</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
 <v>Dashboard</v>
@@ -355,9 +362,11 @@
 <v>Dashboard\Dashboard\System Reference Guides\cy_boot_v5_30</v>
 <v>Dashboard\Dashboard\CAN_v3_0.pdf</v>
 <v>Dashboard\Dashboard\CharLCD_v2_20.pdf</v>
-<v>Dashboard\Dashboard\cy_clock_v2_20.pdf</v>
+<v>Dashboard\Dashboard\cy_clock_v2_20</v>
+<v>Dashboard\Dashboard\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>Dashboard\Dashboard\cy_constant_v1_0.pdf</v>
-<v>Dashboard\Dashboard\cy_isr_v1_70.pdf</v>
+<v>Dashboard\Dashboard\cy_isr_v1_70</v>
+<v>Dashboard\Dashboard\cy_isr_v1_70\cy_isr_v1_70.pdf</v>
 <v>Dashboard\Dashboard\cy_pins_v2_10</v>
 <v>Dashboard\Dashboard\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
 <v>Dashboard\Dashboard\cy_pins_v2_20</v>
@@ -366,9 +375,11 @@
 <v>Dashboard\Dashboard\Gnd_v1_0\Gnd_v1_0.pdf</v>
 <v>Dashboard\Dashboard\SwitchSPST_v1_0</v>
 <v>Dashboard\Dashboard\SwitchSPST_v1_0\SwitchSPST_v1_0.pdf</v>
-<v>Dashboard\Dashboard\Timer_v2_70.pdf</v>
+<v>Dashboard\Dashboard\Timer_v2_70</v>
+<v>Dashboard\Dashboard\Timer_v2_70\Timer_v2_70.pdf</v>
 <v>Dashboard\Dashboard\WaveDAC8_v2_0.pdf</v>
-<v>Dashboard\Dashboard\ZeroTerminal.pdf</v>
+<v>Dashboard\Dashboard\ZeroTerminal</v>
+<v>Dashboard\Dashboard\ZeroTerminal\ZeroTerminal.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -378,10 +389,10 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Dashboard.cydsn\main.c" />
+<name v=".\Dashboard.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\isr_pedalok.c" />
 <name v=".\Dashboard.cydsn\can_manga.c" />
-<name v=".\Dashboard.cydsn\can_manga.h" />
-<name v=".\Dashboard.cydsn\Dashboard.cydwr" />
+<name v=".\Dashboard.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -389,7 +400,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1067, 411" SelectedTabbedMdiWindow="20a7c756-55ef-49eb-b3cc-8f87a5afcc56"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="33dc6f98-6daa-43b2-a40a-112254c412bc" Guid="2f283ce9-ccb2-4a1f-ba72-5fbbab75fbba" /><DocumentWindow Key="4f4758df-9ea7-4378-8634-888ddf678754" Guid="20a7c756-55ef-49eb-b3cc-8f87a5afcc56" /><DocumentWindow Key="5e7cce01-2506-4843-99b2-1e9478fe76d3" Guid="59b8e338-cb4c-4784-b553-bda6e63b355d" /><DocumentWindow Key="90f946ab-9bf3-4b5c-ba1a-280c3cbc49a5" Guid="8f803f68-8b2d-49f8-84d2-f2e87f6b9fd4" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1029, 411" SelectedTabbedMdiWindow="90925727-7134-4c46-bb24-b990c3ae57b3"><DocumentWindow Key="6cf9d634-1e09-4f95-8565-cb9e4436bf40" Guid="8fee0e71-b53f-4a6e-b44f-e686c5bb5811" /><DocumentWindow Key="94a2aabf-df02-45df-82e7-1de999aca30b" Guid="c932d977-5659-4e3f-935c-0584f4627795" /><DocumentWindow Key="78533064-aa05-4b7a-b1c0-90910cc065e1" Guid="fbd7dd1d-1040-4c0e-a763-6143aefd6725" /><DocumentWindow Key="3da90ff2-6304-4b9d-af5b-bdbc48ab4fcd" Guid="90925727-7134-4c46-bb24-b990c3ae57b3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

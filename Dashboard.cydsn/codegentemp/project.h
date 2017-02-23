@@ -51,6 +51,8 @@
 #include "timer_clock.h"
 #include "CAN_Timer.h"
 #include "isr_can.h"
+#include "Pedal_Timer.h"
+#include "isr_pedalok.h"
 #include "LCD_LCDPort_aliases.h"
 #include "LCD_LCDPort.h"
 #include "WaveDAC8_1_DacClk.h"
