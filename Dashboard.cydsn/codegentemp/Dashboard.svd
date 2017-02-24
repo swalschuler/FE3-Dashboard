@@ -7,7 +7,7 @@
   <width>32</width>
   <peripherals>
     <peripheral>
-      <name>Pedal_Timer</name>
+      <name>Node_Timer</name>
       <description>No description available</description>
       <baseAddress>0x0</baseAddress>
       <addressBlock>
@@ -17,7 +17,7 @@
       </addressBlock>
       <registers>
         <register>
-          <name>Pedal_Timer_COUNTER</name>
+          <name>Node_Timer_COUNTER</name>
           <description>UDB.A0 - Current Down Counter Value</description>
           <addressOffset>0x4000640A</addressOffset>
           <size>16</size>
@@ -26,7 +26,7 @@
           <resetMask>0</resetMask>
         </register>
         <register>
-          <name>Pedal_Timer_PERIOD</name>
+          <name>Node_Timer_PERIOD</name>
           <description>UDB.D0 - Assigned Period</description>
           <addressOffset>0x4000642A</addressOffset>
           <size>16</size>
@@ -35,7 +35,7 @@
           <resetMask>0</resetMask>
         </register>
         <register>
-          <name>Pedal_Timer_Control_Reg</name>
+          <name>Node_Timer_Control_Reg</name>
           <description>UDB Control Register - Assigned Control Register Value</description>
           <addressOffset>0x4000647B</addressOffset>
           <size>8</size>
@@ -81,7 +81,7 @@
           </fields>
         </register>
         <register>
-          <name>Pedal_Timer_STATUS_MASK</name>
+          <name>Node_Timer_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
           <addressOffset>0x4000648B</addressOffset>
           <size>8</size>
@@ -120,7 +120,7 @@
           </fields>
         </register>
         <register>
-          <name>Pedal_Timer_STATUS_AUX_CTRL</name>
+          <name>Node_Timer_STATUS_AUX_CTRL</name>
           <description>UDB Auxilliary Control Register</description>
           <addressOffset>0x4000649B</addressOffset>
           <size>8</size>

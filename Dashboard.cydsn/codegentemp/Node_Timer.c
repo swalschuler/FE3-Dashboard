@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pedal_Timer.c
+* File Name: Node_Timer.c
 * Version 2.70
 *
 * Description:
@@ -21,13 +21,13 @@
 * the software package with which this file was provided.
 ********************************************************************************/
 
-#include "Pedal_Timer.h"
+#include "Node_Timer.h"
 
-uint8 Pedal_Timer_initVar = 0u;
+uint8 Node_Timer_initVar = 0u;
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_Init
+* Function Name: Node_Timer_Init
 ********************************************************************************
 *
 * Summary:
@@ -40,131 +40,131 @@ uint8 Pedal_Timer_initVar = 0u;
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_Init(void) 
+void Node_Timer_Init(void) 
 {
-    #if(!Pedal_Timer_UsingFixedFunction)
+    #if(!Node_Timer_UsingFixedFunction)
             /* Interrupt State Backup for Critical Region*/
-            uint8 Pedal_Timer_interruptState;
+            uint8 Node_Timer_interruptState;
     #endif /* Interrupt state back up for Fixed Function only */
 
-    #if (Pedal_Timer_UsingFixedFunction)
+    #if (Node_Timer_UsingFixedFunction)
         /* Clear all bits but the enable bit (if it's already set) for Timer operation */
-        Pedal_Timer_CONTROL &= Pedal_Timer_CTRL_ENABLE;
+        Node_Timer_CONTROL &= Node_Timer_CTRL_ENABLE;
 
         /* Clear the mode bits for continuous run mode */
         #if (CY_PSOC5A)
-            Pedal_Timer_CONTROL2 &= ((uint8)(~Pedal_Timer_CTRL_MODE_MASK));
+            Node_Timer_CONTROL2 &= ((uint8)(~Node_Timer_CTRL_MODE_MASK));
         #endif /* Clear bits in CONTROL2 only in PSOC5A */
 
         #if (CY_PSOC3 || CY_PSOC5LP)
-            Pedal_Timer_CONTROL3 &= ((uint8)(~Pedal_Timer_CTRL_MODE_MASK));
+            Node_Timer_CONTROL3 &= ((uint8)(~Node_Timer_CTRL_MODE_MASK));
         #endif /* CONTROL3 register exists only in PSoC3 OR PSoC5LP */
 
         /* Check if One Shot mode is enabled i.e. RunMode !=0*/
-        #if (Pedal_Timer_RunModeUsed != 0x0u)
+        #if (Node_Timer_RunModeUsed != 0x0u)
             /* Set 3rd bit of Control register to enable one shot mode */
-            Pedal_Timer_CONTROL |= 0x04u;
+            Node_Timer_CONTROL |= 0x04u;
         #endif /* One Shot enabled only when RunModeUsed is not Continuous*/
 
-        #if (Pedal_Timer_RunModeUsed == 2)
+        #if (Node_Timer_RunModeUsed == 2)
             #if (CY_PSOC5A)
                 /* Set last 2 bits of control2 register if one shot(halt on
                 interrupt) is enabled*/
-                Pedal_Timer_CONTROL2 |= 0x03u;
+                Node_Timer_CONTROL2 |= 0x03u;
             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL2 for PSoC5A */
 
             #if (CY_PSOC3 || CY_PSOC5LP)
                 /* Set last 2 bits of control3 register if one shot(halt on
                 interrupt) is enabled*/
-                Pedal_Timer_CONTROL3 |= 0x03u;
+                Node_Timer_CONTROL3 |= 0x03u;
             #endif /* Set One-Shot Halt on Interrupt bit in CONTROL3 for PSoC3 or PSoC5LP */
 
         #endif /* Remove section if One Shot Halt on Interrupt is not enabled */
 
-        #if (Pedal_Timer_UsingHWEnable != 0)
+        #if (Node_Timer_UsingHWEnable != 0)
             #if (CY_PSOC5A)
                 /* Set the default Run Mode of the Timer to Continuous */
-                Pedal_Timer_CONTROL2 |= Pedal_Timer_CTRL_MODE_PULSEWIDTH;
+                Node_Timer_CONTROL2 |= Node_Timer_CTRL_MODE_PULSEWIDTH;
             #endif /* Set Continuous Run Mode in CONTROL2 for PSoC5A */
 
             #if (CY_PSOC3 || CY_PSOC5LP)
                 /* Clear and Set ROD and COD bits of CFG2 register */
-                Pedal_Timer_CONTROL3 &= ((uint8)(~Pedal_Timer_CTRL_RCOD_MASK));
-                Pedal_Timer_CONTROL3 |= Pedal_Timer_CTRL_RCOD;
+                Node_Timer_CONTROL3 &= ((uint8)(~Node_Timer_CTRL_RCOD_MASK));
+                Node_Timer_CONTROL3 |= Node_Timer_CTRL_RCOD;
 
                 /* Clear and Enable the HW enable bit in CFG2 register */
-                Pedal_Timer_CONTROL3 &= ((uint8)(~Pedal_Timer_CTRL_ENBL_MASK));
-                Pedal_Timer_CONTROL3 |= Pedal_Timer_CTRL_ENBL;
+                Node_Timer_CONTROL3 &= ((uint8)(~Node_Timer_CTRL_ENBL_MASK));
+                Node_Timer_CONTROL3 |= Node_Timer_CTRL_ENBL;
 
                 /* Set the default Run Mode of the Timer to Continuous */
-                Pedal_Timer_CONTROL3 |= Pedal_Timer_CTRL_MODE_CONTINUOUS;
+                Node_Timer_CONTROL3 |= Node_Timer_CTRL_MODE_CONTINUOUS;
             #endif /* Set Continuous Run Mode in CONTROL3 for PSoC3ES3 or PSoC5A */
 
         #endif /* Configure Run Mode with hardware enable */
 
         /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
-        Pedal_Timer_RT1 &= ((uint8)(~Pedal_Timer_RT1_MASK));
-        Pedal_Timer_RT1 |= Pedal_Timer_SYNC;
+        Node_Timer_RT1 &= ((uint8)(~Node_Timer_RT1_MASK));
+        Node_Timer_RT1 |= Node_Timer_SYNC;
 
         /*Enable DSI Sync all all inputs of the Timer*/
-        Pedal_Timer_RT1 &= ((uint8)(~Pedal_Timer_SYNCDSI_MASK));
-        Pedal_Timer_RT1 |= Pedal_Timer_SYNCDSI_EN;
+        Node_Timer_RT1 &= ((uint8)(~Node_Timer_SYNCDSI_MASK));
+        Node_Timer_RT1 |= Node_Timer_SYNCDSI_EN;
 
         /* Set the IRQ to use the status register interrupts */
-        Pedal_Timer_CONTROL2 |= Pedal_Timer_CTRL2_IRQ_SEL;
+        Node_Timer_CONTROL2 |= Node_Timer_CTRL2_IRQ_SEL;
     #endif /* Configuring registers of fixed function implementation */
 
     /* Set Initial values from Configuration */
-    Pedal_Timer_WritePeriod(Pedal_Timer_INIT_PERIOD);
-    Pedal_Timer_WriteCounter(Pedal_Timer_INIT_PERIOD);
+    Node_Timer_WritePeriod(Node_Timer_INIT_PERIOD);
+    Node_Timer_WriteCounter(Node_Timer_INIT_PERIOD);
 
-    #if (Pedal_Timer_UsingHWCaptureCounter)/* Capture counter is enabled */
-        Pedal_Timer_CAPTURE_COUNT_CTRL |= Pedal_Timer_CNTR_ENABLE;
-        Pedal_Timer_SetCaptureCount(Pedal_Timer_INIT_CAPTURE_COUNT);
+    #if (Node_Timer_UsingHWCaptureCounter)/* Capture counter is enabled */
+        Node_Timer_CAPTURE_COUNT_CTRL |= Node_Timer_CNTR_ENABLE;
+        Node_Timer_SetCaptureCount(Node_Timer_INIT_CAPTURE_COUNT);
     #endif /* Configure capture counter value */
 
-    #if (!Pedal_Timer_UsingFixedFunction)
-        #if (Pedal_Timer_SoftwareCaptureMode)
-            Pedal_Timer_SetCaptureMode(Pedal_Timer_INIT_CAPTURE_MODE);
+    #if (!Node_Timer_UsingFixedFunction)
+        #if (Node_Timer_SoftwareCaptureMode)
+            Node_Timer_SetCaptureMode(Node_Timer_INIT_CAPTURE_MODE);
         #endif /* Set Capture Mode for UDB implementation if capture mode is software controlled */
 
-        #if (Pedal_Timer_SoftwareTriggerMode)
-            #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED)
-                if (0u == (Pedal_Timer_CONTROL & Pedal_Timer__B_TIMER__TM_SOFTWARE))
+        #if (Node_Timer_SoftwareTriggerMode)
+            #if (!Node_Timer_UDB_CONTROL_REG_REMOVED)
+                if (0u == (Node_Timer_CONTROL & Node_Timer__B_TIMER__TM_SOFTWARE))
                 {
-                    Pedal_Timer_SetTriggerMode(Pedal_Timer_INIT_TRIGGER_MODE);
+                    Node_Timer_SetTriggerMode(Node_Timer_INIT_TRIGGER_MODE);
                 }
-            #endif /* (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) */
+            #endif /* (!Node_Timer_UDB_CONTROL_REG_REMOVED) */
         #endif /* Set trigger mode for UDB Implementation if trigger mode is software controlled */
 
         /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region critical*/
         /* Enter Critical Region*/
-        Pedal_Timer_interruptState = CyEnterCriticalSection();
+        Node_Timer_interruptState = CyEnterCriticalSection();
 
         /* Use the interrupt output of the status register for IRQ output */
-        Pedal_Timer_STATUS_AUX_CTRL |= Pedal_Timer_STATUS_ACTL_INT_EN_MASK;
+        Node_Timer_STATUS_AUX_CTRL |= Node_Timer_STATUS_ACTL_INT_EN_MASK;
 
         /* Exit Critical Region*/
-        CyExitCriticalSection(Pedal_Timer_interruptState);
+        CyExitCriticalSection(Node_Timer_interruptState);
 
-        #if (Pedal_Timer_EnableTriggerMode)
-            Pedal_Timer_EnableTrigger();
+        #if (Node_Timer_EnableTriggerMode)
+            Node_Timer_EnableTrigger();
         #endif /* Set Trigger enable bit for UDB implementation in the control register*/
 		
 		
-        #if (Pedal_Timer_InterruptOnCaptureCount && !Pedal_Timer_UDB_CONTROL_REG_REMOVED)
-            Pedal_Timer_SetInterruptCount(Pedal_Timer_INIT_INT_CAPTURE_COUNT);
+        #if (Node_Timer_InterruptOnCaptureCount && !Node_Timer_UDB_CONTROL_REG_REMOVED)
+            Node_Timer_SetInterruptCount(Node_Timer_INIT_INT_CAPTURE_COUNT);
         #endif /* Set interrupt count in UDB implementation if interrupt count feature is checked.*/
 
-        Pedal_Timer_ClearFIFO();
+        Node_Timer_ClearFIFO();
     #endif /* Configure additional features of UDB implementation */
 
-    Pedal_Timer_SetInterruptMode(Pedal_Timer_INIT_INTERRUPT_MODE);
+    Node_Timer_SetInterruptMode(Node_Timer_INIT_INTERRUPT_MODE);
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_Enable
+* Function Name: Node_Timer_Enable
 ********************************************************************************
 *
 * Summary:
@@ -177,23 +177,23 @@ void Pedal_Timer_Init(void)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_Enable(void) 
+void Node_Timer_Enable(void) 
 {
     /* Globally Enable the Fixed Function Block chosen */
-    #if (Pedal_Timer_UsingFixedFunction)
-        Pedal_Timer_GLOBAL_ENABLE |= Pedal_Timer_BLOCK_EN_MASK;
-        Pedal_Timer_GLOBAL_STBY_ENABLE |= Pedal_Timer_BLOCK_STBY_EN_MASK;
+    #if (Node_Timer_UsingFixedFunction)
+        Node_Timer_GLOBAL_ENABLE |= Node_Timer_BLOCK_EN_MASK;
+        Node_Timer_GLOBAL_STBY_ENABLE |= Node_Timer_BLOCK_STBY_EN_MASK;
     #endif /* Set Enable bit for enabling Fixed function timer*/
 
     /* Remove assignment if control register is removed */
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED || Pedal_Timer_UsingFixedFunction)
-        Pedal_Timer_CONTROL |= Pedal_Timer_CTRL_ENABLE;
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED || Node_Timer_UsingFixedFunction)
+        Node_Timer_CONTROL |= Node_Timer_CTRL_ENABLE;
     #endif /* Remove assignment if control register is removed */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_Start
+* Function Name: Node_Timer_Start
 ********************************************************************************
 *
 * Summary:
@@ -208,26 +208,26 @@ void Pedal_Timer_Enable(void)
 *  void
 *
 * Global variables:
-*  Pedal_Timer_initVar: Is modified when this function is called for the
+*  Node_Timer_initVar: Is modified when this function is called for the
 *   first time. Is used to ensure that initialization happens only once.
 *
 *******************************************************************************/
-void Pedal_Timer_Start(void) 
+void Node_Timer_Start(void) 
 {
-    if(Pedal_Timer_initVar == 0u)
+    if(Node_Timer_initVar == 0u)
     {
-        Pedal_Timer_Init();
+        Node_Timer_Init();
 
-        Pedal_Timer_initVar = 1u;   /* Clear this bit for Initialization */
+        Node_Timer_initVar = 1u;   /* Clear this bit for Initialization */
     }
 
     /* Enable the Timer */
-    Pedal_Timer_Enable();
+    Node_Timer_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_Stop
+* Function Name: Node_Timer_Stop
 ********************************************************************************
 *
 * Summary:
@@ -244,23 +244,23 @@ void Pedal_Timer_Start(void)
 *               has no effect on the operation of the timer.
 *
 *******************************************************************************/
-void Pedal_Timer_Stop(void) 
+void Node_Timer_Stop(void) 
 {
     /* Disable Timer */
-    #if(!Pedal_Timer_UDB_CONTROL_REG_REMOVED || Pedal_Timer_UsingFixedFunction)
-        Pedal_Timer_CONTROL &= ((uint8)(~Pedal_Timer_CTRL_ENABLE));
+    #if(!Node_Timer_UDB_CONTROL_REG_REMOVED || Node_Timer_UsingFixedFunction)
+        Node_Timer_CONTROL &= ((uint8)(~Node_Timer_CTRL_ENABLE));
     #endif /* Remove assignment if control register is removed */
 
     /* Globally disable the Fixed Function Block chosen */
-    #if (Pedal_Timer_UsingFixedFunction)
-        Pedal_Timer_GLOBAL_ENABLE &= ((uint8)(~Pedal_Timer_BLOCK_EN_MASK));
-        Pedal_Timer_GLOBAL_STBY_ENABLE &= ((uint8)(~Pedal_Timer_BLOCK_STBY_EN_MASK));
+    #if (Node_Timer_UsingFixedFunction)
+        Node_Timer_GLOBAL_ENABLE &= ((uint8)(~Node_Timer_BLOCK_EN_MASK));
+        Node_Timer_GLOBAL_STBY_ENABLE &= ((uint8)(~Node_Timer_BLOCK_STBY_EN_MASK));
     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_SetInterruptMode
+* Function Name: Node_Timer_SetInterruptMode
 ********************************************************************************
 *
 * Summary:
@@ -276,14 +276,14 @@ void Pedal_Timer_Stop(void)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_SetInterruptMode(uint8 interruptMode) 
+void Node_Timer_SetInterruptMode(uint8 interruptMode) 
 {
-    Pedal_Timer_STATUS_MASK = interruptMode;
+    Node_Timer_STATUS_MASK = interruptMode;
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_SoftwareCapture
+* Function Name: Node_Timer_SoftwareCapture
 ********************************************************************************
 *
 * Summary:
@@ -299,20 +299,20 @@ void Pedal_Timer_SetInterruptMode(uint8 interruptMode)
 *  An existing hardware capture could be overwritten.
 *
 *******************************************************************************/
-void Pedal_Timer_SoftwareCapture(void) 
+void Node_Timer_SoftwareCapture(void) 
 {
     /* Generate a software capture by reading the counter register */
-    #if(Pedal_Timer_UsingFixedFunction)
-        (void)CY_GET_REG16(Pedal_Timer_COUNTER_LSB_PTR);
+    #if(Node_Timer_UsingFixedFunction)
+        (void)CY_GET_REG16(Node_Timer_COUNTER_LSB_PTR);
     #else
-        (void)CY_GET_REG8(Pedal_Timer_COUNTER_LSB_PTR_8BIT);
-    #endif/* (Pedal_Timer_UsingFixedFunction) */
+        (void)CY_GET_REG8(Node_Timer_COUNTER_LSB_PTR_8BIT);
+    #endif/* (Node_Timer_UsingFixedFunction) */
     /* Capture Data is now in the FIFO */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_ReadStatusRegister
+* Function Name: Node_Timer_ReadStatusRegister
 ********************************************************************************
 *
 * Summary:
@@ -330,17 +330,17 @@ void Pedal_Timer_SoftwareCapture(void)
 *  Status register bits may be clear on read.
 *
 *******************************************************************************/
-uint8   Pedal_Timer_ReadStatusRegister(void) 
+uint8   Node_Timer_ReadStatusRegister(void) 
 {
-    return (Pedal_Timer_STATUS);
+    return (Node_Timer_STATUS);
 }
 
 
-#if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
+#if (!Node_Timer_UDB_CONTROL_REG_REMOVED) /* Remove API if control register is unused */
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_ReadControlRegister
+* Function Name: Node_Timer_ReadControlRegister
 ********************************************************************************
 *
 * Summary:
@@ -353,18 +353,18 @@ uint8   Pedal_Timer_ReadStatusRegister(void)
 *  The contents of the control register
 *
 *******************************************************************************/
-uint8 Pedal_Timer_ReadControlRegister(void) 
+uint8 Node_Timer_ReadControlRegister(void) 
 {
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) 
-        return ((uint8)Pedal_Timer_CONTROL);
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED) 
+        return ((uint8)Node_Timer_CONTROL);
     #else
         return (0);
-    #endif /* (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) */
+    #endif /* (!Node_Timer_UDB_CONTROL_REG_REMOVED) */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_WriteControlRegister
+* Function Name: Node_Timer_WriteControlRegister
 ********************************************************************************
 *
 * Summary:
@@ -376,20 +376,20 @@ uint8 Pedal_Timer_ReadControlRegister(void)
 * Return:
 *
 *******************************************************************************/
-void Pedal_Timer_WriteControlRegister(uint8 control) 
+void Node_Timer_WriteControlRegister(uint8 control) 
 {
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) 
-        Pedal_Timer_CONTROL = control;
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED) 
+        Node_Timer_CONTROL = control;
     #else
         control = 0u;
-    #endif /* (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) */
+    #endif /* (!Node_Timer_UDB_CONTROL_REG_REMOVED) */
 }
 
 #endif /* Remove API if control register is unused */
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_ReadPeriod
+* Function Name: Node_Timer_ReadPeriod
 ********************************************************************************
 *
 * Summary:
@@ -402,18 +402,18 @@ void Pedal_Timer_WriteControlRegister(uint8 control)
 *  The present value of the counter.
 *
 *******************************************************************************/
-uint16 Pedal_Timer_ReadPeriod(void) 
+uint16 Node_Timer_ReadPeriod(void) 
 {
-   #if(Pedal_Timer_UsingFixedFunction)
-       return ((uint16)CY_GET_REG16(Pedal_Timer_PERIOD_LSB_PTR));
+   #if(Node_Timer_UsingFixedFunction)
+       return ((uint16)CY_GET_REG16(Node_Timer_PERIOD_LSB_PTR));
    #else
-       return (CY_GET_REG16(Pedal_Timer_PERIOD_LSB_PTR));
-   #endif /* (Pedal_Timer_UsingFixedFunction) */
+       return (CY_GET_REG16(Node_Timer_PERIOD_LSB_PTR));
+   #endif /* (Node_Timer_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_WritePeriod
+* Function Name: Node_Timer_WritePeriod
 ********************************************************************************
 *
 * Summary:
@@ -428,19 +428,19 @@ uint16 Pedal_Timer_ReadPeriod(void)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_WritePeriod(uint16 period) 
+void Node_Timer_WritePeriod(uint16 period) 
 {
-    #if(Pedal_Timer_UsingFixedFunction)
+    #if(Node_Timer_UsingFixedFunction)
         uint16 period_temp = (uint16)period;
-        CY_SET_REG16(Pedal_Timer_PERIOD_LSB_PTR, period_temp);
+        CY_SET_REG16(Node_Timer_PERIOD_LSB_PTR, period_temp);
     #else
-        CY_SET_REG16(Pedal_Timer_PERIOD_LSB_PTR, period);
+        CY_SET_REG16(Node_Timer_PERIOD_LSB_PTR, period);
     #endif /*Write Period value with appropriate resolution suffix depending on UDB or fixed function implementation */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_ReadCapture
+* Function Name: Node_Timer_ReadCapture
 ********************************************************************************
 *
 * Summary:
@@ -453,18 +453,18 @@ void Pedal_Timer_WritePeriod(uint16 period)
 *  Present Capture value.
 *
 *******************************************************************************/
-uint16 Pedal_Timer_ReadCapture(void) 
+uint16 Node_Timer_ReadCapture(void) 
 {
-   #if(Pedal_Timer_UsingFixedFunction)
-       return ((uint16)CY_GET_REG16(Pedal_Timer_CAPTURE_LSB_PTR));
+   #if(Node_Timer_UsingFixedFunction)
+       return ((uint16)CY_GET_REG16(Node_Timer_CAPTURE_LSB_PTR));
    #else
-       return (CY_GET_REG16(Pedal_Timer_CAPTURE_LSB_PTR));
-   #endif /* (Pedal_Timer_UsingFixedFunction) */
+       return (CY_GET_REG16(Node_Timer_CAPTURE_LSB_PTR));
+   #endif /* (Node_Timer_UsingFixedFunction) */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_WriteCounter
+* Function Name: Node_Timer_WriteCounter
 ********************************************************************************
 *
 * Summary:
@@ -477,22 +477,22 @@ uint16 Pedal_Timer_ReadCapture(void)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_WriteCounter(uint16 counter) 
+void Node_Timer_WriteCounter(uint16 counter) 
 {
-   #if(Pedal_Timer_UsingFixedFunction)
+   #if(Node_Timer_UsingFixedFunction)
         /* This functionality is removed until a FixedFunction HW update to
          * allow this register to be written
          */
-        CY_SET_REG16(Pedal_Timer_COUNTER_LSB_PTR, (uint16)counter);
+        CY_SET_REG16(Node_Timer_COUNTER_LSB_PTR, (uint16)counter);
         
     #else
-        CY_SET_REG16(Pedal_Timer_COUNTER_LSB_PTR, counter);
+        CY_SET_REG16(Node_Timer_COUNTER_LSB_PTR, counter);
     #endif /* Set Write Counter only for the UDB implementation (Write Counter not available in fixed function Timer */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_ReadCounter
+* Function Name: Node_Timer_ReadCounter
 ********************************************************************************
 *
 * Summary:
@@ -505,27 +505,27 @@ void Pedal_Timer_WriteCounter(uint16 counter)
 *  Present compare value.
 *
 *******************************************************************************/
-uint16 Pedal_Timer_ReadCounter(void) 
+uint16 Node_Timer_ReadCounter(void) 
 {
     /* Force capture by reading Accumulator */
     /* Must first do a software capture to be able to read the counter */
     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
-    #if(Pedal_Timer_UsingFixedFunction)
-        (void)CY_GET_REG16(Pedal_Timer_COUNTER_LSB_PTR);
+    #if(Node_Timer_UsingFixedFunction)
+        (void)CY_GET_REG16(Node_Timer_COUNTER_LSB_PTR);
     #else
-        (void)CY_GET_REG8(Pedal_Timer_COUNTER_LSB_PTR_8BIT);
-    #endif/* (Pedal_Timer_UsingFixedFunction) */
+        (void)CY_GET_REG8(Node_Timer_COUNTER_LSB_PTR_8BIT);
+    #endif/* (Node_Timer_UsingFixedFunction) */
 
     /* Read the data from the FIFO (or capture register for Fixed Function)*/
-    #if(Pedal_Timer_UsingFixedFunction)
-        return ((uint16)CY_GET_REG16(Pedal_Timer_CAPTURE_LSB_PTR));
+    #if(Node_Timer_UsingFixedFunction)
+        return ((uint16)CY_GET_REG16(Node_Timer_CAPTURE_LSB_PTR));
     #else
-        return (CY_GET_REG16(Pedal_Timer_CAPTURE_LSB_PTR));
-    #endif /* (Pedal_Timer_UsingFixedFunction) */
+        return (CY_GET_REG16(Node_Timer_CAPTURE_LSB_PTR));
+    #endif /* (Node_Timer_UsingFixedFunction) */
 }
 
 
-#if(!Pedal_Timer_UsingFixedFunction) /* UDB Specific Functions */
+#if(!Node_Timer_UsingFixedFunction) /* UDB Specific Functions */
 
     
 /*******************************************************************************
@@ -534,11 +534,11 @@ uint16 Pedal_Timer_ReadCounter(void)
  ******************************************************************************/
 
 
-#if (Pedal_Timer_SoftwareCaptureMode)
+#if (Node_Timer_SoftwareCaptureMode)
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_SetCaptureMode
+* Function Name: Node_Timer_SetCaptureMode
 ********************************************************************************
 *
 * Summary:
@@ -547,44 +547,44 @@ uint16 Pedal_Timer_ReadCounter(void)
 * Parameters:
 *  captureMode: This parameter sets the capture mode of the UDB capture feature
 *  The parameter values are defined using the
-*  #define Pedal_Timer__B_TIMER__CM_NONE 0
-#define Pedal_Timer__B_TIMER__CM_RISINGEDGE 1
-#define Pedal_Timer__B_TIMER__CM_FALLINGEDGE 2
-#define Pedal_Timer__B_TIMER__CM_EITHEREDGE 3
-#define Pedal_Timer__B_TIMER__CM_SOFTWARE 4
+*  #define Node_Timer__B_TIMER__CM_NONE 0
+#define Node_Timer__B_TIMER__CM_RISINGEDGE 1
+#define Node_Timer__B_TIMER__CM_FALLINGEDGE 2
+#define Node_Timer__B_TIMER__CM_EITHEREDGE 3
+#define Node_Timer__B_TIMER__CM_SOFTWARE 4
  identifiers
 *  The following are the possible values of the parameter
-*  Pedal_Timer__B_TIMER__CM_NONE        - Set Capture mode to None
-*  Pedal_Timer__B_TIMER__CM_RISINGEDGE  - Rising edge of Capture input
-*  Pedal_Timer__B_TIMER__CM_FALLINGEDGE - Falling edge of Capture input
-*  Pedal_Timer__B_TIMER__CM_EITHEREDGE  - Either edge of Capture input
+*  Node_Timer__B_TIMER__CM_NONE        - Set Capture mode to None
+*  Node_Timer__B_TIMER__CM_RISINGEDGE  - Rising edge of Capture input
+*  Node_Timer__B_TIMER__CM_FALLINGEDGE - Falling edge of Capture input
+*  Node_Timer__B_TIMER__CM_EITHEREDGE  - Either edge of Capture input
 *
 * Return:
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_SetCaptureMode(uint8 captureMode) 
+void Node_Timer_SetCaptureMode(uint8 captureMode) 
 {
     /* This must only set to two bits of the control register associated */
-    captureMode = ((uint8)((uint8)captureMode << Pedal_Timer_CTRL_CAP_MODE_SHIFT));
-    captureMode &= (Pedal_Timer_CTRL_CAP_MODE_MASK);
+    captureMode = ((uint8)((uint8)captureMode << Node_Timer_CTRL_CAP_MODE_SHIFT));
+    captureMode &= (Node_Timer_CTRL_CAP_MODE_MASK);
 
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED)
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED)
         /* Clear the Current Setting */
-        Pedal_Timer_CONTROL &= ((uint8)(~Pedal_Timer_CTRL_CAP_MODE_MASK));
+        Node_Timer_CONTROL &= ((uint8)(~Node_Timer_CTRL_CAP_MODE_MASK));
 
         /* Write The New Setting */
-        Pedal_Timer_CONTROL |= captureMode;
-    #endif /* (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) */
+        Node_Timer_CONTROL |= captureMode;
+    #endif /* (!Node_Timer_UDB_CONTROL_REG_REMOVED) */
 }
 #endif /* Remove API if Capture Mode is not Software Controlled */
 
 
-#if (Pedal_Timer_SoftwareTriggerMode)
+#if (Node_Timer_SoftwareTriggerMode)
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_SetTriggerMode
+* Function Name: Node_Timer_SetTriggerMode
 ********************************************************************************
 *
 * Summary:
@@ -592,37 +592,37 @@ void Pedal_Timer_SetCaptureMode(uint8 captureMode)
 *
 * Parameters:
 *  triggerMode: Pass one of the pre-defined Trigger Modes (except Software)
-    #define Pedal_Timer__B_TIMER__TM_NONE 0x00u
-    #define Pedal_Timer__B_TIMER__TM_RISINGEDGE 0x04u
-    #define Pedal_Timer__B_TIMER__TM_FALLINGEDGE 0x08u
-    #define Pedal_Timer__B_TIMER__TM_EITHEREDGE 0x0Cu
-    #define Pedal_Timer__B_TIMER__TM_SOFTWARE 0x10u
+    #define Node_Timer__B_TIMER__TM_NONE 0x00u
+    #define Node_Timer__B_TIMER__TM_RISINGEDGE 0x04u
+    #define Node_Timer__B_TIMER__TM_FALLINGEDGE 0x08u
+    #define Node_Timer__B_TIMER__TM_EITHEREDGE 0x0Cu
+    #define Node_Timer__B_TIMER__TM_SOFTWARE 0x10u
 *
 * Return:
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_SetTriggerMode(uint8 triggerMode) 
+void Node_Timer_SetTriggerMode(uint8 triggerMode) 
 {
     /* This must only set to two bits of the control register associated */
-    triggerMode &= Pedal_Timer_CTRL_TRIG_MODE_MASK;
+    triggerMode &= Node_Timer_CTRL_TRIG_MODE_MASK;
 
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is removed */
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is removed */
     
         /* Clear the Current Setting */
-        Pedal_Timer_CONTROL &= ((uint8)(~Pedal_Timer_CTRL_TRIG_MODE_MASK));
+        Node_Timer_CONTROL &= ((uint8)(~Node_Timer_CTRL_TRIG_MODE_MASK));
 
         /* Write The New Setting */
-        Pedal_Timer_CONTROL |= (triggerMode | Pedal_Timer__B_TIMER__TM_SOFTWARE);
+        Node_Timer_CONTROL |= (triggerMode | Node_Timer__B_TIMER__TM_SOFTWARE);
     #endif /* Remove code section if control register is not used */
 }
 #endif /* Remove API if Trigger Mode is not Software Controlled */
 
-#if (Pedal_Timer_EnableTriggerMode)
+#if (Node_Timer_EnableTriggerMode)
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_EnableTrigger
+* Function Name: Node_Timer_EnableTrigger
 ********************************************************************************
 *
 * Summary:
@@ -635,16 +635,16 @@ void Pedal_Timer_SetTriggerMode(uint8 triggerMode)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_EnableTrigger(void) 
+void Node_Timer_EnableTrigger(void) 
 {
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is removed */
-        Pedal_Timer_CONTROL |= Pedal_Timer_CTRL_TRIG_EN;
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED)   /* Remove assignment if control register is removed */
+        Node_Timer_CONTROL |= Node_Timer_CTRL_TRIG_EN;
     #endif /* Remove code section if control register is not used */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_DisableTrigger
+* Function Name: Node_Timer_DisableTrigger
 ********************************************************************************
 *
 * Summary:
@@ -657,19 +657,19 @@ void Pedal_Timer_EnableTrigger(void)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_DisableTrigger(void) 
+void Node_Timer_DisableTrigger(void) 
 {
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is removed */
-        Pedal_Timer_CONTROL &= ((uint8)(~Pedal_Timer_CTRL_TRIG_EN));
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED )   /* Remove assignment if control register is removed */
+        Node_Timer_CONTROL &= ((uint8)(~Node_Timer_CTRL_TRIG_EN));
     #endif /* Remove code section if control register is not used */
 }
 #endif /* Remove API is Trigger Mode is set to None */
 
-#if(Pedal_Timer_InterruptOnCaptureCount)
+#if(Node_Timer_InterruptOnCaptureCount)
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_SetInterruptCount
+* Function Name: Node_Timer_SetInterruptCount
 ********************************************************************************
 *
 * Summary:
@@ -685,26 +685,26 @@ void Pedal_Timer_DisableTrigger(void)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_SetInterruptCount(uint8 interruptCount) 
+void Node_Timer_SetInterruptCount(uint8 interruptCount) 
 {
     /* This must only set to two bits of the control register associated */
-    interruptCount &= Pedal_Timer_CTRL_INTCNT_MASK;
+    interruptCount &= Node_Timer_CTRL_INTCNT_MASK;
 
-    #if (!Pedal_Timer_UDB_CONTROL_REG_REMOVED)
+    #if (!Node_Timer_UDB_CONTROL_REG_REMOVED)
         /* Clear the Current Setting */
-        Pedal_Timer_CONTROL &= ((uint8)(~Pedal_Timer_CTRL_INTCNT_MASK));
+        Node_Timer_CONTROL &= ((uint8)(~Node_Timer_CTRL_INTCNT_MASK));
         /* Write The New Setting */
-        Pedal_Timer_CONTROL |= interruptCount;
-    #endif /* (!Pedal_Timer_UDB_CONTROL_REG_REMOVED) */
+        Node_Timer_CONTROL |= interruptCount;
+    #endif /* (!Node_Timer_UDB_CONTROL_REG_REMOVED) */
 }
-#endif /* Pedal_Timer_InterruptOnCaptureCount */
+#endif /* Node_Timer_InterruptOnCaptureCount */
 
 
-#if (Pedal_Timer_UsingHWCaptureCounter)
+#if (Node_Timer_UsingHWCaptureCounter)
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_SetCaptureCount
+* Function Name: Node_Timer_SetCaptureCount
 ********************************************************************************
 *
 * Summary:
@@ -719,14 +719,14 @@ void Pedal_Timer_SetInterruptCount(uint8 interruptCount)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_SetCaptureCount(uint8 captureCount) 
+void Node_Timer_SetCaptureCount(uint8 captureCount) 
 {
-    Pedal_Timer_CAP_COUNT = captureCount;
+    Node_Timer_CAP_COUNT = captureCount;
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_ReadCaptureCount
+* Function Name: Node_Timer_ReadCaptureCount
 ********************************************************************************
 *
 * Summary:
@@ -739,15 +739,15 @@ void Pedal_Timer_SetCaptureCount(uint8 captureCount)
 *  Returns the Capture Count Setting
 *
 *******************************************************************************/
-uint8 Pedal_Timer_ReadCaptureCount(void) 
+uint8 Node_Timer_ReadCaptureCount(void) 
 {
-    return ((uint8)Pedal_Timer_CAP_COUNT);
+    return ((uint8)Node_Timer_CAP_COUNT);
 }
-#endif /* Pedal_Timer_UsingHWCaptureCounter */
+#endif /* Node_Timer_UsingHWCaptureCounter */
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_ClearFIFO
+* Function Name: Node_Timer_ClearFIFO
 ********************************************************************************
 *
 * Summary:
@@ -760,11 +760,11 @@ uint8 Pedal_Timer_ReadCaptureCount(void)
 *  void
 *
 *******************************************************************************/
-void Pedal_Timer_ClearFIFO(void) 
+void Node_Timer_ClearFIFO(void) 
 {
-    while(0u != (Pedal_Timer_ReadStatusRegister() & Pedal_Timer_STATUS_FIFONEMP))
+    while(0u != (Node_Timer_ReadStatusRegister() & Node_Timer_STATUS_FIFONEMP))
     {
-        (void)Pedal_Timer_ReadCapture();
+        (void)Node_Timer_ReadCapture();
     }
 }
 

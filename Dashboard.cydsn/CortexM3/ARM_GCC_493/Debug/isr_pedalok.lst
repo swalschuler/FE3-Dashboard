@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 1
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 1
 
 
    1              		.syntax unified
@@ -56,777 +56,756 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 1
   27:Generated_Source\PSoC5/isr_pedalok.c **** *  Place your includes, defines and code here 
   28:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************/
   29:Generated_Source\PSoC5/isr_pedalok.c **** /* `#START isr_pedalok_intc` */
-  30:Generated_Source\PSoC5/isr_pedalok.c **** 
-  31:Generated_Source\PSoC5/isr_pedalok.c **** /* `#END` */
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 2
+  30:Generated_Source\PSoC5/isr_pedalok.c **** #include "Pedal_Timer.h"
+  31:Generated_Source\PSoC5/isr_pedalok.c **** extern volatile uint32_t pedalOK;
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 2
 
 
-  32:Generated_Source\PSoC5/isr_pedalok.c **** 
-  33:Generated_Source\PSoC5/isr_pedalok.c **** #ifndef CYINT_IRQ_BASE
-  34:Generated_Source\PSoC5/isr_pedalok.c **** #define CYINT_IRQ_BASE      16
-  35:Generated_Source\PSoC5/isr_pedalok.c **** #endif /* CYINT_IRQ_BASE */
-  36:Generated_Source\PSoC5/isr_pedalok.c **** #ifndef CYINT_VECT_TABLE
-  37:Generated_Source\PSoC5/isr_pedalok.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
-  38:Generated_Source\PSoC5/isr_pedalok.c **** #endif /* CYINT_VECT_TABLE */
-  39:Generated_Source\PSoC5/isr_pedalok.c **** 
-  40:Generated_Source\PSoC5/isr_pedalok.c **** /* Declared in startup, used to set unused interrupts to. */
-  41:Generated_Source\PSoC5/isr_pedalok.c **** CY_ISR_PROTO(IntDefaultHandler);
-  42:Generated_Source\PSoC5/isr_pedalok.c **** 
+  32:Generated_Source\PSoC5/isr_pedalok.c **** /* `#END` */
+  33:Generated_Source\PSoC5/isr_pedalok.c **** 
+  34:Generated_Source\PSoC5/isr_pedalok.c **** #ifndef CYINT_IRQ_BASE
+  35:Generated_Source\PSoC5/isr_pedalok.c **** #define CYINT_IRQ_BASE      16
+  36:Generated_Source\PSoC5/isr_pedalok.c **** #endif /* CYINT_IRQ_BASE */
+  37:Generated_Source\PSoC5/isr_pedalok.c **** #ifndef CYINT_VECT_TABLE
+  38:Generated_Source\PSoC5/isr_pedalok.c **** #define CYINT_VECT_TABLE    ((cyisraddress **) CYREG_NVIC_VECT_OFFSET)
+  39:Generated_Source\PSoC5/isr_pedalok.c **** #endif /* CYINT_VECT_TABLE */
+  40:Generated_Source\PSoC5/isr_pedalok.c **** 
+  41:Generated_Source\PSoC5/isr_pedalok.c **** /* Declared in startup, used to set unused interrupts to. */
+  42:Generated_Source\PSoC5/isr_pedalok.c **** CY_ISR_PROTO(IntDefaultHandler);
   43:Generated_Source\PSoC5/isr_pedalok.c **** 
-  44:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
-  45:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Start
-  46:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
-  47:Generated_Source\PSoC5/isr_pedalok.c **** *
-  48:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
-  49:Generated_Source\PSoC5/isr_pedalok.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
-  50:Generated_Source\PSoC5/isr_pedalok.c **** *  sets the default interrupt vector, sets the priority from the value in the
-  51:Generated_Source\PSoC5/isr_pedalok.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
-  52:Generated_Source\PSoC5/isr_pedalok.c **** *  interrupt controller.
-  53:Generated_Source\PSoC5/isr_pedalok.c **** *
-  54:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
-  55:Generated_Source\PSoC5/isr_pedalok.c **** *   None
-  56:Generated_Source\PSoC5/isr_pedalok.c **** *
-  57:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
-  58:Generated_Source\PSoC5/isr_pedalok.c **** *   None
-  59:Generated_Source\PSoC5/isr_pedalok.c **** *
-  60:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
-  61:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Start(void)
-  62:Generated_Source\PSoC5/isr_pedalok.c **** {
-  63:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
-  64:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Disable();
-  65:Generated_Source\PSoC5/isr_pedalok.c **** 
-  66:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the ISR to point to the isr_pedalok Interrupt. */
-  67:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetVector(&isr_pedalok_Interrupt);
-  68:Generated_Source\PSoC5/isr_pedalok.c **** 
-  69:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the priority. */
-  70:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetPriority((uint8)isr_pedalok_INTC_PRIOR_NUMBER);
-  71:Generated_Source\PSoC5/isr_pedalok.c **** 
-  72:Generated_Source\PSoC5/isr_pedalok.c ****     /* Enable it. */
-  73:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Enable();
-  74:Generated_Source\PSoC5/isr_pedalok.c **** }
-  75:Generated_Source\PSoC5/isr_pedalok.c **** 
+  44:Generated_Source\PSoC5/isr_pedalok.c **** 
+  45:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+  46:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Start
+  47:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+  48:Generated_Source\PSoC5/isr_pedalok.c **** *
+  49:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+  50:Generated_Source\PSoC5/isr_pedalok.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  51:Generated_Source\PSoC5/isr_pedalok.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  52:Generated_Source\PSoC5/isr_pedalok.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  53:Generated_Source\PSoC5/isr_pedalok.c **** *  interrupt controller.
+  54:Generated_Source\PSoC5/isr_pedalok.c **** *
+  55:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
+  56:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+  57:Generated_Source\PSoC5/isr_pedalok.c **** *
+  58:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+  59:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+  60:Generated_Source\PSoC5/isr_pedalok.c **** *
+  61:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+  62:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Start(void)
+  63:Generated_Source\PSoC5/isr_pedalok.c **** {
+  64:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
+  65:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Disable();
+  66:Generated_Source\PSoC5/isr_pedalok.c **** 
+  67:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the ISR to point to the isr_pedalok Interrupt. */
+  68:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetVector(&isr_pedalok_Interrupt);
+  69:Generated_Source\PSoC5/isr_pedalok.c **** 
+  70:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the priority. */
+  71:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetPriority((uint8)isr_pedalok_INTC_PRIOR_NUMBER);
+  72:Generated_Source\PSoC5/isr_pedalok.c **** 
+  73:Generated_Source\PSoC5/isr_pedalok.c ****     /* Enable it. */
+  74:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Enable();
+  75:Generated_Source\PSoC5/isr_pedalok.c **** }
   76:Generated_Source\PSoC5/isr_pedalok.c **** 
-  77:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
-  78:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_StartEx
-  79:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
-  80:Generated_Source\PSoC5/isr_pedalok.c **** *
-  81:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
-  82:Generated_Source\PSoC5/isr_pedalok.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
-  83:Generated_Source\PSoC5/isr_pedalok.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
-  84:Generated_Source\PSoC5/isr_pedalok.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
-  85:Generated_Source\PSoC5/isr_pedalok.c **** *  the interrupt to the interrupt controller.
-  86:Generated_Source\PSoC5/isr_pedalok.c **** *  
-  87:Generated_Source\PSoC5/isr_pedalok.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
-  88:Generated_Source\PSoC5/isr_pedalok.c **** *  used to provide consistent definition across compilers:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 3
+  77:Generated_Source\PSoC5/isr_pedalok.c **** 
+  78:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+  79:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_StartEx
+  80:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+  81:Generated_Source\PSoC5/isr_pedalok.c **** *
+  82:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+  83:Generated_Source\PSoC5/isr_pedalok.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  84:Generated_Source\PSoC5/isr_pedalok.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  85:Generated_Source\PSoC5/isr_pedalok.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  86:Generated_Source\PSoC5/isr_pedalok.c **** *  the interrupt to the interrupt controller.
+  87:Generated_Source\PSoC5/isr_pedalok.c **** *  
+  88:Generated_Source\PSoC5/isr_pedalok.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 3
 
 
-  89:Generated_Source\PSoC5/isr_pedalok.c **** *  
-  90:Generated_Source\PSoC5/isr_pedalok.c **** *  Function definition example:
-  91:Generated_Source\PSoC5/isr_pedalok.c **** *   CY_ISR(MyISR)
-  92:Generated_Source\PSoC5/isr_pedalok.c **** *   {
-  93:Generated_Source\PSoC5/isr_pedalok.c **** *   }
-  94:Generated_Source\PSoC5/isr_pedalok.c **** *   Function prototype example:
-  95:Generated_Source\PSoC5/isr_pedalok.c **** *   CY_ISR_PROTO(MyISR);
-  96:Generated_Source\PSoC5/isr_pedalok.c **** *
-  97:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
-  98:Generated_Source\PSoC5/isr_pedalok.c **** *   address: Address of the ISR to set in the interrupt vector table.
-  99:Generated_Source\PSoC5/isr_pedalok.c **** *
- 100:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 101:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 102:Generated_Source\PSoC5/isr_pedalok.c **** *
- 103:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 104:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_StartEx(cyisraddress address)
- 105:Generated_Source\PSoC5/isr_pedalok.c **** {
- 106:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
- 107:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Disable();
- 108:Generated_Source\PSoC5/isr_pedalok.c **** 
- 109:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the ISR to point to the isr_pedalok Interrupt. */
- 110:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetVector(address);
- 111:Generated_Source\PSoC5/isr_pedalok.c **** 
- 112:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the priority. */
- 113:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetPriority((uint8)isr_pedalok_INTC_PRIOR_NUMBER);
- 114:Generated_Source\PSoC5/isr_pedalok.c **** 
- 115:Generated_Source\PSoC5/isr_pedalok.c ****     /* Enable it. */
- 116:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Enable();
- 117:Generated_Source\PSoC5/isr_pedalok.c **** }
- 118:Generated_Source\PSoC5/isr_pedalok.c **** 
+  89:Generated_Source\PSoC5/isr_pedalok.c **** *  used to provide consistent definition across compilers:
+  90:Generated_Source\PSoC5/isr_pedalok.c **** *  
+  91:Generated_Source\PSoC5/isr_pedalok.c **** *  Function definition example:
+  92:Generated_Source\PSoC5/isr_pedalok.c **** *   CY_ISR(MyISR)
+  93:Generated_Source\PSoC5/isr_pedalok.c **** *   {
+  94:Generated_Source\PSoC5/isr_pedalok.c **** *   }
+  95:Generated_Source\PSoC5/isr_pedalok.c **** *   Function prototype example:
+  96:Generated_Source\PSoC5/isr_pedalok.c **** *   CY_ISR_PROTO(MyISR);
+  97:Generated_Source\PSoC5/isr_pedalok.c **** *
+  98:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
+  99:Generated_Source\PSoC5/isr_pedalok.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 100:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 101:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 102:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 103:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 104:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 105:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_StartEx(cyisraddress address)
+ 106:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 107:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
+ 108:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Disable();
+ 109:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 110:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the ISR to point to the isr_pedalok Interrupt. */
+ 111:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetVector(address);
+ 112:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 113:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the priority. */
+ 114:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetPriority((uint8)isr_pedalok_INTC_PRIOR_NUMBER);
+ 115:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 116:Generated_Source\PSoC5/isr_pedalok.c ****     /* Enable it. */
+ 117:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Enable();
+ 118:Generated_Source\PSoC5/isr_pedalok.c **** }
  119:Generated_Source\PSoC5/isr_pedalok.c **** 
- 120:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 121:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Stop
- 122:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 123:Generated_Source\PSoC5/isr_pedalok.c **** *
- 124:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 125:Generated_Source\PSoC5/isr_pedalok.c **** *   Disables and removes the interrupt.
- 126:Generated_Source\PSoC5/isr_pedalok.c **** *
- 127:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
- 128:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 129:Generated_Source\PSoC5/isr_pedalok.c **** *
- 130:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 131:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 132:Generated_Source\PSoC5/isr_pedalok.c **** *
- 133:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 134:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Stop(void)
- 135:Generated_Source\PSoC5/isr_pedalok.c **** {
- 136:Generated_Source\PSoC5/isr_pedalok.c ****     /* Disable this interrupt. */
- 137:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Disable();
- 138:Generated_Source\PSoC5/isr_pedalok.c **** 
- 139:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the ISR to point to the passive one. */
- 140:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetVector(&IntDefaultHandler);
- 141:Generated_Source\PSoC5/isr_pedalok.c **** }
- 142:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 120:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 121:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 122:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Stop
+ 123:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 124:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 125:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 126:Generated_Source\PSoC5/isr_pedalok.c **** *   Disables and removes the interrupt.
+ 127:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 128:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
+ 129:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 130:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 131:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 132:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 133:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 134:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 135:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Stop(void)
+ 136:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 137:Generated_Source\PSoC5/isr_pedalok.c ****     /* Disable this interrupt. */
+ 138:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_Disable();
+ 139:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 140:Generated_Source\PSoC5/isr_pedalok.c ****     /* Set the ISR to point to the passive one. */
+ 141:Generated_Source\PSoC5/isr_pedalok.c ****     isr_pedalok_SetVector(&IntDefaultHandler);
+ 142:Generated_Source\PSoC5/isr_pedalok.c **** }
  143:Generated_Source\PSoC5/isr_pedalok.c **** 
- 144:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 145:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Interrupt
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 4
+ 144:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 145:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 4
 
 
- 146:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 147:Generated_Source\PSoC5/isr_pedalok.c **** *
- 148:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 149:Generated_Source\PSoC5/isr_pedalok.c **** *   The default Interrupt Service Routine for isr_pedalok.
- 150:Generated_Source\PSoC5/isr_pedalok.c **** *
- 151:Generated_Source\PSoC5/isr_pedalok.c **** *   Add custom code between the coments to keep the next version of this file
- 152:Generated_Source\PSoC5/isr_pedalok.c **** *   from over writting your code.
- 153:Generated_Source\PSoC5/isr_pedalok.c **** *
- 154:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
- 155:Generated_Source\PSoC5/isr_pedalok.c **** *
- 156:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 157:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 158:Generated_Source\PSoC5/isr_pedalok.c **** *
- 159:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 160:Generated_Source\PSoC5/isr_pedalok.c **** CY_ISR(isr_pedalok_Interrupt)
- 161:Generated_Source\PSoC5/isr_pedalok.c **** {
-  27              		.loc 1 161 0
+ 146:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Interrupt
+ 147:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 148:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 149:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 150:Generated_Source\PSoC5/isr_pedalok.c **** *   The default Interrupt Service Routine for isr_pedalok.
+ 151:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 152:Generated_Source\PSoC5/isr_pedalok.c **** *   Add custom code between the coments to keep the next version of this file
+ 153:Generated_Source\PSoC5/isr_pedalok.c **** *   from over writting your code.
+ 154:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 155:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:  
+ 156:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 157:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 158:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 159:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 160:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 161:Generated_Source\PSoC5/isr_pedalok.c **** CY_ISR(isr_pedalok_Interrupt)
+ 162:Generated_Source\PSoC5/isr_pedalok.c **** {
+  27              		.loc 1 162 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32 0000 7047     		bx	lr
-  33              		.cfi_endproc
-  34              	.LFE3:
-  35              		.size	isr_pedalok_Interrupt, .-isr_pedalok_Interrupt
-  36 0002 00BF     		.section	.text.isr_pedalok_SetVector,"ax",%progbits
-  37              		.align	2
-  38              		.global	isr_pedalok_SetVector
-  39              		.thumb
-  40              		.thumb_func
-  41              		.type	isr_pedalok_SetVector, %function
-  42              	isr_pedalok_SetVector:
-  43              	.LFB4:
- 162:Generated_Source\PSoC5/isr_pedalok.c ****     #ifdef isr_pedalok_INTERRUPT_INTERRUPT_CALLBACK
- 163:Generated_Source\PSoC5/isr_pedalok.c ****         isr_pedalok_Interrupt_InterruptCallback();
- 164:Generated_Source\PSoC5/isr_pedalok.c ****     #endif /* isr_pedalok_INTERRUPT_INTERRUPT_CALLBACK */ 
- 165:Generated_Source\PSoC5/isr_pedalok.c **** 
- 166:Generated_Source\PSoC5/isr_pedalok.c ****     /*  Place your Interrupt code here. */
- 167:Generated_Source\PSoC5/isr_pedalok.c ****     /* `#START isr_pedalok_Interrupt` */
- 168:Generated_Source\PSoC5/isr_pedalok.c **** 
- 169:Generated_Source\PSoC5/isr_pedalok.c ****     /* `#END` */
- 170:Generated_Source\PSoC5/isr_pedalok.c **** }
- 171:Generated_Source\PSoC5/isr_pedalok.c **** 
- 172:Generated_Source\PSoC5/isr_pedalok.c **** 
- 173:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 174:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_SetVector
- 175:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 176:Generated_Source\PSoC5/isr_pedalok.c **** *
- 177:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 178:Generated_Source\PSoC5/isr_pedalok.c **** *   Change the ISR vector for the Interrupt. Note calling isr_pedalok_Start
- 179:Generated_Source\PSoC5/isr_pedalok.c **** *   will override any effect this method would have had. To set the vector 
- 180:Generated_Source\PSoC5/isr_pedalok.c **** *   before the component has been started use isr_pedalok_StartEx instead.
- 181:Generated_Source\PSoC5/isr_pedalok.c **** * 
- 182:Generated_Source\PSoC5/isr_pedalok.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
- 183:Generated_Source\PSoC5/isr_pedalok.c **** *   used to provide consistent definition across compilers:
- 184:Generated_Source\PSoC5/isr_pedalok.c **** *
- 185:Generated_Source\PSoC5/isr_pedalok.c **** *   Function definition example:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 5
+  31 0000 10B5     		push	{r4, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 4, -8
+  34              		.cfi_offset 14, -4
+ 163:Generated_Source\PSoC5/isr_pedalok.c ****     #ifdef isr_pedalok_INTERRUPT_INTERRUPT_CALLBACK
+ 164:Generated_Source\PSoC5/isr_pedalok.c ****         isr_pedalok_Interrupt_InterruptCallback();
+ 165:Generated_Source\PSoC5/isr_pedalok.c ****     #endif /* isr_pedalok_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 166:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 167:Generated_Source\PSoC5/isr_pedalok.c ****     /*  Place your Interrupt code here. */
+ 168:Generated_Source\PSoC5/isr_pedalok.c ****     /* `#START isr_pedalok_Interrupt` */
+ 169:Generated_Source\PSoC5/isr_pedalok.c ****     uint8 InterruptState = CyEnterCriticalSection();
+  35              		.loc 1 169 0
+  36 0002 FFF7FEFF 		bl	CyEnterCriticalSection
+  37              	.LVL0:
+  38 0006 0446     		mov	r4, r0
+  39              	.LVL1:
+ 170:Generated_Source\PSoC5/isr_pedalok.c ****     pedalOK++;
+  40              		.loc 1 170 0
+  41 0008 044A     		ldr	r2, .L3
+  42 000a 1368     		ldr	r3, [r2]
+  43 000c 0133     		adds	r3, r3, #1
+  44 000e 1360     		str	r3, [r2]
+ 171:Generated_Source\PSoC5/isr_pedalok.c ****     Pedal_Timer_ReadStatusRegister();
+  45              		.loc 1 171 0
+  46 0010 FFF7FEFF 		bl	Pedal_Timer_ReadStatusRegister
+  47              	.LVL2:
+ 172:Generated_Source\PSoC5/isr_pedalok.c ****     CyExitCriticalSection(InterruptState);
+  48              		.loc 1 172 0
+  49 0014 2046     		mov	r0, r4
+  50 0016 FFF7FEFF 		bl	CyExitCriticalSection
+  51              	.LVL3:
+  52 001a 10BD     		pop	{r4, pc}
+  53              	.LVL4:
+  54              	.L4:
+  55              		.align	2
+  56              	.L3:
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 5
 
 
- 186:Generated_Source\PSoC5/isr_pedalok.c **** *   CY_ISR(MyISR)
- 187:Generated_Source\PSoC5/isr_pedalok.c **** *   {
- 188:Generated_Source\PSoC5/isr_pedalok.c **** *   }
- 189:Generated_Source\PSoC5/isr_pedalok.c **** *
- 190:Generated_Source\PSoC5/isr_pedalok.c **** *   Function prototype example:
- 191:Generated_Source\PSoC5/isr_pedalok.c **** *     CY_ISR_PROTO(MyISR);
- 192:Generated_Source\PSoC5/isr_pedalok.c **** *
- 193:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 194:Generated_Source\PSoC5/isr_pedalok.c **** *   address: Address of the ISR to set in the interrupt vector table.
- 195:Generated_Source\PSoC5/isr_pedalok.c **** *
- 196:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 197:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 198:Generated_Source\PSoC5/isr_pedalok.c **** *
- 199:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 200:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_SetVector(cyisraddress address)
- 201:Generated_Source\PSoC5/isr_pedalok.c **** {
-  44              		.loc 1 201 0
-  45              		.cfi_startproc
-  46              		@ args = 0, pretend = 0, frame = 0
-  47              		@ frame_needed = 0, uses_anonymous_args = 0
-  48              		@ link register save eliminated.
-  49              	.LVL0:
- 202:Generated_Source\PSoC5/isr_pedalok.c ****     cyisraddress * ramVectorTable;
- 203:Generated_Source\PSoC5/isr_pedalok.c **** 
- 204:Generated_Source\PSoC5/isr_pedalok.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
-  50              		.loc 1 204 0
-  51 0000 014B     		ldr	r3, .L3
-  52 0002 1B68     		ldr	r3, [r3]
-  53              	.LVL1:
- 205:Generated_Source\PSoC5/isr_pedalok.c **** 
- 206:Generated_Source\PSoC5/isr_pedalok.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_pedalok__INTC_NUMBER] = address;
-  54              		.loc 1 206 0
-  55 0004 5864     		str	r0, [r3, #68]
-  56 0006 7047     		bx	lr
-  57              	.L4:
-  58              		.align	2
-  59              	.L3:
-  60 0008 08ED00E0 		.word	-536810232
-  61              		.cfi_endproc
-  62              	.LFE4:
-  63              		.size	isr_pedalok_SetVector, .-isr_pedalok_SetVector
-  64              		.section	.text.isr_pedalok_GetVector,"ax",%progbits
-  65              		.align	2
-  66              		.global	isr_pedalok_GetVector
-  67              		.thumb
-  68              		.thumb_func
-  69              		.type	isr_pedalok_GetVector, %function
-  70              	isr_pedalok_GetVector:
-  71              	.LFB5:
- 207:Generated_Source\PSoC5/isr_pedalok.c **** }
- 208:Generated_Source\PSoC5/isr_pedalok.c **** 
+  57 001c 00000000 		.word	pedalOK
+  58              		.cfi_endproc
+  59              	.LFE3:
+  60              		.size	isr_pedalok_Interrupt, .-isr_pedalok_Interrupt
+  61              		.section	.text.isr_pedalok_SetVector,"ax",%progbits
+  62              		.align	2
+  63              		.global	isr_pedalok_SetVector
+  64              		.thumb
+  65              		.thumb_func
+  66              		.type	isr_pedalok_SetVector, %function
+  67              	isr_pedalok_SetVector:
+  68              	.LFB4:
+ 173:Generated_Source\PSoC5/isr_pedalok.c ****     /* `#END` */
+ 174:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 175:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 176:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 177:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 178:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_SetVector
+ 179:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 180:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 181:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 182:Generated_Source\PSoC5/isr_pedalok.c **** *   Change the ISR vector for the Interrupt. Note calling isr_pedalok_Start
+ 183:Generated_Source\PSoC5/isr_pedalok.c **** *   will override any effect this method would have had. To set the vector 
+ 184:Generated_Source\PSoC5/isr_pedalok.c **** *   before the component has been started use isr_pedalok_StartEx instead.
+ 185:Generated_Source\PSoC5/isr_pedalok.c **** * 
+ 186:Generated_Source\PSoC5/isr_pedalok.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 187:Generated_Source\PSoC5/isr_pedalok.c **** *   used to provide consistent definition across compilers:
+ 188:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 189:Generated_Source\PSoC5/isr_pedalok.c **** *   Function definition example:
+ 190:Generated_Source\PSoC5/isr_pedalok.c **** *   CY_ISR(MyISR)
+ 191:Generated_Source\PSoC5/isr_pedalok.c **** *   {
+ 192:Generated_Source\PSoC5/isr_pedalok.c **** *   }
+ 193:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 194:Generated_Source\PSoC5/isr_pedalok.c **** *   Function prototype example:
+ 195:Generated_Source\PSoC5/isr_pedalok.c **** *     CY_ISR_PROTO(MyISR);
+ 196:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 197:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 198:Generated_Source\PSoC5/isr_pedalok.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 199:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 200:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 201:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 202:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 203:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 204:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_SetVector(cyisraddress address)
+ 205:Generated_Source\PSoC5/isr_pedalok.c **** {
+  69              		.loc 1 205 0
+  70              		.cfi_startproc
+  71              		@ args = 0, pretend = 0, frame = 0
+  72              		@ frame_needed = 0, uses_anonymous_args = 0
+  73              		@ link register save eliminated.
+  74              	.LVL5:
+ 206:Generated_Source\PSoC5/isr_pedalok.c ****     cyisraddress * ramVectorTable;
+ 207:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 208:Generated_Source\PSoC5/isr_pedalok.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+  75              		.loc 1 208 0
+  76 0000 014B     		ldr	r3, .L6
+  77 0002 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 6
+
+
+  78              	.LVL6:
  209:Generated_Source\PSoC5/isr_pedalok.c **** 
- 210:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 211:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_GetVector
- 212:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 213:Generated_Source\PSoC5/isr_pedalok.c **** *
- 214:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 6
-
-
- 215:Generated_Source\PSoC5/isr_pedalok.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
- 216:Generated_Source\PSoC5/isr_pedalok.c **** *
- 217:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 218:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 219:Generated_Source\PSoC5/isr_pedalok.c **** *
- 220:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 221:Generated_Source\PSoC5/isr_pedalok.c **** *   Address of the ISR in the interrupt vector table.
- 222:Generated_Source\PSoC5/isr_pedalok.c **** *
- 223:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 224:Generated_Source\PSoC5/isr_pedalok.c **** cyisraddress isr_pedalok_GetVector(void)
- 225:Generated_Source\PSoC5/isr_pedalok.c **** {
-  72              		.loc 1 225 0
-  73              		.cfi_startproc
-  74              		@ args = 0, pretend = 0, frame = 0
-  75              		@ frame_needed = 0, uses_anonymous_args = 0
-  76              		@ link register save eliminated.
- 226:Generated_Source\PSoC5/isr_pedalok.c ****     cyisraddress * ramVectorTable;
- 227:Generated_Source\PSoC5/isr_pedalok.c **** 
- 228:Generated_Source\PSoC5/isr_pedalok.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
-  77              		.loc 1 228 0
-  78 0000 014B     		ldr	r3, .L6
-  79 0002 1B68     		ldr	r3, [r3]
-  80              	.LVL2:
- 229:Generated_Source\PSoC5/isr_pedalok.c **** 
- 230:Generated_Source\PSoC5/isr_pedalok.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_pedalok__INTC_NUMBER];
- 231:Generated_Source\PSoC5/isr_pedalok.c **** }
-  81              		.loc 1 231 0
-  82 0004 586C     		ldr	r0, [r3, #68]
-  83 0006 7047     		bx	lr
-  84              	.L7:
-  85              		.align	2
-  86              	.L6:
-  87 0008 08ED00E0 		.word	-536810232
-  88              		.cfi_endproc
-  89              	.LFE5:
-  90              		.size	isr_pedalok_GetVector, .-isr_pedalok_GetVector
-  91              		.section	.text.isr_pedalok_SetPriority,"ax",%progbits
-  92              		.align	2
-  93              		.global	isr_pedalok_SetPriority
-  94              		.thumb
-  95              		.thumb_func
-  96              		.type	isr_pedalok_SetPriority, %function
-  97              	isr_pedalok_SetPriority:
-  98              	.LFB6:
- 232:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 210:Generated_Source\PSoC5/isr_pedalok.c ****     ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_pedalok__INTC_NUMBER] = address;
+  79              		.loc 1 210 0
+  80 0004 5864     		str	r0, [r3, #68]
+  81 0006 7047     		bx	lr
+  82              	.L7:
+  83              		.align	2
+  84              	.L6:
+  85 0008 08ED00E0 		.word	-536810232
+  86              		.cfi_endproc
+  87              	.LFE4:
+  88              		.size	isr_pedalok_SetVector, .-isr_pedalok_SetVector
+  89              		.section	.text.isr_pedalok_GetVector,"ax",%progbits
+  90              		.align	2
+  91              		.global	isr_pedalok_GetVector
+  92              		.thumb
+  93              		.thumb_func
+  94              		.type	isr_pedalok_GetVector, %function
+  95              	isr_pedalok_GetVector:
+  96              	.LFB5:
+ 211:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 212:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 213:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 214:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 215:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_GetVector
+ 216:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 217:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 218:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 219:Generated_Source\PSoC5/isr_pedalok.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 220:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 221:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 222:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 223:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 224:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 225:Generated_Source\PSoC5/isr_pedalok.c **** *   Address of the ISR in the interrupt vector table.
+ 226:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 227:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 228:Generated_Source\PSoC5/isr_pedalok.c **** cyisraddress isr_pedalok_GetVector(void)
+ 229:Generated_Source\PSoC5/isr_pedalok.c **** {
+  97              		.loc 1 229 0
+  98              		.cfi_startproc
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 0, uses_anonymous_args = 0
+ 101              		@ link register save eliminated.
+ 230:Generated_Source\PSoC5/isr_pedalok.c ****     cyisraddress * ramVectorTable;
+ 231:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 232:Generated_Source\PSoC5/isr_pedalok.c ****     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
+ 102              		.loc 1 232 0
+ 103 0000 014B     		ldr	r3, .L9
+ 104 0002 1B68     		ldr	r3, [r3]
+ 105              	.LVL7:
  233:Generated_Source\PSoC5/isr_pedalok.c **** 
- 234:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 235:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_SetPriority
- 236:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 237:Generated_Source\PSoC5/isr_pedalok.c **** *
- 238:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 239:Generated_Source\PSoC5/isr_pedalok.c **** *   Sets the Priority of the Interrupt. 
- 240:Generated_Source\PSoC5/isr_pedalok.c **** *
- 241:Generated_Source\PSoC5/isr_pedalok.c **** *   Note calling isr_pedalok_Start or isr_pedalok_StartEx will 
- 242:Generated_Source\PSoC5/isr_pedalok.c **** *   override any effect this API would have had. This API should only be called
- 243:Generated_Source\PSoC5/isr_pedalok.c **** *   after isr_pedalok_Start or isr_pedalok_StartEx has been called. 
- 244:Generated_Source\PSoC5/isr_pedalok.c **** *   To set the initial priority for the component, use the Design-Wide Resources
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 7
+ 234:Generated_Source\PSoC5/isr_pedalok.c ****     return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_pedalok__INTC_NUMBER];
+ 235:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 106              		.loc 1 235 0
+ 107 0004 586C     		ldr	r0, [r3, #68]
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 7
 
 
- 245:Generated_Source\PSoC5/isr_pedalok.c **** *   Interrupt Editor.
- 246:Generated_Source\PSoC5/isr_pedalok.c **** *
- 247:Generated_Source\PSoC5/isr_pedalok.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
- 248:Generated_Source\PSoC5/isr_pedalok.c **** *
- 249:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 250:Generated_Source\PSoC5/isr_pedalok.c **** *   priority: Priority of the interrupt, 0 being the highest priority
- 251:Generated_Source\PSoC5/isr_pedalok.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 252:Generated_Source\PSoC5/isr_pedalok.c **** *             PSoC 4: Priority is from 0 to 3.
- 253:Generated_Source\PSoC5/isr_pedalok.c **** *
- 254:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 255:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 256:Generated_Source\PSoC5/isr_pedalok.c **** *
- 257:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 258:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_SetPriority(uint8 priority)
- 259:Generated_Source\PSoC5/isr_pedalok.c **** {
-  99              		.loc 1 259 0
- 100              		.cfi_startproc
- 101              		@ args = 0, pretend = 0, frame = 0
- 102              		@ frame_needed = 0, uses_anonymous_args = 0
- 103              		@ link register save eliminated.
- 104              	.LVL3:
- 260:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_PRIOR = priority << 5;
- 105              		.loc 1 260 0
- 106 0000 4001     		lsls	r0, r0, #5
- 107              	.LVL4:
- 108 0002 C0B2     		uxtb	r0, r0
- 109 0004 014B     		ldr	r3, .L9
- 110 0006 1870     		strb	r0, [r3]
- 111 0008 7047     		bx	lr
- 112              	.L10:
- 113 000a 00BF     		.align	2
- 114              	.L9:
- 115 000c 01E400E0 		.word	-536812543
- 116              		.cfi_endproc
- 117              	.LFE6:
- 118              		.size	isr_pedalok_SetPriority, .-isr_pedalok_SetPriority
- 119              		.section	.text.isr_pedalok_GetPriority,"ax",%progbits
- 120              		.align	2
- 121              		.global	isr_pedalok_GetPriority
- 122              		.thumb
- 123              		.thumb_func
- 124              		.type	isr_pedalok_GetPriority, %function
- 125              	isr_pedalok_GetPriority:
- 126              	.LFB7:
- 261:Generated_Source\PSoC5/isr_pedalok.c **** }
- 262:Generated_Source\PSoC5/isr_pedalok.c **** 
- 263:Generated_Source\PSoC5/isr_pedalok.c **** 
- 264:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 265:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_GetPriority
- 266:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 267:Generated_Source\PSoC5/isr_pedalok.c **** *
- 268:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 269:Generated_Source\PSoC5/isr_pedalok.c **** *   Gets the Priority of the Interrupt.
- 270:Generated_Source\PSoC5/isr_pedalok.c **** *
- 271:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 272:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 273:Generated_Source\PSoC5/isr_pedalok.c **** *
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 8
+ 108 0006 7047     		bx	lr
+ 109              	.L10:
+ 110              		.align	2
+ 111              	.L9:
+ 112 0008 08ED00E0 		.word	-536810232
+ 113              		.cfi_endproc
+ 114              	.LFE5:
+ 115              		.size	isr_pedalok_GetVector, .-isr_pedalok_GetVector
+ 116              		.section	.text.isr_pedalok_SetPriority,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	isr_pedalok_SetPriority
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.type	isr_pedalok_SetPriority, %function
+ 122              	isr_pedalok_SetPriority:
+ 123              	.LFB6:
+ 236:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 237:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 238:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 239:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_SetPriority
+ 240:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 241:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 242:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 243:Generated_Source\PSoC5/isr_pedalok.c **** *   Sets the Priority of the Interrupt. 
+ 244:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 245:Generated_Source\PSoC5/isr_pedalok.c **** *   Note calling isr_pedalok_Start or isr_pedalok_StartEx will 
+ 246:Generated_Source\PSoC5/isr_pedalok.c **** *   override any effect this API would have had. This API should only be called
+ 247:Generated_Source\PSoC5/isr_pedalok.c **** *   after isr_pedalok_Start or isr_pedalok_StartEx has been called. 
+ 248:Generated_Source\PSoC5/isr_pedalok.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 249:Generated_Source\PSoC5/isr_pedalok.c **** *   Interrupt Editor.
+ 250:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 251:Generated_Source\PSoC5/isr_pedalok.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 252:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 253:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 254:Generated_Source\PSoC5/isr_pedalok.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 255:Generated_Source\PSoC5/isr_pedalok.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 256:Generated_Source\PSoC5/isr_pedalok.c **** *             PSoC 4: Priority is from 0 to 3.
+ 257:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 258:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 259:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 260:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 261:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 262:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_SetPriority(uint8 priority)
+ 263:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 124              		.loc 1 263 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+ 129              	.LVL8:
+ 264:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_PRIOR = priority << 5;
+ 130              		.loc 1 264 0
+ 131 0000 4001     		lsls	r0, r0, #5
+ 132              	.LVL9:
+ 133 0002 C0B2     		uxtb	r0, r0
+ 134 0004 014B     		ldr	r3, .L12
+ 135 0006 1870     		strb	r0, [r3]
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 8
 
 
- 274:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 275:Generated_Source\PSoC5/isr_pedalok.c **** *   Priority of the interrupt, 0 being the highest priority
- 276:Generated_Source\PSoC5/isr_pedalok.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
- 277:Generated_Source\PSoC5/isr_pedalok.c **** *    PSoC 4: Priority is from 0 to 3.
- 278:Generated_Source\PSoC5/isr_pedalok.c **** *
- 279:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 280:Generated_Source\PSoC5/isr_pedalok.c **** uint8 isr_pedalok_GetPriority(void)
- 281:Generated_Source\PSoC5/isr_pedalok.c **** {
- 127              		.loc 1 281 0
- 128              		.cfi_startproc
- 129              		@ args = 0, pretend = 0, frame = 0
- 130              		@ frame_needed = 0, uses_anonymous_args = 0
- 131              		@ link register save eliminated.
- 282:Generated_Source\PSoC5/isr_pedalok.c ****     uint8 priority;
- 283:Generated_Source\PSoC5/isr_pedalok.c **** 
- 284:Generated_Source\PSoC5/isr_pedalok.c **** 
- 285:Generated_Source\PSoC5/isr_pedalok.c ****     priority = *isr_pedalok_INTC_PRIOR >> 5;
- 132              		.loc 1 285 0
- 133 0000 014B     		ldr	r3, .L12
- 134 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
- 135              	.LVL5:
- 286:Generated_Source\PSoC5/isr_pedalok.c **** 
- 287:Generated_Source\PSoC5/isr_pedalok.c ****     return priority;
- 288:Generated_Source\PSoC5/isr_pedalok.c **** }
- 136              		.loc 1 288 0
- 137 0004 4009     		lsrs	r0, r0, #5
- 138              	.LVL6:
- 139 0006 7047     		bx	lr
- 140              	.L13:
- 141              		.align	2
- 142              	.L12:
- 143 0008 01E400E0 		.word	-536812543
- 144              		.cfi_endproc
- 145              	.LFE7:
- 146              		.size	isr_pedalok_GetPriority, .-isr_pedalok_GetPriority
- 147              		.section	.text.isr_pedalok_Enable,"ax",%progbits
- 148              		.align	2
- 149              		.global	isr_pedalok_Enable
- 150              		.thumb
- 151              		.thumb_func
- 152              		.type	isr_pedalok_Enable, %function
- 153              	isr_pedalok_Enable:
- 154              	.LFB8:
- 289:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 136 0008 7047     		bx	lr
+ 137              	.L13:
+ 138 000a 00BF     		.align	2
+ 139              	.L12:
+ 140 000c 01E400E0 		.word	-536812543
+ 141              		.cfi_endproc
+ 142              	.LFE6:
+ 143              		.size	isr_pedalok_SetPriority, .-isr_pedalok_SetPriority
+ 144              		.section	.text.isr_pedalok_GetPriority,"ax",%progbits
+ 145              		.align	2
+ 146              		.global	isr_pedalok_GetPriority
+ 147              		.thumb
+ 148              		.thumb_func
+ 149              		.type	isr_pedalok_GetPriority, %function
+ 150              	isr_pedalok_GetPriority:
+ 151              	.LFB7:
+ 265:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 266:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 267:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 268:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 269:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_GetPriority
+ 270:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 271:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 272:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 273:Generated_Source\PSoC5/isr_pedalok.c **** *   Gets the Priority of the Interrupt.
+ 274:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 275:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 276:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 277:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 278:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 279:Generated_Source\PSoC5/isr_pedalok.c **** *   Priority of the interrupt, 0 being the highest priority
+ 280:Generated_Source\PSoC5/isr_pedalok.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 281:Generated_Source\PSoC5/isr_pedalok.c **** *    PSoC 4: Priority is from 0 to 3.
+ 282:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 283:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 284:Generated_Source\PSoC5/isr_pedalok.c **** uint8 isr_pedalok_GetPriority(void)
+ 285:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 152              		.loc 1 285 0
+ 153              		.cfi_startproc
+ 154              		@ args = 0, pretend = 0, frame = 0
+ 155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 156              		@ link register save eliminated.
+ 286:Generated_Source\PSoC5/isr_pedalok.c ****     uint8 priority;
+ 287:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 288:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 289:Generated_Source\PSoC5/isr_pedalok.c ****     priority = *isr_pedalok_INTC_PRIOR >> 5;
+ 157              		.loc 1 289 0
+ 158 0000 014B     		ldr	r3, .L15
+ 159 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 160              	.LVL10:
  290:Generated_Source\PSoC5/isr_pedalok.c **** 
- 291:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 292:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Enable
- 293:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 294:Generated_Source\PSoC5/isr_pedalok.c **** *
- 295:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 296:Generated_Source\PSoC5/isr_pedalok.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
- 297:Generated_Source\PSoC5/isr_pedalok.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
- 298:Generated_Source\PSoC5/isr_pedalok.c **** *   function, which sets the vector and the priority, has been called.
- 299:Generated_Source\PSoC5/isr_pedalok.c **** *
- 300:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 301:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 302:Generated_Source\PSoC5/isr_pedalok.c **** *
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 9
-
-
- 303:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 304:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 305:Generated_Source\PSoC5/isr_pedalok.c **** *
- 306:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 307:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Enable(void)
- 308:Generated_Source\PSoC5/isr_pedalok.c **** {
- 155              		.loc 1 308 0
- 156              		.cfi_startproc
- 157              		@ args = 0, pretend = 0, frame = 0
- 158              		@ frame_needed = 0, uses_anonymous_args = 0
- 159              		@ link register save eliminated.
- 309:Generated_Source\PSoC5/isr_pedalok.c ****     /* Enable the general interrupt. */
- 310:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_SET_EN = isr_pedalok__INTC_MASK;
- 160              		.loc 1 310 0
- 161 0000 0222     		movs	r2, #2
- 162 0002 014B     		ldr	r3, .L15
- 163 0004 1A60     		str	r2, [r3]
+ 291:Generated_Source\PSoC5/isr_pedalok.c ****     return priority;
+ 292:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 161              		.loc 1 292 0
+ 162 0004 4009     		lsrs	r0, r0, #5
+ 163              	.LVL11:
  164 0006 7047     		bx	lr
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 9
+
+
  165              	.L16:
  166              		.align	2
  167              	.L15:
- 168 0008 00E100E0 		.word	-536813312
+ 168 0008 01E400E0 		.word	-536812543
  169              		.cfi_endproc
- 170              	.LFE8:
- 171              		.size	isr_pedalok_Enable, .-isr_pedalok_Enable
- 172              		.section	.text.isr_pedalok_GetState,"ax",%progbits
+ 170              	.LFE7:
+ 171              		.size	isr_pedalok_GetPriority, .-isr_pedalok_GetPriority
+ 172              		.section	.text.isr_pedalok_Enable,"ax",%progbits
  173              		.align	2
- 174              		.global	isr_pedalok_GetState
+ 174              		.global	isr_pedalok_Enable
  175              		.thumb
  176              		.thumb_func
- 177              		.type	isr_pedalok_GetState, %function
- 178              	isr_pedalok_GetState:
- 179              	.LFB9:
- 311:Generated_Source\PSoC5/isr_pedalok.c **** }
- 312:Generated_Source\PSoC5/isr_pedalok.c **** 
- 313:Generated_Source\PSoC5/isr_pedalok.c **** 
- 314:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 315:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_GetState
- 316:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 317:Generated_Source\PSoC5/isr_pedalok.c **** *
- 318:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 319:Generated_Source\PSoC5/isr_pedalok.c **** *   Gets the state (enabled, disabled) of the Interrupt.
- 320:Generated_Source\PSoC5/isr_pedalok.c **** *
- 321:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 322:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 323:Generated_Source\PSoC5/isr_pedalok.c **** *
- 324:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 325:Generated_Source\PSoC5/isr_pedalok.c **** *   1 if enabled, 0 if disabled.
- 326:Generated_Source\PSoC5/isr_pedalok.c **** *
- 327:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 328:Generated_Source\PSoC5/isr_pedalok.c **** uint8 isr_pedalok_GetState(void)
- 329:Generated_Source\PSoC5/isr_pedalok.c **** {
- 180              		.loc 1 329 0
+ 177              		.type	isr_pedalok_Enable, %function
+ 178              	isr_pedalok_Enable:
+ 179              	.LFB8:
+ 293:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 294:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 295:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 296:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Enable
+ 297:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 298:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 299:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 300:Generated_Source\PSoC5/isr_pedalok.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 301:Generated_Source\PSoC5/isr_pedalok.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 302:Generated_Source\PSoC5/isr_pedalok.c **** *   function, which sets the vector and the priority, has been called.
+ 303:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 304:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 305:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 306:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 307:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 308:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 309:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 310:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 311:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Enable(void)
+ 312:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 180              		.loc 1 312 0
  181              		.cfi_startproc
  182              		@ args = 0, pretend = 0, frame = 0
  183              		@ frame_needed = 0, uses_anonymous_args = 0
  184              		@ link register save eliminated.
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 10
+ 313:Generated_Source\PSoC5/isr_pedalok.c ****     /* Enable the general interrupt. */
+ 314:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_SET_EN = isr_pedalok__INTC_MASK;
+ 185              		.loc 1 314 0
+ 186 0000 0222     		movs	r2, #2
+ 187 0002 014B     		ldr	r3, .L18
+ 188 0004 1A60     		str	r2, [r3]
+ 189 0006 7047     		bx	lr
+ 190              	.L19:
+ 191              		.align	2
+ 192              	.L18:
+ 193 0008 00E100E0 		.word	-536813312
+ 194              		.cfi_endproc
+ 195              	.LFE8:
+ 196              		.size	isr_pedalok_Enable, .-isr_pedalok_Enable
+ 197              		.section	.text.isr_pedalok_GetState,"ax",%progbits
+ 198              		.align	2
+ 199              		.global	isr_pedalok_GetState
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 10
 
 
- 330:Generated_Source\PSoC5/isr_pedalok.c ****     /* Get the state of the general interrupt. */
- 331:Generated_Source\PSoC5/isr_pedalok.c ****     return ((*isr_pedalok_INTC_SET_EN & (uint32)isr_pedalok__INTC_MASK) != 0u) ? 1u:0u;
- 185              		.loc 1 331 0
- 186 0000 044B     		ldr	r3, .L20
- 187 0002 1B68     		ldr	r3, [r3]
- 188 0004 13F0020F 		tst	r3, #2
- 189 0008 01D0     		beq	.L19
- 190 000a 0120     		movs	r0, #1
- 191 000c 7047     		bx	lr
- 192              	.L19:
- 193 000e 0020     		movs	r0, #0
- 332:Generated_Source\PSoC5/isr_pedalok.c **** }
- 194              		.loc 1 332 0
- 195 0010 7047     		bx	lr
- 196              	.L21:
- 197 0012 00BF     		.align	2
- 198              	.L20:
- 199 0014 00E100E0 		.word	-536813312
- 200              		.cfi_endproc
- 201              	.LFE9:
- 202              		.size	isr_pedalok_GetState, .-isr_pedalok_GetState
- 203              		.section	.text.isr_pedalok_Disable,"ax",%progbits
- 204              		.align	2
- 205              		.global	isr_pedalok_Disable
- 206              		.thumb
- 207              		.thumb_func
- 208              		.type	isr_pedalok_Disable, %function
- 209              	isr_pedalok_Disable:
- 210              	.LFB10:
- 333:Generated_Source\PSoC5/isr_pedalok.c **** 
- 334:Generated_Source\PSoC5/isr_pedalok.c **** 
- 335:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 336:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Disable
- 337:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 338:Generated_Source\PSoC5/isr_pedalok.c **** *
- 339:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 340:Generated_Source\PSoC5/isr_pedalok.c **** *   Disables the Interrupt in the interrupt controller.
- 341:Generated_Source\PSoC5/isr_pedalok.c **** *
- 342:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 343:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 344:Generated_Source\PSoC5/isr_pedalok.c **** *
- 345:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 346:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 347:Generated_Source\PSoC5/isr_pedalok.c **** *
- 348:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 349:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Disable(void)
- 350:Generated_Source\PSoC5/isr_pedalok.c **** {
- 211              		.loc 1 350 0
- 212              		.cfi_startproc
- 213              		@ args = 0, pretend = 0, frame = 0
- 214              		@ frame_needed = 0, uses_anonymous_args = 0
- 215              		@ link register save eliminated.
- 351:Generated_Source\PSoC5/isr_pedalok.c ****     /* Disable the general interrupt. */
- 352:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_CLR_EN = isr_pedalok__INTC_MASK;
- 216              		.loc 1 352 0
- 217 0000 0222     		movs	r2, #2
- 218 0002 014B     		ldr	r3, .L23
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 11
-
-
- 219 0004 1A60     		str	r2, [r3]
- 220 0006 7047     		bx	lr
+ 200              		.thumb
+ 201              		.thumb_func
+ 202              		.type	isr_pedalok_GetState, %function
+ 203              	isr_pedalok_GetState:
+ 204              	.LFB9:
+ 315:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 316:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 317:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 318:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 319:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_GetState
+ 320:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 321:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 322:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 323:Generated_Source\PSoC5/isr_pedalok.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 324:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 325:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 326:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 327:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 328:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 329:Generated_Source\PSoC5/isr_pedalok.c **** *   1 if enabled, 0 if disabled.
+ 330:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 331:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 332:Generated_Source\PSoC5/isr_pedalok.c **** uint8 isr_pedalok_GetState(void)
+ 333:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 205              		.loc 1 333 0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 209              		@ link register save eliminated.
+ 334:Generated_Source\PSoC5/isr_pedalok.c ****     /* Get the state of the general interrupt. */
+ 335:Generated_Source\PSoC5/isr_pedalok.c ****     return ((*isr_pedalok_INTC_SET_EN & (uint32)isr_pedalok__INTC_MASK) != 0u) ? 1u:0u;
+ 210              		.loc 1 335 0
+ 211 0000 044B     		ldr	r3, .L23
+ 212 0002 1B68     		ldr	r3, [r3]
+ 213 0004 13F0020F 		tst	r3, #2
+ 214 0008 01D0     		beq	.L22
+ 215 000a 0120     		movs	r0, #1
+ 216 000c 7047     		bx	lr
+ 217              	.L22:
+ 218 000e 0020     		movs	r0, #0
+ 336:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 219              		.loc 1 336 0
+ 220 0010 7047     		bx	lr
  221              	.L24:
- 222              		.align	2
+ 222 0012 00BF     		.align	2
  223              	.L23:
- 224 0008 80E100E0 		.word	-536813184
+ 224 0014 00E100E0 		.word	-536813312
  225              		.cfi_endproc
- 226              	.LFE10:
- 227              		.size	isr_pedalok_Disable, .-isr_pedalok_Disable
- 228              		.section	.text.isr_pedalok_Start,"ax",%progbits
+ 226              	.LFE9:
+ 227              		.size	isr_pedalok_GetState, .-isr_pedalok_GetState
+ 228              		.section	.text.isr_pedalok_Disable,"ax",%progbits
  229              		.align	2
- 230              		.global	isr_pedalok_Start
+ 230              		.global	isr_pedalok_Disable
  231              		.thumb
  232              		.thumb_func
- 233              		.type	isr_pedalok_Start, %function
- 234              	isr_pedalok_Start:
- 235              	.LFB0:
-  62:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
- 236              		.loc 1 62 0
+ 233              		.type	isr_pedalok_Disable, %function
+ 234              	isr_pedalok_Disable:
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 11
+
+
+ 235              	.LFB10:
+ 337:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 338:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 339:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 340:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_Disable
+ 341:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 342:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 343:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 344:Generated_Source\PSoC5/isr_pedalok.c **** *   Disables the Interrupt in the interrupt controller.
+ 345:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 346:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 347:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 348:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 349:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 350:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 351:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 352:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 353:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_Disable(void)
+ 354:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 236              		.loc 1 354 0
  237              		.cfi_startproc
  238              		@ args = 0, pretend = 0, frame = 0
  239              		@ frame_needed = 0, uses_anonymous_args = 0
- 240 0000 08B5     		push	{r3, lr}
- 241              		.cfi_def_cfa_offset 8
- 242              		.cfi_offset 3, -8
- 243              		.cfi_offset 14, -4
-  64:Generated_Source\PSoC5/isr_pedalok.c **** 
- 244              		.loc 1 64 0
- 245 0002 FFF7FEFF 		bl	isr_pedalok_Disable
- 246              	.LVL7:
-  67:Generated_Source\PSoC5/isr_pedalok.c **** 
- 247              		.loc 1 67 0
- 248 0006 0448     		ldr	r0, .L27
- 249 0008 FFF7FEFF 		bl	isr_pedalok_SetVector
- 250              	.LVL8:
-  70:Generated_Source\PSoC5/isr_pedalok.c **** 
- 251              		.loc 1 70 0
- 252 000c 0720     		movs	r0, #7
- 253 000e FFF7FEFF 		bl	isr_pedalok_SetPriority
- 254              	.LVL9:
-  73:Generated_Source\PSoC5/isr_pedalok.c **** }
- 255              		.loc 1 73 0
- 256 0012 FFF7FEFF 		bl	isr_pedalok_Enable
- 257              	.LVL10:
- 258 0016 08BD     		pop	{r3, pc}
- 259              	.L28:
- 260              		.align	2
- 261              	.L27:
- 262 0018 00000000 		.word	isr_pedalok_Interrupt
- 263              		.cfi_endproc
- 264              	.LFE0:
- 265              		.size	isr_pedalok_Start, .-isr_pedalok_Start
- 266              		.section	.text.isr_pedalok_StartEx,"ax",%progbits
- 267              		.align	2
- 268              		.global	isr_pedalok_StartEx
- 269              		.thumb
- 270              		.thumb_func
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 12
+ 240              		@ link register save eliminated.
+ 355:Generated_Source\PSoC5/isr_pedalok.c ****     /* Disable the general interrupt. */
+ 356:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_CLR_EN = isr_pedalok__INTC_MASK;
+ 241              		.loc 1 356 0
+ 242 0000 0222     		movs	r2, #2
+ 243 0002 014B     		ldr	r3, .L26
+ 244 0004 1A60     		str	r2, [r3]
+ 245 0006 7047     		bx	lr
+ 246              	.L27:
+ 247              		.align	2
+ 248              	.L26:
+ 249 0008 80E100E0 		.word	-536813184
+ 250              		.cfi_endproc
+ 251              	.LFE10:
+ 252              		.size	isr_pedalok_Disable, .-isr_pedalok_Disable
+ 253              		.section	.text.isr_pedalok_Start,"ax",%progbits
+ 254              		.align	2
+ 255              		.global	isr_pedalok_Start
+ 256              		.thumb
+ 257              		.thumb_func
+ 258              		.type	isr_pedalok_Start, %function
+ 259              	isr_pedalok_Start:
+ 260              	.LFB0:
+  63:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
+ 261              		.loc 1 63 0
+ 262              		.cfi_startproc
+ 263              		@ args = 0, pretend = 0, frame = 0
+ 264              		@ frame_needed = 0, uses_anonymous_args = 0
+ 265 0000 08B5     		push	{r3, lr}
+ 266              		.cfi_def_cfa_offset 8
+ 267              		.cfi_offset 3, -8
+ 268              		.cfi_offset 14, -4
+  65:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 269              		.loc 1 65 0
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 12
 
 
- 271              		.type	isr_pedalok_StartEx, %function
- 272              	isr_pedalok_StartEx:
- 273              	.LFB1:
- 105:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
- 274              		.loc 1 105 0
- 275              		.cfi_startproc
- 276              		@ args = 0, pretend = 0, frame = 0
- 277              		@ frame_needed = 0, uses_anonymous_args = 0
- 278              	.LVL11:
- 279 0000 10B5     		push	{r4, lr}
- 280              		.cfi_def_cfa_offset 8
- 281              		.cfi_offset 4, -8
- 282              		.cfi_offset 14, -4
- 283 0002 0446     		mov	r4, r0
- 107:Generated_Source\PSoC5/isr_pedalok.c **** 
- 284              		.loc 1 107 0
- 285 0004 FFF7FEFF 		bl	isr_pedalok_Disable
- 286              	.LVL12:
- 110:Generated_Source\PSoC5/isr_pedalok.c **** 
- 287              		.loc 1 110 0
- 288 0008 2046     		mov	r0, r4
- 289 000a FFF7FEFF 		bl	isr_pedalok_SetVector
- 290              	.LVL13:
- 113:Generated_Source\PSoC5/isr_pedalok.c **** 
- 291              		.loc 1 113 0
- 292 000e 0720     		movs	r0, #7
- 293 0010 FFF7FEFF 		bl	isr_pedalok_SetPriority
- 294              	.LVL14:
- 116:Generated_Source\PSoC5/isr_pedalok.c **** }
- 295              		.loc 1 116 0
- 296 0014 FFF7FEFF 		bl	isr_pedalok_Enable
- 297              	.LVL15:
- 298 0018 10BD     		pop	{r4, pc}
- 299              		.cfi_endproc
- 300              	.LFE1:
- 301              		.size	isr_pedalok_StartEx, .-isr_pedalok_StartEx
- 302 001a 00BF     		.section	.text.isr_pedalok_Stop,"ax",%progbits
- 303              		.align	2
- 304              		.global	isr_pedalok_Stop
- 305              		.thumb
- 306              		.thumb_func
- 307              		.type	isr_pedalok_Stop, %function
- 308              	isr_pedalok_Stop:
- 309              	.LFB2:
- 135:Generated_Source\PSoC5/isr_pedalok.c ****     /* Disable this interrupt. */
- 310              		.loc 1 135 0
- 311              		.cfi_startproc
- 312              		@ args = 0, pretend = 0, frame = 0
- 313              		@ frame_needed = 0, uses_anonymous_args = 0
- 314 0000 08B5     		push	{r3, lr}
- 315              		.cfi_def_cfa_offset 8
- 316              		.cfi_offset 3, -8
- 317              		.cfi_offset 14, -4
- 137:Generated_Source\PSoC5/isr_pedalok.c **** 
- 318              		.loc 1 137 0
- 319 0002 FFF7FEFF 		bl	isr_pedalok_Disable
- 320              	.LVL16:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 13
+ 270 0002 FFF7FEFF 		bl	isr_pedalok_Disable
+ 271              	.LVL12:
+  68:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 272              		.loc 1 68 0
+ 273 0006 0448     		ldr	r0, .L30
+ 274 0008 FFF7FEFF 		bl	isr_pedalok_SetVector
+ 275              	.LVL13:
+  71:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 276              		.loc 1 71 0
+ 277 000c 0720     		movs	r0, #7
+ 278 000e FFF7FEFF 		bl	isr_pedalok_SetPriority
+ 279              	.LVL14:
+  74:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 280              		.loc 1 74 0
+ 281 0012 FFF7FEFF 		bl	isr_pedalok_Enable
+ 282              	.LVL15:
+ 283 0016 08BD     		pop	{r3, pc}
+ 284              	.L31:
+ 285              		.align	2
+ 286              	.L30:
+ 287 0018 00000000 		.word	isr_pedalok_Interrupt
+ 288              		.cfi_endproc
+ 289              	.LFE0:
+ 290              		.size	isr_pedalok_Start, .-isr_pedalok_Start
+ 291              		.section	.text.isr_pedalok_StartEx,"ax",%progbits
+ 292              		.align	2
+ 293              		.global	isr_pedalok_StartEx
+ 294              		.thumb
+ 295              		.thumb_func
+ 296              		.type	isr_pedalok_StartEx, %function
+ 297              	isr_pedalok_StartEx:
+ 298              	.LFB1:
+ 106:Generated_Source\PSoC5/isr_pedalok.c ****     /* For all we know the interrupt is active. */
+ 299              		.loc 1 106 0
+ 300              		.cfi_startproc
+ 301              		@ args = 0, pretend = 0, frame = 0
+ 302              		@ frame_needed = 0, uses_anonymous_args = 0
+ 303              	.LVL16:
+ 304 0000 10B5     		push	{r4, lr}
+ 305              		.cfi_def_cfa_offset 8
+ 306              		.cfi_offset 4, -8
+ 307              		.cfi_offset 14, -4
+ 308 0002 0446     		mov	r4, r0
+ 108:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 309              		.loc 1 108 0
+ 310 0004 FFF7FEFF 		bl	isr_pedalok_Disable
+ 311              	.LVL17:
+ 111:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 312              		.loc 1 111 0
+ 313 0008 2046     		mov	r0, r4
+ 314 000a FFF7FEFF 		bl	isr_pedalok_SetVector
+ 315              	.LVL18:
+ 114:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 316              		.loc 1 114 0
+ 317 000e 0720     		movs	r0, #7
+ 318 0010 FFF7FEFF 		bl	isr_pedalok_SetPriority
+ 319              	.LVL19:
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 13
 
 
- 140:Generated_Source\PSoC5/isr_pedalok.c **** }
- 321              		.loc 1 140 0
- 322 0006 0248     		ldr	r0, .L33
- 323 0008 FFF7FEFF 		bl	isr_pedalok_SetVector
- 324              	.LVL17:
- 325 000c 08BD     		pop	{r3, pc}
- 326              	.L34:
- 327 000e 00BF     		.align	2
- 328              	.L33:
- 329 0010 00000000 		.word	IntDefaultHandler
- 330              		.cfi_endproc
- 331              	.LFE2:
- 332              		.size	isr_pedalok_Stop, .-isr_pedalok_Stop
- 333              		.section	.text.isr_pedalok_SetPending,"ax",%progbits
- 334              		.align	2
- 335              		.global	isr_pedalok_SetPending
- 336              		.thumb
- 337              		.thumb_func
- 338              		.type	isr_pedalok_SetPending, %function
- 339              	isr_pedalok_SetPending:
- 340              	.LFB11:
- 353:Generated_Source\PSoC5/isr_pedalok.c **** }
- 354:Generated_Source\PSoC5/isr_pedalok.c **** 
- 355:Generated_Source\PSoC5/isr_pedalok.c **** 
- 356:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 357:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_SetPending
- 358:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 359:Generated_Source\PSoC5/isr_pedalok.c **** *
- 360:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 361:Generated_Source\PSoC5/isr_pedalok.c **** *   Causes the Interrupt to enter the pending state, a software method of
- 362:Generated_Source\PSoC5/isr_pedalok.c **** *   generating the interrupt.
- 363:Generated_Source\PSoC5/isr_pedalok.c **** *
- 364:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 365:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 366:Generated_Source\PSoC5/isr_pedalok.c **** *
- 367:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 368:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 369:Generated_Source\PSoC5/isr_pedalok.c **** *
- 370:Generated_Source\PSoC5/isr_pedalok.c **** * Side Effects:
- 371:Generated_Source\PSoC5/isr_pedalok.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
- 372:Generated_Source\PSoC5/isr_pedalok.c **** *   entered (depending on the priority of this interrupt and other pending 
- 373:Generated_Source\PSoC5/isr_pedalok.c **** *   interrupts).
- 374:Generated_Source\PSoC5/isr_pedalok.c **** *
- 375:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 376:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_SetPending(void)
- 377:Generated_Source\PSoC5/isr_pedalok.c **** {
- 341              		.loc 1 377 0
- 342              		.cfi_startproc
- 343              		@ args = 0, pretend = 0, frame = 0
- 344              		@ frame_needed = 0, uses_anonymous_args = 0
- 345              		@ link register save eliminated.
- 378:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_SET_PD = isr_pedalok__INTC_MASK;
- 346              		.loc 1 378 0
- 347 0000 0222     		movs	r2, #2
- 348 0002 014B     		ldr	r3, .L36
- 349 0004 1A60     		str	r2, [r3]
- 350 0006 7047     		bx	lr
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 14
-
-
+ 117:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 320              		.loc 1 117 0
+ 321 0014 FFF7FEFF 		bl	isr_pedalok_Enable
+ 322              	.LVL20:
+ 323 0018 10BD     		pop	{r4, pc}
+ 324              		.cfi_endproc
+ 325              	.LFE1:
+ 326              		.size	isr_pedalok_StartEx, .-isr_pedalok_StartEx
+ 327 001a 00BF     		.section	.text.isr_pedalok_Stop,"ax",%progbits
+ 328              		.align	2
+ 329              		.global	isr_pedalok_Stop
+ 330              		.thumb
+ 331              		.thumb_func
+ 332              		.type	isr_pedalok_Stop, %function
+ 333              	isr_pedalok_Stop:
+ 334              	.LFB2:
+ 136:Generated_Source\PSoC5/isr_pedalok.c ****     /* Disable this interrupt. */
+ 335              		.loc 1 136 0
+ 336              		.cfi_startproc
+ 337              		@ args = 0, pretend = 0, frame = 0
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339 0000 08B5     		push	{r3, lr}
+ 340              		.cfi_def_cfa_offset 8
+ 341              		.cfi_offset 3, -8
+ 342              		.cfi_offset 14, -4
+ 138:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 343              		.loc 1 138 0
+ 344 0002 FFF7FEFF 		bl	isr_pedalok_Disable
+ 345              	.LVL21:
+ 141:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 346              		.loc 1 141 0
+ 347 0006 0248     		ldr	r0, .L36
+ 348 0008 FFF7FEFF 		bl	isr_pedalok_SetVector
+ 349              	.LVL22:
+ 350 000c 08BD     		pop	{r3, pc}
  351              	.L37:
- 352              		.align	2
+ 352 000e 00BF     		.align	2
  353              	.L36:
- 354 0008 00E200E0 		.word	-536813056
+ 354 0010 00000000 		.word	IntDefaultHandler
  355              		.cfi_endproc
- 356              	.LFE11:
- 357              		.size	isr_pedalok_SetPending, .-isr_pedalok_SetPending
- 358              		.section	.text.isr_pedalok_ClearPending,"ax",%progbits
+ 356              	.LFE2:
+ 357              		.size	isr_pedalok_Stop, .-isr_pedalok_Stop
+ 358              		.section	.text.isr_pedalok_SetPending,"ax",%progbits
  359              		.align	2
- 360              		.global	isr_pedalok_ClearPending
+ 360              		.global	isr_pedalok_SetPending
  361              		.thumb
  362              		.thumb_func
- 363              		.type	isr_pedalok_ClearPending, %function
- 364              	isr_pedalok_ClearPending:
- 365              	.LFB12:
- 379:Generated_Source\PSoC5/isr_pedalok.c **** }
- 380:Generated_Source\PSoC5/isr_pedalok.c **** 
- 381:Generated_Source\PSoC5/isr_pedalok.c **** 
- 382:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
- 383:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_ClearPending
- 384:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
- 385:Generated_Source\PSoC5/isr_pedalok.c **** *
- 386:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
- 387:Generated_Source\PSoC5/isr_pedalok.c **** *   Clears a pending interrupt in the interrupt controller.
- 388:Generated_Source\PSoC5/isr_pedalok.c **** *
- 389:Generated_Source\PSoC5/isr_pedalok.c **** *   Note Some interrupt sources are clear-on-read and require the block 
- 390:Generated_Source\PSoC5/isr_pedalok.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
- 391:Generated_Source\PSoC5/isr_pedalok.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
- 392:Generated_Source\PSoC5/isr_pedalok.c **** *   pending state even though the interrupt itself is cleared using this API.
- 393:Generated_Source\PSoC5/isr_pedalok.c **** *
- 394:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
- 395:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 396:Generated_Source\PSoC5/isr_pedalok.c **** *
- 397:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
- 398:Generated_Source\PSoC5/isr_pedalok.c **** *   None
- 399:Generated_Source\PSoC5/isr_pedalok.c **** *
- 400:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
- 401:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_ClearPending(void)
- 402:Generated_Source\PSoC5/isr_pedalok.c **** {
- 366              		.loc 1 402 0
+ 363              		.type	isr_pedalok_SetPending, %function
+ 364              	isr_pedalok_SetPending:
+ 365              	.LFB11:
+ 357:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 358:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 359:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 360:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 361:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_SetPending
+ 362:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 363:Generated_Source\PSoC5/isr_pedalok.c **** *
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 14
+
+
+ 364:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 365:Generated_Source\PSoC5/isr_pedalok.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 366:Generated_Source\PSoC5/isr_pedalok.c **** *   generating the interrupt.
+ 367:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 368:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 369:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 370:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 371:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 372:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 373:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 374:Generated_Source\PSoC5/isr_pedalok.c **** * Side Effects:
+ 375:Generated_Source\PSoC5/isr_pedalok.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 376:Generated_Source\PSoC5/isr_pedalok.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 377:Generated_Source\PSoC5/isr_pedalok.c **** *   interrupts).
+ 378:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 379:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 380:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_SetPending(void)
+ 381:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 366              		.loc 1 381 0
  367              		.cfi_startproc
  368              		@ args = 0, pretend = 0, frame = 0
  369              		@ frame_needed = 0, uses_anonymous_args = 0
  370              		@ link register save eliminated.
- 403:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_CLR_PD = isr_pedalok__INTC_MASK;
- 371              		.loc 1 403 0
+ 382:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_SET_PD = isr_pedalok__INTC_MASK;
+ 371              		.loc 1 382 0
  372 0000 0222     		movs	r2, #2
  373 0002 014B     		ldr	r3, .L39
  374 0004 1A60     		str	r2, [r3]
@@ -834,1060 +813,1299 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 1
  376              	.L40:
  377              		.align	2
  378              	.L39:
- 379 0008 80E200E0 		.word	-536812928
+ 379 0008 00E200E0 		.word	-536813056
  380              		.cfi_endproc
- 381              	.LFE12:
- 382              		.size	isr_pedalok_ClearPending, .-isr_pedalok_ClearPending
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 15
+ 381              	.LFE11:
+ 382              		.size	isr_pedalok_SetPending, .-isr_pedalok_SetPending
+ 383              		.section	.text.isr_pedalok_ClearPending,"ax",%progbits
+ 384              		.align	2
+ 385              		.global	isr_pedalok_ClearPending
+ 386              		.thumb
+ 387              		.thumb_func
+ 388              		.type	isr_pedalok_ClearPending, %function
+ 389              	isr_pedalok_ClearPending:
+ 390              	.LFB12:
+ 383:Generated_Source\PSoC5/isr_pedalok.c **** }
+ 384:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 385:Generated_Source\PSoC5/isr_pedalok.c **** 
+ 386:Generated_Source\PSoC5/isr_pedalok.c **** /*******************************************************************************
+ 387:Generated_Source\PSoC5/isr_pedalok.c **** * Function Name: isr_pedalok_ClearPending
+ 388:Generated_Source\PSoC5/isr_pedalok.c **** ********************************************************************************
+ 389:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 390:Generated_Source\PSoC5/isr_pedalok.c **** * Summary:
+ 391:Generated_Source\PSoC5/isr_pedalok.c **** *   Clears a pending interrupt in the interrupt controller.
+ 392:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 393:Generated_Source\PSoC5/isr_pedalok.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 394:Generated_Source\PSoC5/isr_pedalok.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 395:Generated_Source\PSoC5/isr_pedalok.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 15
 
 
- 383              		.text
- 384              	.Letext0:
- 385              		.file 2 "Generated_Source\\PSoC5/cytypes.h"
- 386              		.section	.debug_info,"",%progbits
- 387              	.Ldebug_info0:
- 388 0000 C7020000 		.4byte	0x2c7
- 389 0004 0400     		.2byte	0x4
- 390 0006 00000000 		.4byte	.Ldebug_abbrev0
- 391 000a 04       		.byte	0x4
- 392 000b 01       		.uleb128 0x1
- 393 000c A6010000 		.4byte	.LASF33
- 394 0010 01       		.byte	0x1
- 395 0011 D4000000 		.4byte	.LASF34
- 396 0015 38000000 		.4byte	.LASF35
- 397 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 398 001d 00000000 		.4byte	0
- 399 0021 00000000 		.4byte	.Ldebug_line0
- 400 0025 02       		.uleb128 0x2
- 401 0026 04       		.byte	0x4
- 402 0027 05       		.byte	0x5
- 403 0028 696E7400 		.ascii	"int\000"
- 404 002c 03       		.uleb128 0x3
- 405 002d 04       		.byte	0x4
- 406 002e 07       		.byte	0x7
- 407 002f 7A010000 		.4byte	.LASF0
- 408 0033 03       		.uleb128 0x3
- 409 0034 01       		.byte	0x1
- 410 0035 06       		.byte	0x6
- 411 0036 D1020000 		.4byte	.LASF1
- 412 003a 03       		.uleb128 0x3
- 413 003b 01       		.byte	0x1
- 414 003c 08       		.byte	0x8
- 415 003d 7F000000 		.4byte	.LASF2
- 416 0041 03       		.uleb128 0x3
- 417 0042 02       		.byte	0x2
- 418 0043 05       		.byte	0x5
- 419 0044 94020000 		.4byte	.LASF3
- 420 0048 03       		.uleb128 0x3
- 421 0049 02       		.byte	0x2
- 422 004a 07       		.byte	0x7
- 423 004b 1F000000 		.4byte	.LASF4
- 424 004f 03       		.uleb128 0x3
- 425 0050 04       		.byte	0x4
- 426 0051 05       		.byte	0x5
- 427 0052 C8020000 		.4byte	.LASF5
- 428 0056 03       		.uleb128 0x3
- 429 0057 04       		.byte	0x4
- 430 0058 07       		.byte	0x7
- 431 0059 A4000000 		.4byte	.LASF6
- 432 005d 03       		.uleb128 0x3
- 433 005e 08       		.byte	0x8
- 434 005f 05       		.byte	0x5
- 435 0060 5F020000 		.4byte	.LASF7
- 436 0064 03       		.uleb128 0x3
- 437 0065 08       		.byte	0x8
- 438 0066 07       		.byte	0x7
- 439 0067 8F010000 		.4byte	.LASF8
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 16
+ 396:Generated_Source\PSoC5/isr_pedalok.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 397:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 398:Generated_Source\PSoC5/isr_pedalok.c **** * Parameters:
+ 399:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 400:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 401:Generated_Source\PSoC5/isr_pedalok.c **** * Return:
+ 402:Generated_Source\PSoC5/isr_pedalok.c **** *   None
+ 403:Generated_Source\PSoC5/isr_pedalok.c **** *
+ 404:Generated_Source\PSoC5/isr_pedalok.c **** *******************************************************************************/
+ 405:Generated_Source\PSoC5/isr_pedalok.c **** void isr_pedalok_ClearPending(void)
+ 406:Generated_Source\PSoC5/isr_pedalok.c **** {
+ 391              		.loc 1 406 0
+ 392              		.cfi_startproc
+ 393              		@ args = 0, pretend = 0, frame = 0
+ 394              		@ frame_needed = 0, uses_anonymous_args = 0
+ 395              		@ link register save eliminated.
+ 407:Generated_Source\PSoC5/isr_pedalok.c ****     *isr_pedalok_INTC_CLR_PD = isr_pedalok__INTC_MASK;
+ 396              		.loc 1 407 0
+ 397 0000 0222     		movs	r2, #2
+ 398 0002 014B     		ldr	r3, .L42
+ 399 0004 1A60     		str	r2, [r3]
+ 400 0006 7047     		bx	lr
+ 401              	.L43:
+ 402              		.align	2
+ 403              	.L42:
+ 404 0008 80E200E0 		.word	-536812928
+ 405              		.cfi_endproc
+ 406              	.LFE12:
+ 407              		.size	isr_pedalok_ClearPending, .-isr_pedalok_ClearPending
+ 408              		.text
+ 409              	.Letext0:
+ 410              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 411              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.0\\psoc creator\\import\\gnu\\arm\\4.9.
+ 412              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 413              		.file 5 "Generated_Source\\PSoC5/CyLib.h"
+ 414              		.file 6 "Generated_Source\\PSoC5\\Pedal_Timer.h"
+ 415              		.section	.debug_info,"",%progbits
+ 416              	.Ldebug_info0:
+ 417 0000 46030000 		.4byte	0x346
+ 418 0004 0400     		.2byte	0x4
+ 419 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 420 000a 04       		.byte	0x4
+ 421 000b 01       		.uleb128 0x1
+ 422 000c F5010000 		.4byte	.LASF38
+ 423 0010 01       		.byte	0x1
+ 424 0011 11010000 		.4byte	.LASF39
+ 425 0015 5E000000 		.4byte	.LASF40
+ 426 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 427 001d 00000000 		.4byte	0
+ 428 0021 00000000 		.4byte	.Ldebug_line0
+ 429 0025 02       		.uleb128 0x2
+ 430 0026 04       		.byte	0x4
+ 431 0027 05       		.byte	0x5
+ 432 0028 696E7400 		.ascii	"int\000"
+ 433 002c 03       		.uleb128 0x3
+ 434 002d 04       		.byte	0x4
+ 435 002e 07       		.byte	0x7
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 16
 
 
- 440 006b 03       		.uleb128 0x3
- 441 006c 04       		.byte	0x4
- 442 006d 07       		.byte	0x7
- 443 006e 41020000 		.4byte	.LASF9
- 444 0072 04       		.uleb128 0x4
- 445 0073 04       		.byte	0x4
- 446 0074 78000000 		.4byte	0x78
- 447 0078 05       		.uleb128 0x5
- 448 0079 03       		.uleb128 0x3
- 449 007a 01       		.byte	0x1
- 450 007b 08       		.byte	0x8
- 451 007c 80020000 		.4byte	.LASF10
- 452 0080 06       		.uleb128 0x6
- 453 0081 CE000000 		.4byte	.LASF11
- 454 0085 02       		.byte	0x2
- 455 0086 3801     		.2byte	0x138
- 456 0088 3A000000 		.4byte	0x3a
- 457 008c 06       		.uleb128 0x6
- 458 008d 5F010000 		.4byte	.LASF12
- 459 0091 02       		.byte	0x2
- 460 0092 3A01     		.2byte	0x13a
- 461 0094 56000000 		.4byte	0x56
- 462 0098 03       		.uleb128 0x3
- 463 0099 04       		.byte	0x4
- 464 009a 04       		.byte	0x4
- 465 009b 32000000 		.4byte	.LASF13
- 466 009f 03       		.uleb128 0x3
- 467 00a0 08       		.byte	0x8
- 468 00a1 04       		.byte	0x4
- 469 00a2 18010000 		.4byte	.LASF14
- 470 00a6 06       		.uleb128 0x6
- 471 00a7 9F000000 		.4byte	.LASF15
- 472 00ab 02       		.byte	0x2
- 473 00ac E201     		.2byte	0x1e2
- 474 00ae B2000000 		.4byte	0xb2
- 475 00b2 07       		.uleb128 0x7
- 476 00b3 80000000 		.4byte	0x80
- 477 00b7 06       		.uleb128 0x6
- 478 00b8 00000000 		.4byte	.LASF16
- 479 00bc 02       		.byte	0x2
- 480 00bd E401     		.2byte	0x1e4
- 481 00bf C3000000 		.4byte	0xc3
- 482 00c3 07       		.uleb128 0x7
- 483 00c4 8C000000 		.4byte	0x8c
- 484 00c8 06       		.uleb128 0x6
- 485 00c9 34020000 		.4byte	.LASF17
- 486 00cd 02       		.byte	0x2
- 487 00ce F401     		.2byte	0x1f4
- 488 00d0 72000000 		.4byte	0x72
- 489 00d4 08       		.uleb128 0x8
- 490 00d5 DD020000 		.4byte	.LASF25
- 491 00d9 01       		.byte	0x1
- 492 00da A0       		.byte	0xa0
- 493 00db 00000000 		.4byte	.LFB3
- 494 00df 02000000 		.4byte	.LFE3-.LFB3
- 495 00e3 01       		.uleb128 0x1
- 496 00e4 9C       		.byte	0x9c
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 17
+ 436 002f C2010000 		.4byte	.LASF0
+ 437 0033 03       		.uleb128 0x3
+ 438 0034 01       		.byte	0x1
+ 439 0035 06       		.byte	0x6
+ 440 0036 48030000 		.4byte	.LASF1
+ 441 003a 03       		.uleb128 0x3
+ 442 003b 01       		.byte	0x1
+ 443 003c 08       		.byte	0x8
+ 444 003d A5000000 		.4byte	.LASF2
+ 445 0041 03       		.uleb128 0x3
+ 446 0042 02       		.byte	0x2
+ 447 0043 05       		.byte	0x5
+ 448 0044 FD020000 		.4byte	.LASF3
+ 449 0048 03       		.uleb128 0x3
+ 450 0049 02       		.byte	0x2
+ 451 004a 07       		.byte	0x7
+ 452 004b 1F000000 		.4byte	.LASF4
+ 453 004f 03       		.uleb128 0x3
+ 454 0050 04       		.byte	0x4
+ 455 0051 05       		.byte	0x5
+ 456 0052 3A030000 		.4byte	.LASF5
+ 457 0056 04       		.uleb128 0x4
+ 458 0057 85010000 		.4byte	.LASF11
+ 459 005b 02       		.byte	0x2
+ 460 005c 41       		.byte	0x41
+ 461 005d 61000000 		.4byte	0x61
+ 462 0061 03       		.uleb128 0x3
+ 463 0062 04       		.byte	0x4
+ 464 0063 07       		.byte	0x7
+ 465 0064 E1000000 		.4byte	.LASF6
+ 466 0068 03       		.uleb128 0x3
+ 467 0069 08       		.byte	0x8
+ 468 006a 05       		.byte	0x5
+ 469 006b AE020000 		.4byte	.LASF7
+ 470 006f 03       		.uleb128 0x3
+ 471 0070 08       		.byte	0x8
+ 472 0071 07       		.byte	0x7
+ 473 0072 47000000 		.4byte	.LASF8
+ 474 0076 03       		.uleb128 0x3
+ 475 0077 04       		.byte	0x4
+ 476 0078 07       		.byte	0x7
+ 477 0079 90020000 		.4byte	.LASF9
+ 478 007d 05       		.uleb128 0x5
+ 479 007e 04       		.byte	0x4
+ 480 007f 83000000 		.4byte	0x83
+ 481 0083 06       		.uleb128 0x6
+ 482 0084 03       		.uleb128 0x3
+ 483 0085 01       		.byte	0x1
+ 484 0086 08       		.byte	0x8
+ 485 0087 43030000 		.4byte	.LASF10
+ 486 008b 04       		.uleb128 0x4
+ 487 008c 31030000 		.4byte	.LASF12
+ 488 0090 03       		.byte	0x3
+ 489 0091 2D       		.byte	0x2d
+ 490 0092 56000000 		.4byte	0x56
+ 491 0096 07       		.uleb128 0x7
+ 492 0097 0B010000 		.4byte	.LASF13
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 17
 
 
- 497 00e5 09       		.uleb128 0x9
- 498 00e6 02010000 		.4byte	.LASF19
- 499 00ea 01       		.byte	0x1
- 500 00eb C8       		.byte	0xc8
- 501 00ec 00000000 		.4byte	.LFB4
- 502 00f0 0C000000 		.4byte	.LFE4-.LFB4
- 503 00f4 01       		.uleb128 0x1
- 504 00f5 9C       		.byte	0x9c
- 505 00f6 15010000 		.4byte	0x115
- 506 00fa 0A       		.uleb128 0xa
- 507 00fb 87010000 		.4byte	.LASF21
- 508 00ff 01       		.byte	0x1
- 509 0100 C8       		.byte	0xc8
- 510 0101 C8000000 		.4byte	0xc8
- 511 0105 01       		.uleb128 0x1
- 512 0106 50       		.byte	0x50
- 513 0107 0B       		.uleb128 0xb
- 514 0108 85020000 		.4byte	.LASF18
- 515 010c 01       		.byte	0x1
- 516 010d CA       		.byte	0xca
- 517 010e 15010000 		.4byte	0x115
- 518 0112 01       		.uleb128 0x1
- 519 0113 53       		.byte	0x53
- 520 0114 00       		.byte	0
- 521 0115 04       		.uleb128 0x4
- 522 0116 04       		.byte	0x4
- 523 0117 C8000000 		.4byte	0xc8
- 524 011b 0C       		.uleb128 0xc
- 525 011c 9E020000 		.4byte	.LASF23
- 526 0120 01       		.byte	0x1
- 527 0121 E0       		.byte	0xe0
- 528 0122 C8000000 		.4byte	0xc8
- 529 0126 00000000 		.4byte	.LFB5
- 530 012a 0C000000 		.4byte	.LFE5-.LFB5
- 531 012e 01       		.uleb128 0x1
- 532 012f 9C       		.byte	0x9c
- 533 0130 42010000 		.4byte	0x142
- 534 0134 0B       		.uleb128 0xb
- 535 0135 85020000 		.4byte	.LASF18
- 536 0139 01       		.byte	0x1
- 537 013a E2       		.byte	0xe2
- 538 013b 15010000 		.4byte	0x115
- 539 013f 01       		.uleb128 0x1
- 540 0140 53       		.byte	0x53
- 541 0141 00       		.byte	0
- 542 0142 0D       		.uleb128 0xd
- 543 0143 30010000 		.4byte	.LASF20
- 544 0147 01       		.byte	0x1
- 545 0148 0201     		.2byte	0x102
- 546 014a 00000000 		.4byte	.LFB6
- 547 014e 10000000 		.4byte	.LFE6-.LFB6
- 548 0152 01       		.uleb128 0x1
- 549 0153 9C       		.byte	0x9c
- 550 0154 69010000 		.4byte	0x169
- 551 0158 0E       		.uleb128 0xe
- 552 0159 F9000000 		.4byte	.LASF22
- 553 015d 01       		.byte	0x1
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 18
+ 493 009b 04       		.byte	0x4
+ 494 009c 3801     		.2byte	0x138
+ 495 009e 3A000000 		.4byte	0x3a
+ 496 00a2 07       		.uleb128 0x7
+ 497 00a3 90010000 		.4byte	.LASF14
+ 498 00a7 04       		.byte	0x4
+ 499 00a8 3A01     		.2byte	0x13a
+ 500 00aa 61000000 		.4byte	0x61
+ 501 00ae 03       		.uleb128 0x3
+ 502 00af 04       		.byte	0x4
+ 503 00b0 04       		.byte	0x4
+ 504 00b1 41000000 		.4byte	.LASF15
+ 505 00b5 03       		.uleb128 0x3
+ 506 00b6 08       		.byte	0x8
+ 507 00b7 04       		.byte	0x4
+ 508 00b8 55010000 		.4byte	.LASF16
+ 509 00bc 07       		.uleb128 0x7
+ 510 00bd C5000000 		.4byte	.LASF17
+ 511 00c1 04       		.byte	0x4
+ 512 00c2 E201     		.2byte	0x1e2
+ 513 00c4 C8000000 		.4byte	0xc8
+ 514 00c8 08       		.uleb128 0x8
+ 515 00c9 96000000 		.4byte	0x96
+ 516 00cd 07       		.uleb128 0x7
+ 517 00ce 00000000 		.4byte	.LASF18
+ 518 00d2 04       		.byte	0x4
+ 519 00d3 E401     		.2byte	0x1e4
+ 520 00d5 D9000000 		.4byte	0xd9
+ 521 00d9 08       		.uleb128 0x8
+ 522 00da A2000000 		.4byte	0xa2
+ 523 00de 07       		.uleb128 0x7
+ 524 00df 83020000 		.4byte	.LASF19
+ 525 00e3 04       		.byte	0x4
+ 526 00e4 F401     		.2byte	0x1f4
+ 527 00e6 7D000000 		.4byte	0x7d
+ 528 00ea 09       		.uleb128 0x9
+ 529 00eb 54030000 		.4byte	.LASF20
+ 530 00ef 01       		.byte	0x1
+ 531 00f0 A1       		.byte	0xa1
+ 532 00f1 00000000 		.4byte	.LFB3
+ 533 00f5 20000000 		.4byte	.LFE3-.LFB3
+ 534 00f9 01       		.uleb128 0x1
+ 535 00fa 9C       		.byte	0x9c
+ 536 00fb 31010000 		.4byte	0x131
+ 537 00ff 0A       		.uleb128 0xa
+ 538 0100 32000000 		.4byte	.LASF22
+ 539 0104 01       		.byte	0x1
+ 540 0105 A9       		.byte	0xa9
+ 541 0106 96000000 		.4byte	0x96
+ 542 010a 00000000 		.4byte	.LLST0
+ 543 010e 0B       		.uleb128 0xb
+ 544 010f 06000000 		.4byte	.LVL0
+ 545 0113 26030000 		.4byte	0x326
+ 546 0117 0B       		.uleb128 0xb
+ 547 0118 14000000 		.4byte	.LVL2
+ 548 011c 31030000 		.4byte	0x331
+ 549 0120 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 18
 
 
- 554 015e 0201     		.2byte	0x102
- 555 0160 80000000 		.4byte	0x80
- 556 0164 00000000 		.4byte	.LLST0
- 557 0168 00       		.byte	0
- 558 0169 0F       		.uleb128 0xf
- 559 016a B6000000 		.4byte	.LASF24
- 560 016e 01       		.byte	0x1
- 561 016f 1801     		.2byte	0x118
- 562 0171 80000000 		.4byte	0x80
- 563 0175 00000000 		.4byte	.LFB7
- 564 0179 0C000000 		.4byte	.LFE7-.LFB7
- 565 017d 01       		.uleb128 0x1
- 566 017e 9C       		.byte	0x9c
- 567 017f 94010000 		.4byte	0x194
- 568 0183 10       		.uleb128 0x10
- 569 0184 F9000000 		.4byte	.LASF22
- 570 0188 01       		.byte	0x1
- 571 0189 1A01     		.2byte	0x11a
- 572 018b 80000000 		.4byte	0x80
- 573 018f 21000000 		.4byte	.LLST1
- 574 0193 00       		.byte	0
- 575 0194 11       		.uleb128 0x11
- 576 0195 6D020000 		.4byte	.LASF26
- 577 0199 01       		.byte	0x1
- 578 019a 3301     		.2byte	0x133
- 579 019c 00000000 		.4byte	.LFB8
- 580 01a0 0C000000 		.4byte	.LFE8-.LFB8
- 581 01a4 01       		.uleb128 0x1
- 582 01a5 9C       		.byte	0x9c
- 583 01a6 12       		.uleb128 0x12
- 584 01a7 4A020000 		.4byte	.LASF36
- 585 01ab 01       		.byte	0x1
- 586 01ac 4801     		.2byte	0x148
- 587 01ae 80000000 		.4byte	0x80
- 588 01b2 00000000 		.4byte	.LFB9
- 589 01b6 18000000 		.4byte	.LFE9-.LFB9
- 590 01ba 01       		.uleb128 0x1
- 591 01bb 9C       		.byte	0x9c
- 592 01bc 11       		.uleb128 0x11
- 593 01bd B4020000 		.4byte	.LASF27
- 594 01c1 01       		.byte	0x1
- 595 01c2 5D01     		.2byte	0x15d
- 596 01c4 00000000 		.4byte	.LFB10
- 597 01c8 0C000000 		.4byte	.LFE10-.LFB10
- 598 01cc 01       		.uleb128 0x1
- 599 01cd 9C       		.byte	0x9c
- 600 01ce 09       		.uleb128 0x9
- 601 01cf 8D000000 		.4byte	.LASF28
- 602 01d3 01       		.byte	0x1
- 603 01d4 3D       		.byte	0x3d
- 604 01d5 00000000 		.4byte	.LFB0
- 605 01d9 1C000000 		.4byte	.LFE0-.LFB0
- 606 01dd 01       		.uleb128 0x1
- 607 01de 9C       		.byte	0x9c
- 608 01df 20020000 		.4byte	0x220
- 609 01e3 13       		.uleb128 0x13
- 610 01e4 06000000 		.4byte	.LVL7
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 19
+ 550 0121 1A000000 		.4byte	.LVL3
+ 551 0125 3C030000 		.4byte	0x33c
+ 552 0129 0D       		.uleb128 0xd
+ 553 012a 01       		.uleb128 0x1
+ 554 012b 50       		.byte	0x50
+ 555 012c 02       		.uleb128 0x2
+ 556 012d 74       		.byte	0x74
+ 557 012e 00       		.sleb128 0
+ 558 012f 00       		.byte	0
+ 559 0130 00       		.byte	0
+ 560 0131 09       		.uleb128 0x9
+ 561 0132 3F010000 		.4byte	.LASF21
+ 562 0136 01       		.byte	0x1
+ 563 0137 CC       		.byte	0xcc
+ 564 0138 00000000 		.4byte	.LFB4
+ 565 013c 0C000000 		.4byte	.LFE4-.LFB4
+ 566 0140 01       		.uleb128 0x1
+ 567 0141 9C       		.byte	0x9c
+ 568 0142 61010000 		.4byte	0x161
+ 569 0146 0E       		.uleb128 0xe
+ 570 0147 CF010000 		.4byte	.LASF25
+ 571 014b 01       		.byte	0x1
+ 572 014c CC       		.byte	0xcc
+ 573 014d DE000000 		.4byte	0xde
+ 574 0151 01       		.uleb128 0x1
+ 575 0152 50       		.byte	0x50
+ 576 0153 0F       		.uleb128 0xf
+ 577 0154 EE020000 		.4byte	.LASF23
+ 578 0158 01       		.byte	0x1
+ 579 0159 CE       		.byte	0xce
+ 580 015a 61010000 		.4byte	0x161
+ 581 015e 01       		.uleb128 0x1
+ 582 015f 53       		.byte	0x53
+ 583 0160 00       		.byte	0
+ 584 0161 05       		.uleb128 0x5
+ 585 0162 04       		.byte	0x4
+ 586 0163 DE000000 		.4byte	0xde
+ 587 0167 10       		.uleb128 0x10
+ 588 0168 07030000 		.4byte	.LASF27
+ 589 016c 01       		.byte	0x1
+ 590 016d E4       		.byte	0xe4
+ 591 016e DE000000 		.4byte	0xde
+ 592 0172 00000000 		.4byte	.LFB5
+ 593 0176 0C000000 		.4byte	.LFE5-.LFB5
+ 594 017a 01       		.uleb128 0x1
+ 595 017b 9C       		.byte	0x9c
+ 596 017c 8E010000 		.4byte	0x18e
+ 597 0180 0F       		.uleb128 0xf
+ 598 0181 EE020000 		.4byte	.LASF23
+ 599 0185 01       		.byte	0x1
+ 600 0186 E6       		.byte	0xe6
+ 601 0187 61010000 		.4byte	0x161
+ 602 018b 01       		.uleb128 0x1
+ 603 018c 53       		.byte	0x53
+ 604 018d 00       		.byte	0
+ 605 018e 11       		.uleb128 0x11
+ 606 018f 6D010000 		.4byte	.LASF24
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 19
 
 
- 611 01e8 BC010000 		.4byte	0x1bc
- 612 01ec 14       		.uleb128 0x14
- 613 01ed 0C000000 		.4byte	.LVL8
- 614 01f1 E5000000 		.4byte	0xe5
- 615 01f5 03020000 		.4byte	0x203
- 616 01f9 15       		.uleb128 0x15
- 617 01fa 01       		.uleb128 0x1
- 618 01fb 50       		.byte	0x50
- 619 01fc 05       		.uleb128 0x5
- 620 01fd 03       		.byte	0x3
- 621 01fe 00000000 		.4byte	isr_pedalok_Interrupt
- 622 0202 00       		.byte	0
- 623 0203 14       		.uleb128 0x14
- 624 0204 12000000 		.4byte	.LVL9
- 625 0208 42010000 		.4byte	0x142
- 626 020c 16020000 		.4byte	0x216
- 627 0210 15       		.uleb128 0x15
- 628 0211 01       		.uleb128 0x1
- 629 0212 50       		.byte	0x50
- 630 0213 01       		.uleb128 0x1
- 631 0214 37       		.byte	0x37
- 632 0215 00       		.byte	0
- 633 0216 13       		.uleb128 0x13
- 634 0217 16000000 		.4byte	.LVL10
- 635 021b 94010000 		.4byte	0x194
- 636 021f 00       		.byte	0
- 637 0220 09       		.uleb128 0x9
- 638 0221 66010000 		.4byte	.LASF29
- 639 0225 01       		.byte	0x1
- 640 0226 68       		.byte	0x68
- 641 0227 00000000 		.4byte	.LFB1
- 642 022b 1A000000 		.4byte	.LFE1-.LFB1
- 643 022f 01       		.uleb128 0x1
- 644 0230 9C       		.byte	0x9c
- 645 0231 7E020000 		.4byte	0x27e
- 646 0235 16       		.uleb128 0x16
- 647 0236 87010000 		.4byte	.LASF21
- 648 023a 01       		.byte	0x1
- 649 023b 68       		.byte	0x68
- 650 023c C8000000 		.4byte	0xc8
- 651 0240 38000000 		.4byte	.LLST2
- 652 0244 13       		.uleb128 0x13
- 653 0245 08000000 		.4byte	.LVL12
- 654 0249 BC010000 		.4byte	0x1bc
- 655 024d 14       		.uleb128 0x14
- 656 024e 0E000000 		.4byte	.LVL13
- 657 0252 E5000000 		.4byte	0xe5
- 658 0256 61020000 		.4byte	0x261
- 659 025a 15       		.uleb128 0x15
- 660 025b 01       		.uleb128 0x1
- 661 025c 50       		.byte	0x50
- 662 025d 02       		.uleb128 0x2
- 663 025e 74       		.byte	0x74
- 664 025f 00       		.sleb128 0
- 665 0260 00       		.byte	0
- 666 0261 14       		.uleb128 0x14
- 667 0262 14000000 		.4byte	.LVL14
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 20
+ 607 0193 01       		.byte	0x1
+ 608 0194 0601     		.2byte	0x106
+ 609 0196 00000000 		.4byte	.LFB6
+ 610 019a 10000000 		.4byte	.LFE6-.LFB6
+ 611 019e 01       		.uleb128 0x1
+ 612 019f 9C       		.byte	0x9c
+ 613 01a0 B5010000 		.4byte	0x1b5
+ 614 01a4 12       		.uleb128 0x12
+ 615 01a5 36010000 		.4byte	.LASF26
+ 616 01a9 01       		.byte	0x1
+ 617 01aa 0601     		.2byte	0x106
+ 618 01ac 96000000 		.4byte	0x96
+ 619 01b0 13000000 		.4byte	.LLST1
+ 620 01b4 00       		.byte	0
+ 621 01b5 13       		.uleb128 0x13
+ 622 01b6 F3000000 		.4byte	.LASF28
+ 623 01ba 01       		.byte	0x1
+ 624 01bb 1C01     		.2byte	0x11c
+ 625 01bd 96000000 		.4byte	0x96
+ 626 01c1 00000000 		.4byte	.LFB7
+ 627 01c5 0C000000 		.4byte	.LFE7-.LFB7
+ 628 01c9 01       		.uleb128 0x1
+ 629 01ca 9C       		.byte	0x9c
+ 630 01cb E0010000 		.4byte	0x1e0
+ 631 01cf 14       		.uleb128 0x14
+ 632 01d0 36010000 		.4byte	.LASF26
+ 633 01d4 01       		.byte	0x1
+ 634 01d5 1E01     		.2byte	0x11e
+ 635 01d7 96000000 		.4byte	0x96
+ 636 01db 34000000 		.4byte	.LLST2
+ 637 01df 00       		.byte	0
+ 638 01e0 15       		.uleb128 0x15
+ 639 01e1 BC020000 		.4byte	.LASF29
+ 640 01e5 01       		.byte	0x1
+ 641 01e6 3701     		.2byte	0x137
+ 642 01e8 00000000 		.4byte	.LFB8
+ 643 01ec 0C000000 		.4byte	.LFE8-.LFB8
+ 644 01f0 01       		.uleb128 0x1
+ 645 01f1 9C       		.byte	0x9c
+ 646 01f2 16       		.uleb128 0x16
+ 647 01f3 99020000 		.4byte	.LASF41
+ 648 01f7 01       		.byte	0x1
+ 649 01f8 4C01     		.2byte	0x14c
+ 650 01fa 96000000 		.4byte	0x96
+ 651 01fe 00000000 		.4byte	.LFB9
+ 652 0202 18000000 		.4byte	.LFE9-.LFB9
+ 653 0206 01       		.uleb128 0x1
+ 654 0207 9C       		.byte	0x9c
+ 655 0208 15       		.uleb128 0x15
+ 656 0209 1D030000 		.4byte	.LASF30
+ 657 020d 01       		.byte	0x1
+ 658 020e 6101     		.2byte	0x161
+ 659 0210 00000000 		.4byte	.LFB10
+ 660 0214 0C000000 		.4byte	.LFE10-.LFB10
+ 661 0218 01       		.uleb128 0x1
+ 662 0219 9C       		.byte	0x9c
+ 663 021a 09       		.uleb128 0x9
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 20
 
 
- 668 0266 42010000 		.4byte	0x142
- 669 026a 74020000 		.4byte	0x274
- 670 026e 15       		.uleb128 0x15
- 671 026f 01       		.uleb128 0x1
- 672 0270 50       		.byte	0x50
- 673 0271 01       		.uleb128 0x1
- 674 0272 37       		.byte	0x37
- 675 0273 00       		.byte	0
- 676 0274 13       		.uleb128 0x13
- 677 0275 18000000 		.4byte	.LVL15
- 678 0279 94010000 		.4byte	0x194
- 679 027d 00       		.byte	0
- 680 027e 09       		.uleb128 0x9
- 681 027f 1F010000 		.4byte	.LASF30
- 682 0283 01       		.byte	0x1
- 683 0284 86       		.byte	0x86
- 684 0285 00000000 		.4byte	.LFB2
- 685 0289 14000000 		.4byte	.LFE2-.LFB2
- 686 028d 01       		.uleb128 0x1
- 687 028e 9C       		.byte	0x9c
- 688 028f A6020000 		.4byte	0x2a6
- 689 0293 13       		.uleb128 0x13
- 690 0294 06000000 		.4byte	.LVL16
- 691 0298 BC010000 		.4byte	0x1bc
- 692 029c 13       		.uleb128 0x13
- 693 029d 0C000000 		.4byte	.LVL17
- 694 02a1 E5000000 		.4byte	0xe5
- 695 02a5 00       		.byte	0
- 696 02a6 11       		.uleb128 0x11
- 697 02a7 48010000 		.4byte	.LASF31
- 698 02ab 01       		.byte	0x1
- 699 02ac 7801     		.2byte	0x178
- 700 02ae 00000000 		.4byte	.LFB11
- 701 02b2 0C000000 		.4byte	.LFE11-.LFB11
- 702 02b6 01       		.uleb128 0x1
- 703 02b7 9C       		.byte	0x9c
- 704 02b8 11       		.uleb128 0x11
- 705 02b9 06000000 		.4byte	.LASF32
- 706 02bd 01       		.byte	0x1
- 707 02be 9101     		.2byte	0x191
- 708 02c0 00000000 		.4byte	.LFB12
- 709 02c4 0C000000 		.4byte	.LFE12-.LFB12
- 710 02c8 01       		.uleb128 0x1
- 711 02c9 9C       		.byte	0x9c
- 712 02ca 00       		.byte	0
- 713              		.section	.debug_abbrev,"",%progbits
- 714              	.Ldebug_abbrev0:
- 715 0000 01       		.uleb128 0x1
- 716 0001 11       		.uleb128 0x11
- 717 0002 01       		.byte	0x1
- 718 0003 25       		.uleb128 0x25
- 719 0004 0E       		.uleb128 0xe
- 720 0005 13       		.uleb128 0x13
- 721 0006 0B       		.uleb128 0xb
- 722 0007 03       		.uleb128 0x3
- 723 0008 0E       		.uleb128 0xe
- 724 0009 1B       		.uleb128 0x1b
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 21
+ 664 021b B3000000 		.4byte	.LASF31
+ 665 021f 01       		.byte	0x1
+ 666 0220 3E       		.byte	0x3e
+ 667 0221 00000000 		.4byte	.LFB0
+ 668 0225 1C000000 		.4byte	.LFE0-.LFB0
+ 669 0229 01       		.uleb128 0x1
+ 670 022a 9C       		.byte	0x9c
+ 671 022b 6C020000 		.4byte	0x26c
+ 672 022f 0B       		.uleb128 0xb
+ 673 0230 06000000 		.4byte	.LVL12
+ 674 0234 08020000 		.4byte	0x208
+ 675 0238 17       		.uleb128 0x17
+ 676 0239 0C000000 		.4byte	.LVL13
+ 677 023d 31010000 		.4byte	0x131
+ 678 0241 4F020000 		.4byte	0x24f
+ 679 0245 0D       		.uleb128 0xd
+ 680 0246 01       		.uleb128 0x1
+ 681 0247 50       		.byte	0x50
+ 682 0248 05       		.uleb128 0x5
+ 683 0249 03       		.byte	0x3
+ 684 024a 00000000 		.4byte	isr_pedalok_Interrupt
+ 685 024e 00       		.byte	0
+ 686 024f 17       		.uleb128 0x17
+ 687 0250 12000000 		.4byte	.LVL14
+ 688 0254 8E010000 		.4byte	0x18e
+ 689 0258 62020000 		.4byte	0x262
+ 690 025c 0D       		.uleb128 0xd
+ 691 025d 01       		.uleb128 0x1
+ 692 025e 50       		.byte	0x50
+ 693 025f 01       		.uleb128 0x1
+ 694 0260 37       		.byte	0x37
+ 695 0261 00       		.byte	0
+ 696 0262 0B       		.uleb128 0xb
+ 697 0263 16000000 		.4byte	.LVL15
+ 698 0267 E0010000 		.4byte	0x1e0
+ 699 026b 00       		.byte	0
+ 700 026c 09       		.uleb128 0x9
+ 701 026d 97010000 		.4byte	.LASF32
+ 702 0271 01       		.byte	0x1
+ 703 0272 69       		.byte	0x69
+ 704 0273 00000000 		.4byte	.LFB1
+ 705 0277 1A000000 		.4byte	.LFE1-.LFB1
+ 706 027b 01       		.uleb128 0x1
+ 707 027c 9C       		.byte	0x9c
+ 708 027d CA020000 		.4byte	0x2ca
+ 709 0281 18       		.uleb128 0x18
+ 710 0282 CF010000 		.4byte	.LASF25
+ 711 0286 01       		.byte	0x1
+ 712 0287 69       		.byte	0x69
+ 713 0288 DE000000 		.4byte	0xde
+ 714 028c 4B000000 		.4byte	.LLST3
+ 715 0290 0B       		.uleb128 0xb
+ 716 0291 08000000 		.4byte	.LVL17
+ 717 0295 08020000 		.4byte	0x208
+ 718 0299 17       		.uleb128 0x17
+ 719 029a 0E000000 		.4byte	.LVL18
+ 720 029e 31010000 		.4byte	0x131
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 21
 
 
- 725 000a 0E       		.uleb128 0xe
- 726 000b 55       		.uleb128 0x55
- 727 000c 17       		.uleb128 0x17
- 728 000d 11       		.uleb128 0x11
- 729 000e 01       		.uleb128 0x1
- 730 000f 10       		.uleb128 0x10
- 731 0010 17       		.uleb128 0x17
- 732 0011 00       		.byte	0
- 733 0012 00       		.byte	0
- 734 0013 02       		.uleb128 0x2
- 735 0014 24       		.uleb128 0x24
- 736 0015 00       		.byte	0
- 737 0016 0B       		.uleb128 0xb
- 738 0017 0B       		.uleb128 0xb
- 739 0018 3E       		.uleb128 0x3e
- 740 0019 0B       		.uleb128 0xb
- 741 001a 03       		.uleb128 0x3
- 742 001b 08       		.uleb128 0x8
- 743 001c 00       		.byte	0
- 744 001d 00       		.byte	0
- 745 001e 03       		.uleb128 0x3
- 746 001f 24       		.uleb128 0x24
- 747 0020 00       		.byte	0
- 748 0021 0B       		.uleb128 0xb
- 749 0022 0B       		.uleb128 0xb
- 750 0023 3E       		.uleb128 0x3e
- 751 0024 0B       		.uleb128 0xb
- 752 0025 03       		.uleb128 0x3
- 753 0026 0E       		.uleb128 0xe
- 754 0027 00       		.byte	0
- 755 0028 00       		.byte	0
- 756 0029 04       		.uleb128 0x4
- 757 002a 0F       		.uleb128 0xf
- 758 002b 00       		.byte	0
- 759 002c 0B       		.uleb128 0xb
- 760 002d 0B       		.uleb128 0xb
- 761 002e 49       		.uleb128 0x49
- 762 002f 13       		.uleb128 0x13
- 763 0030 00       		.byte	0
- 764 0031 00       		.byte	0
- 765 0032 05       		.uleb128 0x5
- 766 0033 15       		.uleb128 0x15
- 767 0034 00       		.byte	0
- 768 0035 27       		.uleb128 0x27
- 769 0036 19       		.uleb128 0x19
- 770 0037 00       		.byte	0
- 771 0038 00       		.byte	0
- 772 0039 06       		.uleb128 0x6
- 773 003a 16       		.uleb128 0x16
- 774 003b 00       		.byte	0
- 775 003c 03       		.uleb128 0x3
- 776 003d 0E       		.uleb128 0xe
- 777 003e 3A       		.uleb128 0x3a
- 778 003f 0B       		.uleb128 0xb
- 779 0040 3B       		.uleb128 0x3b
- 780 0041 05       		.uleb128 0x5
- 781 0042 49       		.uleb128 0x49
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 22
+ 721 02a2 AD020000 		.4byte	0x2ad
+ 722 02a6 0D       		.uleb128 0xd
+ 723 02a7 01       		.uleb128 0x1
+ 724 02a8 50       		.byte	0x50
+ 725 02a9 02       		.uleb128 0x2
+ 726 02aa 74       		.byte	0x74
+ 727 02ab 00       		.sleb128 0
+ 728 02ac 00       		.byte	0
+ 729 02ad 17       		.uleb128 0x17
+ 730 02ae 14000000 		.4byte	.LVL19
+ 731 02b2 8E010000 		.4byte	0x18e
+ 732 02b6 C0020000 		.4byte	0x2c0
+ 733 02ba 0D       		.uleb128 0xd
+ 734 02bb 01       		.uleb128 0x1
+ 735 02bc 50       		.byte	0x50
+ 736 02bd 01       		.uleb128 0x1
+ 737 02be 37       		.byte	0x37
+ 738 02bf 00       		.byte	0
+ 739 02c0 0B       		.uleb128 0xb
+ 740 02c1 18000000 		.4byte	.LVL20
+ 741 02c5 E0010000 		.4byte	0x1e0
+ 742 02c9 00       		.byte	0
+ 743 02ca 09       		.uleb128 0x9
+ 744 02cb 5C010000 		.4byte	.LASF33
+ 745 02cf 01       		.byte	0x1
+ 746 02d0 87       		.byte	0x87
+ 747 02d1 00000000 		.4byte	.LFB2
+ 748 02d5 14000000 		.4byte	.LFE2-.LFB2
+ 749 02d9 01       		.uleb128 0x1
+ 750 02da 9C       		.byte	0x9c
+ 751 02db F2020000 		.4byte	0x2f2
+ 752 02df 0B       		.uleb128 0xb
+ 753 02e0 06000000 		.4byte	.LVL21
+ 754 02e4 08020000 		.4byte	0x208
+ 755 02e8 0B       		.uleb128 0xb
+ 756 02e9 0C000000 		.4byte	.LVL22
+ 757 02ed 31010000 		.4byte	0x131
+ 758 02f1 00       		.byte	0
+ 759 02f2 15       		.uleb128 0x15
+ 760 02f3 CA000000 		.4byte	.LASF34
+ 761 02f7 01       		.byte	0x1
+ 762 02f8 7C01     		.2byte	0x17c
+ 763 02fa 00000000 		.4byte	.LFB11
+ 764 02fe 0C000000 		.4byte	.LFE11-.LFB11
+ 765 0302 01       		.uleb128 0x1
+ 766 0303 9C       		.byte	0x9c
+ 767 0304 15       		.uleb128 0x15
+ 768 0305 06000000 		.4byte	.LASF35
+ 769 0309 01       		.byte	0x1
+ 770 030a 9501     		.2byte	0x195
+ 771 030c 00000000 		.4byte	.LFB12
+ 772 0310 0C000000 		.4byte	.LFE12-.LFB12
+ 773 0314 01       		.uleb128 0x1
+ 774 0315 9C       		.byte	0x9c
+ 775 0316 19       		.uleb128 0x19
+ 776 0317 ED010000 		.4byte	.LASF42
+ 777 031b 01       		.byte	0x1
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 22
 
 
- 782 0043 13       		.uleb128 0x13
- 783 0044 00       		.byte	0
- 784 0045 00       		.byte	0
- 785 0046 07       		.uleb128 0x7
- 786 0047 35       		.uleb128 0x35
- 787 0048 00       		.byte	0
- 788 0049 49       		.uleb128 0x49
- 789 004a 13       		.uleb128 0x13
- 790 004b 00       		.byte	0
- 791 004c 00       		.byte	0
- 792 004d 08       		.uleb128 0x8
- 793 004e 2E       		.uleb128 0x2e
- 794 004f 00       		.byte	0
- 795 0050 3F       		.uleb128 0x3f
- 796 0051 19       		.uleb128 0x19
- 797 0052 03       		.uleb128 0x3
- 798 0053 0E       		.uleb128 0xe
- 799 0054 3A       		.uleb128 0x3a
- 800 0055 0B       		.uleb128 0xb
- 801 0056 3B       		.uleb128 0x3b
- 802 0057 0B       		.uleb128 0xb
- 803 0058 27       		.uleb128 0x27
- 804 0059 19       		.uleb128 0x19
- 805 005a 11       		.uleb128 0x11
- 806 005b 01       		.uleb128 0x1
- 807 005c 12       		.uleb128 0x12
- 808 005d 06       		.uleb128 0x6
- 809 005e 40       		.uleb128 0x40
- 810 005f 18       		.uleb128 0x18
- 811 0060 9742     		.uleb128 0x2117
- 812 0062 19       		.uleb128 0x19
- 813 0063 00       		.byte	0
- 814 0064 00       		.byte	0
- 815 0065 09       		.uleb128 0x9
- 816 0066 2E       		.uleb128 0x2e
- 817 0067 01       		.byte	0x1
- 818 0068 3F       		.uleb128 0x3f
- 819 0069 19       		.uleb128 0x19
- 820 006a 03       		.uleb128 0x3
- 821 006b 0E       		.uleb128 0xe
- 822 006c 3A       		.uleb128 0x3a
- 823 006d 0B       		.uleb128 0xb
- 824 006e 3B       		.uleb128 0x3b
- 825 006f 0B       		.uleb128 0xb
- 826 0070 27       		.uleb128 0x27
- 827 0071 19       		.uleb128 0x19
- 828 0072 11       		.uleb128 0x11
- 829 0073 01       		.uleb128 0x1
- 830 0074 12       		.uleb128 0x12
- 831 0075 06       		.uleb128 0x6
- 832 0076 40       		.uleb128 0x40
- 833 0077 18       		.uleb128 0x18
- 834 0078 9742     		.uleb128 0x2117
- 835 007a 19       		.uleb128 0x19
- 836 007b 01       		.uleb128 0x1
- 837 007c 13       		.uleb128 0x13
- 838 007d 00       		.byte	0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 23
+ 778 031c 1F       		.byte	0x1f
+ 779 031d 21030000 		.4byte	0x321
+ 780 0321 08       		.uleb128 0x8
+ 781 0322 8B000000 		.4byte	0x8b
+ 782 0326 1A       		.uleb128 0x1a
+ 783 0327 AB010000 		.4byte	.LASF36
+ 784 032b 05       		.byte	0x5
+ 785 032c 7E       		.byte	0x7e
+ 786 032d 96000000 		.4byte	0x96
+ 787 0331 1A       		.uleb128 0x1a
+ 788 0332 CF020000 		.4byte	.LASF37
+ 789 0336 06       		.byte	0x6
+ 790 0337 5E       		.byte	0x5e
+ 791 0338 96000000 		.4byte	0x96
+ 792 033c 1B       		.uleb128 0x1b
+ 793 033d D7010000 		.4byte	.LASF43
+ 794 0341 05       		.byte	0x5
+ 795 0342 7F       		.byte	0x7f
+ 796 0343 1C       		.uleb128 0x1c
+ 797 0344 96000000 		.4byte	0x96
+ 798 0348 00       		.byte	0
+ 799 0349 00       		.byte	0
+ 800              		.section	.debug_abbrev,"",%progbits
+ 801              	.Ldebug_abbrev0:
+ 802 0000 01       		.uleb128 0x1
+ 803 0001 11       		.uleb128 0x11
+ 804 0002 01       		.byte	0x1
+ 805 0003 25       		.uleb128 0x25
+ 806 0004 0E       		.uleb128 0xe
+ 807 0005 13       		.uleb128 0x13
+ 808 0006 0B       		.uleb128 0xb
+ 809 0007 03       		.uleb128 0x3
+ 810 0008 0E       		.uleb128 0xe
+ 811 0009 1B       		.uleb128 0x1b
+ 812 000a 0E       		.uleb128 0xe
+ 813 000b 55       		.uleb128 0x55
+ 814 000c 17       		.uleb128 0x17
+ 815 000d 11       		.uleb128 0x11
+ 816 000e 01       		.uleb128 0x1
+ 817 000f 10       		.uleb128 0x10
+ 818 0010 17       		.uleb128 0x17
+ 819 0011 00       		.byte	0
+ 820 0012 00       		.byte	0
+ 821 0013 02       		.uleb128 0x2
+ 822 0014 24       		.uleb128 0x24
+ 823 0015 00       		.byte	0
+ 824 0016 0B       		.uleb128 0xb
+ 825 0017 0B       		.uleb128 0xb
+ 826 0018 3E       		.uleb128 0x3e
+ 827 0019 0B       		.uleb128 0xb
+ 828 001a 03       		.uleb128 0x3
+ 829 001b 08       		.uleb128 0x8
+ 830 001c 00       		.byte	0
+ 831 001d 00       		.byte	0
+ 832 001e 03       		.uleb128 0x3
+ 833 001f 24       		.uleb128 0x24
+ 834 0020 00       		.byte	0
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 23
 
 
- 839 007e 00       		.byte	0
- 840 007f 0A       		.uleb128 0xa
- 841 0080 05       		.uleb128 0x5
- 842 0081 00       		.byte	0
- 843 0082 03       		.uleb128 0x3
- 844 0083 0E       		.uleb128 0xe
- 845 0084 3A       		.uleb128 0x3a
- 846 0085 0B       		.uleb128 0xb
- 847 0086 3B       		.uleb128 0x3b
- 848 0087 0B       		.uleb128 0xb
- 849 0088 49       		.uleb128 0x49
- 850 0089 13       		.uleb128 0x13
- 851 008a 02       		.uleb128 0x2
- 852 008b 18       		.uleb128 0x18
- 853 008c 00       		.byte	0
- 854 008d 00       		.byte	0
- 855 008e 0B       		.uleb128 0xb
- 856 008f 34       		.uleb128 0x34
- 857 0090 00       		.byte	0
- 858 0091 03       		.uleb128 0x3
- 859 0092 0E       		.uleb128 0xe
- 860 0093 3A       		.uleb128 0x3a
- 861 0094 0B       		.uleb128 0xb
- 862 0095 3B       		.uleb128 0x3b
- 863 0096 0B       		.uleb128 0xb
- 864 0097 49       		.uleb128 0x49
- 865 0098 13       		.uleb128 0x13
- 866 0099 02       		.uleb128 0x2
- 867 009a 18       		.uleb128 0x18
- 868 009b 00       		.byte	0
- 869 009c 00       		.byte	0
- 870 009d 0C       		.uleb128 0xc
- 871 009e 2E       		.uleb128 0x2e
- 872 009f 01       		.byte	0x1
- 873 00a0 3F       		.uleb128 0x3f
- 874 00a1 19       		.uleb128 0x19
- 875 00a2 03       		.uleb128 0x3
- 876 00a3 0E       		.uleb128 0xe
- 877 00a4 3A       		.uleb128 0x3a
- 878 00a5 0B       		.uleb128 0xb
- 879 00a6 3B       		.uleb128 0x3b
- 880 00a7 0B       		.uleb128 0xb
- 881 00a8 27       		.uleb128 0x27
- 882 00a9 19       		.uleb128 0x19
- 883 00aa 49       		.uleb128 0x49
- 884 00ab 13       		.uleb128 0x13
- 885 00ac 11       		.uleb128 0x11
- 886 00ad 01       		.uleb128 0x1
- 887 00ae 12       		.uleb128 0x12
- 888 00af 06       		.uleb128 0x6
- 889 00b0 40       		.uleb128 0x40
- 890 00b1 18       		.uleb128 0x18
- 891 00b2 9742     		.uleb128 0x2117
- 892 00b4 19       		.uleb128 0x19
- 893 00b5 01       		.uleb128 0x1
- 894 00b6 13       		.uleb128 0x13
- 895 00b7 00       		.byte	0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 24
+ 835 0021 0B       		.uleb128 0xb
+ 836 0022 0B       		.uleb128 0xb
+ 837 0023 3E       		.uleb128 0x3e
+ 838 0024 0B       		.uleb128 0xb
+ 839 0025 03       		.uleb128 0x3
+ 840 0026 0E       		.uleb128 0xe
+ 841 0027 00       		.byte	0
+ 842 0028 00       		.byte	0
+ 843 0029 04       		.uleb128 0x4
+ 844 002a 16       		.uleb128 0x16
+ 845 002b 00       		.byte	0
+ 846 002c 03       		.uleb128 0x3
+ 847 002d 0E       		.uleb128 0xe
+ 848 002e 3A       		.uleb128 0x3a
+ 849 002f 0B       		.uleb128 0xb
+ 850 0030 3B       		.uleb128 0x3b
+ 851 0031 0B       		.uleb128 0xb
+ 852 0032 49       		.uleb128 0x49
+ 853 0033 13       		.uleb128 0x13
+ 854 0034 00       		.byte	0
+ 855 0035 00       		.byte	0
+ 856 0036 05       		.uleb128 0x5
+ 857 0037 0F       		.uleb128 0xf
+ 858 0038 00       		.byte	0
+ 859 0039 0B       		.uleb128 0xb
+ 860 003a 0B       		.uleb128 0xb
+ 861 003b 49       		.uleb128 0x49
+ 862 003c 13       		.uleb128 0x13
+ 863 003d 00       		.byte	0
+ 864 003e 00       		.byte	0
+ 865 003f 06       		.uleb128 0x6
+ 866 0040 15       		.uleb128 0x15
+ 867 0041 00       		.byte	0
+ 868 0042 27       		.uleb128 0x27
+ 869 0043 19       		.uleb128 0x19
+ 870 0044 00       		.byte	0
+ 871 0045 00       		.byte	0
+ 872 0046 07       		.uleb128 0x7
+ 873 0047 16       		.uleb128 0x16
+ 874 0048 00       		.byte	0
+ 875 0049 03       		.uleb128 0x3
+ 876 004a 0E       		.uleb128 0xe
+ 877 004b 3A       		.uleb128 0x3a
+ 878 004c 0B       		.uleb128 0xb
+ 879 004d 3B       		.uleb128 0x3b
+ 880 004e 05       		.uleb128 0x5
+ 881 004f 49       		.uleb128 0x49
+ 882 0050 13       		.uleb128 0x13
+ 883 0051 00       		.byte	0
+ 884 0052 00       		.byte	0
+ 885 0053 08       		.uleb128 0x8
+ 886 0054 35       		.uleb128 0x35
+ 887 0055 00       		.byte	0
+ 888 0056 49       		.uleb128 0x49
+ 889 0057 13       		.uleb128 0x13
+ 890 0058 00       		.byte	0
+ 891 0059 00       		.byte	0
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 24
 
 
- 896 00b8 00       		.byte	0
- 897 00b9 0D       		.uleb128 0xd
- 898 00ba 2E       		.uleb128 0x2e
- 899 00bb 01       		.byte	0x1
- 900 00bc 3F       		.uleb128 0x3f
- 901 00bd 19       		.uleb128 0x19
- 902 00be 03       		.uleb128 0x3
- 903 00bf 0E       		.uleb128 0xe
- 904 00c0 3A       		.uleb128 0x3a
- 905 00c1 0B       		.uleb128 0xb
- 906 00c2 3B       		.uleb128 0x3b
- 907 00c3 05       		.uleb128 0x5
- 908 00c4 27       		.uleb128 0x27
- 909 00c5 19       		.uleb128 0x19
- 910 00c6 11       		.uleb128 0x11
- 911 00c7 01       		.uleb128 0x1
- 912 00c8 12       		.uleb128 0x12
- 913 00c9 06       		.uleb128 0x6
- 914 00ca 40       		.uleb128 0x40
- 915 00cb 18       		.uleb128 0x18
- 916 00cc 9742     		.uleb128 0x2117
- 917 00ce 19       		.uleb128 0x19
- 918 00cf 01       		.uleb128 0x1
- 919 00d0 13       		.uleb128 0x13
- 920 00d1 00       		.byte	0
- 921 00d2 00       		.byte	0
- 922 00d3 0E       		.uleb128 0xe
- 923 00d4 05       		.uleb128 0x5
- 924 00d5 00       		.byte	0
- 925 00d6 03       		.uleb128 0x3
- 926 00d7 0E       		.uleb128 0xe
- 927 00d8 3A       		.uleb128 0x3a
- 928 00d9 0B       		.uleb128 0xb
- 929 00da 3B       		.uleb128 0x3b
- 930 00db 05       		.uleb128 0x5
- 931 00dc 49       		.uleb128 0x49
- 932 00dd 13       		.uleb128 0x13
- 933 00de 02       		.uleb128 0x2
- 934 00df 17       		.uleb128 0x17
- 935 00e0 00       		.byte	0
- 936 00e1 00       		.byte	0
- 937 00e2 0F       		.uleb128 0xf
- 938 00e3 2E       		.uleb128 0x2e
- 939 00e4 01       		.byte	0x1
- 940 00e5 3F       		.uleb128 0x3f
- 941 00e6 19       		.uleb128 0x19
- 942 00e7 03       		.uleb128 0x3
- 943 00e8 0E       		.uleb128 0xe
- 944 00e9 3A       		.uleb128 0x3a
- 945 00ea 0B       		.uleb128 0xb
- 946 00eb 3B       		.uleb128 0x3b
- 947 00ec 05       		.uleb128 0x5
- 948 00ed 27       		.uleb128 0x27
- 949 00ee 19       		.uleb128 0x19
- 950 00ef 49       		.uleb128 0x49
- 951 00f0 13       		.uleb128 0x13
- 952 00f1 11       		.uleb128 0x11
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 25
+ 892 005a 09       		.uleb128 0x9
+ 893 005b 2E       		.uleb128 0x2e
+ 894 005c 01       		.byte	0x1
+ 895 005d 3F       		.uleb128 0x3f
+ 896 005e 19       		.uleb128 0x19
+ 897 005f 03       		.uleb128 0x3
+ 898 0060 0E       		.uleb128 0xe
+ 899 0061 3A       		.uleb128 0x3a
+ 900 0062 0B       		.uleb128 0xb
+ 901 0063 3B       		.uleb128 0x3b
+ 902 0064 0B       		.uleb128 0xb
+ 903 0065 27       		.uleb128 0x27
+ 904 0066 19       		.uleb128 0x19
+ 905 0067 11       		.uleb128 0x11
+ 906 0068 01       		.uleb128 0x1
+ 907 0069 12       		.uleb128 0x12
+ 908 006a 06       		.uleb128 0x6
+ 909 006b 40       		.uleb128 0x40
+ 910 006c 18       		.uleb128 0x18
+ 911 006d 9742     		.uleb128 0x2117
+ 912 006f 19       		.uleb128 0x19
+ 913 0070 01       		.uleb128 0x1
+ 914 0071 13       		.uleb128 0x13
+ 915 0072 00       		.byte	0
+ 916 0073 00       		.byte	0
+ 917 0074 0A       		.uleb128 0xa
+ 918 0075 34       		.uleb128 0x34
+ 919 0076 00       		.byte	0
+ 920 0077 03       		.uleb128 0x3
+ 921 0078 0E       		.uleb128 0xe
+ 922 0079 3A       		.uleb128 0x3a
+ 923 007a 0B       		.uleb128 0xb
+ 924 007b 3B       		.uleb128 0x3b
+ 925 007c 0B       		.uleb128 0xb
+ 926 007d 49       		.uleb128 0x49
+ 927 007e 13       		.uleb128 0x13
+ 928 007f 02       		.uleb128 0x2
+ 929 0080 17       		.uleb128 0x17
+ 930 0081 00       		.byte	0
+ 931 0082 00       		.byte	0
+ 932 0083 0B       		.uleb128 0xb
+ 933 0084 898201   		.uleb128 0x4109
+ 934 0087 00       		.byte	0
+ 935 0088 11       		.uleb128 0x11
+ 936 0089 01       		.uleb128 0x1
+ 937 008a 31       		.uleb128 0x31
+ 938 008b 13       		.uleb128 0x13
+ 939 008c 00       		.byte	0
+ 940 008d 00       		.byte	0
+ 941 008e 0C       		.uleb128 0xc
+ 942 008f 898201   		.uleb128 0x4109
+ 943 0092 01       		.byte	0x1
+ 944 0093 11       		.uleb128 0x11
+ 945 0094 01       		.uleb128 0x1
+ 946 0095 31       		.uleb128 0x31
+ 947 0096 13       		.uleb128 0x13
+ 948 0097 00       		.byte	0
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 25
 
 
- 953 00f2 01       		.uleb128 0x1
- 954 00f3 12       		.uleb128 0x12
- 955 00f4 06       		.uleb128 0x6
- 956 00f5 40       		.uleb128 0x40
- 957 00f6 18       		.uleb128 0x18
- 958 00f7 9742     		.uleb128 0x2117
- 959 00f9 19       		.uleb128 0x19
- 960 00fa 01       		.uleb128 0x1
- 961 00fb 13       		.uleb128 0x13
- 962 00fc 00       		.byte	0
- 963 00fd 00       		.byte	0
- 964 00fe 10       		.uleb128 0x10
- 965 00ff 34       		.uleb128 0x34
- 966 0100 00       		.byte	0
- 967 0101 03       		.uleb128 0x3
- 968 0102 0E       		.uleb128 0xe
- 969 0103 3A       		.uleb128 0x3a
- 970 0104 0B       		.uleb128 0xb
- 971 0105 3B       		.uleb128 0x3b
- 972 0106 05       		.uleb128 0x5
- 973 0107 49       		.uleb128 0x49
- 974 0108 13       		.uleb128 0x13
- 975 0109 02       		.uleb128 0x2
- 976 010a 17       		.uleb128 0x17
- 977 010b 00       		.byte	0
- 978 010c 00       		.byte	0
- 979 010d 11       		.uleb128 0x11
- 980 010e 2E       		.uleb128 0x2e
- 981 010f 00       		.byte	0
- 982 0110 3F       		.uleb128 0x3f
- 983 0111 19       		.uleb128 0x19
- 984 0112 03       		.uleb128 0x3
- 985 0113 0E       		.uleb128 0xe
- 986 0114 3A       		.uleb128 0x3a
- 987 0115 0B       		.uleb128 0xb
- 988 0116 3B       		.uleb128 0x3b
- 989 0117 05       		.uleb128 0x5
- 990 0118 27       		.uleb128 0x27
- 991 0119 19       		.uleb128 0x19
- 992 011a 11       		.uleb128 0x11
- 993 011b 01       		.uleb128 0x1
- 994 011c 12       		.uleb128 0x12
- 995 011d 06       		.uleb128 0x6
- 996 011e 40       		.uleb128 0x40
- 997 011f 18       		.uleb128 0x18
- 998 0120 9742     		.uleb128 0x2117
- 999 0122 19       		.uleb128 0x19
- 1000 0123 00       		.byte	0
- 1001 0124 00       		.byte	0
- 1002 0125 12       		.uleb128 0x12
- 1003 0126 2E       		.uleb128 0x2e
- 1004 0127 00       		.byte	0
- 1005 0128 3F       		.uleb128 0x3f
- 1006 0129 19       		.uleb128 0x19
- 1007 012a 03       		.uleb128 0x3
- 1008 012b 0E       		.uleb128 0xe
- 1009 012c 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 26
+ 949 0098 00       		.byte	0
+ 950 0099 0D       		.uleb128 0xd
+ 951 009a 8A8201   		.uleb128 0x410a
+ 952 009d 00       		.byte	0
+ 953 009e 02       		.uleb128 0x2
+ 954 009f 18       		.uleb128 0x18
+ 955 00a0 9142     		.uleb128 0x2111
+ 956 00a2 18       		.uleb128 0x18
+ 957 00a3 00       		.byte	0
+ 958 00a4 00       		.byte	0
+ 959 00a5 0E       		.uleb128 0xe
+ 960 00a6 05       		.uleb128 0x5
+ 961 00a7 00       		.byte	0
+ 962 00a8 03       		.uleb128 0x3
+ 963 00a9 0E       		.uleb128 0xe
+ 964 00aa 3A       		.uleb128 0x3a
+ 965 00ab 0B       		.uleb128 0xb
+ 966 00ac 3B       		.uleb128 0x3b
+ 967 00ad 0B       		.uleb128 0xb
+ 968 00ae 49       		.uleb128 0x49
+ 969 00af 13       		.uleb128 0x13
+ 970 00b0 02       		.uleb128 0x2
+ 971 00b1 18       		.uleb128 0x18
+ 972 00b2 00       		.byte	0
+ 973 00b3 00       		.byte	0
+ 974 00b4 0F       		.uleb128 0xf
+ 975 00b5 34       		.uleb128 0x34
+ 976 00b6 00       		.byte	0
+ 977 00b7 03       		.uleb128 0x3
+ 978 00b8 0E       		.uleb128 0xe
+ 979 00b9 3A       		.uleb128 0x3a
+ 980 00ba 0B       		.uleb128 0xb
+ 981 00bb 3B       		.uleb128 0x3b
+ 982 00bc 0B       		.uleb128 0xb
+ 983 00bd 49       		.uleb128 0x49
+ 984 00be 13       		.uleb128 0x13
+ 985 00bf 02       		.uleb128 0x2
+ 986 00c0 18       		.uleb128 0x18
+ 987 00c1 00       		.byte	0
+ 988 00c2 00       		.byte	0
+ 989 00c3 10       		.uleb128 0x10
+ 990 00c4 2E       		.uleb128 0x2e
+ 991 00c5 01       		.byte	0x1
+ 992 00c6 3F       		.uleb128 0x3f
+ 993 00c7 19       		.uleb128 0x19
+ 994 00c8 03       		.uleb128 0x3
+ 995 00c9 0E       		.uleb128 0xe
+ 996 00ca 3A       		.uleb128 0x3a
+ 997 00cb 0B       		.uleb128 0xb
+ 998 00cc 3B       		.uleb128 0x3b
+ 999 00cd 0B       		.uleb128 0xb
+ 1000 00ce 27       		.uleb128 0x27
+ 1001 00cf 19       		.uleb128 0x19
+ 1002 00d0 49       		.uleb128 0x49
+ 1003 00d1 13       		.uleb128 0x13
+ 1004 00d2 11       		.uleb128 0x11
+ 1005 00d3 01       		.uleb128 0x1
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 26
 
 
- 1010 012d 0B       		.uleb128 0xb
- 1011 012e 3B       		.uleb128 0x3b
- 1012 012f 05       		.uleb128 0x5
- 1013 0130 27       		.uleb128 0x27
- 1014 0131 19       		.uleb128 0x19
- 1015 0132 49       		.uleb128 0x49
- 1016 0133 13       		.uleb128 0x13
- 1017 0134 11       		.uleb128 0x11
- 1018 0135 01       		.uleb128 0x1
- 1019 0136 12       		.uleb128 0x12
- 1020 0137 06       		.uleb128 0x6
- 1021 0138 40       		.uleb128 0x40
- 1022 0139 18       		.uleb128 0x18
- 1023 013a 9742     		.uleb128 0x2117
- 1024 013c 19       		.uleb128 0x19
- 1025 013d 00       		.byte	0
- 1026 013e 00       		.byte	0
- 1027 013f 13       		.uleb128 0x13
- 1028 0140 898201   		.uleb128 0x4109
- 1029 0143 00       		.byte	0
- 1030 0144 11       		.uleb128 0x11
- 1031 0145 01       		.uleb128 0x1
- 1032 0146 31       		.uleb128 0x31
- 1033 0147 13       		.uleb128 0x13
- 1034 0148 00       		.byte	0
- 1035 0149 00       		.byte	0
- 1036 014a 14       		.uleb128 0x14
- 1037 014b 898201   		.uleb128 0x4109
- 1038 014e 01       		.byte	0x1
- 1039 014f 11       		.uleb128 0x11
- 1040 0150 01       		.uleb128 0x1
- 1041 0151 31       		.uleb128 0x31
- 1042 0152 13       		.uleb128 0x13
- 1043 0153 01       		.uleb128 0x1
- 1044 0154 13       		.uleb128 0x13
- 1045 0155 00       		.byte	0
- 1046 0156 00       		.byte	0
- 1047 0157 15       		.uleb128 0x15
- 1048 0158 8A8201   		.uleb128 0x410a
- 1049 015b 00       		.byte	0
- 1050 015c 02       		.uleb128 0x2
- 1051 015d 18       		.uleb128 0x18
- 1052 015e 9142     		.uleb128 0x2111
- 1053 0160 18       		.uleb128 0x18
- 1054 0161 00       		.byte	0
- 1055 0162 00       		.byte	0
- 1056 0163 16       		.uleb128 0x16
- 1057 0164 05       		.uleb128 0x5
- 1058 0165 00       		.byte	0
- 1059 0166 03       		.uleb128 0x3
- 1060 0167 0E       		.uleb128 0xe
- 1061 0168 3A       		.uleb128 0x3a
- 1062 0169 0B       		.uleb128 0xb
- 1063 016a 3B       		.uleb128 0x3b
- 1064 016b 0B       		.uleb128 0xb
- 1065 016c 49       		.uleb128 0x49
- 1066 016d 13       		.uleb128 0x13
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 27
+ 1006 00d4 12       		.uleb128 0x12
+ 1007 00d5 06       		.uleb128 0x6
+ 1008 00d6 40       		.uleb128 0x40
+ 1009 00d7 18       		.uleb128 0x18
+ 1010 00d8 9742     		.uleb128 0x2117
+ 1011 00da 19       		.uleb128 0x19
+ 1012 00db 01       		.uleb128 0x1
+ 1013 00dc 13       		.uleb128 0x13
+ 1014 00dd 00       		.byte	0
+ 1015 00de 00       		.byte	0
+ 1016 00df 11       		.uleb128 0x11
+ 1017 00e0 2E       		.uleb128 0x2e
+ 1018 00e1 01       		.byte	0x1
+ 1019 00e2 3F       		.uleb128 0x3f
+ 1020 00e3 19       		.uleb128 0x19
+ 1021 00e4 03       		.uleb128 0x3
+ 1022 00e5 0E       		.uleb128 0xe
+ 1023 00e6 3A       		.uleb128 0x3a
+ 1024 00e7 0B       		.uleb128 0xb
+ 1025 00e8 3B       		.uleb128 0x3b
+ 1026 00e9 05       		.uleb128 0x5
+ 1027 00ea 27       		.uleb128 0x27
+ 1028 00eb 19       		.uleb128 0x19
+ 1029 00ec 11       		.uleb128 0x11
+ 1030 00ed 01       		.uleb128 0x1
+ 1031 00ee 12       		.uleb128 0x12
+ 1032 00ef 06       		.uleb128 0x6
+ 1033 00f0 40       		.uleb128 0x40
+ 1034 00f1 18       		.uleb128 0x18
+ 1035 00f2 9742     		.uleb128 0x2117
+ 1036 00f4 19       		.uleb128 0x19
+ 1037 00f5 01       		.uleb128 0x1
+ 1038 00f6 13       		.uleb128 0x13
+ 1039 00f7 00       		.byte	0
+ 1040 00f8 00       		.byte	0
+ 1041 00f9 12       		.uleb128 0x12
+ 1042 00fa 05       		.uleb128 0x5
+ 1043 00fb 00       		.byte	0
+ 1044 00fc 03       		.uleb128 0x3
+ 1045 00fd 0E       		.uleb128 0xe
+ 1046 00fe 3A       		.uleb128 0x3a
+ 1047 00ff 0B       		.uleb128 0xb
+ 1048 0100 3B       		.uleb128 0x3b
+ 1049 0101 05       		.uleb128 0x5
+ 1050 0102 49       		.uleb128 0x49
+ 1051 0103 13       		.uleb128 0x13
+ 1052 0104 02       		.uleb128 0x2
+ 1053 0105 17       		.uleb128 0x17
+ 1054 0106 00       		.byte	0
+ 1055 0107 00       		.byte	0
+ 1056 0108 13       		.uleb128 0x13
+ 1057 0109 2E       		.uleb128 0x2e
+ 1058 010a 01       		.byte	0x1
+ 1059 010b 3F       		.uleb128 0x3f
+ 1060 010c 19       		.uleb128 0x19
+ 1061 010d 03       		.uleb128 0x3
+ 1062 010e 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 27
 
 
- 1067 016e 02       		.uleb128 0x2
- 1068 016f 17       		.uleb128 0x17
- 1069 0170 00       		.byte	0
- 1070 0171 00       		.byte	0
- 1071 0172 00       		.byte	0
- 1072              		.section	.debug_loc,"",%progbits
- 1073              	.Ldebug_loc0:
- 1074              	.LLST0:
- 1075 0000 00000000 		.4byte	.LVL3
- 1076 0004 02000000 		.4byte	.LVL4
- 1077 0008 0100     		.2byte	0x1
- 1078 000a 50       		.byte	0x50
- 1079 000b 02000000 		.4byte	.LVL4
- 1080 000f 10000000 		.4byte	.LFE6
- 1081 0013 0400     		.2byte	0x4
- 1082 0015 F3       		.byte	0xf3
- 1083 0016 01       		.uleb128 0x1
- 1084 0017 50       		.byte	0x50
- 1085 0018 9F       		.byte	0x9f
- 1086 0019 00000000 		.4byte	0
- 1087 001d 00000000 		.4byte	0
- 1088              	.LLST1:
- 1089 0021 04000000 		.4byte	.LVL5
- 1090 0025 06000000 		.4byte	.LVL6
- 1091 0029 0500     		.2byte	0x5
- 1092 002b 70       		.byte	0x70
- 1093 002c 00       		.sleb128 0
- 1094 002d 35       		.byte	0x35
- 1095 002e 25       		.byte	0x25
- 1096 002f 9F       		.byte	0x9f
- 1097 0030 00000000 		.4byte	0
- 1098 0034 00000000 		.4byte	0
- 1099              	.LLST2:
- 1100 0038 00000000 		.4byte	.LVL11
- 1101 003c 07000000 		.4byte	.LVL12-1
- 1102 0040 0100     		.2byte	0x1
- 1103 0042 50       		.byte	0x50
- 1104 0043 07000000 		.4byte	.LVL12-1
- 1105 0047 1A000000 		.4byte	.LFE1
- 1106 004b 0100     		.2byte	0x1
- 1107 004d 54       		.byte	0x54
- 1108 004e 00000000 		.4byte	0
- 1109 0052 00000000 		.4byte	0
- 1110              		.section	.debug_aranges,"",%progbits
- 1111 0000 7C000000 		.4byte	0x7c
- 1112 0004 0200     		.2byte	0x2
- 1113 0006 00000000 		.4byte	.Ldebug_info0
- 1114 000a 04       		.byte	0x4
- 1115 000b 00       		.byte	0
- 1116 000c 0000     		.2byte	0
- 1117 000e 0000     		.2byte	0
- 1118 0010 00000000 		.4byte	.LFB3
- 1119 0014 02000000 		.4byte	.LFE3-.LFB3
- 1120 0018 00000000 		.4byte	.LFB4
- 1121 001c 0C000000 		.4byte	.LFE4-.LFB4
- 1122 0020 00000000 		.4byte	.LFB5
- 1123 0024 0C000000 		.4byte	.LFE5-.LFB5
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 28
+ 1063 010f 3A       		.uleb128 0x3a
+ 1064 0110 0B       		.uleb128 0xb
+ 1065 0111 3B       		.uleb128 0x3b
+ 1066 0112 05       		.uleb128 0x5
+ 1067 0113 27       		.uleb128 0x27
+ 1068 0114 19       		.uleb128 0x19
+ 1069 0115 49       		.uleb128 0x49
+ 1070 0116 13       		.uleb128 0x13
+ 1071 0117 11       		.uleb128 0x11
+ 1072 0118 01       		.uleb128 0x1
+ 1073 0119 12       		.uleb128 0x12
+ 1074 011a 06       		.uleb128 0x6
+ 1075 011b 40       		.uleb128 0x40
+ 1076 011c 18       		.uleb128 0x18
+ 1077 011d 9742     		.uleb128 0x2117
+ 1078 011f 19       		.uleb128 0x19
+ 1079 0120 01       		.uleb128 0x1
+ 1080 0121 13       		.uleb128 0x13
+ 1081 0122 00       		.byte	0
+ 1082 0123 00       		.byte	0
+ 1083 0124 14       		.uleb128 0x14
+ 1084 0125 34       		.uleb128 0x34
+ 1085 0126 00       		.byte	0
+ 1086 0127 03       		.uleb128 0x3
+ 1087 0128 0E       		.uleb128 0xe
+ 1088 0129 3A       		.uleb128 0x3a
+ 1089 012a 0B       		.uleb128 0xb
+ 1090 012b 3B       		.uleb128 0x3b
+ 1091 012c 05       		.uleb128 0x5
+ 1092 012d 49       		.uleb128 0x49
+ 1093 012e 13       		.uleb128 0x13
+ 1094 012f 02       		.uleb128 0x2
+ 1095 0130 17       		.uleb128 0x17
+ 1096 0131 00       		.byte	0
+ 1097 0132 00       		.byte	0
+ 1098 0133 15       		.uleb128 0x15
+ 1099 0134 2E       		.uleb128 0x2e
+ 1100 0135 00       		.byte	0
+ 1101 0136 3F       		.uleb128 0x3f
+ 1102 0137 19       		.uleb128 0x19
+ 1103 0138 03       		.uleb128 0x3
+ 1104 0139 0E       		.uleb128 0xe
+ 1105 013a 3A       		.uleb128 0x3a
+ 1106 013b 0B       		.uleb128 0xb
+ 1107 013c 3B       		.uleb128 0x3b
+ 1108 013d 05       		.uleb128 0x5
+ 1109 013e 27       		.uleb128 0x27
+ 1110 013f 19       		.uleb128 0x19
+ 1111 0140 11       		.uleb128 0x11
+ 1112 0141 01       		.uleb128 0x1
+ 1113 0142 12       		.uleb128 0x12
+ 1114 0143 06       		.uleb128 0x6
+ 1115 0144 40       		.uleb128 0x40
+ 1116 0145 18       		.uleb128 0x18
+ 1117 0146 9742     		.uleb128 0x2117
+ 1118 0148 19       		.uleb128 0x19
+ 1119 0149 00       		.byte	0
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 28
 
 
- 1124 0028 00000000 		.4byte	.LFB6
- 1125 002c 10000000 		.4byte	.LFE6-.LFB6
- 1126 0030 00000000 		.4byte	.LFB7
- 1127 0034 0C000000 		.4byte	.LFE7-.LFB7
- 1128 0038 00000000 		.4byte	.LFB8
- 1129 003c 0C000000 		.4byte	.LFE8-.LFB8
- 1130 0040 00000000 		.4byte	.LFB9
- 1131 0044 18000000 		.4byte	.LFE9-.LFB9
- 1132 0048 00000000 		.4byte	.LFB10
- 1133 004c 0C000000 		.4byte	.LFE10-.LFB10
- 1134 0050 00000000 		.4byte	.LFB0
- 1135 0054 1C000000 		.4byte	.LFE0-.LFB0
- 1136 0058 00000000 		.4byte	.LFB1
- 1137 005c 1A000000 		.4byte	.LFE1-.LFB1
- 1138 0060 00000000 		.4byte	.LFB2
- 1139 0064 14000000 		.4byte	.LFE2-.LFB2
- 1140 0068 00000000 		.4byte	.LFB11
- 1141 006c 0C000000 		.4byte	.LFE11-.LFB11
- 1142 0070 00000000 		.4byte	.LFB12
- 1143 0074 0C000000 		.4byte	.LFE12-.LFB12
- 1144 0078 00000000 		.4byte	0
- 1145 007c 00000000 		.4byte	0
- 1146              		.section	.debug_ranges,"",%progbits
- 1147              	.Ldebug_ranges0:
- 1148 0000 00000000 		.4byte	.LFB3
- 1149 0004 02000000 		.4byte	.LFE3
- 1150 0008 00000000 		.4byte	.LFB4
- 1151 000c 0C000000 		.4byte	.LFE4
- 1152 0010 00000000 		.4byte	.LFB5
- 1153 0014 0C000000 		.4byte	.LFE5
- 1154 0018 00000000 		.4byte	.LFB6
- 1155 001c 10000000 		.4byte	.LFE6
- 1156 0020 00000000 		.4byte	.LFB7
- 1157 0024 0C000000 		.4byte	.LFE7
- 1158 0028 00000000 		.4byte	.LFB8
- 1159 002c 0C000000 		.4byte	.LFE8
- 1160 0030 00000000 		.4byte	.LFB9
- 1161 0034 18000000 		.4byte	.LFE9
- 1162 0038 00000000 		.4byte	.LFB10
- 1163 003c 0C000000 		.4byte	.LFE10
- 1164 0040 00000000 		.4byte	.LFB0
- 1165 0044 1C000000 		.4byte	.LFE0
- 1166 0048 00000000 		.4byte	.LFB1
- 1167 004c 1A000000 		.4byte	.LFE1
- 1168 0050 00000000 		.4byte	.LFB2
- 1169 0054 14000000 		.4byte	.LFE2
- 1170 0058 00000000 		.4byte	.LFB11
- 1171 005c 0C000000 		.4byte	.LFE11
- 1172 0060 00000000 		.4byte	.LFB12
- 1173 0064 0C000000 		.4byte	.LFE12
- 1174 0068 00000000 		.4byte	0
- 1175 006c 00000000 		.4byte	0
- 1176              		.section	.debug_line,"",%progbits
- 1177              	.Ldebug_line0:
- 1178 0000 34010000 		.section	.debug_str,"MS",%progbits,1
- 1178      02004800 
- 1178      00000201 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 29
+ 1120 014a 00       		.byte	0
+ 1121 014b 16       		.uleb128 0x16
+ 1122 014c 2E       		.uleb128 0x2e
+ 1123 014d 00       		.byte	0
+ 1124 014e 3F       		.uleb128 0x3f
+ 1125 014f 19       		.uleb128 0x19
+ 1126 0150 03       		.uleb128 0x3
+ 1127 0151 0E       		.uleb128 0xe
+ 1128 0152 3A       		.uleb128 0x3a
+ 1129 0153 0B       		.uleb128 0xb
+ 1130 0154 3B       		.uleb128 0x3b
+ 1131 0155 05       		.uleb128 0x5
+ 1132 0156 27       		.uleb128 0x27
+ 1133 0157 19       		.uleb128 0x19
+ 1134 0158 49       		.uleb128 0x49
+ 1135 0159 13       		.uleb128 0x13
+ 1136 015a 11       		.uleb128 0x11
+ 1137 015b 01       		.uleb128 0x1
+ 1138 015c 12       		.uleb128 0x12
+ 1139 015d 06       		.uleb128 0x6
+ 1140 015e 40       		.uleb128 0x40
+ 1141 015f 18       		.uleb128 0x18
+ 1142 0160 9742     		.uleb128 0x2117
+ 1143 0162 19       		.uleb128 0x19
+ 1144 0163 00       		.byte	0
+ 1145 0164 00       		.byte	0
+ 1146 0165 17       		.uleb128 0x17
+ 1147 0166 898201   		.uleb128 0x4109
+ 1148 0169 01       		.byte	0x1
+ 1149 016a 11       		.uleb128 0x11
+ 1150 016b 01       		.uleb128 0x1
+ 1151 016c 31       		.uleb128 0x31
+ 1152 016d 13       		.uleb128 0x13
+ 1153 016e 01       		.uleb128 0x1
+ 1154 016f 13       		.uleb128 0x13
+ 1155 0170 00       		.byte	0
+ 1156 0171 00       		.byte	0
+ 1157 0172 18       		.uleb128 0x18
+ 1158 0173 05       		.uleb128 0x5
+ 1159 0174 00       		.byte	0
+ 1160 0175 03       		.uleb128 0x3
+ 1161 0176 0E       		.uleb128 0xe
+ 1162 0177 3A       		.uleb128 0x3a
+ 1163 0178 0B       		.uleb128 0xb
+ 1164 0179 3B       		.uleb128 0x3b
+ 1165 017a 0B       		.uleb128 0xb
+ 1166 017b 49       		.uleb128 0x49
+ 1167 017c 13       		.uleb128 0x13
+ 1168 017d 02       		.uleb128 0x2
+ 1169 017e 17       		.uleb128 0x17
+ 1170 017f 00       		.byte	0
+ 1171 0180 00       		.byte	0
+ 1172 0181 19       		.uleb128 0x19
+ 1173 0182 34       		.uleb128 0x34
+ 1174 0183 00       		.byte	0
+ 1175 0184 03       		.uleb128 0x3
+ 1176 0185 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 29
 
 
- 1178      FB0E0D00 
- 1178      01010101 
- 1179              	.LASF16:
- 1180 0000 72656733 		.ascii	"reg32\000"
- 1180      3200
- 1181              	.LASF32:
- 1182 0006 6973725F 		.ascii	"isr_pedalok_ClearPending\000"
- 1182      70656461 
- 1182      6C6F6B5F 
- 1182      436C6561 
- 1182      7250656E 
- 1183              	.LASF4:
- 1184 001f 73686F72 		.ascii	"short unsigned int\000"
- 1184      7420756E 
- 1184      7369676E 
- 1184      65642069 
- 1184      6E7400
- 1185              	.LASF13:
- 1186 0032 666C6F61 		.ascii	"float\000"
- 1186      7400
- 1187              	.LASF35:
- 1188 0038 433A5C55 		.ascii	"C:\\Users\\Schuyler\\Documents\\PSoC Creator\\FE3-D"
- 1188      73657273 
- 1188      5C536368 
- 1188      75796C65 
- 1188      725C446F 
- 1189 0066 61736862 		.ascii	"ashboard\\Dashboard.cydsn\000"
- 1189      6F617264 
- 1189      5C446173 
- 1189      68626F61 
- 1189      72642E63 
- 1190              	.LASF2:
- 1191 007f 756E7369 		.ascii	"unsigned char\000"
- 1191      676E6564 
- 1191      20636861 
- 1191      7200
- 1192              	.LASF28:
- 1193 008d 6973725F 		.ascii	"isr_pedalok_Start\000"
- 1193      70656461 
- 1193      6C6F6B5F 
- 1193      53746172 
- 1193      7400
- 1194              	.LASF15:
- 1195 009f 72656738 		.ascii	"reg8\000"
- 1195      00
- 1196              	.LASF6:
- 1197 00a4 6C6F6E67 		.ascii	"long unsigned int\000"
- 1197      20756E73 
- 1197      69676E65 
- 1197      6420696E 
- 1197      7400
- 1198              	.LASF24:
- 1199 00b6 6973725F 		.ascii	"isr_pedalok_GetPriority\000"
- 1199      70656461 
- 1199      6C6F6B5F 
- 1199      47657450 
- 1199      72696F72 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 30
+ 1177 0186 3A       		.uleb128 0x3a
+ 1178 0187 0B       		.uleb128 0xb
+ 1179 0188 3B       		.uleb128 0x3b
+ 1180 0189 0B       		.uleb128 0xb
+ 1181 018a 49       		.uleb128 0x49
+ 1182 018b 13       		.uleb128 0x13
+ 1183 018c 3F       		.uleb128 0x3f
+ 1184 018d 19       		.uleb128 0x19
+ 1185 018e 3C       		.uleb128 0x3c
+ 1186 018f 19       		.uleb128 0x19
+ 1187 0190 00       		.byte	0
+ 1188 0191 00       		.byte	0
+ 1189 0192 1A       		.uleb128 0x1a
+ 1190 0193 2E       		.uleb128 0x2e
+ 1191 0194 00       		.byte	0
+ 1192 0195 3F       		.uleb128 0x3f
+ 1193 0196 19       		.uleb128 0x19
+ 1194 0197 03       		.uleb128 0x3
+ 1195 0198 0E       		.uleb128 0xe
+ 1196 0199 3A       		.uleb128 0x3a
+ 1197 019a 0B       		.uleb128 0xb
+ 1198 019b 3B       		.uleb128 0x3b
+ 1199 019c 0B       		.uleb128 0xb
+ 1200 019d 27       		.uleb128 0x27
+ 1201 019e 19       		.uleb128 0x19
+ 1202 019f 49       		.uleb128 0x49
+ 1203 01a0 13       		.uleb128 0x13
+ 1204 01a1 3C       		.uleb128 0x3c
+ 1205 01a2 19       		.uleb128 0x19
+ 1206 01a3 00       		.byte	0
+ 1207 01a4 00       		.byte	0
+ 1208 01a5 1B       		.uleb128 0x1b
+ 1209 01a6 2E       		.uleb128 0x2e
+ 1210 01a7 01       		.byte	0x1
+ 1211 01a8 3F       		.uleb128 0x3f
+ 1212 01a9 19       		.uleb128 0x19
+ 1213 01aa 03       		.uleb128 0x3
+ 1214 01ab 0E       		.uleb128 0xe
+ 1215 01ac 3A       		.uleb128 0x3a
+ 1216 01ad 0B       		.uleb128 0xb
+ 1217 01ae 3B       		.uleb128 0x3b
+ 1218 01af 0B       		.uleb128 0xb
+ 1219 01b0 27       		.uleb128 0x27
+ 1220 01b1 19       		.uleb128 0x19
+ 1221 01b2 3C       		.uleb128 0x3c
+ 1222 01b3 19       		.uleb128 0x19
+ 1223 01b4 00       		.byte	0
+ 1224 01b5 00       		.byte	0
+ 1225 01b6 1C       		.uleb128 0x1c
+ 1226 01b7 05       		.uleb128 0x5
+ 1227 01b8 00       		.byte	0
+ 1228 01b9 49       		.uleb128 0x49
+ 1229 01ba 13       		.uleb128 0x13
+ 1230 01bb 00       		.byte	0
+ 1231 01bc 00       		.byte	0
+ 1232 01bd 00       		.byte	0
+ 1233              		.section	.debug_loc,"",%progbits
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 30
 
 
- 1200              	.LASF11:
- 1201 00ce 75696E74 		.ascii	"uint8\000"
- 1201      3800
- 1202              	.LASF34:
- 1203 00d4 47656E65 		.ascii	"Generated_Source\\PSoC5\\isr_pedalok.c\000"
- 1203      72617465 
- 1203      645F536F 
- 1203      75726365 
- 1203      5C50536F 
- 1204              	.LASF22:
- 1205 00f9 7072696F 		.ascii	"priority\000"
- 1205      72697479 
- 1205      00
- 1206              	.LASF19:
- 1207 0102 6973725F 		.ascii	"isr_pedalok_SetVector\000"
- 1207      70656461 
- 1207      6C6F6B5F 
- 1207      53657456 
- 1207      6563746F 
- 1208              	.LASF14:
- 1209 0118 646F7562 		.ascii	"double\000"
- 1209      6C6500
- 1210              	.LASF30:
- 1211 011f 6973725F 		.ascii	"isr_pedalok_Stop\000"
- 1211      70656461 
- 1211      6C6F6B5F 
- 1211      53746F70 
- 1211      00
- 1212              	.LASF20:
- 1213 0130 6973725F 		.ascii	"isr_pedalok_SetPriority\000"
- 1213      70656461 
- 1213      6C6F6B5F 
- 1213      53657450 
- 1213      72696F72 
- 1214              	.LASF31:
- 1215 0148 6973725F 		.ascii	"isr_pedalok_SetPending\000"
- 1215      70656461 
- 1215      6C6F6B5F 
- 1215      53657450 
- 1215      656E6469 
- 1216              	.LASF12:
- 1217 015f 75696E74 		.ascii	"uint32\000"
- 1217      333200
- 1218              	.LASF29:
- 1219 0166 6973725F 		.ascii	"isr_pedalok_StartEx\000"
- 1219      70656461 
- 1219      6C6F6B5F 
- 1219      53746172 
- 1219      74457800 
- 1220              	.LASF0:
- 1221 017a 756E7369 		.ascii	"unsigned int\000"
- 1221      676E6564 
- 1221      20696E74 
- 1221      00
- 1222              	.LASF21:
- 1223 0187 61646472 		.ascii	"address\000"
- 1223      65737300 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 31
+ 1234              	.Ldebug_loc0:
+ 1235              	.LLST0:
+ 1236 0000 08000000 		.4byte	.LVL1
+ 1237 0004 1C000000 		.4byte	.LVL4
+ 1238 0008 0100     		.2byte	0x1
+ 1239 000a 54       		.byte	0x54
+ 1240 000b 00000000 		.4byte	0
+ 1241 000f 00000000 		.4byte	0
+ 1242              	.LLST1:
+ 1243 0013 00000000 		.4byte	.LVL8
+ 1244 0017 02000000 		.4byte	.LVL9
+ 1245 001b 0100     		.2byte	0x1
+ 1246 001d 50       		.byte	0x50
+ 1247 001e 02000000 		.4byte	.LVL9
+ 1248 0022 10000000 		.4byte	.LFE6
+ 1249 0026 0400     		.2byte	0x4
+ 1250 0028 F3       		.byte	0xf3
+ 1251 0029 01       		.uleb128 0x1
+ 1252 002a 50       		.byte	0x50
+ 1253 002b 9F       		.byte	0x9f
+ 1254 002c 00000000 		.4byte	0
+ 1255 0030 00000000 		.4byte	0
+ 1256              	.LLST2:
+ 1257 0034 04000000 		.4byte	.LVL10
+ 1258 0038 06000000 		.4byte	.LVL11
+ 1259 003c 0500     		.2byte	0x5
+ 1260 003e 70       		.byte	0x70
+ 1261 003f 00       		.sleb128 0
+ 1262 0040 35       		.byte	0x35
+ 1263 0041 25       		.byte	0x25
+ 1264 0042 9F       		.byte	0x9f
+ 1265 0043 00000000 		.4byte	0
+ 1266 0047 00000000 		.4byte	0
+ 1267              	.LLST3:
+ 1268 004b 00000000 		.4byte	.LVL16
+ 1269 004f 07000000 		.4byte	.LVL17-1
+ 1270 0053 0100     		.2byte	0x1
+ 1271 0055 50       		.byte	0x50
+ 1272 0056 07000000 		.4byte	.LVL17-1
+ 1273 005a 1A000000 		.4byte	.LFE1
+ 1274 005e 0100     		.2byte	0x1
+ 1275 0060 54       		.byte	0x54
+ 1276 0061 00000000 		.4byte	0
+ 1277 0065 00000000 		.4byte	0
+ 1278              		.section	.debug_aranges,"",%progbits
+ 1279 0000 7C000000 		.4byte	0x7c
+ 1280 0004 0200     		.2byte	0x2
+ 1281 0006 00000000 		.4byte	.Ldebug_info0
+ 1282 000a 04       		.byte	0x4
+ 1283 000b 00       		.byte	0
+ 1284 000c 0000     		.2byte	0
+ 1285 000e 0000     		.2byte	0
+ 1286 0010 00000000 		.4byte	.LFB3
+ 1287 0014 20000000 		.4byte	.LFE3-.LFB3
+ 1288 0018 00000000 		.4byte	.LFB4
+ 1289 001c 0C000000 		.4byte	.LFE4-.LFB4
+ 1290 0020 00000000 		.4byte	.LFB5
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 31
 
 
- 1224              	.LASF8:
- 1225 018f 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1225      206C6F6E 
- 1225      6720756E 
- 1225      7369676E 
- 1225      65642069 
- 1226              	.LASF33:
- 1227 01a6 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1227      4320342E 
- 1227      392E3320 
- 1227      32303135 
- 1227      30333033 
- 1228 01d9 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1228      20726576 
- 1228      6973696F 
- 1228      6E203232 
- 1228      31323230 
- 1229 020c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
- 1229      66756E63 
- 1229      74696F6E 
- 1229      2D736563 
- 1229      74696F6E 
- 1230              	.LASF17:
- 1231 0234 63796973 		.ascii	"cyisraddress\000"
- 1231      72616464 
- 1231      72657373 
- 1231      00
- 1232              	.LASF9:
- 1233 0241 73697A65 		.ascii	"sizetype\000"
- 1233      74797065 
- 1233      00
- 1234              	.LASF36:
- 1235 024a 6973725F 		.ascii	"isr_pedalok_GetState\000"
- 1235      70656461 
- 1235      6C6F6B5F 
- 1235      47657453 
- 1235      74617465 
- 1236              	.LASF7:
- 1237 025f 6C6F6E67 		.ascii	"long long int\000"
- 1237      206C6F6E 
- 1237      6720696E 
- 1237      7400
- 1238              	.LASF26:
- 1239 026d 6973725F 		.ascii	"isr_pedalok_Enable\000"
- 1239      70656461 
- 1239      6C6F6B5F 
- 1239      456E6162 
- 1239      6C6500
- 1240              	.LASF10:
- 1241 0280 63686172 		.ascii	"char\000"
- 1241      00
- 1242              	.LASF18:
- 1243 0285 72616D56 		.ascii	"ramVectorTable\000"
- 1243      6563746F 
- 1243      72546162 
- 1243      6C6500
- 1244              	.LASF3:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\cc1EpHMj.s 			page 32
+ 1291 0024 0C000000 		.4byte	.LFE5-.LFB5
+ 1292 0028 00000000 		.4byte	.LFB6
+ 1293 002c 10000000 		.4byte	.LFE6-.LFB6
+ 1294 0030 00000000 		.4byte	.LFB7
+ 1295 0034 0C000000 		.4byte	.LFE7-.LFB7
+ 1296 0038 00000000 		.4byte	.LFB8
+ 1297 003c 0C000000 		.4byte	.LFE8-.LFB8
+ 1298 0040 00000000 		.4byte	.LFB9
+ 1299 0044 18000000 		.4byte	.LFE9-.LFB9
+ 1300 0048 00000000 		.4byte	.LFB10
+ 1301 004c 0C000000 		.4byte	.LFE10-.LFB10
+ 1302 0050 00000000 		.4byte	.LFB0
+ 1303 0054 1C000000 		.4byte	.LFE0-.LFB0
+ 1304 0058 00000000 		.4byte	.LFB1
+ 1305 005c 1A000000 		.4byte	.LFE1-.LFB1
+ 1306 0060 00000000 		.4byte	.LFB2
+ 1307 0064 14000000 		.4byte	.LFE2-.LFB2
+ 1308 0068 00000000 		.4byte	.LFB11
+ 1309 006c 0C000000 		.4byte	.LFE11-.LFB11
+ 1310 0070 00000000 		.4byte	.LFB12
+ 1311 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1312 0078 00000000 		.4byte	0
+ 1313 007c 00000000 		.4byte	0
+ 1314              		.section	.debug_ranges,"",%progbits
+ 1315              	.Ldebug_ranges0:
+ 1316 0000 00000000 		.4byte	.LFB3
+ 1317 0004 20000000 		.4byte	.LFE3
+ 1318 0008 00000000 		.4byte	.LFB4
+ 1319 000c 0C000000 		.4byte	.LFE4
+ 1320 0010 00000000 		.4byte	.LFB5
+ 1321 0014 0C000000 		.4byte	.LFE5
+ 1322 0018 00000000 		.4byte	.LFB6
+ 1323 001c 10000000 		.4byte	.LFE6
+ 1324 0020 00000000 		.4byte	.LFB7
+ 1325 0024 0C000000 		.4byte	.LFE7
+ 1326 0028 00000000 		.4byte	.LFB8
+ 1327 002c 0C000000 		.4byte	.LFE8
+ 1328 0030 00000000 		.4byte	.LFB9
+ 1329 0034 18000000 		.4byte	.LFE9
+ 1330 0038 00000000 		.4byte	.LFB10
+ 1331 003c 0C000000 		.4byte	.LFE10
+ 1332 0040 00000000 		.4byte	.LFB0
+ 1333 0044 1C000000 		.4byte	.LFE0
+ 1334 0048 00000000 		.4byte	.LFB1
+ 1335 004c 1A000000 		.4byte	.LFE1
+ 1336 0050 00000000 		.4byte	.LFB2
+ 1337 0054 14000000 		.4byte	.LFE2
+ 1338 0058 00000000 		.4byte	.LFB11
+ 1339 005c 0C000000 		.4byte	.LFE11
+ 1340 0060 00000000 		.4byte	.LFB12
+ 1341 0064 0C000000 		.4byte	.LFE12
+ 1342 0068 00000000 		.4byte	0
+ 1343 006c 00000000 		.4byte	0
+ 1344              		.section	.debug_line,"",%progbits
+ 1345              	.Ldebug_line0:
+ 1346 0000 4C020000 		.section	.debug_str,"MS",%progbits,1
+ 1346      02005C01 
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 32
 
 
- 1245 0294 73686F72 		.ascii	"short int\000"
- 1245      7420696E 
- 1245      7400
- 1246              	.LASF23:
- 1247 029e 6973725F 		.ascii	"isr_pedalok_GetVector\000"
- 1247      70656461 
- 1247      6C6F6B5F 
- 1247      47657456 
- 1247      6563746F 
- 1248              	.LASF27:
- 1249 02b4 6973725F 		.ascii	"isr_pedalok_Disable\000"
- 1249      70656461 
- 1249      6C6F6B5F 
- 1249      44697361 
- 1249      626C6500 
- 1250              	.LASF5:
- 1251 02c8 6C6F6E67 		.ascii	"long int\000"
- 1251      20696E74 
- 1251      00
- 1252              	.LASF1:
- 1253 02d1 7369676E 		.ascii	"signed char\000"
- 1253      65642063 
- 1253      68617200 
- 1254              	.LASF25:
- 1255 02dd 6973725F 		.ascii	"isr_pedalok_Interrupt\000"
- 1255      70656461 
- 1255      6C6F6B5F 
- 1255      496E7465 
- 1255      72727570 
- 1256              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1346      00000201 
+ 1346      FB0E0D00 
+ 1346      01010101 
+ 1347              	.LASF18:
+ 1348 0000 72656733 		.ascii	"reg32\000"
+ 1348      3200
+ 1349              	.LASF35:
+ 1350 0006 6973725F 		.ascii	"isr_pedalok_ClearPending\000"
+ 1350      70656461 
+ 1350      6C6F6B5F 
+ 1350      436C6561 
+ 1350      7250656E 
+ 1351              	.LASF4:
+ 1352 001f 73686F72 		.ascii	"short unsigned int\000"
+ 1352      7420756E 
+ 1352      7369676E 
+ 1352      65642069 
+ 1352      6E7400
+ 1353              	.LASF22:
+ 1354 0032 496E7465 		.ascii	"InterruptState\000"
+ 1354      72727570 
+ 1354      74537461 
+ 1354      746500
+ 1355              	.LASF15:
+ 1356 0041 666C6F61 		.ascii	"float\000"
+ 1356      7400
+ 1357              	.LASF8:
+ 1358 0047 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1358      206C6F6E 
+ 1358      6720756E 
+ 1358      7369676E 
+ 1358      65642069 
+ 1359              	.LASF40:
+ 1360 005e 433A5C55 		.ascii	"C:\\Users\\Schuyler\\Documents\\PSoC Creator\\FE3-D"
+ 1360      73657273 
+ 1360      5C536368 
+ 1360      75796C65 
+ 1360      725C446F 
+ 1361 008c 61736862 		.ascii	"ashboard\\Dashboard.cydsn\000"
+ 1361      6F617264 
+ 1361      5C446173 
+ 1361      68626F61 
+ 1361      72642E63 
+ 1362              	.LASF2:
+ 1363 00a5 756E7369 		.ascii	"unsigned char\000"
+ 1363      676E6564 
+ 1363      20636861 
+ 1363      7200
+ 1364              	.LASF31:
+ 1365 00b3 6973725F 		.ascii	"isr_pedalok_Start\000"
+ 1365      70656461 
+ 1365      6C6F6B5F 
+ 1365      53746172 
+ 1365      7400
+ 1366              	.LASF17:
+ 1367 00c5 72656738 		.ascii	"reg8\000"
+ 1367      00
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 33
+
+
+ 1368              	.LASF34:
+ 1369 00ca 6973725F 		.ascii	"isr_pedalok_SetPending\000"
+ 1369      70656461 
+ 1369      6C6F6B5F 
+ 1369      53657450 
+ 1369      656E6469 
+ 1370              	.LASF6:
+ 1371 00e1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1371      20756E73 
+ 1371      69676E65 
+ 1371      6420696E 
+ 1371      7400
+ 1372              	.LASF28:
+ 1373 00f3 6973725F 		.ascii	"isr_pedalok_GetPriority\000"
+ 1373      70656461 
+ 1373      6C6F6B5F 
+ 1373      47657450 
+ 1373      72696F72 
+ 1374              	.LASF13:
+ 1375 010b 75696E74 		.ascii	"uint8\000"
+ 1375      3800
+ 1376              	.LASF39:
+ 1377 0111 47656E65 		.ascii	"Generated_Source\\PSoC5\\isr_pedalok.c\000"
+ 1377      72617465 
+ 1377      645F536F 
+ 1377      75726365 
+ 1377      5C50536F 
+ 1378              	.LASF26:
+ 1379 0136 7072696F 		.ascii	"priority\000"
+ 1379      72697479 
+ 1379      00
+ 1380              	.LASF21:
+ 1381 013f 6973725F 		.ascii	"isr_pedalok_SetVector\000"
+ 1381      70656461 
+ 1381      6C6F6B5F 
+ 1381      53657456 
+ 1381      6563746F 
+ 1382              	.LASF16:
+ 1383 0155 646F7562 		.ascii	"double\000"
+ 1383      6C6500
+ 1384              	.LASF33:
+ 1385 015c 6973725F 		.ascii	"isr_pedalok_Stop\000"
+ 1385      70656461 
+ 1385      6C6F6B5F 
+ 1385      53746F70 
+ 1385      00
+ 1386              	.LASF24:
+ 1387 016d 6973725F 		.ascii	"isr_pedalok_SetPriority\000"
+ 1387      70656461 
+ 1387      6C6F6B5F 
+ 1387      53657450 
+ 1387      72696F72 
+ 1388              	.LASF11:
+ 1389 0185 5F5F7569 		.ascii	"__uint32_t\000"
+ 1389      6E743332 
+ 1389      5F7400
+ 1390              	.LASF14:
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 34
+
+
+ 1391 0190 75696E74 		.ascii	"uint32\000"
+ 1391      333200
+ 1392              	.LASF32:
+ 1393 0197 6973725F 		.ascii	"isr_pedalok_StartEx\000"
+ 1393      70656461 
+ 1393      6C6F6B5F 
+ 1393      53746172 
+ 1393      74457800 
+ 1394              	.LASF36:
+ 1395 01ab 4379456E 		.ascii	"CyEnterCriticalSection\000"
+ 1395      74657243 
+ 1395      72697469 
+ 1395      63616C53 
+ 1395      65637469 
+ 1396              	.LASF0:
+ 1397 01c2 756E7369 		.ascii	"unsigned int\000"
+ 1397      676E6564 
+ 1397      20696E74 
+ 1397      00
+ 1398              	.LASF25:
+ 1399 01cf 61646472 		.ascii	"address\000"
+ 1399      65737300 
+ 1400              	.LASF43:
+ 1401 01d7 43794578 		.ascii	"CyExitCriticalSection\000"
+ 1401      69744372 
+ 1401      69746963 
+ 1401      616C5365 
+ 1401      6374696F 
+ 1402              	.LASF42:
+ 1403 01ed 70656461 		.ascii	"pedalOK\000"
+ 1403      6C4F4B00 
+ 1404              	.LASF38:
+ 1405 01f5 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1405      4320342E 
+ 1405      392E3320 
+ 1405      32303135 
+ 1405      30333033 
+ 1406 0228 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1406      20726576 
+ 1406      6973696F 
+ 1406      6E203232 
+ 1406      31323230 
+ 1407 025b 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1407      66756E63 
+ 1407      74696F6E 
+ 1407      2D736563 
+ 1407      74696F6E 
+ 1408              	.LASF19:
+ 1409 0283 63796973 		.ascii	"cyisraddress\000"
+ 1409      72616464 
+ 1409      72657373 
+ 1409      00
+ 1410              	.LASF9:
+ 1411 0290 73697A65 		.ascii	"sizetype\000"
+ 1411      74797065 
+ 1411      00
+ 1412              	.LASF41:
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 35
+
+
+ 1413 0299 6973725F 		.ascii	"isr_pedalok_GetState\000"
+ 1413      70656461 
+ 1413      6C6F6B5F 
+ 1413      47657453 
+ 1413      74617465 
+ 1414              	.LASF7:
+ 1415 02ae 6C6F6E67 		.ascii	"long long int\000"
+ 1415      206C6F6E 
+ 1415      6720696E 
+ 1415      7400
+ 1416              	.LASF29:
+ 1417 02bc 6973725F 		.ascii	"isr_pedalok_Enable\000"
+ 1417      70656461 
+ 1417      6C6F6B5F 
+ 1417      456E6162 
+ 1417      6C6500
+ 1418              	.LASF37:
+ 1419 02cf 50656461 		.ascii	"Pedal_Timer_ReadStatusRegister\000"
+ 1419      6C5F5469 
+ 1419      6D65725F 
+ 1419      52656164 
+ 1419      53746174 
+ 1420              	.LASF23:
+ 1421 02ee 72616D56 		.ascii	"ramVectorTable\000"
+ 1421      6563746F 
+ 1421      72546162 
+ 1421      6C6500
+ 1422              	.LASF3:
+ 1423 02fd 73686F72 		.ascii	"short int\000"
+ 1423      7420696E 
+ 1423      7400
+ 1424              	.LASF27:
+ 1425 0307 6973725F 		.ascii	"isr_pedalok_GetVector\000"
+ 1425      70656461 
+ 1425      6C6F6B5F 
+ 1425      47657456 
+ 1425      6563746F 
+ 1426              	.LASF30:
+ 1427 031d 6973725F 		.ascii	"isr_pedalok_Disable\000"
+ 1427      70656461 
+ 1427      6C6F6B5F 
+ 1427      44697361 
+ 1427      626C6500 
+ 1428              	.LASF12:
+ 1429 0331 75696E74 		.ascii	"uint32_t\000"
+ 1429      33325F74 
+ 1429      00
+ 1430              	.LASF5:
+ 1431 033a 6C6F6E67 		.ascii	"long int\000"
+ 1431      20696E74 
+ 1431      00
+ 1432              	.LASF10:
+ 1433 0343 63686172 		.ascii	"char\000"
+ 1433      00
+ 1434              	.LASF1:
+ 1435 0348 7369676E 		.ascii	"signed char\000"
+ 1435      65642063 
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccCIto3t.s 			page 36
+
+
+ 1435      68617200 
+ 1436              	.LASF20:
+ 1437 0354 6973725F 		.ascii	"isr_pedalok_Interrupt\000"
+ 1437      70656461 
+ 1437      6C6F6B5F 
+ 1437      496E7465 
+ 1437      72727570 
+ 1438              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

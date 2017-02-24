@@ -158,11 +158,11 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CAN_Timer_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_can.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_can.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pedal_Timer.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pedal_Timer.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Pedal_Timer_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_pedalok.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_pedalok.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Node_Timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Node_Timer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Node_Timer_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_nodeok.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_nodeok.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\Export\ARM_GCC_Generic">

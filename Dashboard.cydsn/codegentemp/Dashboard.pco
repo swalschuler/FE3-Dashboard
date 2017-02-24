@@ -1,5 +1,5 @@
 # Dashboard
-# 2017-02-23 06:09:04Z
+# 2017-02-24 18:47:34Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -28,7 +28,7 @@ set_io "RGB1_1(0)" iocell 12 6
 set_io "RGB3_2(0)" iocell 5 5
 set_io "RGB2_2(0)" iocell 5 6
 set_io "RGB1_2(0)" iocell 5 7
-set_location "\Pedal_Timer:TimerUDB:status_tc\" 1 3 0 0
+set_location "\Node_Timer:TimerUDB:status_tc\" 1 3 0 0
 set_location "\CAN:CanIP\" cancell -1 -1 0
 set_location "\CAN:isr\" interrupt -1 -1 16
 set_location "\WaveDAC8_1:Wave1_DMA\" drqcell -1 -1 0
@@ -37,8 +37,8 @@ set_location "\WaveDAC8_1:VDAC8:viDAC8\" vidaccell -1 -1 1
 set_location "\CAN_Timer:TimerHW\" timercell -1 -1 0
 set_location "__ONE__" 1 5 0 0
 set_location "isr_can" interrupt -1 -1 0
-set_location "\Pedal_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 1 3 6
-set_location "\Pedal_Timer:TimerUDB:rstSts:stsreg\" 1 3 4
-set_location "\Pedal_Timer:TimerUDB:sT16:timerdp:u0\" 0 3 2
-set_location "\Pedal_Timer:TimerUDB:sT16:timerdp:u1\" 1 3 2
-set_location "isr_pedalok" interrupt -1 -1 1
+set_location "\Node_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\" 1 3 6
+set_location "\Node_Timer:TimerUDB:rstSts:stsreg\" 1 3 4
+set_location "\Node_Timer:TimerUDB:sT16:timerdp:u0\" 0 3 2
+set_location "\Node_Timer:TimerUDB:sT16:timerdp:u1\" 1 3 2
+set_location "isr_nodeok" interrupt -1 -1 1

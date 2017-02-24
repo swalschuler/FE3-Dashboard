@@ -77,11 +77,11 @@
   <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\CAN_Timer_PM.c" value="SOURCE_C;CortexM3;;;;CAN_Timer" />
   <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\isr_can.c" value="SOURCE_C;CortexM3;;;;isr_can" />
   <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\isr_can.h" value="HEADER;;;;;isr_can" />
-  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\Pedal_Timer.c" value="SOURCE_C;CortexM3;;;;Pedal_Timer" />
-  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\Pedal_Timer.h" value="HEADER;;;;;Pedal_Timer" />
-  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\Pedal_Timer_PM.c" value="SOURCE_C;CortexM3;;;;Pedal_Timer" />
-  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\isr_pedalok.c" value="SOURCE_C;CortexM3;;;;isr_pedalok" />
-  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\isr_pedalok.h" value="HEADER;;;;;isr_pedalok" />
+  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\Node_Timer.c" value="SOURCE_C;CortexM3;;;;Node_Timer" />
+  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\Node_Timer.h" value="HEADER;;;;;Node_Timer" />
+  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\Node_Timer_PM.c" value="SOURCE_C;CortexM3;;;;Node_Timer" />
+  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\isr_nodeok.c" value="SOURCE_C;CortexM3;;;;isr_nodeok" />
+  <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\isr_nodeok.h" value="HEADER;;;;;isr_nodeok" />
   <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="HEADER;;;;;LCD_LCDPort" />
   <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\LCD_LCDPort.c" value="SOURCE_C;CortexM3;;;;LCD_LCDPort" />
   <file name="C:\Users\Schuyler\Documents\PSoC Creator\FE3-Dashboard\Dashboard.cydsn\codegentemp\LCD_LCDPort.h" value="HEADER;;;;;LCD_LCDPort" />

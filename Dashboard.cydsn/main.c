@@ -13,6 +13,8 @@
 #define DATA_SIZE                   (6u)
 #define ONE_BYTE_OFFSET             (8u)
 
+#define PEDAL_TIMEOUT 200 // Timeout after (PEDAL_TIMEOUT * 2)ms
+
 /* Function prototypes */
 //CY_ISR_PROTO(ISR_CAN);
 
@@ -28,9 +30,8 @@
 
 void nodeCheckStart()
 {
-    Pedal_Timer_Start();
-    isr_pedalok_Start();
-    
+    Node_Timer_Start();
+    isr_nodeok_Start();
 }
 
 typedef enum 
@@ -72,7 +73,7 @@ uint8 DriveSwitch = SWITCH_OFF;
 //volatile Dash_State state = Startup;
 
 // Global variables used to track status of nodes
-volatile uint32_t pedalOK = 0;
+volatile uint32_t pedalOK = 0; // for pedal node
 
 //CY_ISR(isr_can_handler){
     
@@ -159,6 +160,8 @@ int main()
 
     //test_inject(data_queue, &data_tail);
     
+    //nodeCheckStart();
+    
     for(;;)
     {
         //LED_Write(~LED_ReadDataReg());    
@@ -171,12 +174,12 @@ int main()
         RGB1_2_Write(1);
         
         // Check if all nodes are OK
-        if (pedalOK > 10)
+        if (pedalOK > PEDAL_TIMEOUT)
         {
             state = Fault;
             error_state = nodeFailure;
         }
-            
+        
         switch(state)
         {    
             //CyDelay(1000);
@@ -187,6 +190,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                CyDelay(1000);
                 nodeCheckStart();
                 
                 //CyDelay(5000);
@@ -251,7 +255,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
-                nodeCheckStart();
+                //nodeCheckStart();
           
                 can_send_status(state);
 
@@ -308,11 +312,10 @@ int main()
             break;
                 
             case Precharging:
-                
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
-                nodeCheckStart();
+                //nodeCheckStart();
                 
                 can_send_status(state);
                 
@@ -363,7 +366,8 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
-                nodeCheckStart();
+                
+                //nodeCheckStart();
                 
                 can_send_status(state);
                 
@@ -490,7 +494,7 @@ int main()
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
-                nodeCheckStart();
+                //nodeCheckStart();
                 
                 can_send_status(state);
                 
@@ -556,11 +560,7 @@ int main()
                 }
                 else if (error_state == nodeFailure)
                 {
-                    if (pedalOK <= 10)
-                    {
-                        state = LV;
-                        error_state = OK;
-                    }
+                    state = Fault;
                 }
             break;
                 

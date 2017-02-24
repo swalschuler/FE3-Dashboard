@@ -1,5 +1,5 @@
 -- Project:   Dashboard
--- Generated: 02/22/2017 22:09:03
+-- Generated: 02/24/2017 10:47:32
 -- PSoC Creator  4.0 Update 1
 
 ENTITY Dashboard IS
@@ -80,18 +80,18 @@ ARCHITECTURE __DEFAULT__ OF Dashboard IS
     SIGNAL \\\LCD:LCDPort(4)\\__PA\ : bit;
     SIGNAL \\\LCD:LCDPort(5)\\__PA\ : bit;
     SIGNAL \\\LCD:LCDPort(6)\\__PA\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_0\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_1\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_2\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_3\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_4\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_5\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_6\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:control_7\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:per_zero\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:status_2\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:status_3\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:status_tc\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_0\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_1\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_2\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_3\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_4\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_5\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_6\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:control_7\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:per_zero\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:status_2\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:status_3\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:status_tc\ : bit;
     SIGNAL \WaveDAC8_1:Net_279\ : bit;
     ATTRIBUTE global_signal OF \WaveDAC8_1:Net_279\ : SIGNAL IS true;
     SIGNAL \WaveDAC8_1:Net_279_local\ : bit;
@@ -105,19 +105,19 @@ ARCHITECTURE __DEFAULT__ OF Dashboard IS
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     SIGNAL \ClockBlock.clk_bus_glb_ff__sig\ : bit;
     SIGNAL \ClockBlock.dclk_glb_ff_1__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\ : bit;
-    SIGNAL \Pedal_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\ : bit;
+    SIGNAL \Node_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\ : bit;
     ATTRIBUTE lib_model OF RX(0) : LABEL IS "iocell1";
     ATTRIBUTE Location OF RX(0) : LABEL IS "P3[5]";
     ATTRIBUTE lib_model OF TX(0) : LABEL IS "iocell2";
@@ -158,15 +158,15 @@ ARCHITECTURE __DEFAULT__ OF Dashboard IS
     ATTRIBUTE Location OF RGB2_2(0) : LABEL IS "P5[6]";
     ATTRIBUTE lib_model OF RGB1_2(0) : LABEL IS "iocell20";
     ATTRIBUTE Location OF RGB1_2(0) : LABEL IS "P5[7]";
-    ATTRIBUTE lib_model OF \Pedal_Timer:TimerUDB:status_tc\ : LABEL IS "macrocell1";
+    ATTRIBUTE lib_model OF \Node_Timer:TimerUDB:status_tc\ : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF \WaveDAC8_1:Wave1_DMA\ : LABEL IS "drqcell1";
     ATTRIBUTE lib_model OF \WaveDAC8_1:Wave2_DMA\ : LABEL IS "drqcell2";
     ATTRIBUTE Location OF \WaveDAC8_1:VDAC8:viDAC8\ : LABEL IS "F(VIDAC,1)";
     ATTRIBUTE lib_model OF __ONE__ : LABEL IS "macrocell2";
-    ATTRIBUTE lib_model OF \Pedal_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "controlcell1";
-    ATTRIBUTE lib_model OF \Pedal_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell1";
-    ATTRIBUTE lib_model OF \Pedal_Timer:TimerUDB:sT16:timerdp:u0\ : LABEL IS "datapathcell1";
-    ATTRIBUTE lib_model OF \Pedal_Timer:TimerUDB:sT16:timerdp:u1\ : LABEL IS "datapathcell2";
+    ATTRIBUTE lib_model OF \Node_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\ : LABEL IS "controlcell1";
+    ATTRIBUTE lib_model OF \Node_Timer:TimerUDB:rstSts:stsreg\ : LABEL IS "statusicell1";
+    ATTRIBUTE lib_model OF \Node_Timer:TimerUDB:sT16:timerdp:u0\ : LABEL IS "datapathcell1";
+    ATTRIBUTE lib_model OF \Node_Timer:TimerUDB:sT16:timerdp:u1\ : LABEL IS "datapathcell2";
     COMPONENT cancell
         PORT (
             clock : IN std_ulogic;
@@ -1913,15 +1913,15 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    \Pedal_Timer:TimerUDB:status_tc\:macrocell
+    \Node_Timer:TimerUDB:status_tc\:macrocell
         GENERIC MAP(
             eqn_main => "(main_0 * main_1)",
             regmode => 0,
             clken_mode => 1)
         PORT MAP(
-            q => \Pedal_Timer:TimerUDB:status_tc\,
-            main_0 => \Pedal_Timer:TimerUDB:control_7\,
-            main_1 => \Pedal_Timer:TimerUDB:per_zero\);
+            q => \Node_Timer:TimerUDB:status_tc\,
+            main_0 => \Node_Timer:TimerUDB:control_7\,
+            main_1 => \Node_Timer:TimerUDB:per_zero\);
 
     \CAN:CanIP\:cancell
         GENERIC MAP(
@@ -2001,7 +2001,7 @@ BEGIN
             interrupt => Net_52,
             clock => ClockBlock_BUS_CLK);
 
-    \Pedal_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:controlcell
+    \Node_Timer:TimerUDB:sCTRLReg:SyncCtl:ctrlreg\:controlcell
         GENERIC MAP(
             cy_ctrl_mode_0 => "11111111",
             cy_ctrl_mode_1 => "00000000",
@@ -2012,17 +2012,17 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
-            control_7 => \Pedal_Timer:TimerUDB:control_7\,
-            control_6 => \Pedal_Timer:TimerUDB:control_6\,
-            control_5 => \Pedal_Timer:TimerUDB:control_5\,
-            control_4 => \Pedal_Timer:TimerUDB:control_4\,
-            control_3 => \Pedal_Timer:TimerUDB:control_3\,
-            control_2 => \Pedal_Timer:TimerUDB:control_2\,
-            control_1 => \Pedal_Timer:TimerUDB:control_1\,
-            control_0 => \Pedal_Timer:TimerUDB:control_0\,
+            control_7 => \Node_Timer:TimerUDB:control_7\,
+            control_6 => \Node_Timer:TimerUDB:control_6\,
+            control_5 => \Node_Timer:TimerUDB:control_5\,
+            control_4 => \Node_Timer:TimerUDB:control_4\,
+            control_3 => \Node_Timer:TimerUDB:control_3\,
+            control_2 => \Node_Timer:TimerUDB:control_2\,
+            control_1 => \Node_Timer:TimerUDB:control_1\,
+            control_0 => \Node_Timer:TimerUDB:control_0\,
             busclk => ClockBlock_BUS_CLK);
 
-    \Pedal_Timer:TimerUDB:rstSts:stsreg\:statusicell
+    \Node_Timer:TimerUDB:rstSts:stsreg\:statusicell
         GENERIC MAP(
             cy_force_order => 1,
             cy_int_mask => "1111111",
@@ -2034,13 +2034,13 @@ BEGIN
             status_6 => open,
             status_5 => open,
             status_4 => open,
-            status_3 => \Pedal_Timer:TimerUDB:status_3\,
-            status_2 => \Pedal_Timer:TimerUDB:status_2\,
+            status_3 => \Node_Timer:TimerUDB:status_3\,
+            status_2 => \Node_Timer:TimerUDB:status_2\,
             status_1 => open,
-            status_0 => \Pedal_Timer:TimerUDB:status_tc\,
+            status_0 => \Node_Timer:TimerUDB:status_tc\,
             interrupt => Net_57);
 
-    \Pedal_Timer:TimerUDB:sT16:timerdp:u0\:datapathcell
+    \Node_Timer:TimerUDB:sT16:timerdp:u0\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -2069,24 +2069,24 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
-            cs_addr_1 => \Pedal_Timer:TimerUDB:control_7\,
-            cs_addr_0 => \Pedal_Timer:TimerUDB:per_zero\,
+            cs_addr_1 => \Node_Timer:TimerUDB:control_7\,
+            cs_addr_0 => \Node_Timer:TimerUDB:per_zero\,
             busclk => ClockBlock_BUS_CLK,
-            ce0 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
-            cl0 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
-            z0 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
-            ff0 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
-            ce1 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
-            cl1 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
-            z1 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
-            ff1 => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
-            co_msb => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
-            sol_msb => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
-            cfbo => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
-            sil => \Pedal_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
-            cmsbi => \Pedal_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
+            ce0 => \Node_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
+            cl0 => \Node_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
+            z0 => \Node_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
+            ff0 => \Node_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
+            ce1 => \Node_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
+            cl1 => \Node_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
+            z1 => \Node_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
+            ff1 => \Node_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
+            co_msb => \Node_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
+            sol_msb => \Node_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
+            cfbo => \Node_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
+            sil => \Node_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
+            cmsbi => \Node_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
 
-    \Pedal_Timer:TimerUDB:sT16:timerdp:u1\:datapathcell
+    \Node_Timer:TimerUDB:sT16:timerdp:u1\:datapathcell
         GENERIC MAP(
             a0_init => "00000000",
             a1_init => "00000000",
@@ -2115,27 +2115,27 @@ BEGIN
             clken_mode => 1)
         PORT MAP(
             clock => ClockBlock_BUS_CLK,
-            cs_addr_1 => \Pedal_Timer:TimerUDB:control_7\,
-            cs_addr_0 => \Pedal_Timer:TimerUDB:per_zero\,
-            z0_comb => \Pedal_Timer:TimerUDB:per_zero\,
-            f0_bus_stat_comb => \Pedal_Timer:TimerUDB:status_3\,
-            f0_blk_stat_comb => \Pedal_Timer:TimerUDB:status_2\,
+            cs_addr_1 => \Node_Timer:TimerUDB:control_7\,
+            cs_addr_0 => \Node_Timer:TimerUDB:per_zero\,
+            z0_comb => \Node_Timer:TimerUDB:per_zero\,
+            f0_bus_stat_comb => \Node_Timer:TimerUDB:status_3\,
+            f0_blk_stat_comb => \Node_Timer:TimerUDB:status_2\,
             busclk => ClockBlock_BUS_CLK,
-            ce0i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
-            cl0i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
-            z0i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
-            ff0i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
-            ce1i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
-            cl1i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
-            z1i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
-            ff1i => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
-            ci => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
-            sir => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
-            cfbi => \Pedal_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
-            sor => \Pedal_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
-            cmsbo => \Pedal_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
+            ce0i => \Node_Timer:TimerUDB:sT16:timerdp:u0.ce0__sig\,
+            cl0i => \Node_Timer:TimerUDB:sT16:timerdp:u0.cl0__sig\,
+            z0i => \Node_Timer:TimerUDB:sT16:timerdp:u0.z0__sig\,
+            ff0i => \Node_Timer:TimerUDB:sT16:timerdp:u0.ff0__sig\,
+            ce1i => \Node_Timer:TimerUDB:sT16:timerdp:u0.ce1__sig\,
+            cl1i => \Node_Timer:TimerUDB:sT16:timerdp:u0.cl1__sig\,
+            z1i => \Node_Timer:TimerUDB:sT16:timerdp:u0.z1__sig\,
+            ff1i => \Node_Timer:TimerUDB:sT16:timerdp:u0.ff1__sig\,
+            ci => \Node_Timer:TimerUDB:sT16:timerdp:u0.co_msb__sig\,
+            sir => \Node_Timer:TimerUDB:sT16:timerdp:u0.sol_msb__sig\,
+            cfbi => \Node_Timer:TimerUDB:sT16:timerdp:u0.cfbo__sig\,
+            sor => \Node_Timer:TimerUDB:sT16:timerdp:u1.sor__sig\,
+            cmsbo => \Node_Timer:TimerUDB:sT16:timerdp:u1.cmsbo__sig\);
 
-    isr_pedalok:interrupt
+    isr_nodeok:interrupt
         GENERIC MAP(
             int_type => "10",
             is_nmi => 0)

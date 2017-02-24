@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: isr_pedalok.c  
+* File Name: isr_nodeok.c  
 * Version 1.70
 *
 *  Description:
@@ -18,15 +18,15 @@
 
 #include <cydevice_trm.h>
 #include <CyLib.h>
-#include <isr_pedalok.h>
+#include <isr_nodeok.h>
 #include "cyapicallbacks.h"
 
-#if !defined(isr_pedalok__REMOVED) /* Check for removal by optimization */
+#if !defined(isr_nodeok__REMOVED) /* Check for removal by optimization */
 
 /*******************************************************************************
 *  Place your includes, defines and code here 
 ********************************************************************************/
-/* `#START isr_pedalok_intc` */
+/* `#START isr_nodeok_intc` */
 
 /* `#END` */
 
@@ -42,7 +42,7 @@ CY_ISR_PROTO(IntDefaultHandler);
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_Start
+* Function Name: isr_nodeok_Start
 ********************************************************************************
 *
 * Summary:
@@ -58,24 +58,24 @@ CY_ISR_PROTO(IntDefaultHandler);
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_Start(void)
+void isr_nodeok_Start(void)
 {
     /* For all we know the interrupt is active. */
-    isr_pedalok_Disable();
+    isr_nodeok_Disable();
 
-    /* Set the ISR to point to the isr_pedalok Interrupt. */
-    isr_pedalok_SetVector(&isr_pedalok_Interrupt);
+    /* Set the ISR to point to the isr_nodeok Interrupt. */
+    isr_nodeok_SetVector(&isr_nodeok_Interrupt);
 
     /* Set the priority. */
-    isr_pedalok_SetPriority((uint8)isr_pedalok_INTC_PRIOR_NUMBER);
+    isr_nodeok_SetPriority((uint8)isr_nodeok_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_pedalok_Enable();
+    isr_nodeok_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_StartEx
+* Function Name: isr_nodeok_StartEx
 ********************************************************************************
 *
 * Summary:
@@ -101,24 +101,24 @@ void isr_pedalok_Start(void)
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_StartEx(cyisraddress address)
+void isr_nodeok_StartEx(cyisraddress address)
 {
     /* For all we know the interrupt is active. */
-    isr_pedalok_Disable();
+    isr_nodeok_Disable();
 
-    /* Set the ISR to point to the isr_pedalok Interrupt. */
-    isr_pedalok_SetVector(address);
+    /* Set the ISR to point to the isr_nodeok Interrupt. */
+    isr_nodeok_SetVector(address);
 
     /* Set the priority. */
-    isr_pedalok_SetPriority((uint8)isr_pedalok_INTC_PRIOR_NUMBER);
+    isr_nodeok_SetPriority((uint8)isr_nodeok_INTC_PRIOR_NUMBER);
 
     /* Enable it. */
-    isr_pedalok_Enable();
+    isr_nodeok_Enable();
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_Stop
+* Function Name: isr_nodeok_Stop
 ********************************************************************************
 *
 * Summary:
@@ -131,22 +131,22 @@ void isr_pedalok_StartEx(cyisraddress address)
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_Stop(void)
+void isr_nodeok_Stop(void)
 {
     /* Disable this interrupt. */
-    isr_pedalok_Disable();
+    isr_nodeok_Disable();
 
     /* Set the ISR to point to the passive one. */
-    isr_pedalok_SetVector(&IntDefaultHandler);
+    isr_nodeok_SetVector(&IntDefaultHandler);
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_Interrupt
+* Function Name: isr_nodeok_Interrupt
 ********************************************************************************
 *
 * Summary:
-*   The default Interrupt Service Routine for isr_pedalok.
+*   The default Interrupt Service Routine for isr_nodeok.
 *
 *   Add custom code between the coments to keep the next version of this file
 *   from over writting your code.
@@ -157,27 +157,27 @@ void isr_pedalok_Stop(void)
 *   None
 *
 *******************************************************************************/
-CY_ISR(isr_pedalok_Interrupt)
+CY_ISR(isr_nodeok_Interrupt)
 {
-    #ifdef isr_pedalok_INTERRUPT_INTERRUPT_CALLBACK
-        isr_pedalok_Interrupt_InterruptCallback();
-    #endif /* isr_pedalok_INTERRUPT_INTERRUPT_CALLBACK */ 
+    #ifdef isr_nodeok_INTERRUPT_INTERRUPT_CALLBACK
+        isr_nodeok_Interrupt_InterruptCallback();
+    #endif /* isr_nodeok_INTERRUPT_INTERRUPT_CALLBACK */ 
 
     /*  Place your Interrupt code here. */
-    /* `#START isr_pedalok_Interrupt` */
+    /* `#START isr_nodeok_Interrupt` */
 
     /* `#END` */
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_SetVector
+* Function Name: isr_nodeok_SetVector
 ********************************************************************************
 *
 * Summary:
-*   Change the ISR vector for the Interrupt. Note calling isr_pedalok_Start
+*   Change the ISR vector for the Interrupt. Note calling isr_nodeok_Start
 *   will override any effect this method would have had. To set the vector 
-*   before the component has been started use isr_pedalok_StartEx instead.
+*   before the component has been started use isr_nodeok_StartEx instead.
 * 
 *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
 *   used to provide consistent definition across compilers:
@@ -197,18 +197,18 @@ CY_ISR(isr_pedalok_Interrupt)
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_SetVector(cyisraddress address)
+void isr_nodeok_SetVector(cyisraddress address)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_pedalok__INTC_NUMBER] = address;
+    ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_nodeok__INTC_NUMBER] = address;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_GetVector
+* Function Name: isr_nodeok_GetVector
 ********************************************************************************
 *
 * Summary:
@@ -221,26 +221,26 @@ void isr_pedalok_SetVector(cyisraddress address)
 *   Address of the ISR in the interrupt vector table.
 *
 *******************************************************************************/
-cyisraddress isr_pedalok_GetVector(void)
+cyisraddress isr_nodeok_GetVector(void)
 {
     cyisraddress * ramVectorTable;
 
     ramVectorTable = (cyisraddress *) *CYINT_VECT_TABLE;
 
-    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_pedalok__INTC_NUMBER];
+    return ramVectorTable[CYINT_IRQ_BASE + (uint32)isr_nodeok__INTC_NUMBER];
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_SetPriority
+* Function Name: isr_nodeok_SetPriority
 ********************************************************************************
 *
 * Summary:
 *   Sets the Priority of the Interrupt. 
 *
-*   Note calling isr_pedalok_Start or isr_pedalok_StartEx will 
+*   Note calling isr_nodeok_Start or isr_nodeok_StartEx will 
 *   override any effect this API would have had. This API should only be called
-*   after isr_pedalok_Start or isr_pedalok_StartEx has been called. 
+*   after isr_nodeok_Start or isr_nodeok_StartEx has been called. 
 *   To set the initial priority for the component, use the Design-Wide Resources
 *   Interrupt Editor.
 *
@@ -255,14 +255,14 @@ cyisraddress isr_pedalok_GetVector(void)
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_SetPriority(uint8 priority)
+void isr_nodeok_SetPriority(uint8 priority)
 {
-    *isr_pedalok_INTC_PRIOR = priority << 5;
+    *isr_nodeok_INTC_PRIOR = priority << 5;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_GetPriority
+* Function Name: isr_nodeok_GetPriority
 ********************************************************************************
 *
 * Summary:
@@ -277,19 +277,19 @@ void isr_pedalok_SetPriority(uint8 priority)
 *    PSoC 4: Priority is from 0 to 3.
 *
 *******************************************************************************/
-uint8 isr_pedalok_GetPriority(void)
+uint8 isr_nodeok_GetPriority(void)
 {
     uint8 priority;
 
 
-    priority = *isr_pedalok_INTC_PRIOR >> 5;
+    priority = *isr_nodeok_INTC_PRIOR >> 5;
 
     return priority;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_Enable
+* Function Name: isr_nodeok_Enable
 ********************************************************************************
 *
 * Summary:
@@ -304,15 +304,15 @@ uint8 isr_pedalok_GetPriority(void)
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_Enable(void)
+void isr_nodeok_Enable(void)
 {
     /* Enable the general interrupt. */
-    *isr_pedalok_INTC_SET_EN = isr_pedalok__INTC_MASK;
+    *isr_nodeok_INTC_SET_EN = isr_nodeok__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_GetState
+* Function Name: isr_nodeok_GetState
 ********************************************************************************
 *
 * Summary:
@@ -325,15 +325,15 @@ void isr_pedalok_Enable(void)
 *   1 if enabled, 0 if disabled.
 *
 *******************************************************************************/
-uint8 isr_pedalok_GetState(void)
+uint8 isr_nodeok_GetState(void)
 {
     /* Get the state of the general interrupt. */
-    return ((*isr_pedalok_INTC_SET_EN & (uint32)isr_pedalok__INTC_MASK) != 0u) ? 1u:0u;
+    return ((*isr_nodeok_INTC_SET_EN & (uint32)isr_nodeok__INTC_MASK) != 0u) ? 1u:0u;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_Disable
+* Function Name: isr_nodeok_Disable
 ********************************************************************************
 *
 * Summary:
@@ -346,15 +346,15 @@ uint8 isr_pedalok_GetState(void)
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_Disable(void)
+void isr_nodeok_Disable(void)
 {
     /* Disable the general interrupt. */
-    *isr_pedalok_INTC_CLR_EN = isr_pedalok__INTC_MASK;
+    *isr_nodeok_INTC_CLR_EN = isr_nodeok__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_SetPending
+* Function Name: isr_nodeok_SetPending
 ********************************************************************************
 *
 * Summary:
@@ -373,14 +373,14 @@ void isr_pedalok_Disable(void)
 *   interrupts).
 *
 *******************************************************************************/
-void isr_pedalok_SetPending(void)
+void isr_nodeok_SetPending(void)
 {
-    *isr_pedalok_INTC_SET_PD = isr_pedalok__INTC_MASK;
+    *isr_nodeok_INTC_SET_PD = isr_nodeok__INTC_MASK;
 }
 
 
 /*******************************************************************************
-* Function Name: isr_pedalok_ClearPending
+* Function Name: isr_nodeok_ClearPending
 ********************************************************************************
 *
 * Summary:
@@ -398,9 +398,9 @@ void isr_pedalok_SetPending(void)
 *   None
 *
 *******************************************************************************/
-void isr_pedalok_ClearPending(void)
+void isr_nodeok_ClearPending(void)
 {
-    *isr_pedalok_INTC_CLR_PD = isr_pedalok__INTC_MASK;
+    *isr_nodeok_INTC_CLR_PD = isr_nodeok__INTC_MASK;
 }
 
 #endif /* End check for removal by optimization */

@@ -1,5 +1,5 @@
 /*******************************************************************************
-* File Name: Pedal_Timer_PM.c
+* File Name: Node_Timer_PM.c
 * Version 2.70
 *
 *  Description:
@@ -16,13 +16,13 @@
 * the software package with which this file was provided.
 ********************************************************************************/
 
-#include "Pedal_Timer.h"
+#include "Node_Timer.h"
 
-static Pedal_Timer_backupStruct Pedal_Timer_backup;
+static Node_Timer_backupStruct Node_Timer_backup;
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_SaveConfig
+* Function Name: Node_Timer_SaveConfig
 ********************************************************************************
 *
 * Summary:
@@ -35,29 +35,29 @@ static Pedal_Timer_backupStruct Pedal_Timer_backup;
 *  void
 *
 * Global variables:
-*  Pedal_Timer_backup:  Variables of this global structure are modified to
+*  Node_Timer_backup:  Variables of this global structure are modified to
 *  store the values of non retention configuration registers when Sleep() API is
 *  called.
 *
 *******************************************************************************/
-void Pedal_Timer_SaveConfig(void) 
+void Node_Timer_SaveConfig(void) 
 {
-    #if (!Pedal_Timer_UsingFixedFunction)
-        Pedal_Timer_backup.TimerUdb = Pedal_Timer_ReadCounter();
-        Pedal_Timer_backup.InterruptMaskValue = Pedal_Timer_STATUS_MASK;
-        #if (Pedal_Timer_UsingHWCaptureCounter)
-            Pedal_Timer_backup.TimerCaptureCounter = Pedal_Timer_ReadCaptureCount();
+    #if (!Node_Timer_UsingFixedFunction)
+        Node_Timer_backup.TimerUdb = Node_Timer_ReadCounter();
+        Node_Timer_backup.InterruptMaskValue = Node_Timer_STATUS_MASK;
+        #if (Node_Timer_UsingHWCaptureCounter)
+            Node_Timer_backup.TimerCaptureCounter = Node_Timer_ReadCaptureCount();
         #endif /* Back Up capture counter register  */
 
-        #if(!Pedal_Timer_UDB_CONTROL_REG_REMOVED)
-            Pedal_Timer_backup.TimerControlRegister = Pedal_Timer_ReadControlRegister();
+        #if(!Node_Timer_UDB_CONTROL_REG_REMOVED)
+            Node_Timer_backup.TimerControlRegister = Node_Timer_ReadControlRegister();
         #endif /* Backup the enable state of the Timer component */
     #endif /* Backup non retention registers in UDB implementation. All fixed function registers are retention */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_RestoreConfig
+* Function Name: Node_Timer_RestoreConfig
 ********************************************************************************
 *
 * Summary:
@@ -70,29 +70,29 @@ void Pedal_Timer_SaveConfig(void)
 *  void
 *
 * Global variables:
-*  Pedal_Timer_backup:  Variables of this global structure are used to
+*  Node_Timer_backup:  Variables of this global structure are used to
 *  restore the values of non retention registers on wakeup from sleep mode.
 *
 *******************************************************************************/
-void Pedal_Timer_RestoreConfig(void) 
+void Node_Timer_RestoreConfig(void) 
 {   
-    #if (!Pedal_Timer_UsingFixedFunction)
+    #if (!Node_Timer_UsingFixedFunction)
 
-        Pedal_Timer_WriteCounter(Pedal_Timer_backup.TimerUdb);
-        Pedal_Timer_STATUS_MASK =Pedal_Timer_backup.InterruptMaskValue;
-        #if (Pedal_Timer_UsingHWCaptureCounter)
-            Pedal_Timer_SetCaptureCount(Pedal_Timer_backup.TimerCaptureCounter);
+        Node_Timer_WriteCounter(Node_Timer_backup.TimerUdb);
+        Node_Timer_STATUS_MASK =Node_Timer_backup.InterruptMaskValue;
+        #if (Node_Timer_UsingHWCaptureCounter)
+            Node_Timer_SetCaptureCount(Node_Timer_backup.TimerCaptureCounter);
         #endif /* Restore Capture counter register*/
 
-        #if(!Pedal_Timer_UDB_CONTROL_REG_REMOVED)
-            Pedal_Timer_WriteControlRegister(Pedal_Timer_backup.TimerControlRegister);
+        #if(!Node_Timer_UDB_CONTROL_REG_REMOVED)
+            Node_Timer_WriteControlRegister(Node_Timer_backup.TimerControlRegister);
         #endif /* Restore the enable state of the Timer component */
     #endif /* Restore non retention registers in the UDB implementation only */
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_Sleep
+* Function Name: Node_Timer_Sleep
 ********************************************************************************
 *
 * Summary:
@@ -105,32 +105,32 @@ void Pedal_Timer_RestoreConfig(void)
 *  void
 *
 * Global variables:
-*  Pedal_Timer_backup.TimerEnableState:  Is modified depending on the
+*  Node_Timer_backup.TimerEnableState:  Is modified depending on the
 *  enable state of the block before entering sleep mode.
 *
 *******************************************************************************/
-void Pedal_Timer_Sleep(void) 
+void Node_Timer_Sleep(void) 
 {
-    #if(!Pedal_Timer_UDB_CONTROL_REG_REMOVED)
+    #if(!Node_Timer_UDB_CONTROL_REG_REMOVED)
         /* Save Counter's enable state */
-        if(Pedal_Timer_CTRL_ENABLE == (Pedal_Timer_CONTROL & Pedal_Timer_CTRL_ENABLE))
+        if(Node_Timer_CTRL_ENABLE == (Node_Timer_CONTROL & Node_Timer_CTRL_ENABLE))
         {
             /* Timer is enabled */
-            Pedal_Timer_backup.TimerEnableState = 1u;
+            Node_Timer_backup.TimerEnableState = 1u;
         }
         else
         {
             /* Timer is disabled */
-            Pedal_Timer_backup.TimerEnableState = 0u;
+            Node_Timer_backup.TimerEnableState = 0u;
         }
     #endif /* Back up enable state from the Timer control register */
-    Pedal_Timer_Stop();
-    Pedal_Timer_SaveConfig();
+    Node_Timer_Stop();
+    Node_Timer_SaveConfig();
 }
 
 
 /*******************************************************************************
-* Function Name: Pedal_Timer_Wakeup
+* Function Name: Node_Timer_Wakeup
 ********************************************************************************
 *
 * Summary:
@@ -143,17 +143,17 @@ void Pedal_Timer_Sleep(void)
 *  void
 *
 * Global variables:
-*  Pedal_Timer_backup.enableState:  Is used to restore the enable state of
+*  Node_Timer_backup.enableState:  Is used to restore the enable state of
 *  block on wakeup from sleep mode.
 *
 *******************************************************************************/
-void Pedal_Timer_Wakeup(void) 
+void Node_Timer_Wakeup(void) 
 {
-    Pedal_Timer_RestoreConfig();
-    #if(!Pedal_Timer_UDB_CONTROL_REG_REMOVED)
-        if(Pedal_Timer_backup.TimerEnableState == 1u)
+    Node_Timer_RestoreConfig();
+    #if(!Node_Timer_UDB_CONTROL_REG_REMOVED)
+        if(Node_Timer_backup.TimerEnableState == 1u)
         {     /* Enable Timer's operation */
-                Pedal_Timer_Enable();
+                Node_Timer_Enable();
         } /* Do nothing if Timer was disabled before */
     #endif /* Remove this code section if Control register is removed */
 }
