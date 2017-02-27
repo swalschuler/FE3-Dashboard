@@ -270,34 +270,6 @@
 <VisibleNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
-<v>Dashboard\Dashboard\CortexM3</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Buzzer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_INT.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_TX_RX_func.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Drive.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\HV.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_can.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_nodeok.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -381,7 +353,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1092, 411" SelectedTabbedMdiWindow="555bcd59-4794-48d4-bdba-36a73617cec6"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="3dbaaaa1-31c5-49ac-b596-1f89ea5fb562" Guid="12280726-fe32-43b2-bacd-a8ce0770057d" /><DocumentWindow Key="6e261b1a-b8aa-46eb-bb2d-d730bd16a7f8" Guid="f11a6a6c-32f9-4e02-942b-b00f91600d26" /><DocumentWindow Key="8d1adede-318b-49b5-bc9f-8c8402c86081" Guid="555bcd59-4794-48d4-bdba-36a73617cec6" /><DocumentWindow Key="4d8793f3-0ca0-49f7-bff1-5be3ffa1bc17" Guid="46d5eae8-262b-4580-8e8f-0708ee087f29" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1092, 411" SelectedTabbedMdiWindow="a1008cef-e0f3-4cff-9445-3b9947cc02d0"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="a142d61d-12f7-4a56-88dd-85d48fba05d8" Guid="9aab6e4b-a086-41ff-acce-534525061260" /><DocumentWindow Key="69317d1d-44ae-499e-8556-c4b905ae1557" Guid="228606e5-057f-4426-9cb7-762a78e55b2c" /><DocumentWindow Key="9da7b8e7-e67f-4754-b380-c433aebd23d9" Guid="a1008cef-e0f3-4cff-9445-3b9947cc02d0" /><DocumentWindow Key="68bc0f89-86c8-48c3-8a18-6e0d424d4369" Guid="21709a19-b6d4-47fa-9c1d-597a2e3ddf35" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

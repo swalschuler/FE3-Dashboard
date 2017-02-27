@@ -13,7 +13,7 @@
 #define DATA_SIZE                   (6u)
 #define ONE_BYTE_OFFSET             (8u)
 
-#define PEDAL_TIMEOUT 200 // Timeout after (PEDAL_TIMEOUT * 2)ms
+#define PEDAL_TIMEOUT 20 // Timeout after (PEDAL_TIMEOUT * 10)ms
 
 /* Function prototypes */
 //CY_ISR_PROTO(ISR_CAN);
@@ -191,7 +191,7 @@ int main()
                 CAN_Init();
                 CAN_Start();
                 CyDelay(1000);
-                nodeCheckStart();
+                //nodeCheckStart(); EDIT UNCOMMENT
                 
                 //CyDelay(5000);
                 can_send_status(state);

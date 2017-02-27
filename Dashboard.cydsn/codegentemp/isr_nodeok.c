@@ -27,7 +27,8 @@
 *  Place your includes, defines and code here 
 ********************************************************************************/
 /* `#START isr_nodeok_intc` */
-
+#include "Node_Timer.h"
+extern volatile uint32_t pedalOK;
 /* `#END` */
 
 #ifndef CYINT_IRQ_BASE
@@ -165,7 +166,10 @@ CY_ISR(isr_nodeok_Interrupt)
 
     /*  Place your Interrupt code here. */
     /* `#START isr_nodeok_Interrupt` */
-
+    uint8 InterruptState = CyEnterCriticalSection();
+    pedalOK++;
+    CyExitCriticalSection(InterruptState);
+    Node_Timer_ReadStatusRegister();
     /* `#END` */
 }
 
