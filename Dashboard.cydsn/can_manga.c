@@ -136,13 +136,14 @@ void can_send(uint8_t data[8], uint32_t ID)
 }
 
 void can_send_status(
-    uint8_t state)
+    uint8_t state,
+    uint8_t errorState)
 {
     //max and min voltage means the voltage of single cell
         uint8_t data[8];
         
         data[0] = state;
-        data[1] = 0;
+        data[1] = errorState;
         
         data[2] = 0;
         data[3] = 0;
@@ -184,9 +185,5 @@ void can_send_cmd(
 
 } // can_send_cmd()
 
-void can_manga_message_update(volatile MangaMessage *mmsg, uint8_t data)
-{
- mmsg->value = data;
- mmsg->count += 1;
-}
+
 

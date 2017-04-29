@@ -195,7 +195,7 @@ int main()
                 //nodeCheckStart(); EDIT UNCOMMENT
                 
                 //CyDelay(5000);
-                can_send_status(state);
+                can_send_status(state, error_state);
 
                 //CyGlobalIntEnable;
                 //CAN_GlobalIntDisable();
@@ -258,7 +258,7 @@ int main()
                 CAN_Start();
                 //nodeCheckStart();
           
-                can_send_status(state);
+                can_send_status(state, error_state);
 
                 /*
                 LCD_Position(1u, 10u);
@@ -318,7 +318,7 @@ int main()
                 CAN_Start();
                 //nodeCheckStart();
                 
-                can_send_status(state);
+                can_send_status(state, error_state);
                 
                 RGB3_1_Write(0);
                 RGB2_1_Write(0);
@@ -370,7 +370,7 @@ int main()
                 
                 //nodeCheckStart();
                 
-                can_send_status(state);
+                can_send_status(state, error_state);
                 
                 //
                 // RGB code goes here
@@ -420,7 +420,7 @@ int main()
                 //CAN_Init();
                 //CAN_Start();
                 
-                can_send_status(state);
+                can_send_status(state, error_state);
                 //
                 // RGB code goes here
                 // Green
@@ -497,7 +497,7 @@ int main()
                 CAN_Start();
                 //nodeCheckStart();
                 
-                can_send_status(state);
+                can_send_status(state, error_state);
                 
                 //
                 // RGB code goes here
