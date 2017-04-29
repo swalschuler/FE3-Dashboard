@@ -13,7 +13,7 @@
 #define DATA_SIZE                   (6u)
 #define ONE_BYTE_OFFSET             (8u)
 
-#define PEDAL_TIMEOUT 20 // Timeout after (PEDAL_TIMEOUT * 10)ms
+#define PEDAL_TIMEOUT 100 // Timeout after (PEDAL_TIMEOUT * 10)ms
 
 /* Function prototypes */
 //CY_ISR_PROTO(ISR_CAN);
@@ -160,7 +160,7 @@ int main()
 
     //test_inject(data_queue, &data_tail);
     
-    //nodeCheckStart();
+    nodeCheckStart();
     
     for(;;)
     {
@@ -176,6 +176,7 @@ int main()
         // Check if all nodes are OK
         if (pedalOK > PEDAL_TIMEOUT)
         {
+            can_send_cmd(1,0,0); // setInterlock. 
             state = Fault;
             error_state = nodeFailure;
         }
