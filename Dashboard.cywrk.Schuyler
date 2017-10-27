@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\can_manga.h">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\TopDesign">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -161,6 +161,12 @@
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\project.h</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Dashboard</v>
+<v>Dashboard\Dashboard</v>
+<v>Dashboard\Dashboard\TopDesign</v>
+<v>Dashboard\Dashboard\Dashboard.cydwr</v>
+<v>Dashboard\Dashboard\Dashboard.cydwr\Pins</v>
+<v>Dashboard\Dashboard\Dashboard.cydwr\Analog</v>
 <v>Dashboard\Dashboard\Dashboard.cydwr\Clocks</v>
 <v>Dashboard\Dashboard\Dashboard.cydwr\Interrupts</v>
 <v>Dashboard\Dashboard\Dashboard.cydwr\DMA</v>
@@ -185,11 +191,6 @@
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_INT.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_PM.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_TX_RX_func.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN_Timer</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\cy_boot</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\Drive</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\HV</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard">
@@ -211,58 +212,58 @@
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
 <v>Dashboard\Dashboard\CortexM3</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Buzzer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_INT.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\can_manga.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_Timer_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CAN_TX_RX_func.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Drive.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\HV.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_can.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\isr_nodeok.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_LCDPort.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LCD_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\LED.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Node_Timer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Node_Timer_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB1_1.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB1_2.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB2_1.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB2_2.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB3_1.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RGB3_2.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\RX.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\Tach.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\timer_clock.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\TX.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\WaveDAC8_1.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\WaveDAC8_1_DacClk.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\WaveDAC8_1_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\WaveDAC8_1_VDAC8.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\WaveDAC8_1_VDAC8_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\WaveDAC8_1_Wave1_DMA_dma.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Listing Files\WaveDAC8_1_Wave2_DMA_dma.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Dashboard.elf</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Dashboard.hex</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_493\Debug\Dashboard.map</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Buzzer.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_INT.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\can_manga.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_Timer.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_Timer_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_TX_RX_func.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Drive.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\HV.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_can.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_nodeok.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Node_Timer.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Node_Timer_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB1_1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB1_2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB2_1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB2_2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB3_1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB3_2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RX.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Tach.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\TX.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_DacClk.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_VDAC8.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_VDAC8_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_Wave1_DMA_dma.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\WaveDAC8_1_Wave2_DMA_dma.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Dashboard.elf</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Dashboard.hex</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Dashboard.map</v>
 <v>Dashboard\Dashboard\Dashboard.gpdsc</v>
 <v>Dashboard\Dashboard\Dashboard.rpt</v>
 <v>Dashboard\Dashboard\Dashboard_timing.html</v>
@@ -342,12 +343,8 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
+<name v=".\Dashboard.cydsn\Dashboard.cydwr" />
 <name v=".\Dashboard.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\Dashboard.cydsn\can_manga.c" />
-<name v=".\Dashboard.cydsn\main.c" />
-<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\isr_nodeok.c" />
-<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN_PM.c" />
-<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN_TX_RX_func.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -355,7 +352,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1045, 348" SelectedTabbedMdiWindow="f5d87ef5-6804-4455-ba62-e0f0c5977bf8"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="e8f05113-1b82-4188-b5d0-2d7f750f416f" Guid="7d61b4aa-2400-4dd7-b5ac-6791e06c222a" /><DocumentWindow Key="29dc89fe-9af0-4880-9b81-470da15d5697" Guid="37dead54-b76f-4592-8396-4f47dc7be957" /><DocumentWindow Key="b54a558f-cf85-4c59-af82-778e7a9cafcb" Guid="f5d87ef5-6804-4455-ba62-e0f0c5977bf8" /><DocumentWindow Key="0d1fc062-468d-431c-9e1c-0165a937aee7" Guid="3321e1d5-ad5f-4bd9-9ee0-0efdfafae4a9" /><DocumentWindow Key="f8532533-e07a-42ca-ba10-72f065a36cd2" Guid="f979a05e-32b1-442b-8d0e-8317005d7bde" /><DocumentWindow Key="d6b258d7-e433-4147-876c-edc4ed46ab2c" Guid="5f1c7d81-adba-4dc7-9632-581a0dabda3c" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="878, 459" SelectedTabbedMdiWindow="9981530a-ccbb-4111-8d4a-9c8cce4e51cd"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Dashboard.cydwr" Guid="13ab0aa3-3dab-401b-a576-c2fe0848740e" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\TopDesign\TopDesign.cysch" Guid="9981530a-ccbb-4111-8d4a-9c8cce4e51cd" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
