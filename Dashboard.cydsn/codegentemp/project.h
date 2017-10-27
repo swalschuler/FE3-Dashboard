@@ -1,7 +1,7 @@
 /*******************************************************************************
 * File Name: project.h
 * 
-* PSoC Creator  3.3 CP3
+* PSoC Creator  4.0 Update 1
 *
 * Description:
 * It contains references to all generated header files and should not be modified.
@@ -51,6 +51,8 @@
 #include "timer_clock.h"
 #include "CAN_Timer.h"
 #include "isr_can.h"
+#include "Node_Timer.h"
+#include "isr_nodeok.h"
 #include "LCD_LCDPort_aliases.h"
 #include "LCD_LCDPort.h"
 #include "WaveDAC8_1_DacClk.h"

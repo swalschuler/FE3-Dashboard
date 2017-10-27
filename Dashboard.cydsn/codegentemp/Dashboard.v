@@ -1,6 +1,6 @@
 // ======================================================================
 // Dashboard.v generated from TopDesign.cysch
-// 06/15/2016 at 02:30
+// 03/02/2017 at 20:26
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -20,23 +20,37 @@
 `define CYDEV_CHIP_DIE_PSOC5LP 4
 `define CYDEV_CHIP_REV_PSOC5LP_PRODUCTION 0
 `define CYDEV_CHIP_REV_PSOC5LP_ES0 0
-`define CYDEV_CHIP_DIE_PANTHER 5
-`define CYDEV_CHIP_REV_PANTHER_PRODUCTION 1
-`define CYDEV_CHIP_REV_PANTHER_ES1 1
-`define CYDEV_CHIP_REV_PANTHER_ES0 0
+`define CYDEV_CHIP_DIE_PSOC5TM 5
+`define CYDEV_CHIP_REV_PSOC5TM_PRODUCTION 1
+`define CYDEV_CHIP_REV_PSOC5TM_ES1 1
+`define CYDEV_CHIP_REV_PSOC5TM_ES0 0
+`define CYDEV_CHIP_DIE_VOLANS 6
+`define CYDEV_CHIP_REV_VOLANS_PRODUCTION 0
+`define CYDEV_CHIP_DIE_BERRYPECKER 7
+`define CYDEV_CHIP_REV_BERRYPECKER_PRODUCTION 0
+`define CYDEV_CHIP_DIE_CRANE 8
+`define CYDEV_CHIP_REV_CRANE_PRODUCTION 0
+`define CYDEV_CHIP_DIE_FM3 9
+`define CYDEV_CHIP_REV_FM3_PRODUCTION 0
+`define CYDEV_CHIP_DIE_FM4 10
+`define CYDEV_CHIP_REV_FM4_PRODUCTION 0
 `define CYDEV_CHIP_DIE_EXPECT 4
 `define CYDEV_CHIP_REV_EXPECT 0
 `define CYDEV_CHIP_DIE_ACTUAL 4
 /* -- WARNING: The previous section of defines are deprecated and will be removed in a future release -- */
+`define CYDEV_CHIP_FAMILY_PSOC3 1
+`define CYDEV_CHIP_FAMILY_PSOC4 2
+`define CYDEV_CHIP_FAMILY_PSOC5 3
+`define CYDEV_CHIP_FAMILY_FM0P 4
+`define CYDEV_CHIP_FAMILY_FM3 5
+`define CYDEV_CHIP_FAMILY_FM4 6
 `define CYDEV_CHIP_FAMILY_UNKNOWN 0
 `define CYDEV_CHIP_MEMBER_UNKNOWN 0
-`define CYDEV_CHIP_FAMILY_PSOC3 1
 `define CYDEV_CHIP_MEMBER_3A 1
 `define CYDEV_CHIP_REVISION_3A_PRODUCTION 3
 `define CYDEV_CHIP_REVISION_3A_ES3 3
 `define CYDEV_CHIP_REVISION_3A_ES2 1
 `define CYDEV_CHIP_REVISION_3A_ES1 0
-`define CYDEV_CHIP_FAMILY_PSOC4 2
 `define CYDEV_CHIP_MEMBER_4G 2
 `define CYDEV_CHIP_REVISION_4G_PRODUCTION 17
 `define CYDEV_CHIP_REVISION_4G_ES 17
@@ -49,43 +63,52 @@
 `define CYDEV_CHIP_REVISION_4O_PRODUCTION 0
 `define CYDEV_CHIP_MEMBER_4N 6
 `define CYDEV_CHIP_REVISION_4N_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4D 7
+`define CYDEV_CHIP_MEMBER_4Q 7
+`define CYDEV_CHIP_REVISION_4Q_PRODUCTION 0
+`define CYDEV_CHIP_MEMBER_4D 8
 `define CYDEV_CHIP_REVISION_4D_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4J 8
+`define CYDEV_CHIP_MEMBER_4J 9
 `define CYDEV_CHIP_REVISION_4J_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4K 9
+`define CYDEV_CHIP_MEMBER_4K 10
 `define CYDEV_CHIP_REVISION_4K_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4H 10
+`define CYDEV_CHIP_MEMBER_4H 11
 `define CYDEV_CHIP_REVISION_4H_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4A 11
+`define CYDEV_CHIP_MEMBER_4A 12
 `define CYDEV_CHIP_REVISION_4A_PRODUCTION 17
 `define CYDEV_CHIP_REVISION_4A_ES0 17
-`define CYDEV_CHIP_MEMBER_4F 12
-`define CYDEV_CHIP_REVISION_4F_PRODUCTION 0
-`define CYDEV_CHIP_REVISION_4F_PRODUCTION_256K 0
-`define CYDEV_CHIP_REVISION_4F_PRODUCTION_256DMA 0
 `define CYDEV_CHIP_MEMBER_4F 13
 `define CYDEV_CHIP_REVISION_4F_PRODUCTION 0
 `define CYDEV_CHIP_REVISION_4F_PRODUCTION_256K 0
 `define CYDEV_CHIP_REVISION_4F_PRODUCTION_256DMA 0
-`define CYDEV_CHIP_MEMBER_4M 14
+`define CYDEV_CHIP_MEMBER_4P 14
+`define CYDEV_CHIP_REVISION_4P_PRODUCTION 0
+`define CYDEV_CHIP_MEMBER_4M 15
 `define CYDEV_CHIP_REVISION_4M_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4L 15
+`define CYDEV_CHIP_MEMBER_4L 16
 `define CYDEV_CHIP_REVISION_4L_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4I 16
+`define CYDEV_CHIP_MEMBER_4I 17
 `define CYDEV_CHIP_REVISION_4I_PRODUCTION 0
-`define CYDEV_CHIP_MEMBER_4C 17
+`define CYDEV_CHIP_MEMBER_4C 18
 `define CYDEV_CHIP_REVISION_4C_PRODUCTION 0
-`define CYDEV_CHIP_FAMILY_PSOC5 3
-`define CYDEV_CHIP_MEMBER_5B 18
+`define CYDEV_CHIP_MEMBER_5B 19
 `define CYDEV_CHIP_REVISION_5B_PRODUCTION 0
 `define CYDEV_CHIP_REVISION_5B_ES0 0
-`define CYDEV_CHIP_MEMBER_5A 19
+`define CYDEV_CHIP_MEMBER_5A 20
 `define CYDEV_CHIP_REVISION_5A_PRODUCTION 1
 `define CYDEV_CHIP_REVISION_5A_ES1 1
 `define CYDEV_CHIP_REVISION_5A_ES0 0
+`define CYDEV_CHIP_MEMBER_PDL_FM0P_TYPE1 21
+`define CYDEV_CHIP_REVISION_PDL_FM0P_TYPE1_PRODUCTION 0
+`define CYDEV_CHIP_MEMBER_PDL_FM0P_TYPE2 22
+`define CYDEV_CHIP_REVISION_PDL_FM0P_TYPE2_PRODUCTION 0
+`define CYDEV_CHIP_MEMBER_PDL_FM0P_TYPE3 23
+`define CYDEV_CHIP_REVISION_PDL_FM0P_TYPE3_PRODUCTION 0
+`define CYDEV_CHIP_MEMBER_FM3 24
+`define CYDEV_CHIP_REVISION_FM3_PRODUCTION 0
+`define CYDEV_CHIP_MEMBER_FM4 25
+`define CYDEV_CHIP_REVISION_FM4_PRODUCTION 0
 `define CYDEV_CHIP_FAMILY_USED 3
-`define CYDEV_CHIP_MEMBER_USED 18
+`define CYDEV_CHIP_MEMBER_USED 19
 `define CYDEV_CHIP_REVISION_USED 0
 // Component: or_v1_0
 `ifdef CY_BLK_DIR
@@ -93,11 +116,11 @@
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\or_v1_0\or_v1_0.v"
 `endif
 
 // Component: ZeroTerminal
@@ -106,14 +129,14 @@
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\ZeroTerminal\ZeroTerminal.v"
 `endif
 
-// CAN_v3_0(AckError=false, AckErrorUseHelper=true, AdvancedInterruptConfig=true, APIDictionary=, Arbiter=0, ArbLost=false, ArbLostUseHelper=true, BaudRate=500, BitError=false, BitErrorUseHelper=true, Bitrate=2, BussOff=false, BussOffUseHelper=true, ClkFrequency=24, ConnectExtInterruptLine=false, ConnectTxEn=false, CrcError=false, CrcErrorUseHelper=true, DataGridSaved=, EdgeMode=0, FormError=false, FormErrorUseHelper=true, FullCustomIntISR=false, IntEnable=true, IntISRDisable=false, M0S8CAN_BLOCK_VER=-1, Overload=false, OverloadUseHelper=true, Reset=0, RTRAutomaticReply=false, RTRAutomaticReplyUseHelper=true, RxMsg=true, RxMsgLost=false, RxMsgLostUseHelper=true, RxMsgUseHelper=true, Sjw=1, Sm=0, SSTError=false, SSTErrorUseHelper=true, StuckAtZero=false, StuckAtZeroUseHelper=true, StuffError=false, StuffErrorUseHelper=true, SwapDataByteEndianness=false, Tseg1=11, Tseg2=4, TxMsg=false, TxMsgUseHelper=true, XMLMainData=<?xml version="1.0" encoding="utf-16"?><CyParameters xmlns:version="v1.50"><TXRegUnits><CyRegUnit Type="etTX" Name="Dash_status" State="esFull" Id="1574" IDE="false" RTR="false" RTRReply="false" DLC="1" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="Dash_cmd" State="esFull" Id="1894" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="2" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="3" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="4" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="5" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="6" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="7" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /></TXRegUnits><RXRegUnits><CyRegUnit Type="etRX" Name="0" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="1" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="2" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="3" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="4" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="5" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="6" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="7" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="8" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="9" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="10" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="11" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="12" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="13" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="14" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="15" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /></RXRegUnits></CyParameters>, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=CAN_v3_0, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=CAN, CY_INSTANCE_SHORT_NAME=CAN, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  3.3 CP3, INSTANCE_NAME=CAN, )
+// CAN_v3_0(AckError=false, AckErrorUseHelper=true, AdvancedInterruptConfig=true, APIDictionary=, Arbiter=0, ArbLost=false, ArbLostUseHelper=true, BaudRate=500, BitError=false, BitErrorUseHelper=true, Bitrate=2, BussOff=false, BussOffUseHelper=true, ClkFrequency=24, ConnectExtInterruptLine=false, ConnectTxEn=false, CrcError=false, CrcErrorUseHelper=true, DataGridSaved=, EdgeMode=0, FormError=false, FormErrorUseHelper=true, FullCustomIntISR=false, IntEnable=true, IntISRDisable=false, M0S8CAN_BLOCK_VER=-1, Overload=false, OverloadUseHelper=true, Reset=0, RTRAutomaticReply=false, RTRAutomaticReplyUseHelper=true, RxMsg=true, RxMsgLost=false, RxMsgLostUseHelper=true, RxMsgUseHelper=true, Sjw=1, Sm=0, SSTError=false, SSTErrorUseHelper=true, StuckAtZero=false, StuckAtZeroUseHelper=true, StuffError=false, StuffErrorUseHelper=true, SwapDataByteEndianness=false, Tseg1=11, Tseg2=4, TxMsg=false, TxMsgUseHelper=true, XMLMainData=<?xml version="1.0" encoding="utf-16"?><CyParameters xmlns:version="v1.50"><TXRegUnits><CyRegUnit Type="etTX" Name="Dash_status" State="esFull" Id="1574" IDE="false" RTR="false" RTRReply="false" DLC="1" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="Dash_cmd" State="esFull" Id="1894" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="2" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="3" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="4" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="5" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="6" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /><CyRegUnit Type="etTX" Name="7" State="esEmpty" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="false" Linking="false" SST="false" /></TXRegUnits><RXRegUnits><CyRegUnit Type="etRX" Name="0" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="1" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="2" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="3" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="4" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="5" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="6" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="7" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="8" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="9" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="10" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="11" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="12" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="13" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="14" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /><CyRegUnit Type="etRX" Name="15" State="esBasic" Id="0" IDE="false" RTR="false" RTRReply="false" DLC="8" IRQ="true" Linking="false" SST="false" /></RXRegUnits></CyParameters>, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=CAN_v3_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=CAN, CY_INSTANCE_SHORT_NAME=CAN, CY_MAJOR_VERSION=3, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=CAN, )
 module CAN_v3_0_0 (
     rx,
     tx,
@@ -157,7 +180,7 @@ module CAN_v3_0_0 (
 
 
 
-    assign Net_31 = Net_25 | Net_30;
+    assign Net_31 = Net_30 | Net_25;
 
     ZeroTerminal ZeroTerminal_1 (
         .z(Net_30));
@@ -166,7 +189,7 @@ module CAN_v3_0_0 (
 
 endmodule
 
-// CharLCD_v2_20(ConversionRoutines=true, CUSTOM0=0,E,8,8,8,E,0, CUSTOM1=0,A,A,4,4,4,0, CUSTOM2=0,E,A,E,8,8,0, CUSTOM3=0,E,A,C,A,A,0, CUSTOM4=0,E,8,C,8,E,0, CUSTOM5=0,E,8,E,2,E,0, CUSTOM6=0,E,8,E,2,E,0, CUSTOM7=0,4,4,4,0,4,0, CustomCharacterSet=0, TypeReplacementString=uint8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=CharLCD_v2_20, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=LCD, CY_INSTANCE_SHORT_NAME=LCD, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=20, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  3.3 CP3, INSTANCE_NAME=LCD, )
+// CharLCD_v2_20(ConversionRoutines=true, CUSTOM0=0,E,8,8,8,E,0, CUSTOM1=0,A,A,4,4,4,0, CUSTOM2=0,E,A,E,8,8,0, CUSTOM3=0,E,A,C,A,A,0, CUSTOM4=0,E,8,C,8,E,0, CUSTOM5=0,E,8,E,2,E,0, CUSTOM6=0,E,8,E,2,E,0, CUSTOM7=0,4,4,4,0,4,0, CustomCharacterSet=0, TypeReplacementString=uint8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=CharLCD_v2_20, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=LCD, CY_INSTANCE_SHORT_NAME=LCD, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=20, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=LCD, )
 module CharLCD_v2_20_1 ;
 
 
@@ -256,11 +279,11 @@ endmodule
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_analog_virtualmux_v1_0\cy_analog_virtualmux_v1_0.v"
 `endif
 
 // Component: demux_v1_10
@@ -269,11 +292,11 @@ endmodule
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10\demux_v1_10.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10\demux_v1_10.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10\demux_v1_10.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\demux_v1_10\demux_v1_10.v"
 `endif
 
 // Component: cy_virtualmux_v1_0
@@ -282,14 +305,14 @@ endmodule
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v"
 `endif
 
-// VDAC8_v1_90(Data_Source=0, Initial_Value=100, Strobe_Mode=1, VDAC_Range=0, VDAC_Speed=2, Voltage=400, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=VDAC8_v1_90, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=WaveDAC8_1:VDAC8, CY_INSTANCE_SHORT_NAME=VDAC8, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=90, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  3.3 CP3, INSTANCE_NAME=WaveDAC8_1_VDAC8, )
+// VDAC8_v1_90(Data_Source=0, Initial_Value=100, Strobe_Mode=1, VDAC_Range=0, VDAC_Speed=2, Voltage=400, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=VDAC8_v1_90, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=WaveDAC8_1:VDAC8, CY_INSTANCE_SHORT_NAME=VDAC8, CY_MAJOR_VERSION=1, CY_MINOR_VERSION=90, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=WaveDAC8_1_VDAC8, )
 module VDAC8_v1_90_2 (
     strobe,
     data,
@@ -342,14 +365,14 @@ endmodule
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30\cydff_v1_30.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30\cydff_v1_30.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30\cydff_v1_30.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cydff_v1_30\cydff_v1_30.v"
 `endif
 
-// WaveDAC8_v2_0(Clock_SRC=1, DAC_Range=1, DacModeReplString=VDAC8, Sample_Clock_Freq=200000, Wave1_Amplitude=2, Wave1_Data=188u,195u,203u,211u,218u,224u,230u,236u,240u,244u,247u,249u,250u,250u,249u,247u,244u,240u,236u,230u,224u,218u,211u,203u,195u,188u,180u,172u,164u,157u,151u,145u,139u,135u,131u,128u,126u,125u,125u,126u,128u,131u,135u,139u,145u,151u,157u,164u,172u,180u, Wave1_DCOffset=3, Wave1_Length=50, Wave1_PhaseShift=0, Wave1_Type=0, Wave2_Amplitude=1, Wave2_Data=188u,189u,191u,193u,195u,197u,199u,201u,203u,204u,206u,207u,209u,210u,212u,213u,214u,215u,216u,217u,217u,218u,218u,219u,219u,219u,219u,219u,218u,218u,217u,217u,216u,215u,214u,213u,212u,210u,209u,207u,206u,204u,203u,201u,199u,197u,195u,193u,191u,189u,188u,186u,184u,182u,180u,178u,176u,174u,172u,171u,169u,168u,166u,165u,163u,162u,161u,160u,159u,158u,158u,157u,157u,156u,156u,156u,156u,156u,157u,157u,158u,158u,159u,160u,161u,162u,163u,165u,166u,168u,169u,171u,172u,174u,176u,178u,180u,182u,184u,186u, Wave2_DCOffset=3, Wave2_Length=100, Wave2_PhaseShift=0, Wave2_Type=0, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=WaveDAC8_v2_0, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=WaveDAC8_1, CY_INSTANCE_SHORT_NAME=WaveDAC8_1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  3.3 CP3, INSTANCE_NAME=WaveDAC8_1, )
+// WaveDAC8_v2_0(Clock_SRC=1, DAC_Range=1, DacModeReplString=VDAC8, Sample_Clock_Freq=200000, Wave1_Amplitude=2, Wave1_Data=188u,195u,203u,211u,218u,224u,230u,236u,240u,244u,247u,249u,250u,250u,249u,247u,244u,240u,236u,230u,224u,218u,211u,203u,195u,188u,180u,172u,164u,157u,151u,145u,139u,135u,131u,128u,126u,125u,125u,126u,128u,131u,135u,139u,145u,151u,157u,164u,172u,180u, Wave1_DCOffset=3, Wave1_Length=50, Wave1_PhaseShift=0, Wave1_Type=0, Wave2_Amplitude=1, Wave2_Data=188u,189u,191u,193u,195u,197u,199u,201u,203u,204u,206u,207u,209u,210u,212u,213u,214u,215u,216u,217u,217u,218u,218u,219u,219u,219u,219u,219u,218u,218u,217u,217u,216u,215u,214u,213u,212u,210u,209u,207u,206u,204u,203u,201u,199u,197u,195u,193u,191u,189u,188u,186u,184u,182u,180u,178u,176u,174u,172u,171u,169u,168u,166u,165u,163u,162u,161u,160u,159u,158u,158u,157u,157u,156u,156u,156u,156u,156u,157u,157u,158u,158u,159u,160u,161u,162u,163u,165u,166u,168u,169u,171u,172u,174u,176u,178u,180u,182u,184u,186u, Wave2_DCOffset=3, Wave2_Length=100, Wave2_PhaseShift=0, Wave2_Type=0, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=WaveDAC8_v2_0, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=WaveDAC8_1, CY_INSTANCE_SHORT_NAME=WaveDAC8_1, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=0, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=WaveDAC8_1, )
 module WaveDAC8_v2_0_3 (
     Wave,
     ws,
@@ -471,7 +494,7 @@ module WaveDAC8_v2_0_3 (
 	defparam cy_analog_virtualmux_3_connect.sig_width = 1;
 
 
-    assign Net_280 = Net_279 | Net_80;
+    assign Net_280 = Net_80 | Net_279;
 
     ZeroTerminal ZeroTerminal_1 (
         .z(Net_80));
@@ -495,11 +518,11 @@ endmodule
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v"
 `endif
 
 // Component: OneTerminal
@@ -508,31 +531,31 @@ endmodule
 `endif
 
 `ifdef WARP
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v"
 `else
-`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal"
-`include "C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v"
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\OneTerminal\OneTerminal.v"
 `endif
 
-// Timer_v2_70(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=true, CaptureMode=1, CONTROL3=1, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=true, FixedFunction=true, FixedFunctionUsed=1, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=false, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=0, NumberOfCaptures=1, param45=1, Period=9, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, Resolution=8, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=false, UsesHWEnable=0, VerilogSectionReplacementString=sT8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=Timer_v2_70, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=CAN_Timer, CY_INSTANCE_SHORT_NAME=CAN_Timer, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  3.3 CP3, INSTANCE_NAME=CAN_Timer, )
+// Timer_v2_70(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=true, CaptureMode=1, CONTROL3=1, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG8, CySetRegReplacementString=CY_SET_REG8, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=true, FixedFunction=true, FixedFunctionUsed=1, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=false, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=0, NumberOfCaptures=1, param45=1, Period=9, RegDefReplacementString=reg8, RegSizeReplacementString=uint8, Resolution=8, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=false, UDB32=false, UDB8=false, UDBControlReg=false, UsesHWEnable=0, VerilogSectionReplacementString=sT8, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=Timer_v2_70, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=CAN_Timer, CY_INSTANCE_SHORT_NAME=CAN_Timer, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=CAN_Timer, )
 module Timer_v2_70_4 (
-    clock,
     reset,
     interrupt,
     enable,
-    capture,
     trigger,
+    capture,
     capture_out,
-    tc);
-    input       clock;
+    tc,
+    clock);
     input       reset;
     output      interrupt;
     input       enable;
-    input       capture;
     input       trigger;
+    input       capture;
     output      capture_out;
     output      tc;
+    input       clock;
 
     parameter CaptureCount = 2;
     parameter CaptureCounterEnabled = 0;
@@ -580,9 +603,101 @@ module Timer_v2_70_4 (
 
 endmodule
 
+// Component: B_Timer_v2_70
+`ifdef CY_BLK_DIR
+`undef CY_BLK_DIR
+`endif
+
+`ifdef WARP
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_Timer_v2_70"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_Timer_v2_70\B_Timer_v2_70.v"
+`else
+`define CY_BLK_DIR "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_Timer_v2_70"
+`include "C:\Program Files (x86)\Cypress\PSoC Creator\4.0\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\B_Timer_v2_70\B_Timer_v2_70.v"
+`endif
+
+// Timer_v2_70(CaptureAlternatingFall=false, CaptureAlternatingRise=false, CaptureCount=2, CaptureCounterEnabled=false, CaptureInputEnabled=false, CaptureMode=0, CONTROL3=0, ControlRegRemoved=0, CtlModeReplacementString=SyncCtl, CyGetRegReplacementString=CY_GET_REG24, CySetRegReplacementString=CY_SET_REG24, DeviceFamily=PSoC5, EnableMode=0, FF16=false, FF8=false, FixedFunction=false, FixedFunctionUsed=0, HWCaptureCounterEnabled=false, InterruptOnCapture=false, InterruptOnFIFOFull=false, InterruptOnTC=true, IntOnCapture=0, IntOnFIFOFull=0, IntOnTC=1, NumberOfCaptures=1, param45=1, Period=245535, RegDefReplacementString=reg32, RegSizeReplacementString=uint32, Resolution=24, RstStatusReplacementString=rstSts, RunMode=0, SiliconRevision=0, SoftwareCaptureModeEnabled=false, SoftwareTriggerModeEnabled=false, TriggerInputEnabled=false, TriggerMode=0, UDB16=false, UDB24=true, UDB32=false, UDB8=false, UDBControlReg=true, UsesHWEnable=0, VerilogSectionReplacementString=sT24, CY_API_CALLBACK_HEADER_INCLUDE=#include "cyapicallbacks.h", CY_COMPONENT_NAME=Timer_v2_70, CY_CONST_CONFIG=true, CY_CONTROL_FILE=<:default:>, CY_DATASHEET_FILE=<:default:>, CY_FITTER_NAME=Node_Timer, CY_INSTANCE_SHORT_NAME=Node_Timer, CY_MAJOR_VERSION=2, CY_MINOR_VERSION=70, CY_PDL_DRIVER_NAME=, CY_PDL_DRIVER_REQ_VERSION=, CY_PDL_DRIVER_SUBGROUP=, CY_PDL_DRIVER_VARIANT=, CY_REMOVE=false, CY_SUPPRESS_API_GEN=false, CY_VERSION=PSoC Creator  4.0 Update 1, INSTANCE_NAME=Node_Timer, )
+module Timer_v2_70_5 (
+    reset,
+    interrupt,
+    enable,
+    trigger,
+    capture,
+    capture_out,
+    tc,
+    clock);
+    input       reset;
+    output      interrupt;
+    input       enable;
+    input       trigger;
+    input       capture;
+    output      capture_out;
+    output      tc;
+    input       clock;
+
+    parameter CaptureCount = 2;
+    parameter CaptureCounterEnabled = 0;
+    parameter DeviceFamily = "PSoC5";
+    parameter InterruptOnCapture = 0;
+    parameter InterruptOnTC = 1;
+    parameter Resolution = 24;
+    parameter SiliconRevision = "0";
+
+          wire  Net_261;
+          wire  Net_260;
+          wire  Net_266;
+          wire  Net_102;
+          wire  Net_55;
+          wire  Net_57;
+          wire  Net_53;
+          wire  Net_51;
+
+    ZeroTerminal ZeroTerminal_1 (
+        .z(Net_260));
+
+	// VirtualMux_2 (cy_virtualmux_v1_0)
+	assign interrupt = Net_55;
+
+	// VirtualMux_3 (cy_virtualmux_v1_0)
+	assign tc = Net_53;
+
+    B_Timer_v2_70 TimerUDB (
+        .reset(reset),
+        .interrupt(Net_55),
+        .enable(enable),
+        .trigger(trigger),
+        .capture_in(capture),
+        .capture_out(capture_out),
+        .tc(Net_53),
+        .clock(clock));
+    defparam TimerUDB.Capture_Count = 2;
+    defparam TimerUDB.CaptureCounterEnabled = 0;
+    defparam TimerUDB.CaptureMode = 0;
+    defparam TimerUDB.EnableMode = 0;
+    defparam TimerUDB.InterruptOnCapture = 0;
+    defparam TimerUDB.Resolution = 24;
+    defparam TimerUDB.RunMode = 0;
+    defparam TimerUDB.TriggerMode = 0;
+
+    OneTerminal OneTerminal_1 (
+        .o(Net_102));
+
+	// VirtualMux_1 (cy_virtualmux_v1_0)
+	assign Net_266 = Net_102;
+
+
+
+endmodule
+
 // top
 module top ;
 
+          wire  Net_62;
+          wire  Net_61;
+          wire  Net_60;
+          wire  Net_59;
+          wire  Net_58;
+          wire  Net_72;
           wire  Net_51;
           wire  Net_50;
           wire  Net_49;
@@ -598,6 +713,9 @@ module top ;
     electrical  Net_10;
           wire  Net_2;
           wire  Net_13;
+          wire  Net_57;
+          wire  Net_56;
+          wire  Net_54;
           wire  Net_52;
           wire  Net_31;
           wire  Net_28;
@@ -1659,6 +1777,45 @@ module top ;
 		#(.int_type(2'b10))
 		isr_can
 		 (.int_signal(Net_52));
+
+
+
+	cy_clock_v1_0
+		#(.id("31744690-b5ed-4679-966d-e07d5194dd2d"),
+		  .source_clock_id("75C2148C-3656-4d8a-846D-0CAE99AB6FF7"),
+		  .divisor(0),
+		  .period("0"),
+		  .is_direct(1),
+		  .is_digital(1))
+		timer_clock_1
+		 (.clock_out(Net_54));
+
+
+    ZeroTerminal ZeroTerminal_2 (
+        .z(Net_56));
+
+    Timer_v2_70_5 Node_Timer (
+        .reset(Net_56),
+        .interrupt(Net_57),
+        .enable(1'b1),
+        .trigger(1'b1),
+        .capture(1'b0),
+        .capture_out(Net_61),
+        .tc(Net_62),
+        .clock(Net_54));
+    defparam Node_Timer.CaptureCount = 2;
+    defparam Node_Timer.CaptureCounterEnabled = 0;
+    defparam Node_Timer.DeviceFamily = "PSoC5";
+    defparam Node_Timer.InterruptOnCapture = 0;
+    defparam Node_Timer.InterruptOnTC = 1;
+    defparam Node_Timer.Resolution = 24;
+    defparam Node_Timer.SiliconRevision = "0";
+
+
+	cy_isr_v1_0
+		#(.int_type(2'b10))
+		isr_nodeok
+		 (.int_signal(Net_57));
 
 
 
