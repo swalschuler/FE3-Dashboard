@@ -153,15 +153,13 @@ void can_send_status(
         data[6] = 0;
         data[7] = 0;
 
-        can_send(data, 0x626);
+        can_send(data, 0x866);
 
         
 } // can_send_status()
 
 void can_send_cmd(
     uint8_t SetInterlock,
-    uint16_t VCL_Throttle_High,
-    uint16_t VCL_Throttle_Low
 )
 {
     //max and min voltage means the voltage of single cell
@@ -170,8 +168,8 @@ void can_send_cmd(
         
         data[0] = SetInterlock;
         
-        data[1] = VCL_Throttle_High;
-        data[2] = VCL_Throttle_Low;
+        data[1] = 0;
+        data[2] = 0;
         
         data[3] = 0;
         data[4] = 0;
@@ -180,7 +178,7 @@ void can_send_cmd(
         data[6] = 0;
         data[7] = 0;
 
-        can_send(data, 0x766);
+        can_send(data, 0x866);
         CyDelay(1);
 
 } // can_send_cmd()

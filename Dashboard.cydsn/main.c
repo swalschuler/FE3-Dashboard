@@ -176,7 +176,7 @@ int main()
         // Check if all nodes are OK
         if (pedalOK > PEDAL_TIMEOUT)
         {
-            can_send_cmd(1,0,0); // setInterlock. 
+            can_send_cmd(1); // setInterlock. 
             state = Fault;
             error_state = nodeFailure;
         }
@@ -252,7 +252,7 @@ int main()
                 
             case LV:
                 
-                can_send_cmd(0,0,0);
+                can_send_cmd(0);
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
@@ -335,7 +335,7 @@ int main()
                 
                 while(1)
                 {
-                    can_send_cmd(1,0,0); // setInterlock
+                    can_send_cmd(1); // setInterlock
                 
                     // UNUSED //uint8_t MainState = can_read(data_queue, data_head, data_tail, 0x0566, 0);
                     uint8_t CapacitorVolt = getCapacitorVoltage(); //can_read(data_queue, data_head, data_tail, 0x0566, 0);
@@ -455,7 +455,7 @@ int main()
                 uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
                 
                 WaveDAC8_1_SetValue(ABS_Motor_RPM);
-                can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock 
+                can_send_cmd(1); // setInterlock 
                 
                 //check if everything is going well
                 if (!HV_Read())
@@ -543,7 +543,7 @@ int main()
                 }
                 else if (error_state == fromDrive)
                 {   
-                    can_send_cmd(1,Throttle_High,Throttle_Low); // setInterlock
+                    can_send_cmd(1); // setInterlock
                     
                     CyDelay(200);
                     
