@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\TopDesign">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\can_manga.c">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -345,6 +345,9 @@
 <OpenDocs>
 <name v=".\Dashboard.cydsn\Dashboard.cydwr" />
 <name v=".\Dashboard.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Dashboard.cydsn\main.c" />
+<name v=".\Dashboard.cydsn\can_manga.c" />
+<name v=".\Dashboard.cydsn\can_manga.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -352,7 +355,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="878, 459" SelectedTabbedMdiWindow="9981530a-ccbb-4111-8d4a-9c8cce4e51cd"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Dashboard.cydwr" Guid="13ab0aa3-3dab-401b-a576-c2fe0848740e" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\TopDesign\TopDesign.cysch" Guid="9981530a-ccbb-4111-8d4a-9c8cce4e51cd" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1055, 459" SelectedTabbedMdiWindow="f847eaa3-ecd0-4369-a21c-d48f4b964b07"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Dashboard.cydwr" Guid="13ab0aa3-3dab-401b-a576-c2fe0848740e" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\TopDesign\TopDesign.cysch" Guid="9981530a-ccbb-4111-8d4a-9c8cce4e51cd" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\main.c" Guid="f847eaa3-ecd0-4369-a21c-d48f4b964b07" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\can_manga.c" Guid="52fc3d0b-878d-448a-96e7-ac9124a4ebb8" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\can_manga.h" Guid="5f3ffd23-8127-4f1b-a801-9339b0b241bb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

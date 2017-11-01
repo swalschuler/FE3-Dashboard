@@ -159,7 +159,7 @@ void can_send_status(
 } // can_send_status()
 
 void can_send_cmd(
-    uint8_t SetInterlock,
+    uint8_t SetInterlock
 )
 {
     //max and min voltage means the voltage of single cell

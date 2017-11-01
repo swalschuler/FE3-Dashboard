@@ -458,15 +458,18 @@ int main()
                 can_send_cmd(1); // setInterlock 
                 
                 //check if everything is going well
-                if (!HV_Read())
+                if (!HV_Read()) {
+                    can_send_cmd(0);
                     state = LV;
-                
-                if (!Drive_Read())
+                }
+                if (!Drive_Read()) {
                     state = HV_Enabled;
-                
+                    can_send_cmd(0);
+                }
                 if ((ACK != 0xFF) | 
-                    (!getCurtisHeartBeatCheck())) // EDIT: Removed | CurtisFaultCheck from this 
+                    (!getCurtisHeartBeatCheck())) // TODO: Heart beat message is never cleared
                 {
+                    can_send_cmd(0);
                     state = Fault;
                     error_state = fromDrive;
                     DriveTimeCount = 0;
