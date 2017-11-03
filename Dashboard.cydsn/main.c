@@ -451,8 +451,6 @@ int main()
                 }
    
                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
-                uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
-                uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
                 
                 WaveDAC8_1_SetValue(ABS_Motor_RPM);
                 can_send_cmd(1); // setInterlock 

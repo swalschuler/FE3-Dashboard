@@ -15,8 +15,6 @@ volatile uint8_t CURTIS_HEART_BEAT_CHECK = 0;
 volatile uint8_t ACK_RX = 0;
 volatile uint8_t ERROR_TOLERANCE = 0;
 volatile uint8_t ABS_MOTOR_RPM = 0;
-volatile uint8_t THROTTLE_HIGH = 0;
-volatile uint8_t THROTTLE_LOW = 0;
 
 uint8_t getCapacitorVoltage()
 {
@@ -48,16 +46,6 @@ uint8_t getABSMotorRPM()
     return ABS_MOTOR_RPM;
 }
 
-uint8_t getPedalLow()
-{
-    return THROTTLE_LOW;
-}
-
-uint8_t getPedalHigh()
-{
-    return THROTTLE_HIGH;
-}
-
 void can_receive(uint8_t *msg, int ID)
 {
     uint8 InterruptState = CyEnterCriticalSection();
@@ -85,10 +73,8 @@ void can_receive(uint8_t *msg, int ID)
          case 0x0201:
             ERROR_TOLERANCE = msg[CAN_DATA_BYTE_1];
             break;
-        case 0x0200: 
+        case 0x0766: 
             pedalOK = 0x0;
-            THROTTLE_HIGH = data[CAN_DATA_BYTE_2];
-            THROTTLE_LOW = data[CAN_DATA_BYTE_3];
             break;
     }
     
@@ -179,7 +165,7 @@ void can_send_cmd(
         data[7] = 0;
 
         can_send(data, 0x866);
-        CyDelay(1);
+        CyDelay(1); // Wtf is this shit?
 
 } // can_send_cmd()
 
