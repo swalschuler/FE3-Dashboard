@@ -103,13 +103,14 @@ volatile uint32_t pedalOK = 0; // for pedal node
 
 int main()
 {   
+    
     Dash_State state = Startup;
     Error_State error_state = OK;
     
     //Tach Meter Stuff
     uint8_t value=0; // replace the value with 
     int8_t direction=1;
-    WaveDAC8_1_Start();
+    //WaveDAC8_1_Start();
     
     //precharging time counter
     volatile uint32_t PrechargingTimeCount = 0;
@@ -164,14 +165,16 @@ int main()
     
     for(;;)
     {
+        LED_Write(1);
         //LED_Write(~LED_ReadDataReg());    
         
         //can_send_status(state);
         //CyDelay(2000);
-        
+        /*
         RGB3_2_Write(1);
         RGB2_2_Write(1);
         RGB1_2_Write(1);
+        */
         
         // Check if all nodes are OK
         if (pedalOK > PEDAL_TIMEOUT)
@@ -200,12 +203,12 @@ int main()
                 //CyGlobalIntEnable;
                 //CAN_GlobalIntDisable();
                 //CyGlobalIntDisable;
-                LCD_Start();
+                //LCD_Start();
                 
                 //UI
                 
                 Buzzer_Write(1);
-                WaveDAC8_1_SetValue(253);
+                //WaveDAC8_1_SetValue(253);
                 CyDelay(50);
                 
                 
@@ -242,9 +245,9 @@ int main()
                 
                 
                 Buzzer_Write(0);
-                WaveDAC8_1_SetValue(250);
+                //WaveDAC8_1_SetValue(250);
                 //CyDelay(5000);
-                WaveDAC8_1_SetValue(0);
+                //WaveDAC8_1_SetValue(0);
                 
                 state = LV;
                 
@@ -292,11 +295,11 @@ int main()
                 RGB3_1_Write(0);
                 RGB2_1_Write(1);
                 RGB1_1_Write(0);
-                
+                /*
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
                 RGB1_2_Write(1);
-                
+                */
                 if (Drive_Read())
                 {
                     state = Fault;
@@ -323,11 +326,11 @@ int main()
                 RGB3_1_Write(0);
                 RGB2_1_Write(0);
                 RGB1_1_Write(1);
-                
+                /*
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
                 RGB1_2_Write(1);
-                
+                */
                 Buzzer_Write(0);
                 
                 
@@ -379,9 +382,11 @@ int main()
                 RGB2_1_Write(1);
                 RGB1_1_Write(0);
                 
+                /*
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
                 RGB1_2_Write(1);
+                */
                 //CyDelay(5000); ///for debug
                 
                 Buzzer_Write(0);
@@ -427,11 +432,11 @@ int main()
                 RGB3_1_Write(1);
                 RGB2_1_Write(0);
                 RGB1_1_Write(1);
-                
+                /*
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
                 RGB1_2_Write(1);
-                
+                */
                 //CyDelay(10000); // debug
                 
                 //Buzzer_Write(1);
@@ -452,7 +457,7 @@ int main()
    
                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
                 
-                WaveDAC8_1_SetValue(ABS_Motor_RPM);
+                //WaveDAC8_1_SetValue(ABS_Motor_RPM);
                 can_send_cmd(1); // setInterlock 
                 
                 //check if everything is going well
@@ -506,11 +511,11 @@ int main()
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(1);
-                
+                /*
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
                 RGB1_2_Write(1);
-                
+                */
                 RGB3_1_Write(0);
                 CyDelay(1000);
                 RGB3_1_Write(1);
@@ -570,11 +575,11 @@ int main()
                 RGB3_1_Write(1);
                 RGB2_1_Write(1);
                 RGB1_1_Write(1);
-                
+                /*
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
                 RGB1_2_Write(1);
-
+                */
         }// end of switch
         
         

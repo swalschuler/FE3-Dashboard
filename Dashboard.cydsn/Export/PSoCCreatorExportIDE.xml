@@ -72,12 +72,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CAN_INT.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CAN_PM.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CAN_TX_RX_func.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_LCDPort_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_LCDPort.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_LCDPort.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareexport.ld</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\cycodeshareimport.scat</File>
@@ -118,21 +112,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Drive_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Drive.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Drive.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_DacClk.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_DacClk.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_Wave1_DMA_dma.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_Wave1_DMA_dma.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_Wave2_DMA_dma.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_Wave2_DMA_dma.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_VDAC8.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_VDAC8.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\WaveDAC8_1_VDAC8_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Tach_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Tach.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Tach.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB3_1_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB3_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB3_1.h</File>
@@ -142,15 +121,6 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB1_1_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB1_1.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB1_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB3_2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB3_2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB3_2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB2_2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB2_2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB2_2.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB1_2_aliases.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB1_2.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\RGB1_2.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\timer_clock.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\timer_clock.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\CAN_Timer.c</File>

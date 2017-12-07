@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
   34 0000 014B     		ldr	r3, .L2
   35 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
   22:can_manga.c   **** }
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 2
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 2
 
 
   36              		.loc 1 22 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
   82              		@ link register save eliminated.
   31:can_manga.c   ****     return CURTIS_HEART_BEAT_CHECK;
   83              		.loc 1 31 0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 3
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 3
 
 
   84 0000 014B     		ldr	r3, .L8
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  129              		.cfi_startproc
  130              		@ args = 0, pretend = 0, frame = 0
  131              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 4
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 4
 
 
  132              		@ link register save eliminated.
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
   49:can_manga.c   **** void can_receive(uint8_t *msg, int ID)
   50:can_manga.c   **** {
  178              		.loc 1 50 0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 5
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 5
 
 
  179              		.cfi_startproc
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  225 003c 40F26663 		movw	r3, #1638
  226 0040 9C42     		cmp	r4, r3
  227 0042 19D1     		bne	.L22
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 6
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 6
 
 
  228 0044 0DE0     		b	.L29
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  265              		.loc 1 75 0
  266 0070 02E0     		b	.L22
  267              	.L28:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 7
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 7
 
 
   76:can_manga.c   ****         case 0x0766: 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  307 000a 0022     		movs	r2, #0
  308 000c 8DF80820 		strb	r2, [sp, #8]
   91:can_manga.c   ****     HeartB.ide = 0;
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 8
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 8
 
 
  309              		.loc 1 91 0
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  348 0046 5DF804FB 		ldr	pc, [sp], #4
  349              		.cfi_endproc
  350              	.LFE7:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 9
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 9
 
 
  351              		.size	can_test_send, .-can_test_send
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  391 0020 C15C     		ldrb	r1, [r0, r3]	@ zero_extendqisi2
  392 0022 06AA     		add	r2, sp, #24
  393 0024 1A44     		add	r2, r2, r3
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 10
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 10
 
 
  394 0026 02F8141C 		strb	r1, [r2, #-20]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  435              		.loc 1 131 0
  436 0004 8DF80000 		strb	r0, [sp]
  132:can_manga.c   ****         data[1] = errorState;
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 11
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 11
 
 
  437              		.loc 1 132 0
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  149:can_manga.c   **** )
  150:can_manga.c   **** {
  475              		.loc 1 150 0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 12
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 12
 
 
  476              		.cfi_startproc
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  169:can_manga.c   **** 
  170:can_manga.c   **** } // can_send_cmd()
  512              		.loc 1 170 0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 13
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 13
 
 
  513 0036 03B0     		add	sp, sp, #12
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  567 0010 0C       		.byte	0xc
  568 0011 A5010000 		.4byte	.LASF53
  569 0015 BF010000 		.4byte	.LASF54
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 14
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 14
 
 
  570 0019 00000000 		.4byte	.Ldebug_ranges0+0
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  624 0082 54030000 		.4byte	.LASF11
  625 0086 03       		.byte	0x3
  626 0087 18       		.byte	0x18
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 15
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 15
 
 
  627 0088 2C000000 		.4byte	0x2c
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  681 00f6 00       		.byte	0
  682 00f7 03       		.uleb128 0x3
  683 00f8 31020000 		.4byte	.LASF20
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 16
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 16
 
 
  684 00fc 05       		.byte	0x5
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  738 0164 5C030000 		.4byte	.LASF23
  739 0168 01       		.byte	0x1
  740 0169 13       		.byte	0x13
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 17
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 17
 
 
  741 016a 81000000 		.4byte	0x81
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  795 01e8 00000000 		.4byte	.LFB6
  796 01ec 88000000 		.4byte	.LFE6-.LFB6
  797 01f0 01       		.uleb128 0x1
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 18
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 18
 
 
  798 01f1 9C       		.byte	0x9c
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  852 0272 01       		.uleb128 0x1
  853 0273 9C       		.byte	0x9c
  854 0274 97020000 		.4byte	0x297
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 19
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 19
 
 
  855 0278 14       		.uleb128 0x14
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  909 02e4 14       		.uleb128 0x14
  910 02e5 95010000 		.4byte	.LASF35
  911 02e9 01       		.byte	0x1
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 20
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 20
 
 
  912 02ea 70       		.byte	0x70
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  966 0353 16       		.uleb128 0x16
  967 0354 01       		.uleb128 0x1
  968 0355 51       		.byte	0x51
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 21
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 21
 
 
  969 0356 03       		.uleb128 0x3
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1023 03b8 00       		.byte	0
  1024 03b9 19       		.uleb128 0x19
  1025 03ba B7010000 		.4byte	.LASF41
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 22
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 22
 
 
  1026 03be 01       		.byte	0x1
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1080 0430 00000000 		.4byte	ABS_MOTOR_RPM
  1081 0434 1C       		.uleb128 0x1c
  1082 0435 31010000 		.4byte	.LASF48
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 23
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 23
 
 
  1083 0439 31010000 		.4byte	.LASF48
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1137 0021 03       		.uleb128 0x3
  1138 0022 0E       		.uleb128 0xe
  1139 0023 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 24
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 24
 
 
  1140 0024 0B       		.uleb128 0xb
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1194 005a 13       		.uleb128 0x13
  1195 005b 38       		.uleb128 0x38
  1196 005c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 25
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 25
 
 
  1197 005d 00       		.byte	0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1251 0093 0B       		.uleb128 0xb
  1252 0094 49       		.uleb128 0x49
  1253 0095 13       		.uleb128 0x13
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 26
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 26
 
 
  1254 0096 11       		.uleb128 0x11
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1308 00ce 0E       		.uleb128 0xe
  1309 00cf 3A       		.uleb128 0x3a
  1310 00d0 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 27
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 27
 
 
  1311 00d1 3B       		.uleb128 0x3b
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1365 0109 3B       		.uleb128 0x3b
  1366 010a 0B       		.uleb128 0xb
  1367 010b 11       		.uleb128 0x11
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 28
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 28
 
 
  1368 010c 01       		.uleb128 0x1
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1422 0148 13       		.uleb128 0x13
  1423 0149 02       		.uleb128 0x2
  1424 014a 17       		.uleb128 0x17
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 29
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 29
 
 
  1425 014b 00       		.byte	0
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1479 0183 1C       		.uleb128 0x1c
  1480 0184 2E       		.uleb128 0x2e
  1481 0185 00       		.byte	0
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 30
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 30
 
 
  1482 0186 3F       		.uleb128 0x3f
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1536 0030 09000000 		.4byte	.LVL1-1
  1537 0034 0100     		.2byte	0x1
  1538 0036 51       		.byte	0x51
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 31
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 31
 
 
  1539 0037 09000000 		.4byte	.LVL1-1
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1593 00c0 91       		.byte	0x91
  1594 00c1 6C       		.sleb128 -20
  1595 00c2 34000000 		.4byte	.LVL13
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 32
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 32
 
 
  1596 00c6 37000000 		.4byte	.LVL14-1
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1650 014a 2F000000 		.4byte	.LVL18-1
  1651 014e 0200     		.2byte	0x2
  1652 0150 91       		.byte	0x91
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 33
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 33
 
 
  1653 0151 71       		.sleb128 -15
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1707 0054 3E000000 		.4byte	.LFE8-.LFB8
  1708 0058 00000000 		.4byte	.LFB9
  1709 005c 36000000 		.4byte	.LFE9-.LFB9
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 34
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 34
 
 
  1710 0060 00000000 		.4byte	.LFB10
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1749              	.LASF5:
  1750 0039 5F5F7569 		.ascii	"__uint8_t\000"
  1750      6E74385F 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 35
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 35
 
 
  1750      7400
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1776      5F7400
  1777              	.LASF42:
  1778 00e2 43415041 		.ascii	"CAPACITOR_VOLT\000"
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 36
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 36
 
 
  1778      4349544F 
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1800      74797065 
  1800      00
  1801              	.LASF18:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 37
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 37
 
 
  1802 0189 6C6F6E67 		.ascii	"long double\000"
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1827      43313120 
  1827      352E342E 
  1827      31203230 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 38
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 38
 
 
  1827      31363036 
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 1
  1849      69766500 
  1850              	.LASF11:
  1851 0354 75696E74 		.ascii	"uint8_t\000"
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccieRfWv.s 			page 39
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccwwU8mi.s 			page 39
 
 
  1851      385F7400 

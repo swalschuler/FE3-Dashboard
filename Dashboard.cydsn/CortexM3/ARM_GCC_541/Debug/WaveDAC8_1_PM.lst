@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
   28:Generated_Source\PSoC5/WaveDAC8_1_PM.c **** *  
   29:Generated_Source\PSoC5/WaveDAC8_1_PM.c **** * Parameters:  
   30:Generated_Source\PSoC5/WaveDAC8_1_PM.c **** *  None
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 2
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 2
 
 
   31:Generated_Source\PSoC5/WaveDAC8_1_PM.c **** *
@@ -90,7 +90,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
   36              		.loc 1 48 0
   37 0002 074B     		ldr	r3, .L4
   38 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-  39 0006 03F00203 		and	r3, r3, #2
+  39 0006 03F00403 		and	r3, r3, #4
   47:Generated_Source\PSoC5/WaveDAC8_1_PM.c **** 		(WaveDAC8_1_VDAC8_PWRMGR_REG & WaveDAC8_1_VDAC8_ACT_PWR_EN)) ? 1u : 0u ;
   40              		.loc 1 47 0
   41 000a 03F0FF02 		and	r2, r3, #255
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
   59 0024 00000000 		.word	.LANCHOR0
   60              		.cfi_endproc
   61              	.LFE0:
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 3
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 3
 
 
   62              		.size	WaveDAC8_1_Sleep, .-WaveDAC8_1_Sleep
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
   86 000c 01D1     		bne	.L6
   82:Generated_Source\PSoC5/WaveDAC8_1_PM.c **** 	{
   83:Generated_Source\PSoC5/WaveDAC8_1_PM.c **** 		WaveDAC8_1_Enable();
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 4
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 4
 
 
   87              		.loc 1 83 0
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  141 0041 02       		.uleb128 0x2
  142 0042 04       		.byte	0x4
  143 0043 05       		.byte	0x5
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 5
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 5
 
 
  144 0044 A5010000 		.4byte	.LASF4
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  198 00ac 01       		.byte	0x1
  199 00ad 03       		.byte	0x3
  200 00ae 5D       		.byte	0x5d
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 6
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 6
 
 
  201 00af C0000000 		.4byte	0xc0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  255 012d 62000000 		.4byte	.LASF19
  256 0131 62000000 		.4byte	.LASF19
  257 0135 03       		.byte	0x3
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 7
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 7
 
 
  258 0136 6C       		.byte	0x6c
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  312 0023 3E       		.uleb128 0x3e
  313 0024 0B       		.uleb128 0xb
  314 0025 03       		.uleb128 0x3
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 8
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 8
 
 
  315 0026 08       		.uleb128 0x8
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  369 005c 03       		.uleb128 0x3
  370 005d 0E       		.uleb128 0xe
  371 005e 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 9
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 9
 
 
  372 005f 0B       		.uleb128 0xb
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  426 0098 00       		.byte	0
  427 0099 00       		.byte	0
  428 009a 0C       		.uleb128 0xc
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 10
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 10
 
 
  429 009b 2E       		.uleb128 0x2e
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  474      5F315F42 
  474      41434B55 
  474      505F5354 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 11
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 11
 
 
  475              	.LASF8:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  494 012f 433A5C55 		.ascii	"C:\\Users\\Schuyler\\Documents\\PSoC Creator\\Dashb"
  494      73657273 
  494      5C536368 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 12
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 12
 
 
  494      75796C65 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 1
  517      72617465 
  517      645F536F 
  517      75726365 
-ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccsjJm4z.s 			page 13
+ARM GAS  C:\Users\Schuyler\AppData\Local\Temp\ccv4IYbV.s 			page 13
 
 
  517      5C50536F 
