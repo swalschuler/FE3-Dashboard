@@ -58,12 +58,15 @@
     <register name="CAN_Timer_PERIOD" address="0x40004F04" bitWidth="8" desc="TMRx.PER0 - Assigned Period" hidden="false" />
     <register name="CAN_Timer_COUNTER" address="0x40004F06" bitWidth="8" desc="TMRx.CNT_CMP0 - Current Down Counter Value" hidden="false" />
   </block>
-  <block name="timer_clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="isr_can" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="RGB2_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="RGB1_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="isr_can" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="timer_clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="isr_nodeok" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="timer_clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Node_Timer" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="VirtualMux_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="VirtualMux_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -113,11 +116,11 @@
       </field>
     </register>
   </block>
-  <block name="timer_clock_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="ZeroTerminal_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="RGB3_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="LED" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="DriveGND" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="GND_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="RX" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="TX" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="CAN" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false">
     <block name="CanIP" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
     <block name="Clock" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -403,12 +406,10 @@
       <field name="DATA_LOW" from="31" to="0" access="RW" resetVal="" desc="Lower Data Bytes" hidden="false" />
     </register>
   </block>
-  <block name="RX" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="TX" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="GND_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="HV" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="Drive" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="Buzzer" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="RGB3_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="GND_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="HVGND" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Buzzer" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
 </blockRegMap>

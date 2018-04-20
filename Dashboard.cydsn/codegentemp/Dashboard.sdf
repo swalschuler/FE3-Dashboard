@@ -1,10 +1,10 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2017-12-01T22:36:39Z")
+ (DATE "2018-04-20T05:44:25Z")
  (DESIGN "Dashboard")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
- (VERSION " 4.1 Update 1")
+ (VERSION " 4.2")
  (DIVIDER .)
  (TIMESCALE 1 ns)
  (CELL
@@ -26,8 +26,8 @@
     (INTERCONNECT ClockBlock.clk_bus_glb \\Node_Timer\:TimerUDB\:sT24\:timerdp\:u1\\.busclk (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.clk_bus_glb \\Node_Timer\:TimerUDB\:sT24\:timerdp\:u2\\.busclk (0.000:0.000:0.000))
     (INTERCONNECT ClockBlock.clk_bus_glb isr_nodeok.clock (0.000:0.000:0.000))
-    (INTERCONNECT RX\(0\).fb \\CAN\:CanIP\\.can_rx (5.826:5.826:5.826))
-    (INTERCONNECT \\CAN\:CanIP\\.can_tx TX\(0\).pin_input (5.191:5.191:5.191))
+    (INTERCONNECT RX\(0\).fb \\CAN\:CanIP\\.can_rx (7.659:7.659:7.659))
+    (INTERCONNECT \\CAN\:CanIP\\.can_tx TX\(0\).pin_input (7.008:7.008:7.008))
     (INTERCONNECT \\CAN\:CanIP\\.interrupt \\CAN\:isr\\.interrupt (1.000:1.000:1.000))
     (INTERCONNECT \\CAN_Timer\:TimerHW\\.tc isr_can.interrupt (3.425:3.425:3.425))
     (INTERCONNECT \\Node_Timer\:TimerUDB\:rstSts\:stsreg\\.interrupt isr_nodeok.interrupt (7.002:7.002:7.002))
