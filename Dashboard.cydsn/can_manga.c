@@ -50,6 +50,7 @@ void can_receive(uint8_t *msg, int ID)
 {
     uint8 InterruptState = CyEnterCriticalSection();
     
+    
     uint8_t data[8];
     int i = 0;
     for (i = 0; i < 8; i++)
@@ -73,7 +74,7 @@ void can_receive(uint8_t *msg, int ID)
          case 0x0201:
             ERROR_TOLERANCE = msg[CAN_DATA_BYTE_1];
             break;
-        case 0x0766: 
+        case 0x0200: 
             pedalOK = 0x0;
             break;
     }
@@ -139,7 +140,7 @@ void can_send_status(
         data[6] = 0;
         data[7] = 0;
 
-        can_send(data, 0x866);
+        can_send(data, 0x626);
 
         
 } // can_send_status()
@@ -152,7 +153,7 @@ void can_send_cmd(
         
         uint8_t data[8];
         
-        data[0] = SetInterlock;
+        data[0] = 0xFF;//SetInterlock;
         
         data[1] = 0;
         data[2] = 0;
@@ -164,7 +165,7 @@ void can_send_cmd(
         data[6] = 0;
         data[7] = 0;
 
-        can_send(data, 0x866);
+        can_send(data, 0x766);
         CyDelay(1); // Wtf is this shit?
 
 } // can_send_cmd()

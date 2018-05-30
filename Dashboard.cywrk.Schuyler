@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Dashboard.cyre">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\can_manga.c">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -205,7 +205,31 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit3.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit4.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit3.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit4.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit3Bit1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit3Bit2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit3Bit3.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit3Bit4.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit4Bit1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit4Bit2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit4Bit3.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit4Bit4.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Drive.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex1Reg.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex1Reg_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex2Reg.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex2Reg_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex3Reg.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex3Reg_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex4Reg.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex4Reg_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\HV.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_can.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_nodeok.lst</v>
@@ -252,12 +276,12 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Drive.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\HV.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_can.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_nodeok.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit2.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit3.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit4.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -270,7 +294,7 @@
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
 <v>Dashboard\Dashboard\PSoC 5LP Architecture TRM</v>
-<v>Dashboard\Dashboard\CY8C54LP Family Datasheet</v>
+<v>Dashboard\Dashboard\CY8C58LP Family Datasheet</v>
 <v>Dashboard\Dashboard\System Reference Guides</v>
 <v>Dashboard\Dashboard\System Reference Guides\cy_boot_v5_30</v>
 <v>Dashboard\Dashboard\CAN_v3_0.pdf</v>
@@ -282,6 +306,8 @@
 <v>Dashboard\Dashboard\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
 <v>Dashboard\Dashboard\cy_pins_v2_20</v>
 <v>Dashboard\Dashboard\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Dashboard\Dashboard\CyControlReg_v1_80</v>
+<v>Dashboard\Dashboard\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
 <v>Dashboard\Dashboard\Gnd_v1_0</v>
 <v>Dashboard\Dashboard\Gnd_v1_0\Gnd_v1_0.pdf</v>
 <v>Dashboard\Dashboard\SwitchSPST_v1_0</v>
@@ -295,7 +321,7 @@
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
 <v>Dashboard\Dashboard\PSoC 5LP Architecture TRM</v>
-<v>Dashboard\Dashboard\CY8C54LP Family Datasheet</v>
+<v>Dashboard\Dashboard\CY8C58LP Family Datasheet</v>
 <v>Dashboard\Dashboard\System Reference Guides</v>
 <v>Dashboard\Dashboard\System Reference Guides\cy_boot_v5_30</v>
 <v>Dashboard\Dashboard\CAN_v3_0.pdf</v>
@@ -307,6 +333,8 @@
 <v>Dashboard\Dashboard\cy_pins_v2_10\cy_pins_v2_10.pdf</v>
 <v>Dashboard\Dashboard\cy_pins_v2_20</v>
 <v>Dashboard\Dashboard\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Dashboard\Dashboard\CyControlReg_v1_80</v>
+<v>Dashboard\Dashboard\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
 <v>Dashboard\Dashboard\Gnd_v1_0</v>
 <v>Dashboard\Dashboard\Gnd_v1_0\Gnd_v1_0.pdf</v>
 <v>Dashboard\Dashboard\SwitchSPST_v1_0</v>
@@ -329,6 +357,12 @@
 <name v=".\Dashboard.cydsn\main.c" />
 <name v=".\Dashboard.cydsn\can_manga.c" />
 <name v=".\Dashboard.cydsn\can_manga.h" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN.h" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN_TX_RX_func.c" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\HV.c" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CyBootAsmGnu.s" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CyLib.c" />
+<name v=".\Dashboard.cydsn\Generated_Source\PSoC5\CAN_INT.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -336,7 +370,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="625, 391" SelectedTabbedMdiWindow="9981530a-ccbb-4111-8d4a-9c8cce4e51cd"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Dashboard.cydwr" Guid="13ab0aa3-3dab-401b-a576-c2fe0848740e" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\TopDesign\TopDesign.cysch" Guid="9981530a-ccbb-4111-8d4a-9c8cce4e51cd" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\main.c" Guid="f847eaa3-ecd0-4369-a21c-d48f4b964b07" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\can_manga.c" Guid="52fc3d0b-878d-448a-96e7-ac9124a4ebb8" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\can_manga.h" Guid="5f3ffd23-8127-4f1b-a801-9339b0b241bb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="861, 441" SelectedTabbedMdiWindow="52fc3d0b-878d-448a-96e7-ac9124a4ebb8"><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Dashboard.cydwr" Guid="13ab0aa3-3dab-401b-a576-c2fe0848740e" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\TopDesign\TopDesign.cysch" Guid="9981530a-ccbb-4111-8d4a-9c8cce4e51cd" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\main.c" Guid="f847eaa3-ecd0-4369-a21c-d48f4b964b07" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\can_manga.c" Guid="52fc3d0b-878d-448a-96e7-ac9124a4ebb8" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\can_manga.h" Guid="5f3ffd23-8127-4f1b-a801-9339b0b241bb" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Generated_Source\PSoC5\CAN.h" Guid="e08f311b-4ab9-4978-be0f-b9ebb6b3c4fd" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Generated_Source\PSoC5\CAN_TX_RX_func.c" Guid="5b037abf-625e-46f8-a508-5587e6ee643a" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Generated_Source\PSoC5\HV.c" Guid="473deaff-a819-4b03-938a-04c1f3797498" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Generated_Source\PSoC5\CyBootAsmGnu.s" Guid="3f978615-d285-4d0a-8e78-4f272cd0c395" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Generated_Source\PSoC5\CyLib.c" Guid="e3730e82-7e2b-49a7-8f49-c8133c62af61" /><DocumentWindow Key="C:\Users\Schuyler\Documents\PSoC Creator\Dashboard\FE3-Dashboard\Dashboard.cydsn\Generated_Source\PSoC5\CAN_INT.c" Guid="8fe408a5-79e6-44cb-ad7d-46a46694b06f" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="43a3bb61-58b3-4bec-ba87-550417506226" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

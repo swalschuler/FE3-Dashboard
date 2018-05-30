@@ -115,66 +115,23 @@ int main()
     //precharging time counter
     volatile uint32_t PrechargingTimeCount = 0;
     uint32_t DriveTimeCount = 0;
-    
-    //CyDelay(5000);
-    //Initialize CAN
-    //CAN_GlobalIntEnable();
-    //CAN_Init();
-    //CAN_Start();
-    
-    /* Set CAN interrupt handler to local routine */
-    //CyIntSetVector(CAN_ISR_NUMBER, ISR_CAN);   
-    
-    //CAN_Timer_Start();
-    //isr_can_StartEx(isr_can_handler);    
 
     CyGlobalIntEnable;
-    
-    //while(1){
-    //}
-    
-    //char8 txData[DATA_SIZE];
-    //uint16 adcData;
-    
-    /* BASIC CAN mailbox configuration */
-    //messagePWM.dlc = CAN_TX_DLC_MAX_VALUE;
-    //messagePWM.id  = PWM_MESSAGE_ID;
-    //messagePWM.ide = PWM_MESSAGE_IDE;
-    //messagePWM.irq = PWM_MESSAGE_IRQ;
-    //messagePWM.msg = &dataPWM;
-    //messagePWM.rtr = PWM_MESSAGE_RTR;
+   
 
-    ////LCD_Start();
-
-    
-    /* Display value of ADC output on LCD */
-    //LCD_Position(0u, 0u);
-    //LCD_PrintString("ADC");
-
-    /* Display state of switch on LCD */
-    //LCD_Position(1u, 0u);
-    //LCD_PrintString("SW");
-
-    /* Display state of PWM pulse width on LCD */
-    //LCD_Position(0u, 10u);
-    //LCD_PrintString("PWM");
-
-    //test_inject(data_queue, &data_tail);
-    
     nodeCheckStart();
     
     for(;;)
     {
-        LED_Write(1);
-        //LED_Write(~LED_ReadDataReg());    
-        
-        //can_send_status(state);
-        //CyDelay(2000);
         /*
-        RGB3_2_Write(1);
-        RGB2_2_Write(1);
-        RGB1_2_Write(1);
+        for (;;) { //1 0 0 0
+            Hex4Reg_Write(0x8);
+            Hex2Reg_Write(0x0);
+            Hex1Reg_Write(0x8);
+            Hex3Reg_Write(0x0);
+        }
         */
+        LED_Write(1);
         
         // Check if all nodes are OK
         if (pedalOK > PEDAL_TIMEOUT)
@@ -195,7 +152,6 @@ int main()
                 CAN_Init();
                 CAN_Start();
                 CyDelay(1000);
-                //nodeCheckStart(); EDIT UNCOMMENT
                 
                 //CyDelay(5000);
                 can_send_status(state, error_state);

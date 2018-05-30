@@ -7,6 +7,7 @@
 #ifndef CAN_MANGA_H
 #define CAN_MANGA_H
 
+#include "project.h"
 #include "CAN.h"
 
 // Basic CAN functionality
