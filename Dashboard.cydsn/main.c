@@ -125,10 +125,19 @@ int main()
     {
         /*
         for (;;) { //1 0 0 0
-            Hex4Reg_Write(0x8);
-            Hex2Reg_Write(0x0);
-            Hex1Reg_Write(0x8);
-            Hex3Reg_Write(0x0);
+            Hex1Reg_Write(0x2);
+            Hex2Reg_Write(0x3);
+            Hex3Reg_Write(0x4);
+            Hex4Reg_Write(0x5);
+        
+            RGB3_1_Write(1);
+            RGB2_1_Write(1);
+            RGB1_1_Write(0);
+                
+            RGB3_2_Write(1);
+            RGB2_2_Write(0);
+            RGB1_2_Write(1);
+            
         }
         */
         LED_Write(1);
@@ -136,7 +145,7 @@ int main()
         // Check if all nodes are OK
         if (pedalOK > PEDAL_TIMEOUT)
         {
-            can_send_cmd(1); // setInterlock. 
+            can_send_cmd(0, 0, 0); // setInterlock. 
             state = Fault;
             error_state = nodeFailure;
         }
@@ -145,6 +154,10 @@ int main()
         {    
             //CyDelay(1000);
             case Startup:
+                Hex1Reg_Write(0x8);
+                Hex2Reg_Write(0x0);
+                Hex3Reg_Write(0x0);
+                Hex4Reg_Write(0x8);
   
                 //CyDelay(5000);
                 //Initialize CAN
@@ -211,10 +224,11 @@ int main()
                 
             case LV:
                 
-                can_send_cmd(0);
                 CAN_GlobalIntEnable();
                 CAN_Init();
                 CAN_Start();
+                
+                can_send_cmd(0, 0, 0);
                 //nodeCheckStart();
           
                 can_send_status(state, error_state);
@@ -251,11 +265,11 @@ int main()
                 RGB3_1_Write(0);
                 RGB2_1_Write(1);
                 RGB1_1_Write(0);
-                /*
+                
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
                 RGB1_2_Write(1);
-                */
+                
                 if (Drive_Read())
                 {
                     state = Fault;
@@ -294,7 +308,7 @@ int main()
                 
                 while(1)
                 {
-                    can_send_cmd(1); // setInterlock
+                    can_send_cmd(1, 0, 0); // setInterlock
                 
                     // UNUSED //uint8_t MainState = can_read(data_queue, data_head, data_tail, 0x0566, 0);
                     uint8_t CapacitorVolt = getCapacitorVoltage(); //can_read(data_queue, data_head, data_tail, 0x0566, 0);
@@ -412,23 +426,25 @@ int main()
                 }
    
                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
+                uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
+                uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
                 
                 //WaveDAC8_1_SetValue(ABS_Motor_RPM);
-                can_send_cmd(1); // setInterlock 
+                can_send_cmd(1, Throttle_High, Throttle_Low); // setInterlock 
                 
                 //check if everything is going well
                 if (!HV_Read()) {
-                    can_send_cmd(0);
+                    can_send_cmd(0, 0, 0);
                     state = LV;
                 }
                 if (!Drive_Read()) {
                     state = HV_Enabled;
-                    can_send_cmd(0);
+                    can_send_cmd(0, 0, 0);
                 }
                 if ((ACK != 0xFF) | 
                     (!getCurtisHeartBeatCheck())) // TODO: Heart beat message is never cleared
                 {
-                    can_send_cmd(0);
+                    can_send_cmd(0, 0, 0);
                     state = Fault;
                     error_state = fromDrive;
                     DriveTimeCount = 0;
@@ -505,7 +521,7 @@ int main()
                 }
                 else if (error_state == fromDrive)
                 {   
-                    can_send_cmd(1); // setInterlock
+                    can_send_cmd(1, Throttle_High, Throttle_Low); // setInterlock
                     
                     CyDelay(200);
                     

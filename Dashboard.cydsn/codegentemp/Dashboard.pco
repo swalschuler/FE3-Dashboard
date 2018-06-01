@@ -1,5 +1,5 @@
 # Dashboard
-# 2018-05-24 08:05:10Z
+# 2018-05-31 11:30:25Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -11,12 +11,15 @@ set_location "ClockBlock" clockblockcell -1 -1 0
 set_io "RX(0)" iocell 3 5
 set_io "TX(0)" iocell 3 4
 set_io "LED(0)" iocell 5 2
-set_io "Buzzer(0)" iocell 5 1
-set_io "HV(0)" iocell 3 0
-set_io "Drive(0)" iocell 3 1
-set_io "RGB3_1(0)" iocell 0 1
-set_io "RGB2_1(0)" iocell 0 2
-set_io "RGB1_1(0)" iocell 0 3
+set_io "Buzzer(0)" iocell 5 0
+set_io "HV(0)" iocell 3 1
+set_io "Drive(0)" iocell 3 0
+set_io "RGB3_1(0)" iocell 2 7
+set_io "RGB2_1(0)" iocell 2 6
+set_io "RGB1_1(0)" iocell 2 5
+set_io "RGB1_2(0)" iocell 0 3
+set_io "RGB2_2(0)" iocell 0 2
+set_io "RGB3_2(0)" iocell 0 1
 set_io "Digit4Bit1(0)" iocell 0 7
 set_io "Digit4Bit2(0)" iocell 0 6
 set_io "Digit4Bit3(0)" iocell 0 5
@@ -33,6 +36,7 @@ set_io "Digit1Bit1(0)" iocell 2 1
 set_io "Digit1Bit2(0)" iocell 2 0
 set_io "Digit1Bit3(0)" iocell 15 5
 set_io "Digit1Bit4(0)" iocell 15 4
+set_io "LED_1(0)" iocell 5 3
 set_location "\Node_Timer:TimerUDB:status_tc\" 3 5 0 0
 set_location "\CAN:CanIP\" cancell -1 -1 0
 set_location "\CAN:isr\" interrupt -1 -1 16

@@ -15,6 +15,8 @@ volatile uint8_t CURTIS_HEART_BEAT_CHECK = 0;
 volatile uint8_t ACK_RX = 0;
 volatile uint8_t ERROR_TOLERANCE = 0;
 volatile uint8_t ABS_MOTOR_RPM = 0;
+volatile uint8_t THROTTLE_HIGH = 0;
+volatile uint8_t THROTTLE_LOW = 0;
 
 uint8_t getCapacitorVoltage()
 {
@@ -46,6 +48,17 @@ uint8_t getABSMotorRPM()
     return ABS_MOTOR_RPM;
 }
 
+uint8_t getPedalLow()
+{
+    return THROTTLE_LOW;
+}
+
+uint8_t getPedalHigh()
+{
+    return THROTTLE_HIGH;
+}
+
+
 void can_receive(uint8_t *msg, int ID)
 {
     uint8 InterruptState = CyEnterCriticalSection();
@@ -76,6 +89,8 @@ void can_receive(uint8_t *msg, int ID)
             break;
         case 0x0200: 
             pedalOK = 0x0;
+            THROTTLE_HIGH = data[CAN_DATA_BYTE_2];
+            THROTTLE_LOW = data[CAN_DATA_BYTE_3];
             break;
     }
     
@@ -146,17 +161,19 @@ void can_send_status(
 } // can_send_status()
 
 void can_send_cmd(
-    uint8_t SetInterlock
+    uint8_t SetInterlock,
+    uint16_t VCL_Throttle_High,
+    uint16_t VCL_Throttle_Low
 )
 {
     //max and min voltage means the voltage of single cell
         
         uint8_t data[8];
         
-        data[0] = 0xFF;//SetInterlock;
+        data[0] = SetInterlock;
         
-        data[1] = 0;
-        data[2] = 0;
+        data[1] = VCL_Throttle_High;
+        data[2] = VCL_Throttle_Low;
         
         data[3] = 0;
         data[4] = 0;

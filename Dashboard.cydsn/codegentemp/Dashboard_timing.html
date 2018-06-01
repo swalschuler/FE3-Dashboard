@@ -539,7 +539,7 @@ function getElementsByClass(rootNode, elemName, className)
 <tr> <td class="prop"> Project :</td>
 <td class="proptext"> Dashboard</td></tr>
 <tr> <td class="prop"> Build Time :</td>
-<td class="proptext"> 05/24/18 01:05:13</td></tr>
+<td class="proptext"> 05/31/18 04:30:32</td></tr>
 <tr> <td class="prop"> Device :</td>
 <td class="proptext"> CY8C5868AXI-LP035</td></tr>
 <tr> <td class="prop"> Temperature :</td>
@@ -597,18 +597,10 @@ Clock Summary Section</span>
 </thead> 
 <tbody>
 <tr> 
- <td class = "text_info">ClockBlock/clk_bus_glb_ff</td>
- <td class = "text_info">ClockBlock/clk_bus_glb_ff</td>
- <td class = "number">UNKNOWN</td>
- <td class = "number">UNKNOWN</td>
- <td class = "number"> N/A </td>
- <td class = "text_info"> </td>
-</tr>
-<tr> 
- <td class = "text_info">ClockBlock/dclk_glb_ff_0</td>
- <td class = "text_info">ClockBlock/dclk_glb_ff_0</td>
- <td class = "number">UNKNOWN</td>
- <td class = "number">UNKNOWN</td>
+ <td class = "text_info">CyBUS_CLK(fixed-function)</td>
+ <td class = "text_info">CyBUS_CLK(fixed-function)</td>
+ <td class = "number">24.000&nbsp;MHz</td>
+ <td class = "number">24.000&nbsp;MHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
@@ -657,6 +649,14 @@ Clock Summary Section</span>
  <td class = "text_info">CyPLL_OUT</td>
  <td class = "number">24.000&nbsp;MHz</td>
  <td class = "number">24.000&nbsp;MHz</td>
+ <td class = "number"> N/A </td>
+ <td class = "text_info"> </td>
+</tr>
+<tr> 
+ <td class = "text_info">timer_clock(fixed-function)</td>
+ <td class = "text_info">timer_clock(fixed-function)</td>
+ <td class = "number">1.000&nbsp;kHz</td>
+ <td class = "number">1.000&nbsp;kHz</td>
  <td class = "number"> N/A </td>
  <td class = "text_info"> </td>
 </tr>
@@ -2551,7 +2551,7 @@ CyBUS_CLK</span>
  <td class = "number">6.741</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell19</td>
+ <td class = "text_info">iocell22</td>
  <td class = "text_info">P6[2]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit2Bit2(0)</td>
@@ -2620,7 +2620,7 @@ CyBUS_CLK</span>
  <td class = "number">6.566</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell22</td>
+ <td class = "text_info">iocell25</td>
  <td class = "text_info">P2[1]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit1Bit1(0)</td>
@@ -2689,7 +2689,7 @@ CyBUS_CLK</span>
  <td class = "number">6.409</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell24</td>
+ <td class = "text_info">iocell27</td>
  <td class = "text_info">P15[5]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit1Bit3(0)</td>
@@ -2758,7 +2758,7 @@ CyBUS_CLK</span>
  <td class = "number">6.437</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell25</td>
+ <td class = "text_info">iocell28</td>
  <td class = "text_info">P15[4]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit1Bit4(0)</td>
@@ -2827,7 +2827,7 @@ CyBUS_CLK</span>
  <td class = "number">6.242</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell17</td>
+ <td class = "text_info">iocell20</td>
  <td class = "text_info">P4[4]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit3Bit4(0)</td>
@@ -2896,7 +2896,7 @@ CyBUS_CLK</span>
  <td class = "number">6.573</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell23</td>
+ <td class = "text_info">iocell26</td>
  <td class = "text_info">P2[0]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit1Bit2(0)</td>
@@ -2965,7 +2965,7 @@ CyBUS_CLK</span>
  <td class = "number">6.397</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell14</td>
+ <td class = "text_info">iocell17</td>
  <td class = "text_info">P4[7]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit3Bit1(0)</td>
@@ -3034,7 +3034,7 @@ CyBUS_CLK</span>
  <td class = "number">6.547</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell18</td>
+ <td class = "text_info">iocell21</td>
  <td class = "text_info">P6[3]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit2Bit1(0)</td>
@@ -3103,7 +3103,7 @@ CyBUS_CLK</span>
  <td class = "number">6.615</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell21</td>
+ <td class = "text_info">iocell24</td>
  <td class = "text_info">P6[0]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit2Bit4(0)</td>
@@ -3172,7 +3172,7 @@ CyBUS_CLK</span>
  <td class = "number">5.479</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell15</td>
+ <td class = "text_info">iocell18</td>
  <td class = "text_info">P4[6]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit3Bit2(0)</td>
@@ -3241,7 +3241,7 @@ CyBUS_CLK</span>
  <td class = "number">6.265</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell12</td>
+ <td class = "text_info">iocell15</td>
  <td class = "text_info">P0[5]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit4Bit3(0)</td>
@@ -3310,7 +3310,7 @@ CyBUS_CLK</span>
  <td class = "number">5.612</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell10</td>
+ <td class = "text_info">iocell13</td>
  <td class = "text_info">P0[7]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit4Bit1(0)</td>
@@ -3379,7 +3379,7 @@ CyBUS_CLK</span>
  <td class = "number">5.432</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell11</td>
+ <td class = "text_info">iocell14</td>
  <td class = "text_info">P0[6]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit4Bit2(0)</td>
@@ -3448,7 +3448,7 @@ CyBUS_CLK</span>
  <td class = "number">6.081</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell20</td>
+ <td class = "text_info">iocell23</td>
  <td class = "text_info">P6[1]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit2Bit3(0)</td>
@@ -3517,7 +3517,7 @@ CyBUS_CLK</span>
  <td class = "number">5.580</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell16</td>
+ <td class = "text_info">iocell19</td>
  <td class = "text_info">P4[5]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit3Bit3(0)</td>
@@ -3586,7 +3586,7 @@ CyBUS_CLK</span>
  <td class = "number">5.395</td>
 </tr>
 <tr> 
- <td class = "text_info">iocell13</td>
+ <td class = "text_info">iocell16</td>
  <td class = "text_info">P0[4]</td>
  <td class = "number">1</td>
  <td class = "text_info">Digit4Bit4(0)</td>
