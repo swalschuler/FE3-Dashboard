@@ -9,6 +9,7 @@
 
 #include "project.h"
 #include "CAN.h"
+#include "HexDisplays.h"
 
 // Basic CAN functionality
 void can_receive(uint8_t *msg, int ID);

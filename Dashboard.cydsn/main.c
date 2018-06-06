@@ -263,7 +263,7 @@ int main()
                 // all on. 
                 
                 RGB3_1_Write(0);
-                RGB2_1_Write(1);
+                RGB2_1_Write(0);
                 RGB1_1_Write(0);
                 
                 RGB3_2_Write(1);
@@ -293,9 +293,9 @@ int main()
                 
                 can_send_status(state, error_state);
                 
-                RGB3_1_Write(0);
+                RGB3_1_Write(1);
                 RGB2_1_Write(0);
-                RGB1_1_Write(1);
+                RGB1_1_Write(0);
                 /*
                 RGB3_2_Write(1);
                 RGB2_2_Write(1);
@@ -348,9 +348,9 @@ int main()
                 //
                 // RGB code goes here
                 // Blue
-                RGB3_1_Write(1);
-                RGB2_1_Write(1);
-                RGB1_1_Write(0);
+                RGB3_1_Write(0);
+                RGB2_1_Write(0);
+                RGB1_1_Write(1);
                 
                 /*
                 RGB3_2_Write(1);
@@ -439,7 +439,7 @@ int main()
                 }
                 if (!Drive_Read()) {
                     state = HV_Enabled;
-                    can_send_cmd(0, 0, 0);
+                    can_send_cmd(1, 0, 0);
                 }
                 if ((ACK != 0xFF) | 
                     (!getCurtisHeartBeatCheck())) // TODO: Heart beat message is never cleared
@@ -484,13 +484,13 @@ int main()
                 RGB2_1_Write(1);
                 RGB1_1_Write(1);
                 /*
-                RGB3_2_Write(1);
-                RGB2_2_Write(1);
-                RGB1_2_Write(1);
+                RGB3_2_Write(0);
+                RGB2_2_Write(0);
+                RGB1_2_Write(0);
                 */
-                RGB3_1_Write(0);
+                RGB1_1_Write(0);
                 CyDelay(1000);
-                RGB3_1_Write(1);
+                RGB1_1_Write(1);
                 CyDelay(1000);
                 
                 Buzzer_Write(0);

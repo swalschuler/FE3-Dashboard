@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
   28:main.c        **** /* Global variable used to store receive message mailbox number */
   29:main.c        **** //volatile uint8 receiveMailboxNumber = 0xFFu;
   30:main.c        **** 
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 2
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 2
 
 
   31:main.c        **** void nodeCheckStart()
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
   59:main.c        **** 
   60:main.c        **** /* Switch state defines -- Active High*/ 
   61:main.c        **** #define SWITCH_ON         (1u)
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 3
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 3
 
 
   62:main.c        **** #define SWITCH_OFF        (0u)
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
   64              		.cfi_offset 8, -12
   65              		.cfi_offset 9, -8
   66              		.cfi_offset 14, -4
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 4
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 4
 
 
   67 0004 83B0     		sub	sp, sp, #12
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  133:main.c        ****             RGB3_1_Write(1);
  134:main.c        ****             RGB2_1_Write(1);
  135:main.c        ****             RGB1_1_Write(0);
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 5
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 5
 
 
  136:main.c        ****                 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  190:main.c        ****                 RGB3_2_Write(1);
  191:main.c        ****                 RGB2_2_Write(1);
  192:main.c        ****                 RGB1_2_Write(1);
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 6
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 6
 
 
  193:main.c        ****                 
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  247:main.c        ****                 LCD_PrintInt8(temp);
  248:main.c        ****                 
  249:main.c        ****                 temp = can_read(data_queue, data_head, data_tail, 0x07FF, 2);
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 7
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 7
 
 
  250:main.c        ****                 LCD_Position(0u, 10u);
@@ -377,7 +377,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  263:main.c        ****                 // all on. 
  264:main.c        ****                 
  265:main.c        ****                 RGB3_1_Write(0);
- 266:main.c        ****                 RGB2_1_Write(1);
+ 266:main.c        ****                 RGB2_1_Write(0);
  267:main.c        ****                 RGB1_1_Write(0);
  268:main.c        ****                 
  269:main.c        ****                 RGB3_2_Write(1);
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  287:main.c        ****                 
  288:main.c        ****             case Precharging:
  289:main.c        ****                 CAN_GlobalIntEnable();
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 8
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 8
 
 
  290:main.c        ****                 CAN_Init();
@@ -427,9 +427,9 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  293:main.c        ****                 
  294:main.c        ****                 can_send_status(state, error_state);
  295:main.c        ****                 
- 296:main.c        ****                 RGB3_1_Write(0);
+ 296:main.c        ****                 RGB3_1_Write(1);
  297:main.c        ****                 RGB2_1_Write(0);
- 298:main.c        ****                 RGB1_1_Write(1);
+ 298:main.c        ****                 RGB1_1_Write(0);
  299:main.c        ****                 /*
  300:main.c        ****                 RGB3_2_Write(1);
  301:main.c        ****                 RGB2_2_Write(1);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  121              	.LVL15:
  122              	.L27:
  123              	.LBE3:
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 9
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 9
 
 
  330:main.c        ****                         break;
@@ -502,9 +502,9 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  348:main.c        ****                 //
  349:main.c        ****                 // RGB code goes here
  350:main.c        ****                 // Blue
- 351:main.c        ****                 RGB3_1_Write(1);
- 352:main.c        ****                 RGB2_1_Write(1);
- 353:main.c        ****                 RGB1_1_Write(0);
+ 351:main.c        ****                 RGB3_1_Write(0);
+ 352:main.c        ****                 RGB2_1_Write(0);
+ 353:main.c        ****                 RGB1_1_Write(1);
  354:main.c        ****                 
  355:main.c        ****                 /*
  356:main.c        ****                 RGB3_2_Write(1);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  128 002c 0524     		movs	r4, #5
  129              	.LVL17:
  130 002e 10E0     		b	.L4
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 10
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 10
 
 
  131              	.LVL18:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  421:main.c        ****                 DriveTimeCount++;
  422:main.c        ****                 if (DriveTimeCount > 100) //EDIT: was 100!
  423:main.c        ****                 {
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 11
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 11
 
 
  424:main.c        ****                     DriveTimeCount = 0; 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  478:main.c        ****                 can_send_status(state, error_state);
  479:main.c        ****                 
  480:main.c        ****                 //
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 12
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 12
 
 
  481:main.c        ****                 // RGB code goes here
@@ -667,13 +667,13 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  484:main.c        ****                 RGB2_1_Write(1);
  485:main.c        ****                 RGB1_1_Write(1);
  486:main.c        ****                 /*
- 487:main.c        ****                 RGB3_2_Write(1);
- 488:main.c        ****                 RGB2_2_Write(1);
- 489:main.c        ****                 RGB1_2_Write(1);
+ 487:main.c        ****                 RGB3_2_Write(0);
+ 488:main.c        ****                 RGB2_2_Write(0);
+ 489:main.c        ****                 RGB1_2_Write(0);
  490:main.c        ****                 */
- 491:main.c        ****                 RGB3_1_Write(0);
+ 491:main.c        ****                 RGB1_1_Write(0);
  492:main.c        ****                 CyDelay(1000);
- 493:main.c        ****                 RGB3_1_Write(1);
+ 493:main.c        ****                 RGB1_1_Write(1);
  494:main.c        ****                 CyDelay(1000);
  495:main.c        ****                 
  496:main.c        ****                 Buzzer_Write(0);
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  515:main.c        ****                 {
  516:main.c        ****                     if(!Drive_Read())
  517:main.c        ****                     {
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 13
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 13
 
 
  518:main.c        ****                         state = HV_Enabled;
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  146:main.c        ****         {
  190              		.loc 1 146 0
  191 0058 BF4B     		ldr	r3, .L36
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 14
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 14
 
 
  192 005a 1B68     		ldr	r3, [r3]
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  237              		.loc 1 164 0
  238 009c FFF7FEFF 		bl	CAN_GlobalIntEnable
  239              	.LVL43:
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 15
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 15
 
 
  165:main.c        ****                 CAN_Start();
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  231:main.c        ****                 //nodeCheckStart();
  282              		.loc 1 231 0
  283 00da 0022     		movs	r2, #0
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 16
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 16
 
 
  284 00dc 1146     		mov	r1, r2
@@ -916,14 +916,14 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  294 00ec 0020     		movs	r0, #0
  295 00ee FFF7FEFF 		bl	Buzzer_Write
  296              	.LVL57:
- 265:main.c        ****                 RGB2_1_Write(1);
+ 265:main.c        ****                 RGB2_1_Write(0);
  297              		.loc 1 265 0
  298 00f2 0020     		movs	r0, #0
  299 00f4 FFF7FEFF 		bl	RGB3_1_Write
  300              	.LVL58:
  266:main.c        ****                 RGB1_1_Write(0);
  301              		.loc 1 266 0
- 302 00f8 0120     		movs	r0, #1
+ 302 00f8 0020     		movs	r0, #0
  303 00fa FFF7FEFF 		bl	RGB2_1_Write
  304              	.LVL59:
  267:main.c        ****                 
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  328              	.LVL65:
  329 0124 0028     		cmp	r0, #0
  330 0126 7FF479AF 		bne	.L24
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 17
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 17
 
 
  331 012a 92E7     		b	.L4
@@ -983,17 +983,17 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  346              	.LVL69:
  296:main.c        ****                 RGB2_1_Write(0);
  347              		.loc 1 296 0
- 348 0140 0020     		movs	r0, #0
+ 348 0140 0120     		movs	r0, #1
  349 0142 FFF7FEFF 		bl	RGB3_1_Write
  350              	.LVL70:
- 297:main.c        ****                 RGB1_1_Write(1);
+ 297:main.c        ****                 RGB1_1_Write(0);
  351              		.loc 1 297 0
  352 0146 0020     		movs	r0, #0
  353 0148 FFF7FEFF 		bl	RGB2_1_Write
  354              	.LVL71:
  298:main.c        ****                 /*
  355              		.loc 1 298 0
- 356 014c 0120     		movs	r0, #1
+ 356 014c 0020     		movs	r0, #0
  357 014e FFF7FEFF 		bl	RGB1_1_Write
  358              	.LVL72:
  304:main.c        ****                 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  374              		.loc 1 314 0
  375 0166 FFF7FEFF 		bl	getCapacitorVoltage
  376              	.LVL75:
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 18
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 18
 
 
  317:main.c        ****                     {
@@ -1064,21 +1064,21 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  408 0196 2046     		mov	r0, r4
  409 0198 FFF7FEFF 		bl	can_send_status
  410              	.LVL81:
- 351:main.c        ****                 RGB2_1_Write(1);
+ 351:main.c        ****                 RGB2_1_Write(0);
  411              		.loc 1 351 0
- 412 019c 0120     		movs	r0, #1
+ 412 019c 0020     		movs	r0, #0
  413 019e FFF7FEFF 		bl	RGB3_1_Write
  414              	.LVL82:
- 352:main.c        ****                 RGB1_1_Write(0);
+ 352:main.c        ****                 RGB1_1_Write(1);
  415              		.loc 1 352 0
- 416 01a2 0120     		movs	r0, #1
+ 416 01a2 0020     		movs	r0, #0
  417 01a4 FFF7FEFF 		bl	RGB2_1_Write
  418              	.LVL83:
  353:main.c        ****                 
  419              		.loc 1 353 0
- 420 01a8 0020     		movs	r0, #0
+ 420 01a8 0120     		movs	r0, #1
  421 01aa FFF7FEFF 		bl	RGB1_1_Write
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 19
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 19
 
 
  422              	.LVL84:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  466 01f4 7FF61CAF 		bls	.L28
  467 01f8 2BE7     		b	.L4
  468              	.L12:
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 20
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 20
 
 
  398:main.c        ****                 //
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  512              	.LVL106:
  513 0230 0746     		mov	r7, r0
  514              	.LVL107:
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 21
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 21
 
 
  430:main.c        ****                 
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  559              		.loc 1 444 0
  560 026a B0FA80F0 		clz	r0, r0
  561 026e 4009     		lsrs	r0, r0, #5
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 22
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 22
 
 
  562 0270 B9F1FF0F 		cmp	r9, #255
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  485:main.c        ****                 /*
  605              		.loc 1 485 0
  606 02b2 0120     		movs	r0, #1
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 23
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 23
 
 
  607 02b4 FFF7FEFF 		bl	RGB1_1_Write
@@ -1326,9 +1326,9 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  491:main.c        ****                 CyDelay(1000);
  609              		.loc 1 491 0
  610 02b8 0020     		movs	r0, #0
- 611 02ba FFF7FEFF 		bl	RGB3_1_Write
+ 611 02ba FFF7FEFF 		bl	RGB1_1_Write
  612              	.LVL129:
- 492:main.c        ****                 RGB3_1_Write(1);
+ 492:main.c        ****                 RGB1_1_Write(1);
  613              		.loc 1 492 0
  614 02be 4FF47A70 		mov	r0, #1000
  615 02c2 FFF7FEFF 		bl	CyDelay
@@ -1336,7 +1336,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  493:main.c        ****                 CyDelay(1000);
  617              		.loc 1 493 0
  618 02c6 0120     		movs	r0, #1
- 619 02c8 FFF7FEFF 		bl	RGB3_1_Write
+ 619 02c8 FFF7FEFF 		bl	RGB1_1_Write
  620              	.LVL131:
  494:main.c        ****                 
  621              		.loc 1 494 0
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  651 02fe 3FF49DAE 		beq	.L31
  652 0302 A6E6     		b	.L4
  653              	.L21:
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 24
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 24
 
 
  514:main.c        ****                 {
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  691 0344 FFF7FEFF 		bl	RGB3_1_Write
  692              	.LVL142:
  548:main.c        ****                 RGB2_1_Write(1);
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 25
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 25
 
 
  693              		.loc 1 548 0
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  578:main.c        **** 
  579:main.c        ****             //}
  580:main.c        ****             //else
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 26
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 26
 
 
  581:main.c        ****             //{
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  635:main.c        **** *
  636:main.c        **** * Return:
  637:main.c        **** *  None.
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 27
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 27
 
 
  638:main.c        **** *
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  760              	.Letext0:
  761              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
  762              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.1\\psoc creator\\import\\gnu\\arm\\5.4.
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 28
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 28
 
 
  763              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  817 004a 02       		.byte	0x2
  818 004b 05       		.byte	0x5
  819 004c 4A000000 		.4byte	.LASF4
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 29
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 29
 
 
  820 0050 03       		.uleb128 0x3
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  874 00b9 C2020000 		.4byte	.LASF16
  875 00bd 03       		.byte	0x3
  876 00be 30       		.byte	0x30
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 30
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 30
 
 
  877 00bf 69000000 		.4byte	0x69
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  931 012d 02       		.uleb128 0x2
  932 012e 0A000000 		.4byte	.LASF24
  933 0132 05       		.byte	0x5
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 31
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 31
 
 
  934 0133 78       		.byte	0x78
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  988 019f A5       		.byte	0xa5
  989 01a0 62010000 		.4byte	0x162
  990 01a4 10       		.byte	0x10
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 32
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 32
 
 
  991 01a5 08       		.uleb128 0x8
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1045 0210 2E       		.byte	0x2e
  1046 0211 DA010000 		.4byte	0x1da
  1047 0215 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 33
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 33
 
 
  1048 0216 01       		.byte	0x1
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1102 028d 5C030000 		.4byte	.LFE65-.LFB65
  1103 0291 01       		.uleb128 0x1
  1104 0292 9C       		.byte	0x9c
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 34
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 34
 
 
  1105 0293 4B090000 		.4byte	0x94b
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1159 0310 00040000 		.4byte	.LASF54
  1160 0314 01       		.byte	0x1
  1161 0315 AD01     		.2byte	0x1ad
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 35
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 35
 
 
  1162 0317 A2000000 		.4byte	0xa2
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1216 0383 D8090000 		.4byte	0x9d8
  1217 0387 91030000 		.4byte	0x391
  1218 038b 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 36
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 36
 
 
  1219 038c 01       		.uleb128 0x1
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1273 03f9 00       		.byte	0
  1274 03fa 19       		.uleb128 0x19
  1275 03fb B8000000 		.4byte	.LVL47
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 37
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 37
 
 
  1276 03ff 250A0000 		.4byte	0xa25
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1330 0465 1A0A0000 		.4byte	0xa1a
  1331 0469 19       		.uleb128 0x19
  1332 046a E4000000 		.4byte	.LVL55
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 38
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 38
 
 
  1333 046e B7090000 		.4byte	0x9b7
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1387 04c5 00       		.byte	0
  1388 04c6 19       		.uleb128 0x19
  1389 04c7 FE000000 		.4byte	.LVL59
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 39
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 39
 
 
  1390 04cb 460A0000 		.4byte	0xa46
@@ -2287,7 +2287,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1393 04d4 01       		.uleb128 0x1
  1394 04d5 50       		.byte	0x50
  1395 04d6 01       		.uleb128 0x1
- 1396 04d7 31       		.byte	0x31
+ 1396 04d7 30       		.byte	0x30
  1397 04d8 00       		.byte	0
  1398 04d9 19       		.uleb128 0x19
  1399 04da 04010000 		.4byte	.LVL60
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1444 0537 0F       		.uleb128 0xf
  1445 0538 30010000 		.4byte	.LVL66
  1446 053c 040A0000 		.4byte	0xa04
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 40
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 40
 
 
  1447 0540 0F       		.uleb128 0xf
@@ -2372,7 +2372,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1475 057a 01       		.uleb128 0x1
  1476 057b 50       		.byte	0x50
  1477 057c 01       		.uleb128 0x1
- 1478 057d 30       		.byte	0x30
+ 1478 057d 31       		.byte	0x31
  1479 057e 00       		.byte	0
  1480 057f 19       		.uleb128 0x19
  1481 0580 4C010000 		.4byte	.LVL71
@@ -2392,13 +2392,13 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1495 05a0 01       		.uleb128 0x1
  1496 05a1 50       		.byte	0x50
  1497 05a2 01       		.uleb128 0x1
- 1498 05a3 31       		.byte	0x31
+ 1498 05a3 30       		.byte	0x30
  1499 05a4 00       		.byte	0
  1500 05a5 19       		.uleb128 0x19
  1501 05a6 58010000 		.4byte	.LVL73
  1502 05aa 300A0000 		.4byte	0xa30
  1503 05ae B8050000 		.4byte	0x5b8
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 41
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 41
 
 
  1504 05b2 1A       		.uleb128 0x1a
@@ -2441,7 +2441,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1541 05fb 01       		.uleb128 0x1
  1542 05fc 50       		.byte	0x50
  1543 05fd 01       		.uleb128 0x1
- 1544 05fe 31       		.byte	0x31
+ 1544 05fe 30       		.byte	0x30
  1545 05ff 00       		.byte	0
  1546 0600 19       		.uleb128 0x19
  1547 0601 A8010000 		.4byte	.LVL83
@@ -2451,20 +2451,20 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1551 060e 01       		.uleb128 0x1
  1552 060f 50       		.byte	0x50
  1553 0610 01       		.uleb128 0x1
- 1554 0611 31       		.byte	0x31
+ 1554 0611 30       		.byte	0x30
  1555 0612 00       		.byte	0
  1556 0613 19       		.uleb128 0x19
  1557 0614 AE010000 		.4byte	.LVL84
  1558 0618 510A0000 		.4byte	0xa51
  1559 061c 26060000 		.4byte	0x626
  1560 0620 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 42
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 42
 
 
  1561 0621 01       		.uleb128 0x1
  1562 0622 50       		.byte	0x50
  1563 0623 01       		.uleb128 0x1
- 1564 0624 30       		.byte	0x30
+ 1564 0624 31       		.byte	0x31
  1565 0625 00       		.byte	0
  1566 0626 19       		.uleb128 0x19
  1567 0627 B4010000 		.4byte	.LVL85
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1615 068f 30       		.byte	0x30
  1616 0690 00       		.byte	0
  1617 0691 0F       		.uleb128 0xf
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 43
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 43
 
 
  1618 0692 E6010000 		.4byte	.LVL93
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1672 06fb 9E0A0000 		.4byte	0xa9e
  1673 06ff 0F       		.uleb128 0xf
  1674 0700 2C020000 		.4byte	.LVL105
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 44
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 44
 
 
  1675 0704 A90A0000 		.4byte	0xaa9
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1729 0770 01       		.uleb128 0x1
  1730 0771 50       		.byte	0x50
  1731 0772 01       		.uleb128 0x1
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 45
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 45
 
 
  1732 0773 30       		.byte	0x30
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1786 07d3 1A       		.uleb128 0x1a
  1787 07d4 01       		.uleb128 0x1
  1788 07d5 51       		.byte	0x51
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 46
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 46
 
 
  1789 07d6 02       		.uleb128 0x2
@@ -2737,7 +2737,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1822 0812 00       		.byte	0
  1823 0813 19       		.uleb128 0x19
  1824 0814 BE020000 		.4byte	.LVL129
- 1825 0818 3B0A0000 		.4byte	0xa3b
+ 1825 0818 510A0000 		.4byte	0xa51
  1826 081c 26080000 		.4byte	0x826
  1827 0820 1A       		.uleb128 0x1a
  1828 0821 01       		.uleb128 0x1
@@ -2758,10 +2758,10 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1843 083a 00       		.byte	0
  1844 083b 19       		.uleb128 0x19
  1845 083c CC020000 		.4byte	.LVL131
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 47
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 47
 
 
- 1846 0840 3B0A0000 		.4byte	0xa3b
+ 1846 0840 510A0000 		.4byte	0xa51
  1847 0844 4E080000 		.4byte	0x84e
  1848 0848 1A       		.uleb128 0x1a
  1849 0849 01       		.uleb128 0x1
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1900 08b0 77       		.byte	0x77
  1901 08b1 00       		.sleb128 0
  1902 08b2 1A       		.uleb128 0x1a
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 48
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 48
 
 
  1903 08b3 01       		.uleb128 0x1
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  1957 0916 10000000 		.4byte	.LVL4
  1958 091a 56020000 		.4byte	0x256
  1959 091e 19       		.uleb128 0x19
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 49
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 49
 
 
  1960 091f 58000000 		.4byte	.LVL36
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2014 0984 01       		.byte	0x1
  2015 0985 48       		.byte	0x48
  2016 0986 C3000000 		.4byte	0xc3
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 50
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 50
 
 
  2017 098a 05       		.uleb128 0x5
@@ -2966,12 +2966,12 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2039 09b8 BD000000 		.4byte	.LASF63
  2040 09bc BD000000 		.4byte	.LASF63
  2041 09c0 09       		.byte	0x9
- 2042 09c1 13       		.byte	0x13
+ 2042 09c1 14       		.byte	0x14
  2043 09c2 1F       		.uleb128 0x1f
  2044 09c3 74020000 		.4byte	.LASF64
  2045 09c7 74020000 		.4byte	.LASF64
  2046 09cb 09       		.byte	0x9
- 2047 09cc 16       		.byte	0x16
+ 2047 09cc 17       		.byte	0x17
  2048 09cd 1F       		.uleb128 0x1f
  2049 09ce E6040000 		.4byte	.LASF65
  2050 09d2 E6040000 		.4byte	.LASF65
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2071 0a02 0E       		.byte	0xe
  2072 0a03 2F       		.byte	0x2f
  2073 0a04 1F       		.uleb128 0x1f
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 51
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 51
 
 
  2074 0a05 CD030000 		.4byte	.LASF70
@@ -3019,7 +3019,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2089 0a26 72000000 		.4byte	.LASF73
  2090 0a2a 72000000 		.4byte	.LASF73
  2091 0a2e 09       		.byte	0x9
- 2092 0a2f 14       		.byte	0x14
+ 2092 0a2f 15       		.byte	0x15
  2093 0a30 1F       		.uleb128 0x1f
  2094 0a31 5A020000 		.4byte	.LASF74
  2095 0a35 5A020000 		.4byte	.LASF74
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2128 0a7d 1F       		.uleb128 0x1f
  2129 0a7e D0000000 		.4byte	.LASF81
  2130 0a82 D0000000 		.4byte	.LASF81
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 52
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 52
 
 
  2131 0a86 16       		.byte	0x16
@@ -3072,32 +3072,32 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2139 0a94 38000000 		.4byte	.LASF83
  2140 0a98 38000000 		.4byte	.LASF83
  2141 0a9c 09       		.byte	0x9
- 2142 0a9d 1A       		.byte	0x1a
+ 2142 0a9d 1B       		.byte	0x1b
  2143 0a9e 1F       		.uleb128 0x1f
  2144 0a9f 88020000 		.4byte	.LASF84
  2145 0aa3 88020000 		.4byte	.LASF84
  2146 0aa7 09       		.byte	0x9
- 2147 0aa8 19       		.byte	0x19
+ 2147 0aa8 1A       		.byte	0x1a
  2148 0aa9 1F       		.uleb128 0x1f
  2149 0aaa E3000000 		.4byte	.LASF85
  2150 0aae E3000000 		.4byte	.LASF85
  2151 0ab2 09       		.byte	0x9
- 2152 0ab3 1B       		.byte	0x1b
+ 2152 0ab3 1C       		.byte	0x1c
  2153 0ab4 1F       		.uleb128 0x1f
  2154 0ab5 24030000 		.4byte	.LASF86
  2155 0ab9 24030000 		.4byte	.LASF86
  2156 0abd 09       		.byte	0x9
- 2157 0abe 1D       		.byte	0x1d
+ 2157 0abe 1E       		.byte	0x1e
  2158 0abf 1F       		.uleb128 0x1f
  2159 0ac0 5B010000 		.4byte	.LASF87
  2160 0ac4 5B010000 		.4byte	.LASF87
  2161 0ac8 09       		.byte	0x9
- 2162 0ac9 1C       		.byte	0x1c
+ 2162 0ac9 1D       		.byte	0x1d
  2163 0aca 1F       		.uleb128 0x1f
  2164 0acb 1C040000 		.4byte	.LASF88
  2165 0acf 1C040000 		.4byte	.LASF88
  2166 0ad3 09       		.byte	0x9
- 2167 0ad4 18       		.byte	0x18
+ 2167 0ad4 19       		.byte	0x19
  2168 0ad5 1F       		.uleb128 0x1f
  2169 0ad6 28000000 		.4byte	.LASF89
  2170 0ada 28000000 		.4byte	.LASF89
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2185 0009 1B       		.uleb128 0x1b
  2186 000a 0E       		.uleb128 0xe
  2187 000b 55       		.uleb128 0x55
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 53
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 53
 
 
  2188 000c 17       		.uleb128 0x17
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2242 0042 00       		.byte	0
  2243 0043 06       		.uleb128 0x6
  2244 0044 35       		.uleb128 0x35
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 54
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 54
 
 
  2245 0045 00       		.byte	0
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2299 007b 0B       		.uleb128 0xb
  2300 007c 0B       		.uleb128 0xb
  2301 007d 49       		.uleb128 0x49
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 55
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 55
 
 
  2302 007e 13       		.uleb128 0x13
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2356 00b7 01       		.uleb128 0x1
  2357 00b8 31       		.uleb128 0x31
  2358 00b9 13       		.uleb128 0x13
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 56
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 56
 
 
  2359 00ba 00       		.byte	0
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2413 00f2 13       		.uleb128 0x13
  2414 00f3 1C       		.uleb128 0x1c
  2415 00f4 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 57
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 57
 
 
  2416 00f5 00       		.byte	0
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2470 012b 17       		.uleb128 0x17
  2471 012c 34       		.uleb128 0x34
  2472 012d 00       		.byte	0
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 58
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 58
 
 
  2473 012e 03       		.uleb128 0x3
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2527 016b 00       		.byte	0
  2528 016c 00       		.byte	0
  2529 016d 1C       		.uleb128 0x1c
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 59
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 59
 
 
  2530 016e 2E       		.uleb128 0x2e
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2584 01a5 00       		.byte	0
  2585 01a6 00       		.byte	0
  2586 01a7 1F       		.uleb128 0x1f
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 60
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 60
 
 
  2587 01a8 2E       		.uleb128 0x2e
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2641 005d 40000000 		.4byte	.LVL26
  2642 0061 0100     		.2byte	0x1
  2643 0063 54       		.byte	0x54
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 61
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 61
 
 
  2644 0064 42000000 		.4byte	.LVL27
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2698 00f1 8A020000 		.4byte	.LVL120
  2699 00f5 0100     		.2byte	0x1
  2700 00f7 54       		.byte	0x54
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 62
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 62
 
 
  2701 00f8 8A020000 		.4byte	.LVL120
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2755 018a 6E000000 		.4byte	.LVL38
  2756 018e 0200     		.2byte	0x2
  2757 0190 36       		.byte	0x36
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 63
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 63
 
 
  2758 0191 9F       		.byte	0x9f
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2812 021e 09       		.byte	0x9
  2813 021f FF       		.byte	0xff
  2814 0220 9F       		.byte	0x9f
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 64
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 64
 
 
  2815 0221 20020000 		.4byte	.LVL102
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2869 0020 00000000 		.4byte	.LFB66
  2870 0024 1C000000 		.4byte	.LFE66-.LFB66
  2871 0028 00000000 		.4byte	0
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 65
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 65
 
 
  2872 002c 00000000 		.4byte	0
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2911      72726F72 
  2911      546F6C65 
  2911      72616E63 
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 66
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 66
 
 
  2911      6500
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2939      655F5265 
  2939      616400
  2940              	.LASF14:
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 67
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 67
 
 
  2941 00db 75696E74 		.ascii	"uint8_t\000"
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2967      6F6B5F53 
  2967      74617274 
  2967      00
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 68
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 68
 
 
  2968              	.LASF37:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  2992 0223 756E7369 		.ascii	"unsigned char\000"
  2992      676E6564 
  2992      20636861 
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 69
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 69
 
 
  2992      7200
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  3016      00
  3017              	.LASF43:
  3018 02cb 66726F6D 		.ascii	"fromHV_Enabled\000"
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 70
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 70
 
 
  3018      48565F45 
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  3042      61746500 
  3043              	.LASF15:
  3044 0360 696E7433 		.ascii	"int32_t\000"
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 71
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 71
 
 
  3044      325F7400 
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  3070      7400
  3071              	.LASF96:
  3072 03f8 4953525F 		.ascii	"ISR_CAN\000"
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 72
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 72
 
 
  3072      43414E00 
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 1
  3094 04f4 52474233 		.ascii	"RGB3_2_Write\000"
  3094      5F325F57 
  3094      72697465 
-ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccosnbLb.s 			page 73
+ARM GAS  C:\Users\Evan\AppData\Local\Temp\ccARsvNj.s 			page 73
 
 
  3094      00

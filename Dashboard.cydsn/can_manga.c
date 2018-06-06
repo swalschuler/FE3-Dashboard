@@ -17,6 +17,7 @@ volatile uint8_t ERROR_TOLERANCE = 0;
 volatile uint8_t ABS_MOTOR_RPM = 0;
 volatile uint8_t THROTTLE_HIGH = 0;
 volatile uint8_t THROTTLE_LOW = 0;
+volatile uint8_t PACK_TEMP = 0;
 
 uint8_t getCapacitorVoltage()
 {
@@ -91,6 +92,10 @@ void can_receive(uint8_t *msg, int ID)
             pedalOK = 0x0;
             THROTTLE_HIGH = data[CAN_DATA_BYTE_2];
             THROTTLE_LOW = data[CAN_DATA_BYTE_3];
+            break;
+        case 0x0488: // BMS Temp data
+            PACK_TEMP = data[CAN_DATA_BYTE_8];
+            hex1Display(PACK_TEMP);
             break;
     }
     
