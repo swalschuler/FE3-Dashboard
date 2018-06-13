@@ -28,6 +28,7 @@ uint8_t getErrorTolerance();
 uint8_t getABSMotorRPM();
 uint8_t getPedalLow();
 uint8_t getPedalHigh();
+void tempAttenuate();
 
 #endif
 

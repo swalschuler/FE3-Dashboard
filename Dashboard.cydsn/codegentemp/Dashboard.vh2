@@ -2,7 +2,7 @@
 --	Conversion of Dashboard.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu May 31 04:30:19 2018
+--	Tue Jun 12 20:05:05 2018
 --
 
 USE cypress.cypress.all;

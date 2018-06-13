@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\can_manga.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard\Dashboard\Source Files\HexDisplays.c">
 <ExpandedNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
@@ -151,6 +151,8 @@
 <v>Dashboard\Dashboard\Source Files\can_manga.c</v>
 <v>Dashboard\Dashboard\Source Files\can_manga.h</v>
 <v>Dashboard\Dashboard\Source Files\data.h</v>
+<v>Dashboard\Dashboard\Source Files\HexDisplays.c</v>
+<v>Dashboard\Dashboard\Source Files\HexDisplays.h</v>
 <v>Dashboard\Dashboard\Source Files\main.c</v>
 <v>Dashboard\Dashboard\CAN_Full_Example.pdf</v>
 <v>Dashboard\Dashboard\Generated_Source</v>
@@ -160,8 +162,6 @@
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.c</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN.h</v>
 <v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_INT.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_PM.c</v>
-<v>Dashboard\Dashboard\Generated_Source\PSoC5\CAN\CAN_TX_RX_func.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Dashboard">
@@ -230,16 +230,21 @@
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex3Reg_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex4Reg.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Hex4Reg_PM.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\HexDisplays.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\HV.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_can.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_nodeok.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\LED_1.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Node_Timer.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Node_Timer_PM.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB1_1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB1_2.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB2_1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB2_2.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB3_1.lst</v>
+<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RGB3_2.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\RX.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
 <v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\TX.lst</v>
@@ -253,35 +258,6 @@
 <VisibleNodeIds>
 <v>Dashboard</v>
 <v>Dashboard\Dashboard</v>
-<v>Dashboard\Dashboard\CortexM3</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Buzzer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_INT.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\can_manga.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_Timer.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_Timer_PM.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CAN_TX_RX_func.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit1.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit2.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit3.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit1Bit4.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit1.lst</v>
-<v>Dashboard\Dashboard\CortexM3\ARM_GCC_541\Debug\Listing Files\Digit2Bit2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>

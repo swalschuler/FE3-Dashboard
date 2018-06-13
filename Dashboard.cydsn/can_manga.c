@@ -8,6 +8,8 @@
 #include "can_manga.h"
 
 extern volatile uint32_t pedalOK;
+extern volatile double THROTTLE_MULTIPLIER;
+extern const double THROTTLE_MAP[8];
 
 volatile uint8_t CAPACITOR_VOLT = 0;
 volatile uint8_t CURTIS_FAULT_CHECK = 0;
@@ -96,6 +98,7 @@ void can_receive(uint8_t *msg, int ID)
         case 0x0488: // BMS Temp data
             PACK_TEMP = data[CAN_DATA_BYTE_8];
             hex1Display(PACK_TEMP);
+            tempAttenuate();
             break;
     }
     
@@ -192,5 +195,14 @@ void can_send_cmd(
 
 } // can_send_cmd()
 
-
+void tempAttenuate() {
+    int t = PACK_TEMP - 50;
+    if (t < 0) {
+        THROTTLE_MULTIPLIER = 1;   
+    } else if (t < 8) {
+        THROTTLE_MULTIPLIER = THROTTLE_MAP[t] / 100.0; 
+    } else if (t >= 8) {
+        THROTTLE_MULTIPLIER = THROTTLE_MAP[7] / 100.0; 
+    }
+}
 

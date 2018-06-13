@@ -12,5 +12,7 @@
 #include "Hex3Reg.h"
 #include "Hex4Reg.h"
     
- #endif
+void hex1Display(uint8_t value);    
+
+#endif
 /* [] END OF FILE */

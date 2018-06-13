@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include "can_manga.h"
 
+// Uncomment THROTTLE_LIMITING to enable power reduction at high temperatures
+#define THROTTLE_LIMITING
+volatile double THROTTLE_MULTIPLIER = 1;
+const double THROTTLE_MAP[8] = { 95, 71, 59, 47, 35, 23, 11, 5 };
+
 #define PWM_PULSE_WIDTH_STEP        (10u)
 #define SWITCH_PRESSED              (0u)
 #define PWM_MESSAGE_ID              (0x1AAu)
@@ -426,10 +431,17 @@ int main()
                 }
    
                 uint8_t ABS_Motor_RPM = getABSMotorRPM();
-                uint8_t Throttle_High = getPedalHigh();//manga_getThrottleHigh(); // use 123 for pedal node place holder
-                uint8_t Throttle_Low = getPedalLow();//manga_getThrottleLow();
+                
+                uint16_t Throttle_Total = 0x0;
+                Throttle_Total |= getPedalHigh() << 8;
+                Throttle_Total |= getPedalLow();
+                Throttle_Total = (double)Throttle_Total * THROTTLE_MULTIPLIER;
+                
+                uint8_t Throttle_High = Throttle_Total >> 8;
+                uint8_t Throttle_Low = Throttle_Total & 0x00FF;
                 
                 //WaveDAC8_1_SetValue(ABS_Motor_RPM);
+                
                 can_send_cmd(1, Throttle_High, Throttle_Low); // setInterlock 
                 
                 
