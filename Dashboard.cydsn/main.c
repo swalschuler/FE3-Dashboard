@@ -432,6 +432,7 @@ int main()
                 //WaveDAC8_1_SetValue(ABS_Motor_RPM);
                 can_send_cmd(1, Throttle_High, Throttle_Low); // setInterlock 
                 
+                
                 //check if everything is going well
                 if (!HV_Read()) {
                     can_send_cmd(0, 0, 0);
@@ -450,6 +451,8 @@ int main()
                     DriveTimeCount = 0;
                     break;
                 }
+                
+                
                 
                     
                 // need to map ABS_Motor_RPM into 1-253 scale.
